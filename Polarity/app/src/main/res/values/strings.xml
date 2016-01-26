@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Polarity</string>
+
+    <string name="parse_app_id">eF8rD4ZA35l5YxBs89tZsHVGUZMgucxortoAdUOk</string>
+    <string name="parse_client_ky">VIJ1Fk51xsmnORBb4IBgaj6vhZe3wYtO6YFEzOh5</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>
