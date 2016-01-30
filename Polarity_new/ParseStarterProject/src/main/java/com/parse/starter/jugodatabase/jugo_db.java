@@ -7,5 +7,12 @@ package com.parse.starter.jugodatabase;
  */
 public class jugo_db {
 
+    // we may need to have a constructor method.
+
+    // we should implement a connect function in here
+
+    // have a is_connected function
+
+    // have a disconnect method
 
 }
