@@ -29,10 +29,11 @@ public class SignUpActivity extends AppCompatActivity {
 
             if(e != null){
                 Log.e(TAG, e.getMessage());
+                //TODO: Report failure to the user
             }//end if
 
         }//end done
-    };
+    };//end callback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +42,7 @@ public class SignUpActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+    }//end onCreate
 
     protected void signUp(String username, String email, String password){
 
@@ -59,6 +52,13 @@ public class SignUpActivity extends AppCompatActivity {
         newUser.setPassword(password);
         newUser.signUpInBackground(mSignUpCallback);
 
+        //Did the user actually get created?
+        if(newUser.isNew()){
+
+            //TODO: Report success to the user
+
+        }//end if
+
     }//end signUp
 
-}
+}//end class

@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.parse.starter.SIgnUpActivity"
+            android:name="com.parse.starter.SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

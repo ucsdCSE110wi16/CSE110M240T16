@@ -67,7 +67,7 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/kendrick/CSE110M240T16/Polarity_new/ParseStarterProject/src/main/AndroidManifest.xml:34:17-77
 	android:name
 		ADDED from /home/kendrick/CSE110M240T16/Polarity_new/ParseStarterProject/src/main/AndroidManifest.xml:34:27-74
-activity#com.parse.starter.SIgnUpActivity
+activity#com.parse.starter.SignUpActivity
 ADDED from /home/kendrick/CSE110M240T16/Polarity_new/ParseStarterProject/src/main/AndroidManifest.xml:37:9-40:68
 	android:label
 		ADDED from /home/kendrick/CSE110M240T16/Polarity_new/ParseStarterProject/src/main/AndroidManifest.xml:39:13-59
