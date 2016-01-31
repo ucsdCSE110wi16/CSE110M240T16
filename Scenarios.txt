@@ -1,0 +1,29 @@
+Scenarios
+
+Given that I am logged in
+And I am registered for or hosting an event(s)
+When I launch the app
+Then I am taken to the hub screen and the events I am registered for or hosting are displayed on the app's hub screen
+
+Given that I am a user without an account
+And I am on the app's splash screen
+When I press the “Sign Up” button
+Then I will be taken to a sign up form screen
+When I enter my desired account details into the sign up form
+And those details are in a valid format
+Then the formerly greyed-out “Register” button will turn green, indicating that I can register my account details
+When I press the “Register” button
+Then my account details will be sent to the server
+When the registration completes successfully
+Then I will have an active account on Polarity, and be sent to the hub screen
+
+Given that I am a user with an account
+And I am not logged in
+Then I am on the app's splash screen
+When I enter my login details into the respective text boxes
+And those details are in a valid format
+Then a formerly greyed-out “Sign In” button will turn green, indicating that I can attempt to sign in with my account details
+When I press the “Sign In” button
+Then my account details will be verified with the server
+When my account details have been verified by the server
+Then I will be considered “Signed In” and will be sent to the hub screen
