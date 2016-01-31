@@ -7,6 +7,4 @@
     android:fitsSystemWindows="true"
     tools:context="com.parse.starter.SignUpActivity">
 
-    <include layout="@layout/content_sign_up" />
-
 </android.support.design.widget.CoordinatorLayout>
