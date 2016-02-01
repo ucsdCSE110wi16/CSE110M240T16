@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=""> <!-- Insert associate Java File here -->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Event Title"
+        android:id="@+id/titleText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;-"
+        android:id="@+id/backButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I&apos;m Going!"
+        android:id="@+id/goingButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/titleText" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="H"
+        android:id="@+id/homeButton"
+        android:layout_alignTop="@+id/titleText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I&apos;m Not Going"
+        android:id="@+id/addMoviesButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/homeButton"
+        android:layout_alignEnd="@+id/homeButton"
+        android:layout_toRightOf="@+id/titleText"
+        android:layout_toEndOf="@+id/titleText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vote!"
+        android:id="@+id/voteButton"
+        android:layout_alignTop="@+id/goingButton"
+        android:layout_toRightOf="@+id/goingButton"
+        android:layout_alignRight="@+id/titleText"
+        android:layout_alignEnd="@+id/titleText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="433dp"
+        android:layout_marginStart="433dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See Who&apos;s Going"
+        android:id="@+id/whosGoingButton"
+        android:layout_above="@+id/voteButton"
+        android:layout_alignLeft="@+id/voteButton"
+        android:layout_alignStart="@+id/voteButton"
+        android:layout_alignRight="@+id/voteButton"
+        android:layout_alignEnd="@+id/voteButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Location"
+        android:id="@+id/locationText"
+        android:layout_below="@+id/backButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Time"
+        android:id="@+id/timeText"
+        android:layout_below="@+id/homeButton"
+        android:layout_alignRight="@+id/homeButton"
+        android:layout_alignEnd="@+id/homeButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description"
+        android:id="@+id/descriptionText"
+        android:layout_below="@+id/locationText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/whosGoingButton"
+        android:layout_alignRight="@+id/timeText"
+        android:layout_alignEnd="@+id/timeText" />
+
+
+</RelativeLayout>
