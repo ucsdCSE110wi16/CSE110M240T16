@@ -5,6 +5,9 @@ Week 5
 Activity Screens complete
 -	Compile feedback from Week 4 Paper Simulation Feedback
 Base backend database functionality working
+Transitions between screens will be completed(ideally)
+Basic tests for app will be made
+Being able to create a list or queue of movies for the users to add movie titles to(ideally)
 Week 6
 (Baseline app complete (ideally))
 Week 7
