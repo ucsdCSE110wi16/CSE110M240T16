@@ -80,6 +80,7 @@
     android:layout_alignParentStart="true"
     android:layout_alignRight="@+id/btnCreateAccount"
     android:layout_alignEnd="@+id/btnCreateAccount"
+        android:onClick="goToForgotPassword"
     />
 
     <!-- Login button-->
@@ -94,7 +95,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="toHubActivity"
         />
     <!-- Create Account button-->
     <Button

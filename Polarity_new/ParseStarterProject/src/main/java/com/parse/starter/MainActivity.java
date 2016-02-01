@@ -9,16 +9,11 @@
 package com.parse.starter;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.*;
 
 public class MainActivity extends AppCompatActivity {
   //private Button btnLogin, btnNewUser;
@@ -52,21 +47,8 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
-  /* Handle Button Clicks */
-
-  public void onLoginClick(View view) {
-
-    // TODO:
-    // check login credentials.. if pass then process the fallowing code.
-    // Otherwise stay on this page
-
-    Intent intentObject = new Intent(this, HubActivity.class);
+  public void goToForgotPassword(View view){
+    Intent intentObject = new Intent(this,ForgotPassword.class);
     startActivity(intentObject);
-  } // btnLogin Click
-
-  public void onCreateUser(View view) {
-    Intent intentObject = new Intent(this, SignUpActivity.class);
-    startActivity(intentObject);
-  } // btnCreateUser
-
+  }
 }
