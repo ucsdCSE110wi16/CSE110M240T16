@@ -10,16 +10,14 @@ package com.parse.starter;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivityToBeDeleted extends AppCompatActivity {
 
-    public static final String TAG = SignUpActivity.class.getSimpleName();
+    public static final String TAG = SignUpActivityToBeDeleted.class.getSimpleName();
 
     protected SignUpCallback mSignUpCallback = new SignUpCallback() {
         @Override
@@ -36,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sign_up_to_be_delted);
 
     }//end onCreate
 

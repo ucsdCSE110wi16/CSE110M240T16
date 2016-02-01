@@ -47,8 +47,19 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
+  // Event handling
   public void goToForgotPassword(View view){
     Intent intentObject = new Intent(this,ForgotPassword.class);
+    startActivity(intentObject);
+  }
+
+  public void goToHub(View view){
+    Intent intentObject = new Intent(this, HubActivity.class);
+    startActivity(intentObject);
+  }
+
+  public void goToSignUpScreen(View view){
+    Intent intentObject = new Intent(this, SignUpScreen.class);
     startActivity(intentObject);
   }
 }
