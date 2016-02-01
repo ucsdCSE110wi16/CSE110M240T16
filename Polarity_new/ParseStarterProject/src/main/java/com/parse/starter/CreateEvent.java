@@ -17,4 +17,19 @@ public class CreateEvent extends AppCompatActivity {
         Intent intentObject = new Intent(this, HubActivity.class);
         startActivity(intentObject);
     }
+
+    public void toAddMovies(View view){
+        Intent intent = new Intent(this, AddMovies.class);
+        startActivity(intent);
+    }
+
+    public void toInviteFriends(View view){
+        Intent intent = new Intent(this, InviteFriends.class);
+        startActivity(intent);
+    }
+
+    public void eventCreatedToHubActivity(View view){
+        Intent intent = new Intent(this, HubActivity.class);
+        startActivity(intent);
+    }
 }

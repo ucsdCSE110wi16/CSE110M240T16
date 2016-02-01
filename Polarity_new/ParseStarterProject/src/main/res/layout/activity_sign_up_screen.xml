@@ -16,8 +16,9 @@
         android:text="Sign up for Pollarity "
         android:id="@+id/titleText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_centerHorizontal="true"
+        />
+    <!--Back button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -26,8 +27,11 @@
         android:id="@+id/backButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="toMainActivity"
+        />
 
+    <!--Register button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +39,9 @@
         android:id="@+id/resetButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
+        android:layout_marginBottom="44dp"
+        android:onClick="toMainActivityAfterRegistration"
+        />
 
     <TextView
         android:layout_width="wrap_content"

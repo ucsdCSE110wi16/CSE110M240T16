@@ -37,7 +37,9 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".HubActivity" />
         <activity android:name=".SignUpScreen" />
-        <activity android:name=".CreateEvent"></activity>
+        <activity android:name=".CreateEvent" />
+        <activity android:name=".AddMovies" />
+        <activity android:name=".InviteFriends"></activity>
     </application>
 
 </manifest>

@@ -1,8 +1,11 @@
 package com.parse.starter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -45,4 +48,14 @@ public class SignUpScreen extends AppCompatActivity {
         }//end if
 
     }//end signUp
+
+    public void toMainActivity(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void toMainActivityAfterRegistration(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }
