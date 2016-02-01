@@ -26,7 +26,8 @@
         android:id="@+id/backButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/searchField" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -54,7 +55,9 @@
         android:id="@+id/searchButton"
         android:layout_below="@+id/homeButton"
         android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_alignStart="@+id/homeButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"

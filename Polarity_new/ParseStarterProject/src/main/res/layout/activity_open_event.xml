@@ -31,12 +31,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I&apos;m Going!"
+        android:text="See Who&apos;s Going"
         android:id="@+id/goingButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/titleText" />
+        android:layout_alignParentStart="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -51,23 +50,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I&apos;m Not Going"
-        android:id="@+id/addMoviesButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/homeButton"
-        android:layout_alignEnd="@+id/homeButton"
-        android:layout_toRightOf="@+id/titleText"
-        android:layout_toEndOf="@+id/titleText" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Vote!"
         android:id="@+id/voteButton"
-        android:layout_alignTop="@+id/goingButton"
-        android:layout_toRightOf="@+id/goingButton"
-        android:layout_alignRight="@+id/titleText"
-        android:layout_alignEnd="@+id/titleText" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/descriptionText"
+        android:layout_alignEnd="@+id/descriptionText"
+        android:layout_toRightOf="@+id/titleText"
+        android:layout_toEndOf="@+id/titleText" />
 
     <Button
         android:layout_width="wrap_content"
@@ -78,17 +67,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="433dp"
         android:layout_marginStart="433dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="See Who&apos;s Going"
-        android:id="@+id/whosGoingButton"
-        android:layout_above="@+id/voteButton"
-        android:layout_alignLeft="@+id/voteButton"
-        android:layout_alignStart="@+id/voteButton"
-        android:layout_alignRight="@+id/voteButton"
-        android:layout_alignEnd="@+id/voteButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -119,9 +97,9 @@
         android:layout_below="@+id/locationText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/whosGoingButton"
         android:layout_alignRight="@+id/timeText"
-        android:layout_alignEnd="@+id/timeText" />
+        android:layout_alignEnd="@+id/timeText"
+        android:layout_above="@+id/voteButton" />
 
 
 </RelativeLayout>

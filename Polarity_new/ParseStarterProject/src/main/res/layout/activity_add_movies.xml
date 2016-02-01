@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="&lt;-"
         android:id="@+id/backButton"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/searchField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Movies Queue "
+        android:text="Import Movies Queue "
         android:id="@+id/addMoviesButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

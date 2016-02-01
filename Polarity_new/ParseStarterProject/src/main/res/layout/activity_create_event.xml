@@ -90,7 +90,8 @@
         android:layout_alignRight="@+id/locationField"
         android:layout_alignEnd="@+id/locationField"
         android:layout_alignLeft="@+id/locationField"
-        android:layout_alignStart="@+id/locationField" />
+        android:layout_alignStart="@+id/locationField"
+        android:layout_alignTop="@+id/eventNameText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -100,7 +101,8 @@
         android:id="@+id/locationField"
         android:layout_above="@+id/timeText"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/eventNameText" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -125,16 +127,6 @@
         android:layout_alignBottom="@+id/descriptionText" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="H"
-        android:id="@+id/homeButton"
-        android:layout_alignTop="@+id/titleText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Invite Friends"
@@ -148,7 +140,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Movie Queue"
+        android:text="Add Movies"
         android:id="@+id/voteButton"
         android:layout_above="@+id/addMoviesButton"
         android:layout_centerHorizontal="true" />
