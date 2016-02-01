@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2015-present, Parse, LLC.
   ~ All rights reserved.
   ~
@@ -11,8 +10,10 @@
     <string name="parse_app_id">8PmNmRoVcthG5ECqaqRD4fGmGb8VS2jtsEZ9gwc3</string>
     <string name="parse_client_key">z9BYdrmQrBiR258go74idBaiNoLk2FpFmRq48P6d</string>
 
-    <string name="app_name">Parse Starter Project</string>
+    <string name="app_name">Polarity</string>
 
-    <string name="hello_world">Hello World!</string>
+    <string name="hello_world">Suck it!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="forgot_password_button">Forgot Password</string>
 </resources>
