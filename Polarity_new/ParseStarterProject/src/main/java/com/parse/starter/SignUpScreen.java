@@ -15,7 +15,7 @@ public class SignUpScreen extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up_screen);
     }
 
-    public static final String TAG = SignUpActivityToBeDeleted.class.getSimpleName();
+    public static final String TAG = SignUpScreen.class.getSimpleName();
 
     protected SignUpCallback mSignUpCallback = new SignUpCallback() {
         @Override
