@@ -1,0 +1,15 @@
+Week 4
+UI designs completed
+Tasks for stories completed
+Week 5 
+Activity Screens complete
+-	Compile feedback from Week 4 Paper Simulation Feedback
+Base backend database functionality working
+Week 6
+(Baseline app complete (ideally))
+Week 7
+(Baseline app complete)
+
+Week 8
+Week 9
+Week 10
