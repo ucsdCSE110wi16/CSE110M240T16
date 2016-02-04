@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="User Name"
-        android:id="@+id/txtUserName"
+        android:id="@+id/tbUserName"
         android:layout_alignBottom="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Password"
-        android:id="@+id/txtPassword"
+        android:id="@+id/tbPassword"
         android:layout_above="@+id/btnLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

@@ -54,7 +54,7 @@
     android:layout_height="wrap_content"
     android:inputType="textPassword"
     android:ems="10"
-    android:id="@+id/editText3"
+    android:id="@+id/tbPassword"
     android:layout_alignTop="@+id/textView3"
     android:layout_alignLeft="@+id/textView"
     android:layout_alignStart="@+id/textView" />
@@ -62,12 +62,12 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/editText4"
+    android:id="@+id/tbUserName"
     android:layout_alignTop="@+id/textView2"
-    android:layout_alignLeft="@+id/editText3"
-    android:layout_alignStart="@+id/editText3"
-    android:layout_alignRight="@+id/editText3"
-    android:layout_alignEnd="@+id/editText3" />
+    android:layout_alignLeft="@+id/tbPassword"
+    android:layout_alignStart="@+id/tbPassword"
+    android:layout_alignRight="@+id/tbPassword"
+    android:layout_alignEnd="@+id/tbPassword" />
 
     <!-- forgot password button-->
     <Button
@@ -90,7 +90,7 @@
         android:text="Login"
         android:id="@+id/btnLogin"
         android:layout_marginTop="54dp"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/tbPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"

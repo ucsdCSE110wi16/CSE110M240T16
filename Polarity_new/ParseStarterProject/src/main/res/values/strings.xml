@@ -12,7 +12,6 @@
 
     <string name="app_name">Polarity</string>
 
-    <string name="hello_world">Suck it!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_up">Sign Up</string>
     <string name="forgot_password_button">Forgot Password</string>

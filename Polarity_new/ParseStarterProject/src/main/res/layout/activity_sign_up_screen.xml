@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Sign up for Pollarity "
+        android:text="Sign up for Polarity "
         android:id="@+id/titleText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -36,11 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/resetButton"
+        android:id="@+id/btnRegister"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="44dp"
-        android:onClick="toMainActivityAfterRegistration"
         />
 
     <TextView
@@ -48,19 +47,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Username"
-        android:id="@+id/eventNameText"
+        android:id="@+id/txtUserName"
+        android:layout_marginTop="31dp"
         android:layout_below="@+id/backButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="85dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Email"
-        android:id="@+id/locationText"
-        android:layout_below="@+id/eventNameText"
+        android:id="@+id/txtEmail"
+        android:layout_alignBaseline="@+id/tbEmail"
+        android:layout_alignBottom="@+id/tbEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -69,63 +69,80 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Password"
-        android:id="@+id/timeText"
-        android:layout_below="@+id/locationText"
+        android:id="@+id/txtPassword"
+        android:layout_below="@+id/tbEmail"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Re-Password"
-        android:id="@+id/descriptionText"
-        android:layout_below="@+id/timeText"
+        android:text="Conferm Password"
+        android:id="@+id/txtRePassword"
+        android:password="false"
+        android:singleLine="false"
+        android:layout_below="@+id/txtPassword"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
+        android:layout_alignRight="@+id/txtUserName"
+        android:layout_alignEnd="@+id/txtUserName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nameField"
-        android:layout_alignBottom="@+id/eventNameText"
-        android:layout_alignRight="@+id/locationField"
-        android:layout_alignEnd="@+id/locationField"
-        android:layout_alignLeft="@+id/locationField"
-        android:layout_alignStart="@+id/locationField" />
+        android:id="@+id/tbUserName"
+        android:layout_alignBottom="@+id/txtUserName"
+        android:layout_alignRight="@+id/tbEmail"
+        android:layout_alignEnd="@+id/tbEmail"
+        android:layout_alignLeft="@+id/tbEmail"
+        android:layout_alignStart="@+id/tbEmail" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/locationField"
-        android:layout_above="@+id/timeText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:id="@+id/tbEmail"
+        android:layout_below="@+id/txtUserName"
+        android:layout_alignLeft="@+id/tbPassword"
+        android:layout_alignStart="@+id/tbPassword"
+        android:layout_marginTop="27dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/passwordField"
-        android:layout_alignBottom="@+id/timeText"
+        android:id="@+id/tbPassword"
+        android:layout_alignBottom="@+id/txtPassword"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/locationField"
-        android:text="password" />
+        android:layout_below="@+id/tbEmail" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/rePasswordField"
-        android:layout_alignTop="@+id/descriptionText"
-        android:layout_alignRight="@+id/nameField"
-        android:layout_alignEnd="@+id/nameField"
-        android:layout_alignBottom="@+id/descriptionText"
-        android:text="confirm password" />
+        android:id="@+id/tbRePassword"
+        android:layout_alignTop="@+id/txtRePassword"
+        android:layout_alignRight="@+id/tbUserName"
+        android:layout_alignEnd="@+id/tbUserName"
+        android:layout_alignBottom="@+id/txtRePassword"
+        android:layout_alignLeft="@+id/tbPassword"
+        android:layout_alignStart="@+id/tbPassword" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/txtInfo"
+        android:layout_below="@+id/txtRePassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp" />
 
 </RelativeLayout>
