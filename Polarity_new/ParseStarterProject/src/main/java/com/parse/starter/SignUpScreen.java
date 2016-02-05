@@ -3,6 +3,8 @@ package com.parse.starter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +18,17 @@ import com.parse.ParseUser;
 
 public class SignUpScreen extends AppCompatActivity {
 
-    // global vars
+    //region Declare Variables
+
+    // some tag thing for writing error messages to log screen
     public static final String TAG = SignUpScreen.class.getSimpleName();
 
+    // make local references to display elements
     EditText userName, email, password, rePassword;
     Button btnRegister;
     TextView txtInfo;
 
+    // basic variables
     String pw1_input, pw2_input, eMessage;
     boolean hasUsername = false;
     boolean usernameUnique = false;
@@ -30,6 +36,7 @@ public class SignUpScreen extends AppCompatActivity {
     boolean hasPassword = false;
     boolean passwordsMatch = false;
 
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +56,29 @@ public class SignUpScreen extends AppCompatActivity {
         // set the text color because i dont know how to do it in the designer screen
         txtInfo.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
 
-
-        // the rest of the code in onCreate tells the program what to do when
-        // different events are raised
-
         // userName LooseFocus
-        userName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        userName.setOnFocusChangeListener(usernameFocusChanged());
+
+        // email LooseFocus
+        email.setOnFocusChangeListener(emailFocusChanged());
+
+        // password LooseFocus
+        password.setOnFocusChangeListener(pwFocusChanged());
+
+        // rePassword LooseFocus
+        rePassword.setOnFocusChangeListener(pwFocusChanged());
+
+        // rePassword textChaned
+        rePassword.addTextChangedListener(pwTextChanged());
+
+        // btnRegister Click
+        btnRegister.setOnClickListener(btnRegisterClick());
+    }
+
+    //region EditText Events
+
+    protected View.OnFocusChangeListener usernameFocusChanged() {
+        return new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
                     if(userName.getText().length() == 0) {
@@ -71,10 +95,11 @@ public class SignUpScreen extends AppCompatActivity {
                     setTxtInfoMessage();
                 }
             }
-        });
+        };
+    } // usernameFocusChanged
 
-        // email LooseFocus
-        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    protected View.OnFocusChangeListener emailFocusChanged() {
+        return new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus) {
                     if(email.getText().length() == 0) hasEmail = false;
@@ -82,30 +107,11 @@ public class SignUpScreen extends AppCompatActivity {
                     setTxtInfoMessage();
                 }
             }
-        });
+        };
+    } // emailFocusChanged
 
-        // password LooseFocus
-        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus) {
-                    pw1_input = password.getText().toString();
-                    pw2_input = rePassword.getText().toString();
-                    if(password.getText().length() == 0) hasPassword = false;
-                    else if(!pw1_input.equals(pw2_input)) {
-                        hasPassword = true;
-                        passwordsMatch = false;
-                    }
-                    else {
-                        hasPassword = true;
-                        passwordsMatch = true;
-                    }
-                    setTxtInfoMessage();
-                }
-            }
-        });
-
-        // rePassword LooseFocus
-        rePassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    protected View.OnFocusChangeListener pwFocusChanged() {
+        return new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus) {
                     pw1_input = password.getText().toString();
@@ -120,32 +126,51 @@ public class SignUpScreen extends AppCompatActivity {
                         hasPassword = true;
                         passwordsMatch = true;
                     }
-                    setTxtInfoMessage();
+                setTxtInfoMessage();
                 }
             }
-        });
+        };
+    } // pwFocusChanged
 
-        // btnRegister Click
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+    protected TextWatcher pwTextChanged() {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                pwFocusChanged();
+            }
+        };
+    } // pwTextChanged
+
+    //endregion
+
+    //region Button Click Events
+
+    protected View.OnClickListener btnRegisterClick() {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnRegisterClick(); // call method that handles btnRegister Click
+                eMessage = "";
+                if (usernameUnique) {
+                    signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
+
+                    // if it makes it here then there was an error
+                    txtInfo.setText(eMessage);
+                } else {
+                    setTxtInfoMessage();
+                }
             }
-        });
-    }
-
-    protected void btnRegisterClick() {
-        eMessage = "";
-        if (usernameUnique) {
-            signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
-
-            // if it makes it here then there was an error
-            txtInfo.setText(eMessage);
-        }
-        else {
-            setTxtInfoMessage();
-        }
+        };
     } // btnRegisterClick
+
+    //endregion
+
+    //region Helper Methods
 
     protected void setTxtInfoMessage() {
         String message = "";
@@ -202,12 +227,9 @@ public class SignUpScreen extends AppCompatActivity {
         }
     } // signUp
 
-    public void toMainActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
+    //endregion
 
-    public void toMainActivityAfterRegistration(View view){
+    public void toMainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

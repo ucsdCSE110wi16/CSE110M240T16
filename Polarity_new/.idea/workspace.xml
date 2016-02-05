@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9807c792-572a-4554-9461-8cac2167c939" name="Default" comment="" />
@@ -72,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_sign_up_screen.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_sign_up_screen.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_sign_up_screen.xml">
           <provider selected="true" editor-type-id="android-designer">
             <state />
@@ -85,28 +85,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUpScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SignUpScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUpScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.63931626">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
-                <element signature="e#1854#2531#0" expanded="true" />
-                <element signature="e#2530#2531#0" expanded="true" />
-                <element signature="e#2602#2931#0" expanded="true" />
-                <element signature="e#2930#2931#0" expanded="true" />
-                <element signature="e#3008#3743#0" expanded="true" />
-                <element signature="e#3742#3743#0" expanded="true" />
-                <element signature="e#3824#4560#0" expanded="true" />
-                <element signature="e#4559#4560#0" expanded="true" />
-                <element signature="e#4632#4830#0" expanded="true" />
-                <element signature="e#4829#4830#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#523#549#0" expanded="false" />
+                <element signature="method#onCreate#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="e#2462#2486#0" expanded="false" />
+                <element signature="method#usernameFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="e#2569#3246#0" expanded="true" />
+                <element signature="e#3245#3246#0" expanded="true" />
+                <element signature="method#emailFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="e#3357#3686#0" expanded="true" />
+                <element signature="e#3685#3686#0" expanded="true" />
+                <element signature="method#pwFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="method#pwTextChanged#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="e#4935#4936#0" expanded="true" />
+                <element signature="e#4983#4984#0" expanded="true" />
+                <element signature="e#5041#5069#0" expanded="false" />
                 <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
+                <element signature="e#5142#5644#0" expanded="true" />
+                <element signature="e#5643#5644#0" expanded="true" />
+                <element signature="e#5694#5717#0" expanded="false" />
                 <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
                 <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
                 <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
                 <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
-                <element signature="method#toMainActivityAfterRegistration#0;class#SignUpScreen#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1891,8 +1898,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1902,7 +1909,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31813127" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31813127" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42380422" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1976,7 +1983,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUpScreen.java</url>
+          <line>175</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUpScreen.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2038,22 +2059,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1854#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2602#2931#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#3008#3743#0" expanded="true" />
-            <element signature="e#3742#3743#0" expanded="true" />
-            <element signature="e#3824#4560#0" expanded="true" />
-            <element signature="e#4559#4560#0" expanded="true" />
-            <element signature="e#4632#4830#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#523#549#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2462#2486#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2569#3246#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="method#emailFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#3357#3686#0" expanded="true" />
+            <element signature="e#3685#3686#0" expanded="true" />
+            <element signature="method#pwFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#4935#4936#0" expanded="true" />
+            <element signature="e#4983#4984#0" expanded="true" />
+            <element signature="e#5041#5069#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#5142#5644#0" expanded="true" />
+            <element signature="e#5643#5644#0" expanded="true" />
+            <element signature="e#5694#5717#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#toMainActivityAfterRegistration#0;class#SignUpScreen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2123,22 +2151,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1854#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2602#2931#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#3008#3743#0" expanded="true" />
-            <element signature="e#3742#3743#0" expanded="true" />
-            <element signature="e#3824#4560#0" expanded="true" />
-            <element signature="e#4559#4560#0" expanded="true" />
-            <element signature="e#4632#4830#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#523#549#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2462#2486#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2569#3246#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="method#emailFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#3357#3686#0" expanded="true" />
+            <element signature="e#3685#3686#0" expanded="true" />
+            <element signature="method#pwFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#4935#4936#0" expanded="true" />
+            <element signature="e#4983#4984#0" expanded="true" />
+            <element signature="e#5041#5069#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#5142#5644#0" expanded="true" />
+            <element signature="e#5643#5644#0" expanded="true" />
+            <element signature="e#5694#5717#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#toMainActivityAfterRegistration#0;class#SignUpScreen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2208,22 +2243,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1854#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2602#2931#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#3008#3743#0" expanded="true" />
-            <element signature="e#3742#3743#0" expanded="true" />
-            <element signature="e#3824#4560#0" expanded="true" />
-            <element signature="e#4559#4560#0" expanded="true" />
-            <element signature="e#4632#4830#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#523#549#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2462#2486#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2569#3246#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="method#emailFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#3357#3686#0" expanded="true" />
+            <element signature="e#3685#3686#0" expanded="true" />
+            <element signature="method#pwFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#4935#4936#0" expanded="true" />
+            <element signature="e#4983#4984#0" expanded="true" />
+            <element signature="e#5041#5069#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#5142#5644#0" expanded="true" />
+            <element signature="e#5643#5644#0" expanded="true" />
+            <element signature="e#5694#5717#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
             <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#toMainActivityAfterRegistration#0;class#SignUpScreen#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2482,31 +2524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUpScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#1854#2531#0" expanded="true" />
-            <element signature="e#2530#2531#0" expanded="true" />
-            <element signature="e#2602#2931#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#3008#3743#0" expanded="true" />
-            <element signature="e#3742#3743#0" expanded="true" />
-            <element signature="e#3824#4560#0" expanded="true" />
-            <element signature="e#4559#4560#0" expanded="true" />
-            <element signature="e#4632#4830#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
-            <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
-            <element signature="method#toMainActivityAfterRegistration#0;class#SignUpScreen#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_sign_up_screen.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2515,6 +2532,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUpScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63931626">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#523#549#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2462#2486#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#2569#3246#0" expanded="true" />
+            <element signature="e#3245#3246#0" expanded="true" />
+            <element signature="method#emailFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#3357#3686#0" expanded="true" />
+            <element signature="e#3685#3686#0" expanded="true" />
+            <element signature="method#pwFocusChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#4935#4936#0" expanded="true" />
+            <element signature="e#4983#4984#0" expanded="true" />
+            <element signature="e#5041#5069#0" expanded="false" />
+            <element signature="method#btnRegisterClick#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="e#5142#5644#0" expanded="true" />
+            <element signature="e#5643#5644#0" expanded="true" />
+            <element signature="e#5694#5717#0" expanded="false" />
+            <element signature="method#setTxtInfoMessage#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#usernameAvailable#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#signUp#0;class#SignUpScreen#0" expanded="false" />
+            <element signature="method#toMainActivity#0;class#SignUpScreen#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
