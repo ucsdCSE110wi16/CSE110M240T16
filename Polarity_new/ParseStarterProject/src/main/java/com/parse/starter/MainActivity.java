@@ -9,21 +9,20 @@
 package com.parse.starter;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.*;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+  //private Button btnLogin, btnNewUser;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
   }
 
   @Override
@@ -46,5 +45,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     return super.onOptionsItemSelected(item);
+  }
+
+  // Event handling
+  public void goToForgotPassword(View view){
+    Intent intentObject = new Intent(this,ForgotPassword.class);
+    startActivity(intentObject);
+  }
+
+  public void goToHub(View view){
+    Intent intentObject = new Intent(this, HubActivity.class);
+    startActivity(intentObject);
+  }
+
+  public void goToSignUpScreen(View view){
+    Intent intentObject = new Intent(this, SignUpScreen.class);
+    startActivity(intentObject);
   }
 }
