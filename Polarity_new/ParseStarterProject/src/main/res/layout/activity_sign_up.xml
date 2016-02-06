@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.parse.starter.SignUpScreen">
+    tools:context=".SignUp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Username"
-        android:id="@+id/txtUserName"
+        android:id="@+id/main_txtUserName"
         android:layout_marginTop="31dp"
         android:layout_below="@+id/backButton"
         android:layout_alignParentLeft="true"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Password"
-        android:id="@+id/txtPassword"
+        android:id="@+id/main_txtPassword"
         android:layout_below="@+id/tbEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -83,18 +83,18 @@
         android:id="@+id/txtRePassword"
         android:password="false"
         android:singleLine="false"
-        android:layout_below="@+id/txtPassword"
+        android:layout_below="@+id/main_txtPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="27dp"
-        android:layout_alignRight="@+id/txtUserName"
-        android:layout_alignEnd="@+id/txtUserName" />
+        android:layout_alignRight="@+id/main_txtUserName"
+        android:layout_alignEnd="@+id/main_txtUserName" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tbUserName"
-        android:layout_alignBottom="@+id/txtUserName"
+        android:layout_alignBottom="@+id/main_txtUserName"
         android:layout_alignRight="@+id/tbEmail"
         android:layout_alignEnd="@+id/tbEmail"
         android:layout_alignLeft="@+id/tbEmail"
@@ -106,9 +106,9 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/tbEmail"
-        android:layout_below="@+id/txtUserName"
-        android:layout_alignLeft="@+id/tbPassword"
-        android:layout_alignStart="@+id/tbPassword"
+        android:layout_below="@+id/main_txtUserName"
+        android:layout_alignLeft="@+id/main_tbPassword"
+        android:layout_alignStart="@+id/main_tbPassword"
         android:layout_marginTop="27dp" />
 
     <EditText
@@ -116,8 +116,8 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/tbPassword"
-        android:layout_alignBottom="@+id/txtPassword"
+        android:id="@+id/main_tbPassword"
+        android:layout_alignBottom="@+id/main_txtPassword"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/tbEmail" />
@@ -132,8 +132,8 @@
         android:layout_alignRight="@+id/tbUserName"
         android:layout_alignEnd="@+id/tbUserName"
         android:layout_alignBottom="@+id/txtRePassword"
-        android:layout_alignLeft="@+id/tbPassword"
-        android:layout_alignStart="@+id/tbPassword" />
+        android:layout_alignLeft="@+id/main_tbPassword"
+        android:layout_alignStart="@+id/main_tbPassword" />
 
     <TextView
         android:layout_width="wrap_content"

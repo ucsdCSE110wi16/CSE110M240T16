@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:id="@+id/btnLogin"
+        android:id="@+id/main_btnLogin"
         android:layout_marginTop="42dp"
         android:layout_below="@+id/editText"
         android:layout_toLeftOf="@+id/editText"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="New User"
         android:id="@+id/btnNewUser"
-        android:layout_alignTop="@+id/btnLogin"
+        android:layout_alignTop="@+id/main_btnLogin"
         android:layout_alignRight="@+id/editText"
         android:layout_alignEnd="@+id/editText"
         android:layout_marginRight="50dp"
@@ -74,8 +74,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Password"
-        android:id="@+id/tbPassword"
-        android:layout_above="@+id/btnLogin"
+        android:id="@+id/main_tbPassword"
+        android:layout_above="@+id/main_btnLogin"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -16,12 +16,12 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class SignUpScreen extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     //region Declare Variables
 
     // some tag thing for writing error messages to log screen
-    public static final String TAG = SignUpScreen.class.getSimpleName();
+    public static final String TAG = SignUp.class.getSimpleName();
 
     // make local references to display elements
     EditText userName, email, password, rePassword;
@@ -43,12 +43,12 @@ public class SignUpScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // initialize the page
-        setContentView(R.layout.activity_sign_up_screen);
+        setContentView(R.layout.activity_sign_up);
 
         // this will initializes the variables on the page
         userName = (EditText) findViewById(R.id.tbUserName);
         email = (EditText) findViewById(R.id.tbEmail);
-        password = (EditText) findViewById(R.id.tbPassword);
+        password = (EditText) findViewById(R.id.main_tbPassword);
         rePassword = (EditText) findViewById(R.id.tbRePassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         txtInfo = (TextView) findViewById(R.id.txtInfo);
@@ -69,7 +69,7 @@ public class SignUpScreen extends AppCompatActivity {
         rePassword.setOnFocusChangeListener(pwFocusChanged());
 
         // rePassword textChaned
-        rePassword.addTextChangedListener(pwTextChanged());
+        //rePassword.addTextChangedListener(pwTextChanged());
 
         // btnRegister Click
         btnRegister.setOnClickListener(btnRegisterClick());
@@ -114,19 +114,8 @@ public class SignUpScreen extends AppCompatActivity {
         return new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus) {
-                    pw1_input = password.getText().toString();
-                    pw2_input = rePassword.getText().toString();
-
-                    if(password.getText().length() == 0) hasPassword = false;
-                    else if(!pw1_input.equals(pw2_input)) {
-                        hasPassword = true;
-                        passwordsMatch = false;
-                    }
-                    else {
-                        hasPassword = true;
-                        passwordsMatch = true;
-                    }
-                setTxtInfoMessage();
+                    passwordsMatch();
+                    setTxtInfoMessage();
                 }
             }
         };
@@ -142,7 +131,8 @@ public class SignUpScreen extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                pwFocusChanged();
+                passwordsMatch();
+                setTxtInfoMessage();
             }
         };
     } // pwTextChanged
@@ -155,15 +145,7 @@ public class SignUpScreen extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                eMessage = "";
-                if (usernameUnique) {
-                    signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
-
-                    // if it makes it here then there was an error
-                    txtInfo.setText(eMessage);
-                } else {
-                    setTxtInfoMessage();
-                }
+                signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
             }
         };
     } // btnRegisterClick
@@ -207,6 +189,21 @@ public class SignUpScreen extends AppCompatActivity {
             return false;
         }
     } // usernameAvailable
+
+    protected void passwordsMatch() {
+        pw1_input = password.getText().toString();
+        pw2_input = rePassword.getText().toString();
+
+        if(password.getText().length() == 0) hasPassword = false;
+        else if(!pw1_input.equals(pw2_input)) {
+            hasPassword = true;
+            passwordsMatch = false;
+        }
+        else {
+            hasPassword = true;
+            passwordsMatch = true;
+        }
+    } // passwordsMatch
 
     protected void signUp(String username, String email, String password) {
 

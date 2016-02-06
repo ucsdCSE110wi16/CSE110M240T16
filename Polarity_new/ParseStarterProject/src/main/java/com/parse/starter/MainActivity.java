@@ -14,16 +14,27 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-  //private Button btnLogin, btnNewUser;
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+
     super.onCreate(savedInstanceState);
+
+    // show loading screen
     setContentView(R.layout.activity_main);
+
+    // Open login screen
+    Intent intentObject = new Intent(this, LogIn.class);
+    startActivity(intentObject);
+
   }
+
+  //region Auto-Generated Stuff
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,19 +58,5 @@ public class MainActivity extends AppCompatActivity {
     return super.onOptionsItemSelected(item);
   }
 
-  // Event handling
-  public void goToForgotPassword(View view){
-    Intent intentObject = new Intent(this,ForgotPassword.class);
-    startActivity(intentObject);
-  }
-
-  public void goToHub(View view){
-    Intent intentObject = new Intent(this, HubActivity.class);
-    startActivity(intentObject);
-  }
-
-  public void goToSignUpScreen(View view){
-    Intent intentObject = new Intent(this, SignUpScreen.class);
-    startActivity(intentObject);
-  }
+  //endregion
 }

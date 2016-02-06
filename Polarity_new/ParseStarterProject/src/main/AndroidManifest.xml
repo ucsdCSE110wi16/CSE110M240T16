@@ -36,10 +36,11 @@
         </activity>
         <activity android:name=".ForgotPassword" />
         <activity android:name=".HubActivity" />
-        <activity android:name=".SignUpScreen" />
+        <activity android:name=".SignUp" />
         <activity android:name=".CreateEvent" />
         <activity android:name=".AddMovies" />
-        <activity android:name=".InviteFriends"></activity>
+        <activity android:name=".InviteFriends" />
+        <activity android:name=".LogIn"></activity>
     </application>
 
 </manifest>
