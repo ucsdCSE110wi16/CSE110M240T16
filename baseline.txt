@@ -1,0 +1,18 @@
+- baseline for app- 
+1. App users can log in to app 
+	Lucas - DONE 
+2. Host can create event
+	a. Host can create movie list for people to vote on
+		adds movies to a list manually
+	b. Host can invite attendees
+		host can view a list of people who use the app
+		to select who to invite
+	c. Host can add a date to the event
+	d. Host can add a location to the event
+	e. Host can add a name to the event
+4. Attendees can see events that they were invited to
+5. Attendees can vote on movie list provided by host
+	Tap on a button next to movie title to cast vote
+	Once user taps a confirm button, votes are sent off to database
+6. Host can see poll results
+
