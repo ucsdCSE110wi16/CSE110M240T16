@@ -10,7 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3e4242"
+    android:background="@color/themeCharcoal"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -18,7 +18,41 @@
 
     tools:context=".LogIn">
 
+    <!--red box behind login button-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_above="@+id/main_btnCreateAccount"
+        android:src="@drawable/loginbuttonbackground"
+        android:layout_alignTop="@+id/main_btnLogin"
+        android:layout_toRightOf="@+id/main_tbInfo"
+        android:layout_alignRight="@+id/main_btnLogin"
+        android:layout_alignEnd="@+id/main_btnLogin" />
 
+    <!--red box behind forgot password-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loginbuttonbackground"
+        android:id="@+id/imageView4"
+        android:layout_below="@+id/main_btnCreateAccount"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/main_tbInfo"
+        android:layout_alignRight="@+id/main_btnForgotPassword"
+        android:layout_alignEnd="@+id/main_btnForgotPassword" />
+
+    <!--red box behind create account button-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_alignBottom="@+id/main_btnCreateAccount"
+        android:src="@drawable/loginbuttonbackground"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/main_tbInfo"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2" />
 
 
     <!-- forgot password button-->
@@ -26,35 +60,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
-        android:backgroundTint="#800000"
         android:textColor="#FFFFFF"
+        android:background="@android:color/transparent"
         android:id="@+id/main_btnForgotPassword"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/main_btnCreateAccount"
-        android:layout_alignEnd="@+id/main_btnCreateAccount" />
+        android:layout_alignEnd="@+id/main_btnCreateAccount"
+        />
 
     <!-- Login button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#800000"
         android:textColor="#FFFFFF"
         android:text="Login"
         android:id="@+id/main_btnLogin"
         android:layout_above="@+id/main_btnCreateAccount"
+        android:background="@android:color/transparent"
         android:layout_toRightOf="@+id/main_tbInfo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView" />
 
     <!-- Create Account button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
-        android:backgroundTint="#800000"
         android:textColor="#FFFFFF"
+        android:background="@android:color/transparent"
         android:id="@+id/main_btnCreateAccount"
         android:layout_above="@+id/main_btnForgotPassword"
         android:layout_toRightOf="@+id/main_tbInfo"
@@ -76,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/main_logo"
-        android:background="#3e4242"
+        android:background="@color/themeCharcoal"
         android:layout_above="@+id/main_tbUserName"
         android:layout_marginBottom="55dp"
         android:layout_toRightOf="@+id/main_tbInfo"
@@ -84,6 +119,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/polarity_logo" />
+
+
 
 
     <!-- grey backgrounds behind text fields-->
@@ -109,6 +146,8 @@
         android:layout_alignTop="@+id/main_tbPassword"
         android:layout_toRightOf="@+id/main_tbInfo"
         android:layout_toEndOf="@+id/main_tbInfo" />
+
+
 
 
 
@@ -141,6 +180,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:backgroundTint="#d3d3d3"/>
+
+
 
 
 </RelativeLayout>
