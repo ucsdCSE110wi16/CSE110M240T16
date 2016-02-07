@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="movieToAdd" type="id">nameOfMovieToAdd</item>
+    <item name="listOfMovies" type="id">resource_value_for_list_of_movies</item>
+</resources>

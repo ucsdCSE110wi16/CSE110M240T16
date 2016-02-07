@@ -52,6 +52,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <!-- Search Button -->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -60,7 +61,9 @@
         android:id="@+id/searchButton"
         android:layout_below="@+id/homeButton"
         android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_alignStart="@+id/homeButton"
+        android:onClick="addMovieName"
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -71,7 +74,8 @@
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/searchButton"
         android:layout_toStartOf="@+id/searchButton"
-        android:text="Search Movies List" />
+        android:text="@string/searchMoviesListEditText"
+        android:inputType="text" />
 
     <ListView
         android:layout_width="wrap_content"
