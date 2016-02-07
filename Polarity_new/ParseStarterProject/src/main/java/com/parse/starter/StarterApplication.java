@@ -32,8 +32,5 @@ public class StarterApplication extends Application {
     // Optionally enable public read access.
     // defaultACL.setPublicReadAccess(true);
     ParseACL.setDefaultACL(defaultACL, true);
-    ParseObject testObject = new ParseObject("TestObject");
-    testObject.put("daily", "planet");
-    testObject.saveInBackground();
   }
 }

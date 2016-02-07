@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Conferm Password"
+        android:text="Confirm Password"
         android:id="@+id/txtRePassword"
         android:password="false"
         android:singleLine="false"

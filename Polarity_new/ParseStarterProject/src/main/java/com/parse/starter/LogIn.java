@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -55,22 +56,44 @@ public class LogIn extends AppCompatActivity {
 
                 ParseUser.getCurrentUser().logOut();
 
-                try {
-                    ParseUser.logIn(userName.getText().toString(), password.getText().toString());
+                ParseUser.logInInBackground(userName.getText().toString(),
+                       password.getText().toString(), new LogInCallback() {
+                             @Override
+                             public void done(ParseUser user, ParseException e) {
+                                 if(e == null && user != null){
+                                     goToHub();
+                                 }//end if
+                                 else if(user == null){
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message
+                                      * here if there should be a specific message indicating
+                                      * that the username or password were invalid
+                                      */
+                                 }//end else if
+                                 else{
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message here if there
+                                      * should be a specific message indicating that some internal
+                                      * error occurred
+                                      */
+                                 }//end else
+
+                             }//end callback
+                });//end logInInBackground
 
                     // save variables to global file
                     //Common com = ((Common)getApplicationContext());
                     //com._username = userName.getText().toString();
                     //com._userKey = ParseUser.getCurrentUser().getObjectId().toString();
 
-                    goToHub();
-                }
-                catch (ParseException e) {
-                    btnLogin.setEnabled(true);
-                    btnCreateAccount.setEnabled(true);
-                    btnForgotPassword.setEnabled(true);
-                    txtInfo.setText(e.getMessage());
-                }
             }
         };
     } // btnLogin_Click
