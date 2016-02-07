@@ -138,7 +138,8 @@
     android:layout_below="@+id/backButton"
     android:layout_toLeftOf="@+id/voteButton"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true" />
+    android:layout_alignParentStart="true"
+        android:gravity="center|center_vertical"/>
 
     <EditText
     android:layout_width="wrap_content"

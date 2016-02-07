@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/themeCharcoal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -9,53 +10,136 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=""> <!-- Insert associate Java File here -->
 
+    <!--back button image view -->
+    <ImageView
+        android:src="@drawable/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backImageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/searchField"
+        android:layout_alignStart="@+id/backButton"
+        android:layout_alignLeft="@+id/backButton"
+        android:layout_alignRight="@+id/backButton"
+        android:layout_alignEnd="@+id/backButton" />
+
+    <ImageView
+        android:src="@drawable/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeImageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/searchButton"
+        android:layout_alignLeft="@+id/homeButton"
+        android:layout_alignStart="@+id/homeButton" />
+
+    <!-- Search ImageView-->
+    <ImageView
+        android:src="@drawable/search_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchImageView"
+        android:layout_alignTop="@+id/searchField"
+        android:layout_alignRight="@+id/searchButton"
+        android:layout_alignEnd="@+id/searchButton"
+        android:layout_alignLeft="@+id/searchButton"
+        android:layout_alignStart="@+id/searchButton"
+        android:layout_alignBottom="@+id/searchButton" />
+
+    <!-- Add Movies ImageView-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/importQueueImageView"
+        android:layout_alignTop="@+id/addMoviesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/addMoviesButton"
+        android:layout_alignEnd="@+id/addMoviesButton"
+        android:layout_alignLeft="@+id/addMoviesButton"
+        android:layout_alignStart="@+id/addMoviesButton"
+        android:layout_alignBottom="@+id/addMoviesButton"
+        android:src="@drawable/loginbuttonbackground"/>
+
+    <!-- Search Moies Imageview-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchMoviesImageView"
+        android:src="@drawable/textviewbackground"
+        android:layout_alignBottom="@+id/searchField"
+        android:layout_below="@+id/backButton"
+        android:layout_alignRight="@+id/searchField"
+        android:layout_alignEnd="@+id/searchField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!-- Movie list ImageView-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/movieListImageView"
+        android:src="@drawable/movieListbackground_large"
+        android:layout_below="@+id/searchImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="28dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Event Movie Queue"
+        android:text="Your Vote"
         android:id="@+id/titleText"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center|center_vertical"
+        android:textColor="@color/themeWhite" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&lt;-"
         android:id="@+id/backButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@android:color/transparent" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="H"
         android:id="@+id/homeButton"
         android:layout_alignTop="@+id/titleText"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Movies Menu "
+        android:text="Confirm Vote"
         android:id="@+id/addMoviesButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/movieList"
+        android:layout_alignEnd="@+id/movieList"
+        android:background="@android:color/transparent"
+        android:textColor="@color/themeWhite" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="S"
         android:id="@+id/searchButton"
         android:layout_below="@+id/homeButton"
         android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_alignStart="@+id/homeButton"
+        android:background="@android:color/transparent" />
 
     <EditText
         android:layout_width="wrap_content"

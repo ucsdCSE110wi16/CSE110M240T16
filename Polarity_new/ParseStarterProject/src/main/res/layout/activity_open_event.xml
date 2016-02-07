@@ -7,7 +7,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/themeCharcoal"
-    tools:context=""> <!-- Insert associate Java File here -->
+    tools:context=""
+    android:clickable="true"> <!-- Insert associate Java File here -->
 
     <!--back button image-->
     <ImageView
