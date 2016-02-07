@@ -15,20 +15,14 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context=".MainActivity"
-    android:background="#4f9eed">
+                android:background="@color/themeCharcoal">
 
 
-    <TextView
+    <ImageView
+        android:src="@drawable/polarity_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Polarity"
-        android:id="@+id/main_txtPolarity"
-        android:textColor="#ffffff"
-        android:singleLine="true"
-        android:textSize="@android:dimen/notification_large_icon_height"
-        android:typeface="monospace"
+        android:id="@+id/imageView32"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
 </RelativeLayout>

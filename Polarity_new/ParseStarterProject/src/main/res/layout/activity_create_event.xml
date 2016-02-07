@@ -52,14 +52,16 @@
     <!-- grey rectangle behind description-->
     <ImageView
         android:gravity="top"
-        android:src="@drawable/textviewbackgroundlarge"
+        android:src="@drawable/textviewbackground_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView27"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView26"
-        android:layout_alignBottom="@+id/descriptionField" />
+        android:layout_alignBottom="@+id/descriptionField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <!--Text box behind Add Movies Button-->
     <ImageView
