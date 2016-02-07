@@ -75,10 +75,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         android:text="Login"
         android:id="@+id/main_btnLogin"
         android:layout_above="@+id/main_btnCreateAccount"
-        android:background="@android:color/transparent"
         android:layout_toRightOf="@+id/main_tbInfo"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView" />

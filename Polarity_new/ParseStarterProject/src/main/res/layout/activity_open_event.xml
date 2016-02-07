@@ -6,19 +6,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/themeCharcoal"
     tools:context=""> <!-- Insert associate Java File here -->
 
 
     <TextView
+        android:textColor="@color/themeWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Event Title"
+        android:textSize="28dp"
+        android:gravity="center"
         android:id="@+id/titleText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +35,8 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="See Who&apos;s Going"
@@ -38,16 +46,19 @@
         android:layout_alignParentStart="true" />
 
     <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="H"
         android:id="@+id/homeButton"
         android:layout_alignTop="@+id/titleText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vote!"
@@ -59,6 +70,8 @@
         android:layout_toEndOf="@+id/titleText" />
 
     <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
@@ -69,6 +82,7 @@
         android:layout_marginStart="433dp" />
 
     <TextView
+        android:textColor="@color/themeWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -76,30 +90,85 @@
         android:id="@+id/txtEmail"
         android:layout_below="@+id/backButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/homeButton"
+        android:layout_alignEnd="@+id/homeButton" />
 
     <TextView
+        android:textColor="@color/themeWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Time"
         android:id="@+id/main_txtPassword"
-        android:layout_below="@+id/homeButton"
-        android:layout_alignRight="@+id/homeButton"
-        android:layout_alignEnd="@+id/homeButton" />
+        android:layout_below="@+id/txtEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/txtEmail"
+        android:layout_alignEnd="@+id/txtEmail" />
 
     <TextView
+        android:textColor="@color/themeWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Description"
         android:id="@+id/txtRePassword"
-        android:layout_below="@+id/txtEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/main_txtPassword"
         android:layout_alignEnd="@+id/main_txtPassword"
-        android:layout_above="@+id/voteButton" />
+        android:layout_above="@+id/voteButton"
+        android:layout_below="@+id/main_txtPassword" />
+
+    <!--back button image-->
+    <ImageView
+        android:src="@drawable/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView28"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/txtEmail"
+        android:layout_alignRight="@+id/backButton"
+        android:layout_alignEnd="@+id/backButton"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:src="@drawable/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView29"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/txtEmail"
+        android:layout_alignLeft="@+id/homeButton"
+        android:layout_alignStart="@+id/homeButton" />
+
+    <!--Behind Who's Going-->
+    <ImageView
+        android:src="@drawable/mediumbuttonbackdrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView30"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/goingButton"
+        android:layout_alignRight="@+id/goingButton"
+        android:layout_alignEnd="@+id/goingButton" />
+
+    <!-- Behind Vote-->
+    <ImageView
+        android:src="@drawable/mediumbuttonbackdrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView31"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtRePassword"
+        android:layout_alignLeft="@+id/voteButton"
+        android:layout_alignStart="@+id/voteButton" />
 
 
 </RelativeLayout>

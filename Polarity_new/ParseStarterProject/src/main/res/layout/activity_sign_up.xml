@@ -24,11 +24,11 @@
     <TextView
         android:textColor="@color/themeWhite"
         android:textSize="26dp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign up for Polarity "
-        android:gravity="center"
         android:id="@+id/titleText"
         android:layout_above="@+id/txtInfo"
         android:layout_centerHorizontal="true"
