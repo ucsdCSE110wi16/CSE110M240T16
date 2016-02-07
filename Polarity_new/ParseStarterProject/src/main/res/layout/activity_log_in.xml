@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
         android:id="@+id/main_btnForgotPassword"
         android:layout_alignParentBottom="true"
@@ -74,7 +74,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/themeWhite"
         android:text="Login"
         android:id="@+id/main_btnLogin"
         android:layout_above="@+id/main_btnCreateAccount"
@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Account"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
         android:id="@+id/main_btnCreateAccount"
         android:layout_above="@+id/main_btnForgotPassword"
@@ -162,8 +162,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword"
-        android:backgroundTint="#d3d3d3"/>
+        android:layout_alignEnd="@+id/main_tbPassword" />
 
     <!--Password Text Field -->
     <EditText
@@ -178,8 +177,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="#d3d3d3"/>
+        android:layout_alignParentEnd="true" />
 
 
 
