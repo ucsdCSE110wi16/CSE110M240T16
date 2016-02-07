@@ -69,7 +69,7 @@ public class SignUp extends AppCompatActivity {
         rePassword.setOnFocusChangeListener(pwFocusChanged());
 
         // rePassword textChaned
-        //rePassword.addTextChangedListener(pwTextChanged());
+        rePassword.addTextChangedListener(pwTextChanged());
 
         // btnRegister Click
         btnRegister.setOnClickListener(btnRegisterClick());
