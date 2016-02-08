@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/movieListImageView"
-        android:src="@drawable/friendList_large2"
+        android:src="@drawable/friend_list_large2"
         android:layout_alignTop="@+id/friendsList"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"

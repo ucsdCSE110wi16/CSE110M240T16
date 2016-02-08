@@ -42,7 +42,7 @@
         android:id="@+id/friendListImageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/friendList_large3"
+        android:src="@drawable/friend_list_large3"
         android:layout_below="@+id/backImageView"
         android:paddingTop="10dp"/>
 

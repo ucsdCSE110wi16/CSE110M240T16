@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/movieListImageView"
-        android:src="@drawable/movieListbackground_large"
+        android:src="@drawable/movie_listbackground_large"
         android:layout_below="@+id/searchImageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

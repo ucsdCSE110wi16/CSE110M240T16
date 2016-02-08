@@ -83,7 +83,7 @@
         android:layout_alignTop="@+id/movieList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/movieListbackground_large"/>
+        android:src="@drawable/movie_listbackground_large"/>
 
     <TextView
         android:layout_width="wrap_content"
