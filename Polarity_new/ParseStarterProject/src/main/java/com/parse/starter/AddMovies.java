@@ -6,13 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 
 public class AddMovies extends AppCompatActivity {
 
-    ListView listOfMovies;
-    EditText movieToAdd;
+    ListView lv;
+    EditText et;
     ArrayList<Model> movieList;
     CustomAdapter adapter;
 
@@ -21,14 +23,28 @@ public class AddMovies extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_movies);
 
-        listOfMovies = (ListView) findViewById(R.id.listOfMovies);
-        movieToAdd = (EditText) findViewById(R.id.movieToAdd);
+        lv = (ListView) findViewById(R.id.listOfMovies);
+        et = (EditText) findViewById(R.id.movieToAdd);
 
-
+        movieList = new ArrayList<Model>();
+//        adapter = new CustomAdapter(getApplicationContext(), movieList);
+//        listOfMovies.setAdapter(adapter);
     }
     // Add movie titles to the list
     public void addMovieName(View view){
-
+        String name = et.getText().toString();
+        if (name.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Plz enter Values",
+                    Toast.LENGTH_SHORT).show();
+        }
+        // add string to the list
+        else {
+//            Model md = new Model(name);
+//            modelList.add(md);
+//            adapter.notifyDataSetChanged();
+//            // reset input field
+//            et.setText("");
+        }
     }
 
     public void toActivityCreateEvent(View view){
