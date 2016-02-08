@@ -19,7 +19,7 @@
         android:layout_below="@+id/imageView19"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/tbEventName"
+        android:layout_alignBottom="@+id/tbUserName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView25"
-        android:layout_below="@+id/tbEventName"
+        android:layout_below="@+id/tbUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/timeField"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView26"
-        android:layout_below="@+id/tbLocation"
+        android:layout_below="@+id/tbEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/timeField"
@@ -110,7 +110,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/tbEventName"
+        android:layout_above="@+id/tbUserName"
         android:layout_alignRight="@+id/backButton"
         android:layout_alignEnd="@+id/backButton" />
 
@@ -144,21 +144,21 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/tbEventName"
+    android:id="@+id/tbUserName"
         android:hint="Event Name"
         android:textStyle="italic"
-        android:layout_above="@+id/tbLocation"
+        android:layout_above="@+id/tbEmail"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/tbLocation"
-        android:layout_alignEnd="@+id/tbLocation" />
+        android:layout_alignRight="@+id/tbEmail"
+        android:layout_alignEnd="@+id/tbEmail" />
 
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:inputType="textEmailAddress"
     android:ems="10"
-    android:id="@+id/tbLocation"
+    android:id="@+id/tbEmail"
         android:hint="Location"
         android:textStyle="italic"
         android:layout_above="@+id/timeField"
@@ -170,7 +170,6 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPassword"
     android:ems="10"
     android:id="@+id/timeField"
         android:hint="Time"
@@ -184,7 +183,6 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:inputType="textPassword"
     android:ems="10"
     android:id="@+id/descriptionField"
         android:hint="Description"
