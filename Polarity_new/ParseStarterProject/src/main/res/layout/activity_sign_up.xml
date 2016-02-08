@@ -92,12 +92,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView11"
-        android:layout_alignBottom="@+id/tbEventName"
+        android:layout_alignBottom="@+id/tbUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/tbEventName"
-        android:layout_alignRight="@+id/tbEventName"
-        android:layout_alignEnd="@+id/tbEventName" />
+        android:layout_alignTop="@+id/tbUserName"
+        android:layout_alignRight="@+id/tbUserName"
+        android:layout_alignEnd="@+id/tbUserName" />
 
     <!--grey rectangle behind email-->
     <ImageView
@@ -142,7 +142,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tbEventName"
+        android:id="@+id/tbUserName"
         android:hint="@string/username"
         android:layout_below="@+id/txtInfo"
         android:layout_alignParentLeft="true"
@@ -158,7 +158,7 @@
         android:id="@+id/tbEmail"
         android:hint="@string/email"
         android:textStyle="italic"
-        android:layout_below="@+id/tbEventName"
+        android:layout_below="@+id/tbUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
