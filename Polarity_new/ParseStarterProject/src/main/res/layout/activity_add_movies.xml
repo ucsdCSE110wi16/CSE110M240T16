@@ -19,11 +19,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/searchField"
-        android:layout_alignStart="@+id/backButton"
-        android:layout_alignLeft="@+id/backButton"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton" />
+        android:layout_above="@+id/addMovies_tbSearch"
+        android:layout_alignStart="@+id/addMovies_btnBack"
+        android:layout_alignLeft="@+id/addMovies_btnBack"
+        android:layout_alignRight="@+id/addMovies_btnBack"
+        android:layout_alignEnd="@+id/addMovies_btnBack" />
 
     <ImageView
         android:src="@drawable/home_button"
@@ -32,9 +32,9 @@
         android:id="@+id/homeImageView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/searchButton"
-        android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_above="@+id/addMovies_btnSearch"
+        android:layout_alignLeft="@+id/addMovies_btnHome"
+        android:layout_alignStart="@+id/addMovies_btnHome" />
 
     <!-- Search ImageView-->
     <ImageView
@@ -42,13 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchImageView"
-        android:layout_alignTop="@+id/searchField"
-        android:layout_alignRight="@+id/searchButton"
-        android:layout_alignEnd="@+id/searchButton"
-        android:layout_alignLeft="@+id/searchButton"
-        android:layout_alignStart="@+id/searchButton"
-        android:layout_alignBottom="@+id/searchButton"
-        android:onClick="addbtn"
+        android:layout_alignTop="@+id/addMovies_tbSearch"
+        android:layout_alignRight="@+id/addMovies_btnSearch"
+        android:layout_alignEnd="@+id/addMovies_btnSearch"
+        android:layout_alignLeft="@+id/addMovies_btnSearch"
+        android:layout_alignStart="@+id/addMovies_btnSearch"
+        android:layout_alignBottom="@+id/addMovies_btnSearch"
         />
 
     <!-- Add Movies ImageView-->
@@ -56,33 +55,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/importQueueImageView"
-        android:layout_alignTop="@+id/addMoviesButton"
+        android:layout_alignTop="@+id/addMovies_ImportMovieQueue"
         android:layout_centerHorizontal="true"
-        android:layout_alignRight="@+id/addMoviesButton"
-        android:layout_alignEnd="@+id/addMoviesButton"
-        android:layout_alignLeft="@+id/addMoviesButton"
-        android:layout_alignStart="@+id/addMoviesButton"
-        android:layout_alignBottom="@+id/addMoviesButton"
+        android:layout_alignRight="@+id/addMovies_ImportMovieQueue"
+        android:layout_alignEnd="@+id/addMovies_ImportMovieQueue"
+        android:layout_alignLeft="@+id/addMovies_ImportMovieQueue"
+        android:layout_alignStart="@+id/addMovies_ImportMovieQueue"
+        android:layout_alignBottom="@+id/addMovies_ImportMovieQueue"
         android:src="@drawable/loginbuttonbackground"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchMoviesImageView"
-        android:layout_below="@+id/homeButton"
+        android:layout_below="@+id/addMovies_btnHome"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/textviewbackground"
-        android:layout_above="@+id/movieList"
-        android:layout_alignRight="@+id/searchField"
-        android:layout_alignEnd="@+id/searchField" />
+        android:layout_above="@+id/addMovies_lvMovieList"
+        android:layout_alignRight="@+id/addMovies_tbSearch"
+        android:layout_alignEnd="@+id/addMovies_tbSearch" />
 
     <!-- Movie list ImageView-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/movieListImageView"
-        android:layout_alignTop="@+id/movieList"
+        android:layout_alignTop="@+id/addMovies_lvMovieList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/movie_listbackground_large"/>
@@ -104,8 +103,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/backButton"
-        android:layout_above="@+id/searchField"
+        android:id="@+id/addMovies_btnBack"
+        android:layout_above="@+id/addMovies_tbSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="toActivityCreateEvent"
@@ -117,7 +116,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeButton"
+        android:id="@+id/addMovies_btnHome"
         android:layout_alignTop="@+id/titleText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -130,12 +129,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Import Movies Queue "
-        android:id="@+id/addMoviesButton"
+        android:id="@+id/addMovies_ImportMovieQueue"
         android:layout_alignParentBottom="true"
         android:background="@android:color/transparent"
         android:textColor="@color/themeWhite"
-        android:layout_alignRight="@+id/movieList"
-        android:layout_alignEnd="@+id/movieList"
+        android:layout_alignRight="@+id/addMovies_lvMovieList"
+        android:layout_alignEnd="@+id/addMovies_lvMovieList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -144,8 +143,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchButton"
-        android:layout_below="@+id/homeButton"
+        android:id="@+id/addMovies_btnSearch"
+        android:layout_below="@+id/addMovies_btnHome"
         android:background="@android:color/transparent"
         android:layout_alignRight="@+id/homeImageView"
         android:layout_alignEnd="@+id/homeImageView"
@@ -155,22 +154,22 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchField"
-        android:layout_alignBottom="@+id/searchButton"
+        android:id="@+id/addMovies_tbSearch"
+        android:layout_alignBottom="@+id/addMovies_btnSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/searchButton"
-        android:layout_toStartOf="@+id/searchButton"
+        android:layout_toLeftOf="@+id/addMovies_btnSearch"
+        android:layout_toStartOf="@+id/addMovies_btnSearch"
         android:text="Search Movies List" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/movieList"
+        android:id="@+id/addMovies_lvMovieList"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/addMoviesButton"
+        android:layout_above="@+id/addMovies_ImportMovieQueue"
         android:choiceMode="singleChoice"
-        android:layout_below="@+id/searchButton" />
+        android:layout_below="@+id/addMovies_btnSearch" />
 
 </RelativeLayout>
