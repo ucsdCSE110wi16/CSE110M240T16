@@ -18,10 +18,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignStart="@+id/backButton"
-        android:layout_alignLeft="@+id/backButton"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton"
+        android:layout_alignStart="@+id/addMovies_btnBack"
+        android:layout_alignLeft="@+id/addMovies_btnBack"
+        android:layout_alignRight="@+id/addMovies_btnBack"
+        android:layout_alignEnd="@+id/addMovies_btnBack"
         android:layout_above="@+id/friendsList" />
 
     <ImageView
@@ -31,8 +31,8 @@
         android:id="@+id/homeImageView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton"
+        android:layout_alignLeft="@+id/addMovies_btnHome"
+        android:layout_alignStart="@+id/addMovies_btnHome"
         android:layout_above="@+id/friendsList" />
 
     <!-- FriendList ImageView -->
@@ -53,12 +53,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="28dp"
         android:text="Event Title"
-        android:id="@+id/titleText"
+        android:id="@+id/addMovies_txtTitle"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/homeButton"
-        android:layout_toRightOf="@+id/backButton"
-        android:layout_toEndOf="@+id/backButton"
-        android:layout_alignBottom="@+id/backButton"
+        android:layout_toLeftOf="@+id/addMovies_btnHome"
+        android:layout_toRightOf="@+id/addMovies_btnBack"
+        android:layout_toEndOf="@+id/addMovies_btnBack"
+        android:layout_alignBottom="@+id/addMovies_btnBack"
         android:gravity="center|center_vertical"
         android:textColor="@color/themeWhite" />
 
@@ -66,7 +66,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/backButton"
+        android:id="@+id/addMovies_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -76,8 +76,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeButton"
-        android:layout_alignTop="@+id/titleText"
+        android:id="@+id/addMovies_btnHome"
+        android:layout_alignTop="@+id/addMovies_txtTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent" />
@@ -89,7 +89,7 @@
         android:choiceMode="singleChoice"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/backButton"
+        android:layout_below="@+id/addMovies_btnBack"
         android:paddingTop="10dp"/>
 
 </RelativeLayout>

@@ -29,17 +29,17 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign up for Polarity "
-        android:id="@+id/titleText"
+        android:id="@+id/addMovies_txtTitle"
         android:layout_above="@+id/txtInfo"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/backButton" />
+        android:layout_alignTop="@+id/addMovies_btnBack" />
     <!--Back button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/backButton"
+        android:id="@+id/addMovies_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -69,7 +69,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/backButton" />
+        android:layout_below="@+id/addMovies_btnBack" />
 
     <!--Image for Back Button-->
     <ImageView
@@ -77,12 +77,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView8"
         android:src="@drawable/back_button"
-        android:layout_alignTop="@+id/titleText"
+        android:layout_alignTop="@+id/addMovies_txtTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton"
-        android:layout_alignBottom="@+id/backButton" />
+        android:layout_alignRight="@+id/addMovies_btnBack"
+        android:layout_alignEnd="@+id/addMovies_btnBack"
+        android:layout_alignBottom="@+id/addMovies_btnBack" />
 
 
 
