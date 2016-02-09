@@ -4,11 +4,17 @@ Tasks for stories completed
 Week 5 
 Activity Screens complete
 -	Compile feedback from Week 4 Paper Simulation Feedback
-Base backend database functionality working
+Base backend database functionality for account creation and sign-in
 Transitions between screens will be completed(ideally)
+Finish login/account procedure
+Start on event creation
+- obtaining event data(i.e. Name)
+- inviting friends
+- setting up movie queue
+  - Need to brainstorm ways to notify friends
+Week 6
 Basic tests for app will be made
 Being able to create a list or queue of movies for the users to add movie titles to(ideally)
-Week 6
 (Baseline app complete (ideally))
 Week 7
 (Baseline app complete)

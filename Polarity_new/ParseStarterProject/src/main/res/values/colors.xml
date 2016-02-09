@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="themeDarkGray">#4D5057</color>
+    <color name="themeLightGray">#C1CFDA</color>
+    <color name="themeMaroon">#B3001B</color>
+    <color name="themeSalmon">#FF3E41</color>
+    <color name="themeWhite">#ffffffff</color>
+    <color name="themeCharcoal">#2D2327</color>
+</resources>
