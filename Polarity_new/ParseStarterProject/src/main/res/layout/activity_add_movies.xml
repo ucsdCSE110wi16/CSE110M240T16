@@ -107,7 +107,6 @@
         android:layout_above="@+id/addMovies_tbSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="toActivityCreateEvent"
         android:background="@android:color/transparent"
         />
 
@@ -120,7 +119,6 @@
         android:layout_alignTop="@+id/titleText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="toHubActivity"
         android:background="@android:color/transparent"
         />
 
@@ -138,7 +136,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <!-- seach Button-->
+    <!-- search Button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
