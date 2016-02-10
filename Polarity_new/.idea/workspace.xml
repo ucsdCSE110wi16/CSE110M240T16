@@ -43,31 +43,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="activity_add_movies.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_add_movies.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddMovies.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AddMovies.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60505164">
-              <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
               <folding>
-                <element signature="e#340#366#0" expanded="false" />
-                <element signature="e#1440#1468#0" expanded="false" />
-                <element signature="method#btnSearch_Click#0;class#AddMovies#0" expanded="false" />
-                <element signature="e#1734#1757#0" expanded="false" />
+                <element signature="method#onCreate#0;class#AddMovies#0" expanded="false" />
+                <element signature="e#2299#2327#0" expanded="false" />
+                <element signature="e#2399#2544#0" expanded="true" />
+                <element signature="e#2543#2544#0" expanded="true" />
+                <element signature="e#2593#2616#0" expanded="false" />
                 <element signature="method#addMovie#0;class#AddMovies#0" expanded="false" />
-                <element signature="e#2366#2385#0" expanded="false" />
+                <element signature="e#3225#3244#0" expanded="false" />
                 <element signature="method#toActivityCreateEvent#0;class#AddMovies#0" expanded="false" />
                 <element signature="method#toHubActivity#0;class#AddMovies#0" expanded="false" />
               </folding>
@@ -75,18 +63,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogIn.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LogIn.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.66533065">
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#369#394#0" expanded="false" />
                 <element signature="method#onCreate#0;class#LogIn#0" expanded="false" />
+                <element signature="method#onKey#0;class#LogIn#0" expanded="false" />
+                <element signature="e#2830#2852#0" expanded="false" />
+                <element signature="method#btnLogin_Click#0;class#LogIn#0" expanded="false" />
                 <element signature="method#btnCreateAccount_Click#0;class#LogIn#0" expanded="false" />
                 <element signature="method#btnForgotPassword_Click#0;class#LogIn#0" expanded="false" />
-                <element signature="e#3164#3187#0" expanded="false" />
+                <element signature="e#4607#4630#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -557,6 +546,16 @@
                 <option name="description" value="Prepare com.android.support:support-v4:22.2.1" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="prepareComAndroidSupportSupportV42221Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement810Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
@@ -1084,6 +1083,16 @@
                 <option name="name" value="prepareComAndroidSupportSupportV42221Library" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-appindexing:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/ParseStarterProject" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesAppindexing810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="description" value="Prepare com.google.android.gms:play-services-basement:8.1.0" />
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/ParseStarterProject" />
+                <option name="name" value="prepareComGoogleAndroidGmsPlayServicesBasement810Library" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/ParseStarterProject" />
                 <option name="name" value="prepareDebugAndroidTestDependencies" />
               </ExternalTaskPojo>
@@ -1223,7 +1232,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4362492616401" />
-        <entry key="C:\Users\lpett\Desktop\110\CSE110M240T16\Polarity_new" value="4363796720711" />
+        <entry key="C:\Users\lpett\Desktop\110\CSE110M240T16\Polarity_new" value="4363812791876" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1404,7 +1413,9 @@
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/22.2.1/appcompat-v7-22.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.13.0/58a7d54b6a4f28be11f0cecec93097eddf473e6f/parse-android-1.13.0.jar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/22.2.1/design-22.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-appindexing/8.1.0/play-services-appindexing-8.1.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.1/support-v4-22.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/8.1.0/play-services-basement-8.1.0.aar" />
                             <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar" />
                           </list>
@@ -1559,8 +1570,10 @@
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/Common.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/MainActivity.java" />
-        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/HubActivity.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java" />
       </list>
     </option>
   </component>
@@ -1613,10 +1626,6 @@
               <option name="myItemId" value="ParseStarterProject" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1636,16 +1645,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Polarity_new" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ParseStarterProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -1660,7 +1659,7 @@
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="true" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="LGMS500-7914341" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23_x86" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="324" />
   </component>
@@ -1856,16 +1855,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31813127" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41379312" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42380422" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29699665" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21695095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33369803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24945295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1933,7 +1932,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="26" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1957,8 +1956,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#517#543#0" expanded="false" />
             <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
+            <element signature="e#2448#2472#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="e#4598#4626#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
@@ -2039,8 +2042,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#517#543#0" expanded="false" />
             <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
+            <element signature="e#2448#2472#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="e#4598#4626#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
@@ -2121,8 +2128,12 @@
             <element signature="imports" expanded="true" />
             <element signature="e#517#543#0" expanded="false" />
             <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
+            <element signature="e#2448#2472#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="e#4598#4626#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
             <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
@@ -2397,25 +2408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#517#543#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
-            <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
-            <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
-            <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
-            <element signature="method#passwordsMatch#0;class#SignUp#0" expanded="false" />
-            <element signature="method#toMainActivity#0;class#SignUp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2454,17 +2446,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java">
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8557794">
+          <caret line="232" column="5" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#369#394#0" expanded="false" />
-            <element signature="method#onCreate#0;class#LogIn#0" expanded="false" />
-            <element signature="method#btnCreateAccount_Click#0;class#LogIn#0" expanded="false" />
-            <element signature="method#btnForgotPassword_Click#0;class#LogIn#0" expanded="false" />
-            <element signature="e#3164#3187#0" expanded="false" />
+            <element signature="e#517#543#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
+            <element signature="e#2448#2472#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="e#4598#4626#0" expanded="false" />
+            <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
+            <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
+            <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
+            <element signature="method#passwordsMatch#0;class#SignUp#0" expanded="false" />
+            <element signature="method#toMainActivity#0;class#SignUp#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2482,17 +2482,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60505164">
-          <caret line="60" column="15" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="13" selection-start-line="68" selection-start-column="13" selection-end-line="68" selection-end-column="13" />
           <folding>
-            <element signature="e#340#366#0" expanded="false" />
-            <element signature="e#1440#1468#0" expanded="false" />
-            <element signature="method#btnSearch_Click#0;class#AddMovies#0" expanded="false" />
-            <element signature="e#1734#1757#0" expanded="false" />
+            <element signature="method#onCreate#0;class#AddMovies#0" expanded="false" />
+            <element signature="e#2299#2327#0" expanded="false" />
+            <element signature="e#2399#2544#0" expanded="true" />
+            <element signature="e#2543#2544#0" expanded="true" />
+            <element signature="e#2593#2616#0" expanded="false" />
             <element signature="method#addMovie#0;class#AddMovies#0" expanded="false" />
-            <element signature="e#2366#2385#0" expanded="false" />
+            <element signature="e#3225#3244#0" expanded="false" />
             <element signature="method#toActivityCreateEvent#0;class#AddMovies#0" expanded="false" />
             <element signature="method#toHubActivity#0;class#AddMovies#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66533065">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding>
+            <element signature="method#onCreate#0;class#LogIn#0" expanded="false" />
+            <element signature="method#onKey#0;class#LogIn#0" expanded="false" />
+            <element signature="e#2830#2852#0" expanded="false" />
+            <element signature="method#btnLogin_Click#0;class#LogIn#0" expanded="false" />
+            <element signature="method#btnCreateAccount_Click#0;class#LogIn#0" expanded="false" />
+            <element signature="method#btnForgotPassword_Click#0;class#LogIn#0" expanded="false" />
+            <element signature="e#4607#4630#0" expanded="false" />
           </folding>
         </state>
       </provider>

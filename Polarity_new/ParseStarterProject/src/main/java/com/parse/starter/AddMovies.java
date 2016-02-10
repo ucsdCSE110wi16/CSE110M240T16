@@ -2,18 +2,26 @@ package com.parse.starter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.security.Key;
 import java.util.ArrayList;
 
-public class AddMovies extends Activity {
+public class AddMovies extends Activity implements View.OnKeyListener{
 
     //region Declare Variables
+
+    public static final String TAG = SignUp.class.getSimpleName();
 
     Button btnBack, btnHome, btnImportMovieQueue, btnSearch;
     ListView lvMovieList;
@@ -21,6 +29,8 @@ public class AddMovies extends Activity {
 
     ArrayList<Model> modelList;
     CustomAdapter adapter;
+
+    String movieNameBuffer;
 
     //endregion
 
@@ -41,10 +51,24 @@ public class AddMovies extends Activity {
         adapter = new CustomAdapter(getApplicationContext(), modelList);
         lvMovieList.setAdapter(adapter);
 
-
-        // set catches
+        // set listeners
         btnSearch.setOnClickListener(btnSearch_Click());
+        tbSearch.setOnKeyListener(this);
+    }
 
+
+    @Override
+    public boolean onKey(View view, int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_DOWN) {
+            // check if tbSearch has focus AND the ENTER key was pressed
+            if(tbSearch.hasFocus() && keyCode == KeyEvent.KEYCODE_ENTER) {
+                btnSearch.requestFocus();
+                view.clearFocus();
+                btnSearch_Click();
+                return true;
+            }
+        }
+        return false; // pass on to listeners
     }
 
     //region Button Click Events

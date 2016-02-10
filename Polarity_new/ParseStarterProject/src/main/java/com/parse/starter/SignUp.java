@@ -127,12 +127,13 @@ public class SignUp extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                passwordsMatch();
+                setTxtInfoMessage();
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
-                passwordsMatch();
-                setTxtInfoMessage();
             }
         };
     } // pwTextChanged
