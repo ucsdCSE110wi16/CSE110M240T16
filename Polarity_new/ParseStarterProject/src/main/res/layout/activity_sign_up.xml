@@ -29,21 +29,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign up for Polarity "
-        android:id="@+id/titleText"
+        android:id="@+id/inviteFriends_txtTitle"
         android:layout_above="@+id/txtInfo"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/backButton" />
+        android:layout_alignTop="@+id/inviteFriends_btnBack" />
     <!--Back button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/backButton"
+        android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="toMainActivity"
         android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
         />
@@ -69,7 +68,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/backButton" />
+        android:layout_below="@+id/inviteFriends_btnBack" />
 
     <!--Image for Back Button-->
     <ImageView
@@ -77,12 +76,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView8"
         android:src="@drawable/back_button"
-        android:layout_alignTop="@+id/titleText"
+        android:layout_alignTop="@+id/inviteFriends_txtTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton"
-        android:layout_alignBottom="@+id/backButton" />
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack"
+        android:layout_alignBottom="@+id/inviteFriends_btnBack" />
 
 
 
@@ -92,12 +91,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView11"
-        android:layout_alignBottom="@+id/tbUserName"
+        android:layout_alignBottom="@+id/createEvent_tbUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/tbUserName"
-        android:layout_alignRight="@+id/tbUserName"
-        android:layout_alignEnd="@+id/tbUserName" />
+        android:layout_alignTop="@+id/createEvent_tbUserName"
+        android:layout_alignRight="@+id/createEvent_tbUserName"
+        android:layout_alignEnd="@+id/createEvent_tbUserName" />
 
     <!--grey rectangle behind email-->
     <ImageView
@@ -108,7 +107,7 @@
         android:layout_alignBottom="@+id/imageView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/tbEmail"
+        android:layout_alignTop="@+id/createEvent_tbLocation"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -142,23 +141,23 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tbUserName"
+        android:id="@+id/createEvent_tbUserName"
         android:hint="@string/username"
         android:layout_below="@+id/txtInfo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textStyle="italic"
         android:layout_marginTop="44dp"
-        android:layout_alignRight="@+id/tbEmail"
-        android:layout_alignEnd="@+id/tbEmail" />
+        android:layout_alignRight="@+id/createEvent_tbLocation"
+        android:layout_alignEnd="@+id/createEvent_tbLocation" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tbEmail"
+        android:id="@+id/createEvent_tbLocation"
         android:hint="@string/email"
         android:textStyle="italic"
-        android:layout_below="@+id/tbUserName"
+        android:layout_below="@+id/createEvent_tbUserName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -172,11 +171,11 @@
         android:ems="10"
         android:id="@+id/main_tbPassword"
         android:hint="@string/password"
-        android:layout_below="@+id/tbEmail"
+        android:layout_below="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/tbEmail"
-        android:layout_alignEnd="@+id/tbEmail" />
+        android:layout_alignRight="@+id/createEvent_tbLocation"
+        android:layout_alignEnd="@+id/createEvent_tbLocation" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -196,7 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView10"
-        android:layout_below="@+id/tbEmail"
+        android:layout_below="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="462dp"

@@ -18,11 +18,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/searchField"
-        android:layout_alignStart="@+id/backButton"
-        android:layout_alignLeft="@+id/backButton"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton" />
+        android:layout_above="@+id/inviteFriends_tbSearch"
+        android:layout_alignStart="@+id/inviteFriends_btnBack"
+        android:layout_alignLeft="@+id/inviteFriends_btnBack"
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack" />
 
     <ImageView
         android:src="@drawable/home_button"
@@ -31,9 +31,9 @@
         android:id="@+id/homeImageView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/searchButton"
-        android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_above="@+id/inviteFriends_btnSearch"
+        android:layout_alignLeft="@+id/inviteFriends_btnHome"
+        android:layout_alignStart="@+id/inviteFriends_btnHome" />
 
     <!-- Search ImageView-->
     <ImageView
@@ -41,25 +41,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchImageView"
-        android:layout_alignTop="@+id/searchField"
-        android:layout_alignRight="@+id/searchButton"
-        android:layout_alignEnd="@+id/searchButton"
-        android:layout_alignLeft="@+id/searchButton"
-        android:layout_alignStart="@+id/searchButton"
-        android:layout_alignBottom="@+id/searchButton" />
+        android:layout_alignTop="@+id/inviteFriends_tbSearch"
+        android:layout_alignRight="@+id/inviteFriends_btnSearch"
+        android:layout_alignEnd="@+id/inviteFriends_btnSearch"
+        android:layout_alignLeft="@+id/inviteFriends_btnSearch"
+        android:layout_alignStart="@+id/inviteFriends_btnSearch"
+        android:layout_alignBottom="@+id/inviteFriends_btnSearch" />
 
     <!-- Add Movies ImageView-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/importQueueImageView"
-        android:layout_alignTop="@+id/addMoviesButton"
+        android:layout_alignTop="@+id/inviteFriends_btnInviteFriends"
         android:layout_centerHorizontal="true"
-        android:layout_alignRight="@+id/addMoviesButton"
-        android:layout_alignEnd="@+id/addMoviesButton"
-        android:layout_alignLeft="@+id/addMoviesButton"
-        android:layout_alignStart="@+id/addMoviesButton"
-        android:layout_alignBottom="@+id/addMoviesButton"
+        android:layout_alignRight="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignEnd="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignLeft="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignStart="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignBottom="@+id/inviteFriends_btnInviteFriends"
         android:src="@drawable/loginbuttonbackground"/>
 
     <!-- Search Moies Imageview-->
@@ -68,10 +68,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/searchMoviesImageView"
         android:src="@drawable/textviewbackground"
-        android:layout_alignBottom="@+id/searchField"
-        android:layout_below="@+id/backButton"
-        android:layout_alignRight="@+id/searchField"
-        android:layout_alignEnd="@+id/searchField"
+        android:layout_alignBottom="@+id/inviteFriends_tbSearch"
+        android:layout_below="@+id/inviteFriends_btnBack"
+        android:layout_alignRight="@+id/inviteFriends_tbSearch"
+        android:layout_alignEnd="@+id/inviteFriends_tbSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/movieListImageView"
         android:src="@drawable/movie_listbackground_large"
-        android:layout_alignTop="@+id/friendsList"
+        android:layout_alignTop="@+id/inviteFriends_lvFriendsList"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -91,7 +91,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Movie Queue"
         android:textSize="28dp"
-        android:id="@+id/titleText"
+        android:id="@+id/inviteFriends_txtTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/themeWhite"
@@ -103,11 +103,11 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/backButton"
+        android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/searchField" />
+        android:layout_above="@+id/inviteFriends_tbSearch" />
 
     <!-- Home Button-->
     <Button
@@ -115,8 +115,8 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeButton"
-        android:layout_alignTop="@+id/titleText"
+        android:id="@+id/inviteFriends_btnHome"
+        android:layout_alignTop="@+id/inviteFriends_txtTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -126,12 +126,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm Queue"
-        android:id="@+id/addMoviesButton"
+        android:id="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/friendsList"
-        android:layout_alignEnd="@+id/friendsList"
+        android:layout_alignRight="@+id/inviteFriends_lvFriendsList"
+        android:layout_alignEnd="@+id/inviteFriends_lvFriendsList"
         android:textColor="@color/themeWhite" />
 
     <!-- Search Button-->
@@ -140,32 +140,32 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchButton"
-        android:layout_below="@+id/homeButton"
-        android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton"
+        android:id="@+id/inviteFriends_btnSearch"
+        android:layout_below="@+id/inviteFriends_btnHome"
+        android:layout_alignLeft="@+id/inviteFriends_btnHome"
+        android:layout_alignStart="@+id/inviteFriends_btnHome"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchField"
-        android:layout_alignBottom="@+id/searchButton"
+        android:id="@+id/inviteFriends_tbSearch"
+        android:layout_alignBottom="@+id/inviteFriends_btnSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/searchButton"
-        android:layout_toStartOf="@+id/searchButton"
+        android:layout_toLeftOf="@+id/inviteFriends_btnSearch"
+        android:layout_toStartOf="@+id/inviteFriends_btnSearch"
         android:text="Search Movies List" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/friendsList"
+        android:id="@+id/inviteFriends_lvFriendsList"
         android:choiceMode="singleChoice"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/searchField"
+        android:layout_below="@+id/inviteFriends_tbSearch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/importQueueImageView" />

@@ -16,39 +16,38 @@
         android:id="@+id/imageView6"
         android:layout_alignParentTop="true"
         android:src="@drawable/smallbuttonbackdrop"
-        android:layout_alignLeft="@+id/btnLogOut"
-        android:layout_alignStart="@+id/btnLogOut"
+        android:layout_alignLeft="@+id/hubActivity_btnLogOut"
+        android:layout_alignStart="@+id/hubActivity_btnLogOut"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/btnCreateEvent" />
+        android:layout_above="@+id/hubActivity_btnCreateEvent" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView5"
-        android:layout_alignTop="@+id/btnCreateEvent"
+        android:layout_alignTop="@+id/hubActivity_btnCreateEvent"
         android:src="@drawable/loginbuttonbackground"
-        android:layout_alignBottom="@+id/btnCreateEvent"
+        android:layout_alignBottom="@+id/hubActivity_btnCreateEvent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btnCreateEvent"
-        android:layout_alignEnd="@+id/btnCreateEvent" />
+        android:layout_alignRight="@+id/hubActivity_btnCreateEvent"
+        android:layout_alignEnd="@+id/hubActivity_btnCreateEvent" />
 
     <!-- Create Event button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Event"
-        android:id="@+id/btnCreateEvent"
+        android:id="@+id/hubActivity_btnCreateEvent"
         android:layout_marginTop="25dp"
         android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/btnLogOut"
+        android:layout_below="@+id/hubActivity_btnLogOut"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btnLogOut"
-        android:layout_alignEnd="@+id/btnLogOut"
-        android:onClick="toCreateEvent"
+        android:layout_alignRight="@+id/hubActivity_btnLogOut"
+        android:layout_alignEnd="@+id/hubActivity_btnLogOut"
         />
 
     <!-- Log Out button -->
@@ -59,18 +58,17 @@
         android:text="Log Out"
         android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
-        android:id="@+id/btnLogOut"
+        android:id="@+id/hubActivity_btnLogOut"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="toMainActivity"
         />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvEventQueue"
-        android:layout_below="@+id/btnCreateEvent"
+        android:id="@+id/hubActivity_lvEventQueue"
+        android:layout_below="@+id/hubActivity_btnCreateEvent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="37dp"
@@ -84,10 +82,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView7"
         android:src="@drawable/small_logo"
-        android:layout_alignTop="@+id/btnLogOut"
+        android:layout_alignTop="@+id/hubActivity_btnLogOut"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/btnLogOut" />
+        android:layout_alignBottom="@+id/hubActivity_btnLogOut" />
 
 
 </RelativeLayout>

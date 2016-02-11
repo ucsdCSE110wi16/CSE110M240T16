@@ -1,7 +1,6 @@
 package com.parse.starter;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,7 +15,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-public class SignUp extends AppCompatActivity {
+public class SignUp extends PolarityActivity {
 
     //region Declare Variables
 
@@ -46,8 +45,8 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         // this will initializes the variables on the page
-        userName = (EditText) findViewById(R.id.tbUserName);
-        email = (EditText) findViewById(R.id.tbEmail);
+        userName = (EditText) findViewById(R.id.createEvent_tbUserName);
+        email = (EditText) findViewById(R.id.createEvent_tbLocation);
         password = (EditText) findViewById(R.id.main_tbPassword);
         rePassword = (EditText) findViewById(R.id.tbRePassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
@@ -217,7 +216,8 @@ public class SignUp extends AppCompatActivity {
 
         try {
             user.signUp();
-            setContentView(R.layout.activity_hub);
+            toActivity_HubActivity();
+
         } catch (ParseException e) {
             // sign-up failed :(
             txtInfo.setText(e.getMessage());
@@ -227,8 +227,4 @@ public class SignUp extends AppCompatActivity {
 
     //endregion
 
-    public void toMainActivity(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }

@@ -2,13 +2,8 @@ package com.parse.starter;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,7 +14,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class LogIn extends AppCompatActivity implements View.OnKeyListener{
+public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
     //region Create Variables
 
@@ -72,7 +67,7 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener{
             }
         }
         return false; // pass on to listeners
-    }
+    } // onKey
 
     //region Button Clicks
 
@@ -92,11 +87,11 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener{
                     ParseUser.logIn(userName.getText().toString(), password.getText().toString());
 
                     // save variables to global file
-                    //Common com = ((Common)getApplicationContext());
-                    //com._username = userName.getText().toString();
-                    //com._userKey = ParseUser.getCurrentUser().getObjectId().toString();
+                    com_user = ParseUser.getCurrentUser().getUsername();
+                    com_userID = ParseUser.getCurrentUser().getObjectId();
 
-                    goToHub();
+                    toActivity_HubActivity();
+
                 } catch (ParseException e) {
                     btnLogin.setEnabled(true);
                     btnCreateAccount.setEnabled(true);
@@ -111,7 +106,7 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener{
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToSignUpScreen();
+                toActivity_SignUp();
             }
         };
     } // btnCreateAccount_Click
@@ -120,29 +115,14 @@ public class LogIn extends AppCompatActivity implements View.OnKeyListener{
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToForgotPassword();
+                toActivity_ForgotPassword();
             }
         };
     } // btnForgotPassword_Click
 
     //endregion
 
-    //region Page Transfers
-
-    public void goToForgotPassword() {
-        Intent intentObject = new Intent(this, ForgotPassword.class);
-        startActivity(intentObject);
-    }
-
-    public void goToHub() {
-        Intent intentObject = new Intent(this, HubActivity.class);
-        startActivity(intentObject);
-    }
-
-    public void goToSignUpScreen() {
-        Intent intentObject = new Intent(this, SignUp.class);
-        startActivity(intentObject);
-    }
+    //region Auto-Generated Stuff
 
     @Override
     public void onStart() {

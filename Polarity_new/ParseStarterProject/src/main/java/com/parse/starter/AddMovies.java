@@ -1,13 +1,9 @@
 package com.parse.starter;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.inputmethodservice.Keyboard;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,13 +12,10 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
-import java.security.Key;
 import java.util.ArrayList;
 
-public class AddMovies extends Activity implements View.OnKeyListener {
+public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     //region Declare Variables
 
@@ -52,7 +45,9 @@ public class AddMovies extends Activity implements View.OnKeyListener {
         btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
 
-        modelList = new ArrayList<Model>();
+        if(com_movieList == null) modelList = new ArrayList<Model>();
+        else modelList = com_movieList;
+
         adapter = new CustomAdapter(getApplicationContext(), modelList);
         lvMovieList.setAdapter(adapter);
 
@@ -63,7 +58,6 @@ public class AddMovies extends Activity implements View.OnKeyListener {
         tbSearch.setOnKeyListener(this);
 
     }
-
 
     @Override
     public boolean onKey(View view, int keyCode, KeyEvent event) {
@@ -94,7 +88,7 @@ public class AddMovies extends Activity implements View.OnKeyListener {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivityCreateEvent(v);
+                toActivity_CreateEvent();
             }
         };
     } // btnBack_onClick
@@ -103,7 +97,7 @@ public class AddMovies extends Activity implements View.OnKeyListener {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toHubActivity(v);
+                toActivity_HubActivity();
             }
         };
     } // btnHome_Click
@@ -116,7 +110,7 @@ public class AddMovies extends Activity implements View.OnKeyListener {
         String name = tbSearch.getText().toString();
         // if name field is empty, show toast notification
         if (name.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "You must enter a movie name into the text box",
+            Toast.makeText(getApplicationContext(), "You must enter a movie name",
                     Toast.LENGTH_SHORT).show();
         }
         // add string to the list
@@ -130,21 +124,6 @@ public class AddMovies extends Activity implements View.OnKeyListener {
     }
 
     //endregion
-
-    //region Navigation
-
-    public void toActivityCreateEvent(View view) {
-        Intent intent = new Intent(this, CreateEvent.class);
-        startActivity(intent);
-    }
-
-    public void toHubActivity(View view) {
-        Intent intent = new Intent(this, HubActivity.class);
-        startActivity(intent);
-    }
-
-    //endregion
-
 
     @Override
     public void onStart() {
