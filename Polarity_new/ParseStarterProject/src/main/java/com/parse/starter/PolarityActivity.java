@@ -16,7 +16,9 @@ public abstract class PolarityActivity extends Activity {
 
     // global variables - must be declared static
     static String com_user, com_userID, com_eventID;
+
     static ArrayList<Model> com_movieList;
+    static ArrayList<Model> com_invitedFriends;
 
     //endregion
 
@@ -27,7 +29,9 @@ public abstract class PolarityActivity extends Activity {
         com_user = "";
         com_userID = "";
         com_eventID = "";
+
         com_movieList = new ArrayList<Model>();
+        com_invitedFriends = new ArrayList<Model>();
     }
 
     //endregion

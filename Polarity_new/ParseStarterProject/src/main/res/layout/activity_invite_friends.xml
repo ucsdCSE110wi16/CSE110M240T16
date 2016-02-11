@@ -192,4 +192,13 @@
         android:layout_below="@+id/inviteFriends_btnSelectAll"
         android:layout_above="@+id/inviteFriends_btnInviteFriends" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/inviteFriends_txtInfo"
+        android:layout_marginTop="34dp"
+        android:layout_alignTop="@+id/movieListImageView"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
