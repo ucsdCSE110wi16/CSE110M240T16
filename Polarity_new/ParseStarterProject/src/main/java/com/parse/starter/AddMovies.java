@@ -45,8 +45,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
 
-        if(com_movieList == null) modelList = new ArrayList<Model>();
-        else modelList = com_movieList;
+        modelList = com_movieList;
 
         adapter = new CustomAdapter(getApplicationContext(), modelList);
         lvMovieList.setAdapter(adapter);
@@ -97,6 +96,14 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // erase all the data if backing up to main screen
+                com_eventName = "";
+                com_eventLocation = "";
+                com_eventTime = "";
+                com_eventDescription = "";
+                com_movieList.clear();
+                com_invitedFriends.clear();
+
                 toActivity_HubActivity();
             }
         };

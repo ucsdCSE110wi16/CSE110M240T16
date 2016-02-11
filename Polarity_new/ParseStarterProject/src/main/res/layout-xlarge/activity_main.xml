@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="User Name"
-        android:id="@+id/createEvent_tbUserName"
+        android:id="@+id/createEvent_tbName"
         android:layout_alignBottom="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

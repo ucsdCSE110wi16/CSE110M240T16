@@ -65,43 +65,86 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SignUp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java">
+      <file leaf-file-name="CreateEvent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/CreateEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="223" column="39" selection-start-line="223" selection-start-column="39" selection-end-line="223" selection-end-column="39" />
+              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#467#493#0" expanded="false" />
-                <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
-                <element signature="e#2425#2449#0" expanded="false" />
-                <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
-                <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
-                <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
-                <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
-                <element signature="e#4676#4906#0" expanded="true" />
-                <element signature="e#4905#4906#0" expanded="true" />
-                <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
-                <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
+                <element signature="method#btnAddMovie_Click#0;class#CreateEvent#0" expanded="false" />
+                <element signature="e#1940#2383#0" expanded="true" />
+                <element signature="e#2382#2383#0" expanded="true" />
+                <element signature="method#btnInviteFriends_Click#0;class#CreateEvent#0" expanded="false" />
+                <element signature="e#2490#2937#0" expanded="true" />
+                <element signature="e#2936#2937#0" expanded="true" />
+                <element signature="method#btnCreateEvent_Click#0;class#CreateEvent#0" expanded="false" />
+                <element signature="e#3047#6600#0" expanded="true" />
+                <element signature="e#4352#4365#0" expanded="true" />
+                <element signature="e#6599#6600#0" expanded="true" />
+                <element signature="method#btnBack_Click#0;class#CreateEvent#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateEvent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/CreateEvent.java">
+      <file leaf-file-name="AddMovies.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5660161">
-              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="104" column="43" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
+              <folding>
+                <element signature="e#455#481#0" expanded="false" />
+                <element signature="method#onCreate#0;class#AddMovies#0" expanded="false" />
+                <element signature="method#onKey#0;class#AddMovies#0" expanded="false" />
+                <element signature="method#btnSearch_Click#0;class#AddMovies#0" expanded="false" />
+                <element signature="e#2390#2534#0" expanded="true" />
+                <element signature="e#2533#2534#0" expanded="true" />
+                <element signature="e#2884#3348#0" expanded="true" />
+                <element signature="e#3347#3348#0" expanded="true" />
+                <element signature="e#3395#3418#0" expanded="false" />
+                <element signature="method#onStart#0;class#AddMovies#0" expanded="false" />
+                <element signature="method#onStop#0;class#AddMovies#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_create_event.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_create_event.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="243" column="52" selection-start-line="243" selection-start-column="52" selection-end-line="243" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_invite_friends.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_invite_friends.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.5">
+              <caret line="198" column="46" selection-start-line="198" selection-start-column="39" selection-end-line="198" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PolarityActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/PolarityActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6291619">
+              <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1092#1114#0" expanded="false" />
-                <element signature="e#1451#1611#0" expanded="true" />
-                <element signature="e#1610#1611#0" expanded="true" />
-                <element signature="method#btnCreateEvent_Click#0;class#CreateEvent#0" expanded="false" />
-                <element signature="e#1721#1879#0" expanded="true" />
-                <element signature="e#1878#1879#0" expanded="true" />
-                <element signature="method#btnBack_Click#0;class#CreateEvent#0" expanded="false" />
+                <element signature="e#1322#1341#0" expanded="false" />
+                <element signature="method#toActivity_AddMovies#0;class#PolarityActivity#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1649,16 +1692,16 @@
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/MainActivity.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_sign_up.xml" />
-        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java" />
-        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_create_event.xml" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_forgot_password.xml" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/ForgotPassword.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_hub.xml" />
-        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/PolarityActivity.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/HubActivity.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_invite_friends.xml" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/InviteFriends.java" />
-        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_create_event.xml" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/PolarityActivity.java" />
+        <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java" />
         <option value="$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/CreateEvent.java" />
       </list>
     </option>
@@ -1717,24 +1760,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Polarity_new" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ParseStarterProject" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1962,8 +1987,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2050,15 +2075,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java</url>
-          <line>157</line>
+          <line>156</line>
           <properties />
           <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java</url>
+          <line>77</line>
+          <properties />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="42" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2091,14 +2122,14 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#467#493#0" expanded="false" />
+            <element signature="e#436#462#0" expanded="false" />
             <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
-            <element signature="e#2425#2449#0" expanded="false" />
+            <element signature="e#2390#2414#0" expanded="false" />
             <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
             <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="e#4575#4603#0" expanded="false" />
+            <element signature="e#4540#4568#0" expanded="false" />
             <element signature="method#btnRegisterClick#0;class#SignUp#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
             <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
@@ -2475,17 +2506,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_create_event.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="243" column="52" selection-start-line="243" selection-start-column="52" selection-end-line="243" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_forgot_password.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.862069">
@@ -2506,19 +2526,6 @@
             <element signature="method#btnBack_Click#0;class#ForgotPassword#0" expanded="false" />
             <element signature="e#732#884#0" expanded="true" />
             <element signature="e#883#884#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/PolarityActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30884042">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#292#318#0" expanded="false" />
-            <element signature="e#488#507#0" expanded="false" />
-            <element signature="method#toActivity_AddMovies#0;class#PolarityActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2548,38 +2555,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/InviteFriends.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40042827">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.66360503">
+          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
           <folding>
-            <element signature="e#1009#1031#0" expanded="false" />
             <element signature="method#btnBack_Click#0;class#InviteFriends#0" expanded="false" />
-            <element signature="e#1101#1259#0" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
             <element signature="method#btnHome_Click#0;class#InviteFriends#0" expanded="false" />
-            <element signature="e#1353#1511#0" expanded="true" />
-            <element signature="e#1510#1511#0" expanded="true" />
             <element signature="method#btnSelectAll_Click#0;class#InviteFriends#0" expanded="false" />
             <element signature="method#btnInviteFriends_Click#0;class#InviteFriends#0" expanded="false" />
-            <element signature="e#1835#1993#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_invite_friends.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="13" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.5">
+          <caret line="198" column="46" selection-start-line="198" selection-start-column="39" selection-end-line="198" selection-end-column="46" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
+      <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="206" column="74" selection-start-line="206" selection-start-column="74" selection-end-line="206" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#436#462#0" expanded="false" />
+            <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
+            <element signature="e#2390#2414#0" expanded="false" />
+            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
+            <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
+            <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
+            <element signature="method#signUp#0;class#SignUp#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/LogIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21354765">
+        <state vertical-scroll-proportion="0.039035592">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -2594,54 +2614,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/res/layout/activity_create_event.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="243" column="52" selection-start-line="243" selection-start-column="52" selection-end-line="243" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/AddMovies.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29122055">
-          <caret line="42" column="64" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="43" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
           <folding>
             <element signature="e#455#481#0" expanded="false" />
+            <element signature="method#onCreate#0;class#AddMovies#0" expanded="false" />
             <element signature="method#onKey#0;class#AddMovies#0" expanded="false" />
-            <element signature="e#3164#3187#0" expanded="false" />
+            <element signature="method#btnSearch_Click#0;class#AddMovies#0" expanded="false" />
+            <element signature="e#2390#2534#0" expanded="true" />
+            <element signature="e#2533#2534#0" expanded="true" />
+            <element signature="e#2884#3348#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+            <element signature="e#3395#3418#0" expanded="false" />
             <element signature="method#onStart#0;class#AddMovies#0" expanded="false" />
             <element signature="method#onStop#0;class#AddMovies#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/SignUp.java">
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/CreateEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="223" column="39" selection-start-line="223" selection-start-column="39" selection-end-line="223" selection-end-column="39" />
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#467#493#0" expanded="false" />
-            <element signature="method#onCreate#0;class#SignUp#0" expanded="false" />
-            <element signature="e#2425#2449#0" expanded="false" />
-            <element signature="method#usernameFocusChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="method#emailFocusChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="method#pwFocusChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="method#pwTextChanged#0;class#SignUp#0" expanded="false" />
-            <element signature="e#4676#4906#0" expanded="true" />
-            <element signature="e#4905#4906#0" expanded="true" />
-            <element signature="method#setTxtInfoMessage#0;class#SignUp#0" expanded="false" />
-            <element signature="method#usernameAvailable#0;class#SignUp#0" expanded="false" />
+            <element signature="method#btnAddMovie_Click#0;class#CreateEvent#0" expanded="false" />
+            <element signature="e#1940#2383#0" expanded="true" />
+            <element signature="e#2382#2383#0" expanded="true" />
+            <element signature="method#btnInviteFriends_Click#0;class#CreateEvent#0" expanded="false" />
+            <element signature="e#2490#2937#0" expanded="true" />
+            <element signature="e#2936#2937#0" expanded="true" />
+            <element signature="method#btnCreateEvent_Click#0;class#CreateEvent#0" expanded="false" />
+            <element signature="e#3047#6600#0" expanded="true" />
+            <element signature="e#4352#4365#0" expanded="true" />
+            <element signature="e#6599#6600#0" expanded="true" />
+            <element signature="method#btnBack_Click#0;class#CreateEvent#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/CreateEvent.java">
+    <entry file="file://$PROJECT_DIR$/ParseStarterProject/src/main/java/com/parse/starter/PolarityActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5660161">
-          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.6291619">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1092#1114#0" expanded="false" />
-            <element signature="e#1451#1611#0" expanded="true" />
-            <element signature="e#1610#1611#0" expanded="true" />
-            <element signature="method#btnCreateEvent_Click#0;class#CreateEvent#0" expanded="false" />
-            <element signature="e#1721#1879#0" expanded="true" />
-            <element signature="e#1878#1879#0" expanded="true" />
-            <element signature="method#btnBack_Click#0;class#CreateEvent#0" expanded="false" />
+            <element signature="e#1322#1341#0" expanded="false" />
+            <element signature="method#toActivity_AddMovies#0;class#PolarityActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

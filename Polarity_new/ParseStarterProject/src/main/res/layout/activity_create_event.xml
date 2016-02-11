@@ -19,7 +19,7 @@
         android:layout_below="@+id/imageView19"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/createEvent_tbUserName"
+        android:layout_alignBottom="@+id/createEvent_tbName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView25"
-        android:layout_below="@+id/createEvent_tbUserName"
+        android:layout_below="@+id/createEvent_tbName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/createEvent_tbTime"
@@ -110,7 +110,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/createEvent_tbUserName"
+        android:layout_above="@+id/createEvent_tbName"
         android:layout_alignRight="@+id/inviteFriends_btnBack"
         android:layout_alignEnd="@+id/inviteFriends_btnBack" />
 
@@ -144,7 +144,7 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/createEvent_tbUserName"
+    android:id="@+id/createEvent_tbName"
         android:hint="Event Name"
         android:textStyle="italic"
         android:layout_above="@+id/createEvent_tbLocation"

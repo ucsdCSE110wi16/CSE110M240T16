@@ -1,6 +1,5 @@
 package com.parse.starter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -45,7 +44,7 @@ public class SignUp extends PolarityActivity {
         setContentView(R.layout.activity_sign_up);
 
         // this will initializes the variables on the page
-        userName = (EditText) findViewById(R.id.createEvent_tbUserName);
+        userName = (EditText) findViewById(R.id.createEvent_tbName);
         email = (EditText) findViewById(R.id.createEvent_tbLocation);
         password = (EditText) findViewById(R.id.main_tbPassword);
         rePassword = (EditText) findViewById(R.id.tbRePassword);
