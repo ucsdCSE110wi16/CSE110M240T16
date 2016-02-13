@@ -1,15 +1,22 @@
 package com.parse.starter;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class HubActivity extends PolarityActivity {
 
     public static final String TAG = SignUp.class.getSimpleName();
 
     Button btnLogOut, btnCreateEvent;
+    ListView lvEventQueue;
+    TextView eventQueueTxt;
+    ArrayList<Model> eventQueue;
+    CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,20 @@ public class HubActivity extends PolarityActivity {
 
         btnLogOut.setOnClickListener(btnLogOut_Click());
         btnCreateEvent.setOnClickListener(btnCreateEvent_Click());
+
+        lvEventQueue = (ListView) findViewById(R.id.hubActivity_lvEventQueue);
+        eventQueueTxt = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
+
+        if(com_eventQueue.size() == 0){
+           eventQueueTxt.setText("No upcoming events");
+        }
+        else{
+            eventQueueTxt.setText("");
+        }
+
+        eventQueue = com_eventQueue;
+        adapter = new CustomAdapter(getApplicationContext(), eventQueue);
+        lvEventQueue.setAdapter(adapter);
 
     }
 

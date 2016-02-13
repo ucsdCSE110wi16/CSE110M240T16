@@ -17,6 +17,18 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="RMBTN">Remove</string>
+
+    <!-- activity_add_movies.xml -->
     <string name="search_movie_list">Search Movie List</string>
     <string name="search_friends_list">Search Friends List</string>
+
+    <!-- activity_hub.xml strings -->
+
+    <string name="log_out">Log Out</string>
+    <string name="create_event">Create Event</string>
+
+    <!-- activity_invite_friends.xml -->
+    <string name="select_all_friends">Select All Friends</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="your_friends">Your Friends</string>
 </resources>
