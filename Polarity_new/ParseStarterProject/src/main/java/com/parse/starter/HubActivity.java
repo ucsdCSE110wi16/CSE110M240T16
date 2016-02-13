@@ -19,6 +19,11 @@ public class HubActivity extends PolarityActivity {
     CustomAdapter adapter;
 
     @Override
+    public void onBackPressed(){
+        //DON'T DO IT, I'll phone children's aid
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub);
