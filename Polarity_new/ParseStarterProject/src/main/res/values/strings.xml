@@ -17,4 +17,6 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="RMBTN">Remove</string>
+    <string name="search_movie_list">Search Movie List</string>
+    <string name="search_friends_list">Search Friends List</string>
 </resources>
