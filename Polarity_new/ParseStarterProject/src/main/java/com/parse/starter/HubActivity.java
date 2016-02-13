@@ -1,33 +1,49 @@
 package com.parse.starter;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
-public class HubActivity extends AppCompatActivity {
+public class HubActivity extends PolarityActivity {
 
     public static final String TAG = SignUp.class.getSimpleName();
+
+    Button btnLogOut, btnCreateEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub);
 
-        //Common com = ((Common)getApplicationContext());
-        //Log.e(TAG, "Common._username = " + com._username);
-        //Log.e(TAG, "Common._userKey = " + com._userKey);
+        btnLogOut = (Button) findViewById(R.id.hubActivity_btnLogOut);
+        btnCreateEvent = (Button) findViewById(R.id.hubActivity_btnCreateEvent);
+
+        btnLogOut.setOnClickListener(btnLogOut_Click());
+        btnCreateEvent.setOnClickListener(btnCreateEvent_Click());
+
     }
 
-    public void toMainActivity(View view){
-        Intent intentObject = new Intent(this, MainActivity.class);
-        startActivity(intentObject);
-    }
+    //region btnLogOut_Click
 
-    public void toCreateEvent(View view){
-        Intent intentObject = new Intent(this, CreateEvent.class);
-        startActivity(intentObject);
-    }
+    protected View.OnClickListener btnLogOut_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toActivity_Login();
+            }
+        };
+    } // btnLogOut
+
+    protected View.OnClickListener btnCreateEvent_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toActivity_CreateEvent();
+            }
+        };
+    } // btnCreateEvent
+
+    //endregion
 
 }

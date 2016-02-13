@@ -19,7 +19,7 @@
         android:layout_below="@+id/imageView19"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/tbUserName"
+        android:layout_alignBottom="@+id/createEvent_tbName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -29,10 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView25"
-        android:layout_below="@+id/tbUserName"
+        android:layout_below="@+id/createEvent_tbName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/timeField"
+        android:layout_above="@+id/createEvent_tbTime"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -42,12 +42,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView26"
-        android:layout_below="@+id/tbEmail"
+        android:layout_below="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/timeField"
-        android:layout_alignRight="@+id/timeField"
-        android:layout_alignEnd="@+id/timeField" />
+        android:layout_alignBottom="@+id/createEvent_tbTime"
+        android:layout_alignRight="@+id/createEvent_tbTime"
+        android:layout_alignEnd="@+id/createEvent_tbTime" />
 
     <!-- grey rectangle behind description-->
     <ImageView
@@ -59,7 +59,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView26"
-        android:layout_alignBottom="@+id/descriptionField"
+        android:layout_alignBottom="@+id/createEvent_tbDescription"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -69,12 +69,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView20"
-        android:layout_above="@+id/addMoviesButton"
+        android:layout_above="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/descriptionField"
-        android:layout_alignRight="@+id/addMoviesButton"
-        android:layout_alignEnd="@+id/addMoviesButton" />
+        android:layout_below="@+id/createEvent_tbDescription"
+        android:layout_alignRight="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignEnd="@+id/inviteFriends_btnInviteFriends" />
 
     <!--Red Box behind Add Friends Button-->
     <ImageView
@@ -82,10 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView21"
-        android:layout_alignBottom="@+id/addMoviesButton"
+        android:layout_alignBottom="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/voteButton"
+        android:layout_below="@+id/inviteFriends_btnSelectAll"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView22"
-        android:layout_below="@+id/addMoviesButton"
+        android:layout_below="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
@@ -110,9 +110,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/tbUserName"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton" />
+        android:layout_above="@+id/createEvent_tbName"
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack" />
 
     <TextView
         android:textColor="@color/themeWhite"
@@ -122,7 +122,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Creating New Event"
         android:gravity="center"
-        android:id="@+id/titleText"
+        android:id="@+id/inviteFriends_txtTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/main_txtUserName" />
@@ -135,8 +135,8 @@
     android:text="Name"
     android:id="@+id/main_txtUserName"
     android:layout_marginTop="40dp"
-    android:layout_below="@+id/backButton"
-    android:layout_toLeftOf="@+id/voteButton"
+    android:layout_below="@+id/inviteFriends_btnBack"
+    android:layout_toLeftOf="@+id/inviteFriends_btnSelectAll"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
         android:gravity="center|center_vertical"/>
@@ -144,37 +144,37 @@
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/tbUserName"
+    android:id="@+id/createEvent_tbName"
         android:hint="Event Name"
         android:textStyle="italic"
-        android:layout_above="@+id/tbEmail"
+        android:layout_above="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/tbEmail"
-        android:layout_alignEnd="@+id/tbEmail" />
+        android:layout_alignRight="@+id/createEvent_tbLocation"
+        android:layout_alignEnd="@+id/createEvent_tbLocation" />
 
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:inputType="textEmailAddress"
     android:ems="10"
-    android:id="@+id/tbEmail"
+    android:id="@+id/createEvent_tbLocation"
         android:hint="Location"
         android:textStyle="italic"
-        android:layout_above="@+id/timeField"
+        android:layout_above="@+id/createEvent_tbTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/timeField"
-        android:layout_alignEnd="@+id/timeField" />
+        android:layout_alignRight="@+id/createEvent_tbTime"
+        android:layout_alignEnd="@+id/createEvent_tbTime" />
 
     <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:ems="10"
-    android:id="@+id/timeField"
+    android:id="@+id/createEvent_tbTime"
         android:hint="Time"
         android:textStyle="italic"
-        android:layout_above="@+id/descriptionField"
+        android:layout_above="@+id/createEvent_tbDescription"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -184,11 +184,11 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:ems="10"
-    android:id="@+id/descriptionField"
+    android:id="@+id/createEvent_tbDescription"
         android:hint="Description"
         android:gravity="top"
         android:textStyle="italic"
-        android:layout_above="@+id/voteButton"
+        android:layout_above="@+id/inviteFriends_btnSelectAll"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/imageView20"
@@ -201,24 +201,22 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Invite Friends"
-    android:id="@+id/addMoviesButton"
-    android:layout_above="@+id/goingButton"
-    android:layout_alignLeft="@+id/voteButton"
-    android:layout_alignStart="@+id/voteButton"
-    android:layout_alignRight="@+id/voteButton"
-    android:layout_alignEnd="@+id/voteButton"
-    android:onClick="toInviteFriends"
+    android:id="@+id/inviteFriends_btnInviteFriends"
+    android:layout_above="@+id/createEvent_btnCreateEvent"
+    android:layout_alignLeft="@+id/inviteFriends_btnSelectAll"
+    android:layout_alignStart="@+id/inviteFriends_btnSelectAll"
+    android:layout_alignRight="@+id/inviteFriends_btnSelectAll"
+    android:layout_alignEnd="@+id/inviteFriends_btnSelectAll"
         />
 
     <Button
         android:textColor="@color/themeWhite"
         android:background="@android:color/transparent"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Add Movies"
-    android:id="@+id/voteButton"
-    android:layout_above="@+id/addMoviesButton"
-        android:onClick="toAddMovies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Movies"
+        android:id="@+id/inviteFriends_btnSelectAll"
+        android:layout_above="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -231,8 +229,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/backButton"
-        android:onClick="toHubActivity"
+        android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -244,13 +241,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Event "
-        android:id="@+id/goingButton"
-        android:onClick="eventCreatedToHubActivity"
+        android:id="@+id/createEvent_btnCreateEvent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addMoviesButton"
-        android:layout_alignEnd="@+id/addMoviesButton" />
+        android:layout_alignRight="@+id/inviteFriends_btnInviteFriends"
+        android:layout_alignEnd="@+id/inviteFriends_btnInviteFriends" />
 
     <ImageView
         android:layout_width="wrap_content"
