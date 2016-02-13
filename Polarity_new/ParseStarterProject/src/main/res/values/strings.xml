@@ -19,4 +19,5 @@
     <string name="RMBTN">Remove</string>
     <string name="search_movie_list">Search Movie List</string>
     <string name="search_friends_list">Search Friends List</string>
+    <string name="noMoviesAddedTextView"></string>
 </resources>
