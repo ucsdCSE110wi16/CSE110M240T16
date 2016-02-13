@@ -13,6 +13,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class SignUp extends PolarityActivity {
 
@@ -167,7 +168,7 @@ public class SignUp extends PolarityActivity {
 
     protected boolean usernameAvailable(String username) {
         // do this to keep parse from throwing invalidSessionToken error
-        ParseUser.getCurrentUser().logOut();
+        ParseUser.getCurrentUser().logOutInBackground();
 
         // get all rows where column.username = username
         ParseQuery<ParseObject> userQuery;
@@ -206,22 +207,27 @@ public class SignUp extends PolarityActivity {
 
     protected void signUp(String username, String email, String password) {
 
-        ParseUser.getCurrentUser().logOut();
+        ParseUser.getCurrentUser().logOutInBackground();
         ParseUser user = new ParseUser();
 
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
 
-        try {
-            user.signUp();
-            toActivity_HubActivity();
-
-        } catch (ParseException e) {
-            // sign-up failed :(
-            txtInfo.setText(e.getMessage());
-            Log.e(TAG, e.getMessage());
-        }
+        user.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e == null){
+                    // Sign Up was successful!
+                    toActivity_HubActivity();
+                }//end if
+                else{
+                    // sign-up failed :(
+                    txtInfo.setText(e.getMessage());
+                    Log.e(TAG, e.getMessage());
+                }//end else
+            }
+        });
     } // signUp
 
     //endregion

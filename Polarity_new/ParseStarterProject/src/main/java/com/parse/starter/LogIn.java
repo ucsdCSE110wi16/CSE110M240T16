@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
@@ -83,21 +84,46 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
                 ParseUser.getCurrentUser().logOut();
 
-                try {
-                    ParseUser.logIn(userName.getText().toString(), password.getText().toString());
+                ParseUser.logInInBackground(userName.getText().toString(),
+                       password.getText().toString(), new LogInCallback() {
+                             @Override
+                             public void done(ParseUser user, ParseException e) {
+                                 if(e == null && user != null){
 
-                    // save variables to global file
-                    com_user = ParseUser.getCurrentUser().getUsername();
-                    com_userID = ParseUser.getCurrentUser().getObjectId();
+                                     // save variables to global file
+                                     com_user = ParseUser.getCurrentUser().getUsername();
+                                     com_userID = ParseUser.getCurrentUser().getObjectId();
 
-                    toActivity_HubActivity();
+                                     toActivity_HubActivity();
 
-                } catch (ParseException e) {
-                    btnLogin.setEnabled(true);
-                    btnCreateAccount.setEnabled(true);
-                    btnForgotPassword.setEnabled(true);
-                    txtInfo.setText(e.getMessage());
-                }
+                                 }//end if
+                                 else if(user == null){
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message
+                                      * here if there should be a specific message indicating
+                                      * that the username or password were invalid
+                                      */
+                                 }//end else if
+                                 else{
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message here if there
+                                      * should be a specific message indicating that some internal
+                                      * error occurred
+                                      */
+                                 }//end else
+
+                             }//end callback
+                });//end logInInBackground
+
+
             }
         };
     } // btnLogin_Click
