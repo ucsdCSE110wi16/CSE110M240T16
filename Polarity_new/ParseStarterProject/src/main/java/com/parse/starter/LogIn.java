@@ -34,6 +34,11 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
     //endregion
 
     @Override
+    public void onBackPressed(){
+        //DON'T DO IT, I'll phone children's aid
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
