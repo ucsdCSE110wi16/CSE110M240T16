@@ -38,11 +38,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_event"
+        android:text="Create Event"
         android:id="@+id/hubActivity_btnCreateEvent"
         android:layout_marginTop="25dp"
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_below="@+id/hubActivity_btnLogOut"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -55,15 +55,15 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/log_out"
+        android:text="Log Out"
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:id="@+id/hubActivity_btnLogOut"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="5dp" />
-    <!-- ListView and TextView down there don't show up on UI.  Please fix? -->
+        />
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,14 +75,7 @@
         android:background="@color/themeLightGray"
         android:choiceMode="singleChoice" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/upcomingEvents_txtInfo"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+
 
     <ImageView
         android:layout_width="wrap_content"
