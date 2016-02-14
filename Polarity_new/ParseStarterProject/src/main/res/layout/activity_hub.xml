@@ -62,7 +62,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        />
+        android:paddingLeft="5dp" />
     <!-- ListView and TextView down there don't show up on UI.  Please fix? -->
     <ListView
         android:layout_width="wrap_content"
