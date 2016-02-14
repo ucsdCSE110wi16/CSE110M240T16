@@ -21,6 +21,7 @@ public abstract class PolarityActivity extends Activity {
 
     static ArrayList<Model> com_movieList;
     static ArrayList<Model> com_invitedFriends;
+    static ArrayList<Model> com_eventQueue;
 
     //endregion
 
@@ -38,6 +39,7 @@ public abstract class PolarityActivity extends Activity {
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<Model>();
+        com_eventQueue = new ArrayList<Model>();
     }
 
     //endregion

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -24,7 +25,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
     Button btnBack, btnHome, btnImportMovieQueue, btnSearch;
     ListView lvMovieList;
     EditText tbSearch;
-
+    TextView txtInfo;
     ArrayList<Model> modelList;
     CustomAdapter adapter;
 
@@ -44,7 +45,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnHome = (Button) findViewById(R.id.addMovies_btnHome);
         btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
-
+        txtInfo = (TextView) findViewById(R.id.activity_add_movies_textView);
         modelList = com_movieList;
 
         adapter = new CustomAdapter(getApplicationContext(), modelList);
@@ -55,7 +56,8 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
         tbSearch.setOnKeyListener(this);
-
+        // tell the user that there's no movies in the queue
+        txtInfo.setText("no movies added yet :(");
     }
 
     @Override
@@ -115,6 +117,8 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     protected void addMovie() {
         String name = tbSearch.getText().toString();
+        // hide message that theres' no movies in the list
+        txtInfo.setText("");
         // if name field is empty, show toast notification
         if (name.isEmpty()) {
             Toast.makeText(getApplicationContext(), "You must enter a movie name",
