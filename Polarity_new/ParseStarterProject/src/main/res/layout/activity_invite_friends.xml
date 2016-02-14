@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:textSize="28dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/your_friends"
+        android:text="Your Friends"
         android:id="@+id/inviteFriends_txtTitle"
         android:layout_alignParentTop="true"
         android:textColor="@color/themeWhite"
@@ -137,9 +137,9 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_height="wrap_content"
-        android:text="@string/invite_friends"
+        android:text="Invite Friends"
         android:id="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -149,10 +149,10 @@
         android:textColor="@color/themeWhite" />
 
     <Button
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/select_all_friends"
+        android:text="Select All Friends"
         android:id="@+id/inviteFriends_btnSelectAll"
         android:layout_below="@+id/inviteFriends_tbSearch"
         android:layout_alignParentLeft="true"
@@ -181,7 +181,6 @@
         android:layout_toLeftOf="@+id/inviteFriends_btnSearch"
         android:layout_toStartOf="@+id/inviteFriends_btnSearch"
         android:hint="@string/search_friends_list" />
-
 
     <ListView
         android:layout_width="wrap_content"

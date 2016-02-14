@@ -85,7 +85,7 @@
 
     <Button
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="See Who&apos;s Going"
@@ -107,7 +107,7 @@
 
     <Button
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vote!"
