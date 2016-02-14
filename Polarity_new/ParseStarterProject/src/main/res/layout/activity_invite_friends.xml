@@ -137,7 +137,7 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_height="wrap_content"
         android:text="Invite Friends"
         android:id="@+id/inviteFriends_btnInviteFriends"
@@ -149,7 +149,7 @@
         android:textColor="@color/themeWhite" />
 
     <Button
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select All Friends"
