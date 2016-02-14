@@ -1,21 +1,33 @@
 package com.parse.starter;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class ForgotPassword extends AppCompatActivity {
+public class ForgotPassword extends PolarityActivity {
+
+    Button btnBack, btnSendResetEmail;
+    EditText tbUserName, tbEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
+        btnBack = (Button) findViewById(R.id.addMovies_btnBack);
+        btnSendResetEmail = (Button) findViewById(R.id.forgotPassword_btnSendResetEmail);
+
+        btnBack.setOnClickListener(btnBack_Click());
     }
 
-    public void goToMainActivity(View view){
-        Intent intentObject = new Intent(this, MainActivity.class);
-        startActivity(intentObject);
-    }
+    protected View.OnClickListener btnBack_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toActivity_Login();
+            }
+        };
+    } // btnBack_Click
 
 }

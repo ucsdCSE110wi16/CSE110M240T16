@@ -19,8 +19,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/txtEmail"
-        android:layout_alignRight="@+id/backButton"
-        android:layout_alignEnd="@+id/backButton"
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true" />
 
     <ImageView
@@ -31,8 +31,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/txtEmail"
-        android:layout_alignLeft="@+id/homeButton"
-        android:layout_alignStart="@+id/homeButton" />
+        android:layout_alignLeft="@+id/inviteFriends_btnHome"
+        android:layout_alignStart="@+id/inviteFriends_btnHome" />
 
     <!--Behind Who's Going-->
     <ImageView
@@ -43,9 +43,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/goingButton"
-        android:layout_alignRight="@+id/goingButton"
-        android:layout_alignEnd="@+id/goingButton" />
+        android:layout_alignTop="@+id/createEvent_btnCreateEvent"
+        android:layout_alignRight="@+id/createEvent_btnCreateEvent"
+        android:layout_alignEnd="@+id/createEvent_btnCreateEvent" />
 
     <!-- Behind Vote-->
     <ImageView
@@ -56,8 +56,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/txtRePassword"
-        android:layout_alignLeft="@+id/voteButton"
-        android:layout_alignStart="@+id/voteButton" />
+        android:layout_alignLeft="@+id/inviteFriends_btnSelectAll"
+        android:layout_alignStart="@+id/inviteFriends_btnSelectAll" />
 
     <TextView
         android:textColor="@color/themeWhite"
@@ -67,7 +67,7 @@
         android:text="Event Title"
         android:textSize="28dp"
         android:gravity="center"
-        android:id="@+id/titleText"
+        android:id="@+id/inviteFriends_txtTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/backButton"
+        android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="See Who&apos;s Going"
-        android:id="@+id/goingButton"
+        android:id="@+id/createEvent_btnCreateEvent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -100,8 +100,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeButton"
-        android:layout_alignTop="@+id/titleText"
+        android:id="@+id/inviteFriends_btnHome"
+        android:layout_alignTop="@+id/inviteFriends_txtTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -111,12 +111,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vote!"
-        android:id="@+id/voteButton"
+        android:id="@+id/inviteFriends_btnSelectAll"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/txtRePassword"
         android:layout_alignEnd="@+id/txtRePassword"
-        android:layout_toRightOf="@+id/titleText"
-        android:layout_toEndOf="@+id/titleText" />
+        android:layout_toRightOf="@+id/inviteFriends_txtTitle"
+        android:layout_toEndOf="@+id/inviteFriends_txtTitle" />
 
     <Button
         android:textColor="@color/themeWhite"
@@ -137,11 +137,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Location"
         android:id="@+id/txtEmail"
-        android:layout_below="@+id/backButton"
+        android:layout_below="@+id/inviteFriends_btnBack"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/homeButton"
-        android:layout_alignEnd="@+id/homeButton" />
+        android:layout_alignRight="@+id/inviteFriends_btnHome"
+        android:layout_alignEnd="@+id/inviteFriends_btnHome" />
 
     <TextView
         android:textColor="@color/themeWhite"
@@ -167,7 +167,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/main_txtPassword"
         android:layout_alignEnd="@+id/main_txtPassword"
-        android:layout_above="@+id/voteButton"
+        android:layout_above="@+id/inviteFriends_btnSelectAll"
         android:layout_below="@+id/main_txtPassword" />
 
 

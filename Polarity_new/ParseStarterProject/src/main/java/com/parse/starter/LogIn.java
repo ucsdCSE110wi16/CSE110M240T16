@@ -1,23 +1,35 @@
 package com.parse.starter;
 
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
-import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-public class LogIn extends AppCompatActivity {
+public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
     //region Create Variables
+
+    public static final String TAG = SignUp.class.getSimpleName();
 
     private Button btnLogin, btnCreateAccount, btnForgotPassword;
     private EditText userName, password;
     TextView txtInfo;
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     //endregion
 
@@ -38,8 +50,25 @@ public class LogIn extends AppCompatActivity {
         btnLogin.setOnClickListener(btnLogin_Click());
         btnCreateAccount.setOnClickListener(btnCreateAccount_Click());
         btnForgotPassword.setOnClickListener(btnForgotPassword_Click());
+        userName.setOnKeyListener(this);
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     } // onCreate
+
+    @Override
+    public boolean onKey(View view, int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_DOWN) {
+            // check if userName has focus AND the ENTER key was pressed
+            if(userName.hasFocus() && keyCode == KeyEvent.KEYCODE_ENTER) {
+                password.requestFocus(); // puts onto a focus queue
+                view.clearFocus(); // removes current focus causing the app to pull password's focus request from queue
+                return true;
+            }
+        }
+        return false; // pass on to listeners
+    } // onKey
 
     //region Button Clicks
 
@@ -55,22 +84,46 @@ public class LogIn extends AppCompatActivity {
 
                 ParseUser.getCurrentUser().logOut();
 
-                try {
-                    ParseUser.logIn(userName.getText().toString(), password.getText().toString());
+                ParseUser.logInInBackground(userName.getText().toString(),
+                       password.getText().toString(), new LogInCallback() {
+                             @Override
+                             public void done(ParseUser user, ParseException e) {
+                                 if(e == null && user != null){
 
-                    // save variables to global file
-                    //Common com = ((Common)getApplicationContext());
-                    //com._username = userName.getText().toString();
-                    //com._userKey = ParseUser.getCurrentUser().getObjectId().toString();
+                                     // save variables to global file
+                                     com_user = ParseUser.getCurrentUser().getUsername();
+                                     com_userID = ParseUser.getCurrentUser().getObjectId();
 
-                    goToHub();
-                }
-                catch (ParseException e) {
-                    btnLogin.setEnabled(true);
-                    btnCreateAccount.setEnabled(true);
-                    btnForgotPassword.setEnabled(true);
-                    txtInfo.setText(e.getMessage());
-                }
+                                     toActivity_HubActivity();
+
+                                 }//end if
+                                 else if(user == null){
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message
+                                      * here if there should be a specific message indicating
+                                      * that the username or password were invalid
+                                      */
+                                 }//end else if
+                                 else{
+                                     btnLogin.setEnabled(true);
+                                     btnCreateAccount.setEnabled(true);
+                                     btnForgotPassword.setEnabled(true);
+                                     txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message here if there
+                                      * should be a specific message indicating that some internal
+                                      * error occurred
+                                      */
+                                 }//end else
+
+                             }//end callback
+                });//end logInInBackground
+
+
             }
         };
     } // btnLogin_Click
@@ -79,7 +132,7 @@ public class LogIn extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToSignUpScreen();
+                toActivity_SignUp();
             }
         };
     } // btnCreateAccount_Click
@@ -88,28 +141,53 @@ public class LogIn extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToForgotPassword();
+                toActivity_ForgotPassword();
             }
         };
     } // btnForgotPassword_Click
 
     //endregion
 
-    //region Page Transfers
+    //region Auto-Generated Stuff
 
-    public void goToForgotPassword(){
-        Intent intentObject = new Intent(this,ForgotPassword.class);
-        startActivity(intentObject);
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "LogIn Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.parse.starter/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
     }
 
-    public void goToHub(){
-        Intent intentObject = new Intent(this, HubActivity.class);
-        startActivity(intentObject);
-    }
+    @Override
+    public void onStop() {
+        super.onStop();
 
-    public void goToSignUpScreen(){
-        Intent intentObject = new Intent(this, SignUp.class);
-        startActivity(intentObject);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "LogIn Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.parse.starter/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 
     //endregion

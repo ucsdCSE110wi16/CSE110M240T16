@@ -23,17 +23,10 @@ public class StarterApplication extends Application {
 
     // Enable Local Datastore.
     Parse.enableLocalDatastore(this);
-    // only has to be initialized once, and never again!
-    // Add your initialization code here
     Parse.initialize(this);
 
     ParseUser.enableAutomaticUser();
     ParseACL defaultACL = new ParseACL();
-    // Optionally enable public read access.
-    // defaultACL.setPublicReadAccess(true);
     ParseACL.setDefaultACL(defaultACL, true);
-    ParseObject testObject = new ParseObject("TestObject");
-    testObject.put("daily", "planet");
-    testObject.saveInBackground();
   }
 }
