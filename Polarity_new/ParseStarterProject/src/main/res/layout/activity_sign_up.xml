@@ -17,7 +17,7 @@
         android:src="@drawable/loginbuttonbackground"
         android:layout_alignTop="@+id/btnRegister"
         android:layout_alignBottom="@+id/btnRegister"
-        android:layout_toRightOf="@+id/txtInfo"
+        android:layout_alignLeft="@+id/txtInfo"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
