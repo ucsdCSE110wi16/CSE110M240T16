@@ -15,10 +15,18 @@ Start on event creation
 Week 6
 Basic tests for app will be made
 Being able to create a list or queue of movies for the users to add movie titles to(ideally)
-(Baseline app complete (ideally))
-Week 7
-(Baseline app complete)
 
+Week 7
+continue developing baseline
+	Attendees can see events created by other users
+	Attendees can vote on movie list provided by host
+	Host can see poll results
+	attendees can indicate they're going to an event
+	Implement setting up a movie queue
+figure out how to do unit testing
 Week 8
+(Baseline app complete)
 Week 9
 Week 10
+
+link to our trello board: https://trello.com/b/LWuQbr5b/cse-110-project
