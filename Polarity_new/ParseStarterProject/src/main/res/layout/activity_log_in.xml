@@ -19,175 +19,110 @@
     tools:context=".LogIn">
 
     <!--red box behind login button-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:layout_above="@+id/main_btnCreateAccount"
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_alignTop="@+id/main_btnLogin"
-        android:layout_alignRight="@+id/main_btnLogin"
-        android:layout_alignEnd="@+id/main_btnLogin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!--red box behind forgot password-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/loginbuttonbackground"
-        android:id="@+id/imageView4"
-        android:layout_below="@+id/main_btnCreateAccount"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/main_btnForgotPassword"
-        android:layout_alignEnd="@+id/main_btnForgotPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_logo"
+            android:background="@color/themeCharcoal"
+            android:layout_above="@+id/main_tbUserName"
+            android:layout_marginBottom="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/polarity_logo" />
 
-    <!--red box behind create account button-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        android:layout_alignBottom="@+id/main_btnCreateAccount"
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Username"
+            android:inputType="textPersonName"
+            android:textStyle="italic"
+            android:id="@+id/main_tbUserName"
+            android:layout_above="@+id/main_tbPassword"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/main_tbPassword"
+            android:layout_alignEnd="@+id/main_tbPassword"
+            android:layout_marginBottom="5dp"
+            android:paddingTop="5dp"
+            android:background="@color/themeLightGray" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/main_tbPassword"
+            android:hint="Password"
+            android:textStyle="italic"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingTop="5dp"
+            android:background="@color/themeLightGray" />
 
-    <!-- forgot password button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password"
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:id="@+id/main_btnForgotPassword"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/main_btnCreateAccount"
-        android:layout_alignEnd="@+id/main_btnCreateAccount"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/main_tbInfo"
+            android:textColor="#ffffff"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/main_tbPassword"
+            android:layout_marginTop="5dp"
+            />
 
-    <!-- Login button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:text="Login"
-        android:id="@+id/main_btnLogin"
-        android:layout_above="@+id/main_btnCreateAccount"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/themeWhite"
+            android:background="@drawable/button_background"
+            android:text="Login"
+            android:id="@+id/main_btnLogin"
+            android:layout_above="@+id/main_btnCreateAccount"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/main_tbPassword"
+            android:layout_alignEnd="@+id/main_tbPassword"
+            android:layout_marginTop="140dp"
+            />
 
-    <!-- Create Account button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:id="@+id/main_btnCreateAccount"
-        android:layout_above="@+id/main_btnForgotPassword"
-        android:layout_alignRight="@+id/main_btnLogin"
-        android:layout_alignEnd="@+id/main_btnLogin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Account"
+            android:textColor="@color/themeWhite"
+            android:background="@drawable/button_background"
+            android:id="@+id/main_btnCreateAccount"
+            android:layout_above="@+id/main_btnForgotPassword"
+            android:layout_alignRight="@+id/main_btnLogin"
+            android:layout_alignEnd="@+id/main_btnLogin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            />
 
-
-
-    <!-- Not quite sure, but when I take it out, stuff gets ruined -->
-
-
-    <!-- Polarity Logo -->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_logo"
-        android:background="@color/themeCharcoal"
-        android:layout_above="@+id/main_tbUserName"
-        android:layout_marginBottom="55dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/polarity_logo" />
-
-
-
-    <!-- grey backgrounds behind text fields-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/main_behindUsername"
-        android:src="@drawable/textviewbackground"
-        android:layout_alignBottom="@+id/main_tbUserName"
-        android:layout_alignTop="@+id/main_tbUserName"
-        android:layout_alignRight="@+id/main_tbUserName"
-        android:layout_alignEnd="@+id/main_tbUserName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/textviewbackground"
-        android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword"
-        android:layout_alignBottom="@+id/main_tbPassword"
-        android:layout_alignTop="@+id/main_tbPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
-
-
-
-    <!--Username Text Field -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textStyle="italic"
-        android:id="@+id/main_tbUserName"
-        android:layout_above="@+id/main_tbPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword" />
-
-    <!--Password Text Field -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/main_tbPassword"
-        android:hint="Password"
-        android:textStyle="italic"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/main_tbInfo"
-        android:textColor="#ffffff"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password"
+            android:textColor="@color/themeWhite"
+            android:background="@drawable/button_background"
+            android:id="@+id/main_btnForgotPassword"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/main_btnCreateAccount"
+            android:layout_alignEnd="@+id/main_btnCreateAccount"
+            android:layout_marginTop="10dp"
+            />
+    </LinearLayout>
 </RelativeLayout>
