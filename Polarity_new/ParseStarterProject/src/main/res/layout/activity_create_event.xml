@@ -10,53 +10,6 @@
     android:background="@color/themeCharcoal"
     tools:context="com.parse.starter.CreateEvent">
 
-    <!-- grey rectangle behind create event-->
-
-    <!-- grey rectangle behind location-->
-
-    <!-- grey rectangle behind time-->
-
-    <!-- grey rectangle behind description-->
-
-    <!--Text box behind Add Movies Button-->
-    <ImageView
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView20"
-        android:layout_above="@+id/inviteFriends_btnInviteFriends"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/createEvent_tbDescription"
-        android:layout_alignRight="@+id/inviteFriends_btnInviteFriends"
-        android:layout_alignEnd="@+id/inviteFriends_btnInviteFriends" />
-
-    <!--Red Box behind Add Friends Button-->
-    <ImageView
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView21"
-        android:layout_alignBottom="@+id/inviteFriends_btnInviteFriends"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/inviteFriends_btnSelectAll"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <!--Red Box behind Create Event Button-->
-    <ImageView
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView22"
-        android:layout_below="@+id/inviteFriends_btnInviteFriends"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:textColor="@color/themeWhite"
         android:textSize="26dp"
@@ -67,7 +20,9 @@
         android:gravity="center"
         android:id="@+id/inviteFriends_txtTitle"
         android:layout_alignTop="@+id/inviteFriends_btnBack"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        />
 
 
     <TextView
@@ -93,6 +48,7 @@
         android:layout_below="@+id/inviteFriends_btnBack"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -105,9 +61,10 @@
         android:hint=" Location"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
-        android:layout_alignTop="@+id/main_txtUserName"
+        android:layout_below="@+id/createEvent_tbName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -122,7 +79,7 @@
         android:layout_below="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -134,13 +91,14 @@
         android:hint=" Description"
         android:gravity="top"
         android:textStyle="italic"
-        android:layout_above="@+id/inviteFriends_btnSelectAll"
+        android:background="@color/themeLightGray"
+        android:layout_below="@+id/createEvent_tbTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/imageView20"
-        android:layout_alignEnd="@+id/imageView20"
-        android:layout_below="@+id/main_txtUserName"
-        android:background="@color/themeLightGray" />
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/inviteFriends_btnSelectAll" />
 
     <Button
         android:textColor="@color/themeWhite"
@@ -149,11 +107,12 @@
     android:layout_height="wrap_content"
     android:text="Invite Friends"
     android:id="@+id/inviteFriends_btnInviteFriends"
-    android:layout_above="@+id/createEvent_btnCreateEvent"
-    android:layout_alignLeft="@+id/inviteFriends_btnSelectAll"
-    android:layout_alignStart="@+id/inviteFriends_btnSelectAll"
-    android:layout_alignRight="@+id/inviteFriends_btnSelectAll"
-    android:layout_alignEnd="@+id/inviteFriends_btnSelectAll"
+        android:layout_above="@+id/createEvent_btnCreateEvent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
         />
 
     <Button
@@ -167,7 +126,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        />
 
     <Button
         android:textColor="@color/themeWhite"
@@ -179,7 +140,9 @@
         android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+
+        />
 
     <!-- Create Event Button-->
     <Button
@@ -190,10 +153,10 @@
         android:text="Create Event "
         android:id="@+id/createEvent_btnCreateEvent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/inviteFriends_btnInviteFriends"
-        android:layout_alignEnd="@+id/inviteFriends_btnInviteFriends" />
+        android:layout_toRightOf="@+id/main_txtUserName"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -206,7 +169,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/inviteFriends_btnBack"
         android:layout_alignEnd="@+id/inviteFriends_btnBack"
-        android:src="@drawable/back_button" />
+        android:src="@drawable/back_button"
+        android:background="@drawable/button_background" />
 
 
 </RelativeLayout>
