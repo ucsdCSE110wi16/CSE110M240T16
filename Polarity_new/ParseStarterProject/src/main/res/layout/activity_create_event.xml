@@ -11,57 +11,12 @@
     tools:context="com.parse.starter.CreateEvent">
 
     <!-- grey rectangle behind create event-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView24"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/createEvent_tbName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/createEvent_tbName" />
 
     <!-- grey rectangle behind location-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView25"
-        android:layout_below="@+id/createEvent_tbName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/createEvent_tbTime"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <!-- grey rectangle behind time-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView26"
-        android:layout_below="@+id/createEvent_tbLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/createEvent_tbTime"
-        android:layout_alignRight="@+id/createEvent_tbTime"
-        android:layout_alignEnd="@+id/createEvent_tbTime" />
 
     <!-- grey rectangle behind description-->
-    <ImageView
-        android:gravity="top"
-        android:src="@drawable/textviewbackground_large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView27"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView26"
-        android:layout_alignBottom="@+id/createEvent_tbDescription"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <!--Text box behind Add Movies Button-->
     <ImageView
@@ -134,11 +89,12 @@
     android:id="@+id/createEvent_tbName"
         android:hint="Event Name"
         android:textStyle="italic"
-        android:layout_above="@+id/createEvent_tbLocation"
+        android:background="@color/themeLightGray"
+        android:layout_below="@+id/inviteFriends_btnBack"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/createEvent_tbLocation"
-        android:layout_alignEnd="@+id/createEvent_tbLocation" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
     android:layout_width="wrap_content"
@@ -148,11 +104,12 @@
     android:id="@+id/createEvent_tbLocation"
         android:hint="Location"
         android:textStyle="italic"
-        android:layout_above="@+id/createEvent_tbTime"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:background="@color/themeLightGray"
+        android:layout_alignTop="@+id/main_txtUserName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
     android:layout_width="wrap_content"
@@ -161,9 +118,11 @@
     android:id="@+id/createEvent_tbTime"
         android:hint="Time"
         android:textStyle="italic"
-        android:layout_above="@+id/createEvent_tbDescription"
+        android:background="@color/themeLightGray"
+        android:layout_below="@+id/createEvent_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -180,7 +139,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/imageView20"
         android:layout_alignEnd="@+id/imageView20"
-        android:layout_below="@+id/main_txtUserName" />
+        android:layout_below="@+id/main_txtUserName"
+        android:background="@color/themeLightGray" />
 
     <Button
         android:textColor="@color/themeWhite"

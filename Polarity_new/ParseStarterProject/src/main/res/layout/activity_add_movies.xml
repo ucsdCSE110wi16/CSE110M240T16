@@ -77,14 +77,6 @@
         android:layout_alignEnd="@+id/addMovies_tbSearch" />
 
     <!-- Movie list ImageView-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/movieListImageView"
-        android:layout_alignTop="@+id/addMovies_lvMovieList"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/movie_listbackground_large"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -168,7 +160,8 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/addMovies_ImportMovieQueue"
         android:choiceMode="singleChoice"
-        android:layout_below="@+id/addMovies_btnSearch" />
+        android:layout_below="@+id/addMovies_btnSearch"
+        android:background="@color/themeLightGray" />
 
     <TextView
         android:layout_width="wrap_content"
