@@ -95,7 +95,7 @@
         android:id="@+id/upcomingEvents_txtInfo"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
+        android:textColor="#000000" />
 
 
 </RelativeLayout>

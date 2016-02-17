@@ -38,7 +38,7 @@ public class HubActivity extends PolarityActivity {
         eventQueueTxt = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
 
         if(com_eventQueue.size() == 0){
-           eventQueueTxt.setText("No upcoming events");
+           eventQueueTxt.setText("No upcoming events :(");
         }
         else{
             eventQueueTxt.setText("");
