@@ -34,13 +34,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".HubActivity" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".CreateEvent" />
-        <activity android:name=".AddMovies" />
-        <activity android:name=".InviteFriends" />
-        <activity android:name=".LogIn"></activity>
+        <activity android:name=".ForgotPassword"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".HubActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".SignUp"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".CreateEvent"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".AddMovies"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".InviteFriends"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LogIn"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
