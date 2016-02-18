@@ -17,7 +17,7 @@
         android:src="@drawable/loginbuttonbackground"
         android:layout_alignTop="@+id/btnRegister"
         android:layout_alignBottom="@+id/btnRegister"
-        android:layout_toRightOf="@+id/txtInfo"
+        android:layout_alignLeft="@+id/txtInfo"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -54,11 +54,13 @@
         android:text="Register"
         android:id="@+id/btnRegister"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="44dp"
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
-        />
+        android:background="@drawable/button_background"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/txtInfo"
+        android:layout_toEndOf="@+id/txtInfo" />
 
     <TextView
         android:layout_width="wrap_content"

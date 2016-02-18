@@ -7,38 +7,51 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import android.util.Log;
+import android.widget.Toast;
 
 public class InviteFriends extends PolarityActivity {
-
-    Button btnBack, btnHome, btnSelectAll, btnInviteFreinds;
+    // region variables
+    Button btnBack, btnHome, btnSelectAll, btnInviteFreinds, btnSearch;
     EditText tbSearch;
     TextView txtInfo;
     ListView lvInvitedFriends;
     ArrayList<Model> friendList;
     CustomAdapter adapter;
+    // endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invite_friends);
 
+        // region findViewById
         btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
         btnHome = (Button) findViewById(R.id.inviteFriends_btnHome);
         btnSelectAll = (Button) findViewById(R.id.inviteFriends_btnSelectAll);
         btnInviteFreinds = (Button) findViewById(R.id.inviteFriends_btnInviteFriends);
-
+        btnSearch = (Button) findViewById(R.id.inviteFriends_btnSearch);
         tbSearch = (EditText) findViewById(R.id.inviteFriends_tbSearch);
         txtInfo = (TextView) findViewById(R.id.inviteFriends_txtInfo);
-
         lvInvitedFriends = (ListView) findViewById(R.id.inviteFriends_lvFriendsList);
-
+        // endregion
+        // region setOnClickListeners
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
         btnSelectAll.setOnClickListener(btnSelectAll_Click());
         btnInviteFreinds.setOnClickListener(btnInviteFriends_Click());
-
+        btnSearch.setOnClickListener(btnSearch_Click());
+        // endregion
+        // check if friends list is populated
         if(com_invitedFriends.size() == 0)
             txtInfo.setText("No friends invited :(");
         else
@@ -88,6 +101,39 @@ public class InviteFriends extends PolarityActivity {
             }
         };
     } // btnInviteFriends_Click
+
+    protected View.OnClickListener btnSearch_Click(){
+        return new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                // If the text box is empty, don't query the db
+                if(!tbSearch.getText().toString().isEmpty()){
+
+                    // Since users are unique, just get the first one found
+                    ParseQuery<ParseObject> userQuery = ParseQuery.getQuery("_User");
+                    userQuery.whereEqualTo("username", tbSearch.getText().toString());
+                    userQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+                        @Override
+                        public void done(ParseObject pu, ParseException e) {
+                            if (e == null && pu != null) {
+                                // Add the user to the invited list
+                                friendList.add(new Model(tbSearch.getText().toString()));
+                                // Since a user has been added, clear out the "no friends" text
+                                txtInfo.setText("");
+                            }//end if
+                            else{
+                                //TODO: Give the user a Toast notification telling them that no such
+                                //TODO: user was found
+                            }//end else
+
+                        }//end done
+                    });//end callback
+
+                }//end if
+
+            }//end onClick
+        };//end listener
+    }//end btnSearch_Click
 
     //endregion
 

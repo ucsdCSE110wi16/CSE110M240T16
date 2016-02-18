@@ -42,7 +42,7 @@
         android:id="@+id/hubActivity_btnCreateEvent"
         android:layout_marginTop="25dp"
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:layout_below="@+id/hubActivity_btnLogOut"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="Log Out"
         android:textColor="@color/themeWhite"
-        android:background="@android:color/transparent"
+        android:background="@drawable/button_background"
         android:id="@+id/hubActivity_btnLogOut"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -86,6 +86,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignBottom="@+id/hubActivity_btnLogOut" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/upcomingEvents_txtInfo"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000" />
 
 
 </RelativeLayout>

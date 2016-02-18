@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 import com.parse.starter.MovieEvent;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9dae742489d815aa079fc2ced64f3c381613499
 import java.util.ArrayList;
 
 /** Global variables and methods go here
@@ -22,9 +25,13 @@ public abstract class PolarityActivity extends Activity {
 
     static ArrayList<Model> com_movieList;
     static ArrayList<Model> com_invitedFriends;
+    static ArrayList<Model> com_eventQueue;
 
     static ArrayList<MovieEvent> com_userEvents;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c9dae742489d815aa079fc2ced64f3c381613499
     //endregion
 
     //region Initialize
@@ -41,6 +48,10 @@ public abstract class PolarityActivity extends Activity {
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<Model>();
+<<<<<<< HEAD
+=======
+        com_eventQueue = new ArrayList<Model>();
+>>>>>>> c9dae742489d815aa079fc2ced64f3c381613499
 
         com_userEvents = new ArrayList<MovieEvent>();
     }
