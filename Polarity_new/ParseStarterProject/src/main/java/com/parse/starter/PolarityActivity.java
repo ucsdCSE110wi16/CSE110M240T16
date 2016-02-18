@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
+import com.parse.starter.MovieEvent;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,8 @@ public abstract class PolarityActivity extends Activity {
     static ArrayList<Model> com_movieList;
     static ArrayList<Model> com_invitedFriends;
 
+    static ArrayList<MovieEvent> com_userEvents;
+
     //endregion
 
     //region Initialize
@@ -38,6 +41,8 @@ public abstract class PolarityActivity extends Activity {
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<Model>();
+
+        com_userEvents = new ArrayList<MovieEvent>();
     }
 
     //endregion
