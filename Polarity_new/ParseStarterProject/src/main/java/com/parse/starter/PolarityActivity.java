@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 import com.parse.starter.MovieEvent;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /** Global variables and methods go here
  *  Created by Lucas Pettit 02/10/2016
@@ -16,12 +17,14 @@ public abstract class PolarityActivity extends Activity {
     //region Declare Variables
 
     // global variables - must be declared static
+    static boolean com_userEventsLoaded;
+
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
 
     static ArrayList<Model> com_movieList;
     static ArrayList<Model> com_invitedFriends;
-    static ArrayList<Model> com_eventQueue;
+    static ArrayList<Model> com_eventModelList;
 
     static ArrayList<MovieEvent> com_userEvents;
 
@@ -31,6 +34,8 @@ public abstract class PolarityActivity extends Activity {
 
     // initialize the variables. Only do this ONCE in MainActivity
     protected void initialize() {
+        com_userEventsLoaded = false;
+
         com_user = "";
         com_userID = "";
         com_eventID = "";
@@ -41,7 +46,7 @@ public abstract class PolarityActivity extends Activity {
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<Model>();
-        com_eventQueue = new ArrayList<Model>();
+        com_eventModelList = new ArrayList<Model>();
 
         com_userEvents = new ArrayList<MovieEvent>();
     }
@@ -102,4 +107,16 @@ public abstract class PolarityActivity extends Activity {
 
     //endregion
 
+}
+
+
+// comparitor class for MovieEvents
+class CompareMovieEvent implements Comparator<MovieEvent> {
+    @Override
+    public int compare(MovieEvent m1, MovieEvent m2) throws NullPointerException {
+        if(m1 != null && m2 != null) {
+            return m1.Date().compareTo(m2.Date());
+        }
+        throw new NullPointerException();
+    }
 }
