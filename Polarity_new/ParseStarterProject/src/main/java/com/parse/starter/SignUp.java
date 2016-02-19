@@ -24,7 +24,7 @@ public class SignUp extends PolarityActivity {
 
     // make local references to display elements
     EditText userName, email, password, rePassword;
-    Button btnRegister;
+    Button btnRegister, btnBack;
     TextView txtInfo;
 
     // basic variables
@@ -50,6 +50,7 @@ public class SignUp extends PolarityActivity {
         password = (EditText) findViewById(R.id.main_tbPassword);
         rePassword = (EditText) findViewById(R.id.tbRePassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
         txtInfo = (TextView) findViewById(R.id.txtInfo);
 
         // set the text color because i dont know how to do it in the designer screen
@@ -72,6 +73,9 @@ public class SignUp extends PolarityActivity {
 
         // btnRegister Click
         btnRegister.setOnClickListener(btnRegisterClick());
+
+        // btnBack Click
+        btnBack.setOnClickListener(btnBack_Click());
     }
 
     //region EditText Events
@@ -149,6 +153,15 @@ public class SignUp extends PolarityActivity {
             }
         };
     } // btnRegisterClick
+
+    protected View.OnClickListener btnBack_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toActivity_Login();
+            }
+        };
+    } // btnBack_Click
 
     //endregion
 
