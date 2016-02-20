@@ -15,11 +15,21 @@ import java.util.ArrayList;
  */
 public class FriendAdapter extends CustomAdapter {
 
-    ArrayList<FriendModel> modelList;
+    ArrayList<FriendModel> friendModelList;
 
     public FriendAdapter(Context context, ArrayList<FriendModel> modelList){
         this.context = context;
-        this.modelList = modelList;
+        this.friendModelList = modelList;
+    }
+
+    @Override
+    public int getCount() {
+        return friendModelList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return friendModelList.get(position);
     }
 
     @Override
@@ -36,14 +46,14 @@ public class FriendAdapter extends CustomAdapter {
             TextView tv = (TextView) convertView.findViewById(R.id.name);
             Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
 
-            FriendModel m = modelList.get(position);
+            FriendModel m = friendModelList.get(position);
             tv.setText(m.getName());
 
             // click listiner for remove button
             rm_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    modelList.remove(position);
+                    friendModelList.remove(position);
                     notifyDataSetChanged();
                 }
             });

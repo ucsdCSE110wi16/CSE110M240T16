@@ -9,13 +9,14 @@ import android.widget.EditText;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateEvent extends PolarityActivity {
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = CreateEvent.class.getSimpleName();
 
     Button btnBack, btnAddMovie, btnInviteFriends, btnCreateEvent, btnHome;
     EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription;
@@ -159,7 +160,31 @@ public class CreateEvent extends PolarityActivity {
                     return;
                 }
 
+                List<ParseObject> poInvitedFriends = new ArrayList<ParseObject>();
                 com_eventID = event.getObjectId();
+                if(com_invitedFriends.size() > 0){
+                    for(int i = 0; i < com_invitedFriends.size(); i++){
+
+                        invitedFriends = new ParseObject("InvitedFriends");
+                        invitedFriends.put("UserID", com_invitedFriends.get(i).getUserID());
+                        invitedFriends.put("EventID", com_eventID);
+                        invitedFriends.put("Confirmation", 0);
+                        invitedFriends.put("HasVoted",false);
+                        poInvitedFriends.add(invitedFriends);
+
+                    }//end for
+
+                    p = new ParseObject("InvitedFriends");
+                    p.saveAllInBackground(poInvitedFriends, new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e != null) {
+                                Log.e(TAG, e.getMessage());
+                            }
+                        }
+                    });
+
+                }//end if
 
                 toActivity_HubActivity();
             }

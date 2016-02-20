@@ -18,6 +18,8 @@ public class CustomAdapter extends BaseAdapter{
     Context context;
     ArrayList<Model> modelList;
 
+    public CustomAdapter() {}
+
     public CustomAdapter(Context context, ArrayList<Model> modelList) {
         this.context = context;
         this.modelList = modelList;

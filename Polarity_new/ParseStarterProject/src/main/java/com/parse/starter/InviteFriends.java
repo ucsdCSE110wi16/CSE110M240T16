@@ -25,7 +25,7 @@ public class InviteFriends extends PolarityActivity {
     EditText tbSearch;
     TextView txtInfo;
     ListView lvInvitedFriends;
-    ArrayList<Model> friendList;
+    ArrayList<FriendModel> friendList;
     CustomAdapter adapter;
     // endregion
 
@@ -52,13 +52,13 @@ public class InviteFriends extends PolarityActivity {
         btnSearch.setOnClickListener(btnSearch_Click());
         // endregion
         // check if friends list is populated
-        if(com_invitedFriends.size() == 0)
+        if(com_invitedFriends == null)
             txtInfo.setText("No friends invited :(");
         else
             txtInfo.setText("");
 
         friendList = com_invitedFriends;
-        adapter = new CustomAdapter(getApplicationContext(), friendList);
+        adapter = new FriendAdapter(getApplicationContext(), friendList);
         lvInvitedFriends.setAdapter(adapter);
 
     }
@@ -117,7 +117,7 @@ public class InviteFriends extends PolarityActivity {
                         public void done(ParseObject pu, ParseException e) {
                             if (e == null && pu != null) {
                                 // Add the user to the invited list
-                                friendList.add(new Model(tbSearch.getText().toString()));
+                                friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId()));
                                 // Since a user has been added, clear out the "no friends" text
                                 txtInfo.setText("");
                             }//end if
