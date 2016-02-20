@@ -4,7 +4,9 @@ package com.parse.starter;
  * Created by Cameron on 2/8/2016.
  */
 public class Model {
-    String name;
+    protected String name;
+
+    public Model() {this.name = "";}
 
     public Model(String name) {
         this.name = name;
