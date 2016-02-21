@@ -128,8 +128,8 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="View Invite List"
-        android:id="@+id/button2"
-        android:layout_above="@+id/button4"
+        android:id="@+id/viewEvent_btnViewInviteList"
+        android:layout_above="@+id/viewEvent_btnAcceptInvite"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -137,16 +137,16 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="Vote On Movies"
-        android:id="@+id/button3"
-        android:layout_alignTop="@+id/button2"
-        android:layout_alignRight="@+id/button5"
-        android:layout_alignEnd="@+id/button5" />
+        android:id="@+id/viewEvent_btnVoteOnMovies"
+        android:layout_alignTop="@+id/viewEvent_btnViewInviteList"
+        android:layout_alignRight="@+id/viewEvent_btnDenyInvite"
+        android:layout_alignEnd="@+id/viewEvent_btnDenyInvite" />
 
     <Button
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="Accept Invite"
-        android:id="@+id/button4"
+        android:id="@+id/viewEvent_btnAcceptInvite"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -155,8 +155,8 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:text="Deny Invite"
-        android:id="@+id/button5"
-        android:layout_alignBottom="@+id/button4"
+        android:id="@+id/viewEvent_btnDenyInvite"
+        android:layout_alignBottom="@+id/viewEvent_btnAcceptInvite"
         android:layout_alignRight="@+id/imageView29"
         android:layout_alignEnd="@+id/imageView29" />
 

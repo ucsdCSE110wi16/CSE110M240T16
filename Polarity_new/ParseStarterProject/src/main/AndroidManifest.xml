@@ -70,7 +70,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".ViewEventActivity"></activity>
+        <activity android:name=".ViewEventActivity" />
+        <activity android:name=".VoteActivity" />
+        <activity android:name=".ViewInviteListActivity"></activity>
     </application>
 
 </manifest>

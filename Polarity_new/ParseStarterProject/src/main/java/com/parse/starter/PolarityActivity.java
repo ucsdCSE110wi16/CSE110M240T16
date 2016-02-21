@@ -99,6 +99,21 @@ public abstract class PolarityActivity extends Activity {
         startActivity(intent);
     } // toActivity_SignUp
 
+    protected void toActivity_ViewEvent() {
+        Intent intent = new Intent(this, ViewEventActivity.class);
+        startActivity(intent);
+    } // toActivity_ViewEvent
+
+    protected void toActivity_Vote() {
+        Intent intent = new Intent(this, VoteActivity.class);
+        startActivity(intent);
+    } // toActivity_Vote
+
+    protected void toActivity_ViewInviteList() {
+        Intent intent = new Intent(this, ViewInviteListActivity.class);
+        startActivity(intent);
+    } // toActivty_ViewInviteList
+
     //endregion
 
 }
