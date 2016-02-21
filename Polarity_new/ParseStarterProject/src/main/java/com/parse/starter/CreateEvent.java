@@ -1,10 +1,15 @@
 package com.parse.starter;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -12,6 +17,7 @@ import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 
 public class CreateEvent extends PolarityActivity {
 
@@ -19,6 +25,11 @@ public class CreateEvent extends PolarityActivity {
 
     Button btnBack, btnAddMovie, btnInviteFriends, btnCreateEvent, btnHome;
     EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription;
+
+    DatePicker datePicker;
+    Calendar myCalendar;
+    int year_o, month_o, day_o;
+    static final int DIALOG_ID = 0; //hold the dialog id
 
 
     @Override
@@ -45,6 +56,13 @@ public class CreateEvent extends PolarityActivity {
         tbEventLocation.setText(com_eventLocation);
         tbEventTime.setText(com_eventTime);
         tbEventDescription.setText(com_eventDescription);
+
+        //for the date picker
+        showDialogOnTextFieldClick();
+        myCalendar = Calendar.getInstance();
+        year_o = myCalendar.get(Calendar.YEAR);
+        month_o = myCalendar.get(Calendar.MONTH);
+        day_o = myCalendar.get(Calendar.DAY_OF_MONTH);
     }
 
     //region Button Clicks
@@ -206,6 +224,44 @@ public class CreateEvent extends PolarityActivity {
             }
         };
     } // btnBack_Click
+
+    //for the date picker
+    public void showDialogOnTextFieldClick() {
+
+        tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
+
+        tbEventTime.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(DIALOG_ID);
+                    }
+                }
+        );
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int in_id) {
+
+        if (in_id == DIALOG_ID)
+            return new DatePickerDialog(this, datePickerListener, year_o, month_o, day_o);
+        else return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener datePickerListener
+            = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+            year_o = year;
+            month_o = monthOfYear + 1;
+            day_o = dayOfMonth;
+
+            Toast.makeText(CreateEvent.this, month_o + "/" + day_o + "/" + year_o, Toast.LENGTH_LONG).show();
+            tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
+            tbEventTime.setText(month_o + "/" + day_o + "/" + year_o);
+        }
+    };
 
     //endregion
 
