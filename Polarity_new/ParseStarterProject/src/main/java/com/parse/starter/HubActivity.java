@@ -11,14 +11,13 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class HubActivity extends PolarityActivity {
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = HubActivity.class.getSimpleName();
 
     Button btnLogOut, btnCreateEvent;
     ListView lvEventQueue;
@@ -56,7 +55,10 @@ public class HubActivity extends PolarityActivity {
 
                     try {
                         // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
-                        parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
+                        parseEventList = ParseQuery.getQuery("FriendsInvited").whereEqualTo("UserID", com_userID).find();
+
+                        // debug output
+                        Log.d(TAG, "Fetched all events user is invited to. Size = " + parseEventList.size());
 
                         // push all the eventId's onto an array of eventIds
                         for(ParseObject obj : parseEventList) {
@@ -69,14 +71,13 @@ public class HubActivity extends PolarityActivity {
                         // clear the parseEventList
                         parseEventList.clear();
                         // FETCH * FROM Events WHERE UserID IS com_userID
-                        parseEventList = ParseQuery.getQuery("Events").whereEqualTo("UserID", com_userID).find();
+                        parseEventList = ParseQuery.getQuery("Event").whereEqualTo("UserID", com_userID).find();
 
                         // Add all the event that we found in InvitedFriends to the list of events
                         for(int i=0; i<userEventIds.size()-1; i++) {
                             parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId",
                                     userEventIds.get(i)).find());
                         }
-
 
                         for (ParseObject obj : parseEventList) {
                             // Create new EventModel
