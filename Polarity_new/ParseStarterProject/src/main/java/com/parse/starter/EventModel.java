@@ -68,7 +68,7 @@ public class EventModel extends Model {
 }
 
 // comparator for EventModel
-class CompareEventModel implements Comparator<EventModel> {
+class EventModelComparator implements Comparator<EventModel> {
     @Override
     public int compare(EventModel m1, EventModel m2) throws NullPointerException {
         if(m1 != null && m2 != null) {

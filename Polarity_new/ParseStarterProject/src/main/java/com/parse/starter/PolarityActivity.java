@@ -2,13 +2,10 @@ package com.parse.starter;
 
 
 import android.app.Activity;
-import android.app.usage.UsageEvents;
 import android.content.Intent;
-import android.view.View;
 import android.widget.Toast;
-import com.parse.starter.MovieEvent;
+
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /** Global variables and methods go here
  *  Created by Lucas Pettit 02/10/2016

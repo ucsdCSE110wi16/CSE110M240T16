@@ -44,19 +44,10 @@ public class EventAdapter extends CustomAdapter {
             convertView = mInflater.inflate(R.layout.items, null);
 
             TextView tv = (TextView) convertView.findViewById(R.id.name);
-            Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
+            //Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
 
             EventModel m = eventModelList.get(position);
             tv.setText(m.getName());
-
-            // click listiner for remove button
-            rm_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    modelList.remove(position);
-                    notifyDataSetChanged();
-                }
-            });
         }
         return convertView;
     }
