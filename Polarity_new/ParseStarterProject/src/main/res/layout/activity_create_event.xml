@@ -72,16 +72,16 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView15"
-        android:src="@drawable/back_button"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/main_txtUserName"
-        android:layout_above="@+id/main_txtUserName"
-        android:layout_alignRight="@+id/inviteFriends_btnBack"
-        android:layout_alignEnd="@+id/inviteFriends_btnBack" />
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/imageView15"-->
+        <!--android:src="@drawable/back_button"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_toRightOf="@+id/main_txtUserName"-->
+        <!--android:layout_above="@+id/main_txtUserName"-->
+        <!--android:layout_alignRight="@+id/inviteFriends_btnBack"-->
+        <!--android:layout_alignEnd="@+id/inviteFriends_btnBack" />-->
 
     <!-- time textfield -->
     <EditText
@@ -155,12 +155,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:id="@+id/inviteFriends_btnBack"
-=======
-        android:text="&lt;-"
-        android:id="@+id/viewEvent_btnBack"
->>>>>>> 2e796ee2fafffaf620eef4d9cbf09375ee194a07
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -181,22 +176,18 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"/>
 
-<<<<<<< HEAD
-=======
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView15"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/viewEvent_btnBack"
         android:layout_toStartOf="@+id/viewEvent_txtTitle"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/viewEvent_btnBack"
-        android:layout_alignEnd="@+id/viewEvent_btnBack"
         android:src="@drawable/back_button"
-        android:background="@drawable/button_background" />
-
->>>>>>> 2e796ee2fafffaf620eef4d9cbf09375ee194a07
+        android:background="@drawable/button_background"
+        android:layout_alignBottom="@+id/inviteFriends_btnBack"
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack" />
 
 </RelativeLayout>
