@@ -36,6 +36,11 @@ public class VoteActivity extends PolarityActivity {
         btnVote = (Button) findViewById(R.id.vote_btnVote);
         lvMovieList = (ListView) findViewById(R.id.vote_lvMovies);
 
+        btnBack.setOnClickListener(btnBack_Click());
+        btnCancel.setOnClickListener(btnCancel_Click());
+        btnHome.setOnClickListener(btnHome_Click());
+        btnVote.setOnClickListener(btnVote_Click());
+
         fetchMovies();
     }
 
