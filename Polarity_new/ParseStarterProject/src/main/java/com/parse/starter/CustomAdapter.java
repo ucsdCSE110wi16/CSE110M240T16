@@ -49,10 +49,10 @@ public class CustomAdapter extends BaseAdapter{
 
             LayoutInflater mInflater = (LayoutInflater) context
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.items, null);
+            convertView = mInflater.inflate(R.layout.addMovieItems, null);
 
-            TextView tv = (TextView) convertView.findViewById(R.id.name);
-            Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
+            TextView tv = (TextView) convertView.findViewById(R.id.addMovieItem_tbTitle);
+            Button rm_btn = (Button) convertView.findViewById(R.id.addMovieItem_btnRemove);
 
             Model m = modelList.get(position);
             tv.setText(m.getName());

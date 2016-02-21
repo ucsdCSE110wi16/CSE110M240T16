@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,20 +36,15 @@ public class EventAdapter extends CustomAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        convertView = null;
+        LayoutInflater mInflater = (LayoutInflater) context
+                .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        convertView = mInflater.inflate(R.layout.eventListItem, null);
 
-        if (convertView == null) {
+        TextView tv = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
+        ImageView iv = (ImageView) convertView.findViewById(R.id.eventListItem_ivSelected);
 
-            LayoutInflater mInflater = (LayoutInflater) context
-                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.items, null);
-
-            TextView tv = (TextView) convertView.findViewById(R.id.name);
-            //Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
-
-            EventModel m = eventModelList.get(position);
-            tv.setText(m.getName());
-        }
+        EventModel m = eventModelList.get(position);
+        tv.setText(m.getName());
         return convertView;
     }
 
