@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,8 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by lpett on 2/20/2016.
  */
-public class EventAdapter extends CustomAdapter {
+public class EventAdapter extends BaseAdapter {
 
+    Context context;
     ArrayList<EventModel> eventModelList;
 
     public EventAdapter(Context context, ArrayList<EventModel> modelList) {
@@ -29,6 +31,11 @@ public class EventAdapter extends CustomAdapter {
     @Override
     public Object getItem(int position) {
         return eventModelList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override

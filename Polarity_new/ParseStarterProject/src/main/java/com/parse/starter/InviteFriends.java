@@ -20,7 +20,7 @@ public class InviteFriends extends PolarityActivity {
     TextView txtInfo;
     ListView lvInvitedFriends;
     ArrayList<FriendModel> friendList;
-    CustomAdapter adapter;
+    FriendAdapter adapter;
     // endregion
 
     @Override

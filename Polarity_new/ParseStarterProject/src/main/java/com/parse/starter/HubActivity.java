@@ -22,7 +22,7 @@ public class HubActivity extends PolarityActivity {
     Button btnLogOut, btnCreateEvent;
     ListView lvEventQueue;
     TextView txtEventQueue;
-    CustomAdapter adapter;
+    EventAdapter adapter;
 
     @Override
     public void onBackPressed(){

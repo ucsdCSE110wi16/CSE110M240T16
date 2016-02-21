@@ -1,43 +1,29 @@
 package com.parse.starter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
 /**
- * Created by Cameron on 2/8/2016.
+ * Created by lpett on 2/20/2016.
  */
-public class CustomAdapter extends BaseAdapter{
-    Context context;
-    ArrayList<Model> modelList;
+public class MovieVoteAdapter extends ModelAdapter {
 
-    public CustomAdapter() {}
-
-    public CustomAdapter(Context context, ArrayList<Model> modelList) {
-        this.context = context;
-        this.modelList = modelList;
-    }
+    ArrayList<MovieModel> movieModelList;
 
     @Override
     public int getCount() {
-        return modelList.size();
+        return movieModelList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return modelList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+        return movieModelList.get(position);
     }
 
     @Override
