@@ -7,8 +7,8 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/eventListItem_tbTitle"
-        android:layout_width="match_parent"
+        android:id="@+id/movieVoteistItem_tbTitle"
+        android:layout_width="342dp"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:padding="8dp"
@@ -16,5 +16,13 @@
         android:textSize="18sp"
         android:contextClickable="false"
         android:background="@android:color/transparent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:id="@+id/movieVoteListItem_ivSelected"
+        android:background="@android:color/transparent"
+        android:src="@drawable/signcheckicon"
+        android:visibility="invisible" />
 
 </LinearLayout>

@@ -41,7 +41,6 @@ public class EventAdapter extends CustomAdapter {
         convertView = mInflater.inflate(R.layout.eventListItem, null);
 
         TextView tv = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
-        ImageView iv = (ImageView) convertView.findViewById(R.id.eventListItem_ivSelected);
 
         EventModel m = eventModelList.get(position);
         tv.setText(m.getName());
