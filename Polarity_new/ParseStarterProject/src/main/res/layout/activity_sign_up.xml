@@ -53,14 +53,14 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/btnRegister"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="44dp"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/txtInfo"
-        android:layout_toEndOf="@+id/txtInfo" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView9"
+        android:layout_alignEnd="@+id/imageView9" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -48,6 +48,7 @@
         android:layout_alignLeft="@+id/addMovies_btnSearch"
         android:layout_alignStart="@+id/addMovies_btnSearch"
         android:layout_alignBottom="@+id/addMovies_btnSearch"
+        android:layout_marginBottom="5dp"
         />
 
     <!-- Add Movies ImageView-->

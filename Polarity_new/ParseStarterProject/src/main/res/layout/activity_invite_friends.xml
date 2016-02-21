@@ -46,7 +46,8 @@
         android:layout_alignEnd="@+id/inviteFriends_btnSearch"
         android:layout_alignLeft="@+id/inviteFriends_btnSearch"
         android:layout_alignStart="@+id/inviteFriends_btnSearch"
-        android:layout_alignBottom="@+id/inviteFriends_btnSearch" />
+        android:layout_alignBottom="@+id/inviteFriends_btnSearch"
+        android:layout_marginBottom="5dp"/>
 
     <!-- ImportQueueImageView-->
     <ImageView
@@ -60,7 +61,8 @@
         android:layout_alignLeft="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignStart="@+id/inviteFriends_btnInviteFriends"
         android:layout_alignBottom="@+id/inviteFriends_btnInviteFriends"
-        android:src="@drawable/loginbuttonbackground"/>
+        android:src="@drawable/loginbuttonbackground"
+        android:paddingTop="5dp"/>
 
     <!-- SelectAllFriends ImageView-->
     <ImageView
@@ -68,23 +70,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/voteButtonImageView"
         android:src="@drawable/loginbuttonbackground"
-        android:layout_above="@+id/movieListImageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/inviteFriends_btnSelectAll"
         android:layout_alignRight="@+id/inviteFriends_btnSelectAll"
-        android:layout_alignEnd="@+id/inviteFriends_btnSelectAll" />
+        android:layout_alignEnd="@+id/inviteFriends_btnSelectAll"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_above="@+id/inviteFriends_lvFriendsList" />
 
     <!-- Friend list ImageView-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/movieListImageView"
-        android:src="@drawable/friend_list_large2"
-        android:layout_alignTop="@+id/inviteFriends_lvFriendsList"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/importQueueImageView" />
 
     <!-- Search Movies Imageview-->
     <ImageView
@@ -123,7 +118,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/inviteFriends_tbSearch" />
+        android:layout_above="@+id/inviteFriends_tbSearch"
+        android:paddingTop="5dp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -159,7 +155,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/searchImageView"
         android:layout_alignEnd="@+id/searchImageView"
-        android:textColor="@color/themeWhite" />
+        android:textColor="@color/themeWhite"
+        android:paddingBottom="5dp"/>
 
     <Button
         android:background="@android:color/transparent"
@@ -169,7 +166,8 @@
         android:id="@+id/inviteFriends_btnSearch"
         android:layout_below="@+id/inviteFriends_btnHome"
         android:layout_alignLeft="@+id/inviteFriends_btnHome"
-        android:layout_alignStart="@+id/inviteFriends_btnHome" />
+        android:layout_alignStart="@+id/inviteFriends_btnHome"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -190,7 +188,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/inviteFriends_btnSelectAll"
-        android:layout_above="@+id/inviteFriends_btnInviteFriends" />
+        android:background="@color/themeLightGray"
+        android:layout_above="@+id/importQueueImageView"
+        android:paddingTop="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -198,7 +200,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/inviteFriends_txtInfo"
         android:layout_marginTop="34dp"
-        android:layout_alignTop="@+id/movieListImageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/inviteFriends_lvFriendsList" />
 
 </RelativeLayout>
