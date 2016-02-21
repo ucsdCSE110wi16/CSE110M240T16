@@ -222,8 +222,8 @@ public class CreateEvent extends PolarityActivity {
                 });
 
                 EventModel m = new EventModel(com_userID, tbEventName.getText().toString(),
-                        tbEventDescription.getText().toString(), event.getObjectId(),
-                        movieQueueID, date, com_invitedFriends.size(), 0, 0);
+                        tbEventDescription.getText().toString(), tbEventLocation.getText().toString(),
+                        event.getObjectId(), movieQueueID, date, com_invitedFriends.size(), 0, 0);
 
                 // host is automatically set to attending.
                 m.status = EventModel.Status.Accepted;
