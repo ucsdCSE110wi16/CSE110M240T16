@@ -162,7 +162,12 @@ public class HubActivity extends PolarityActivity {
                 }
 
                 // add to eventModelList
+                pqEvent.add(model);
                 com_eventModelList.add(model);
+            }
+
+            for(int i = 0; i<pqEvent.size(); i++) {
+                com_eventModelList.add(pqEvent.poll());
             }
 
 
