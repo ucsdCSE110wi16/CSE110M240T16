@@ -5,8 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -38,7 +36,7 @@ public class EventAdapter extends CustomAdapter {
 
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        convertView = mInflater.inflate(R.layout.eventListItem, null);
+        convertView = mInflater.inflate(R.layout.listitem_event, null);
 
         TextView tv = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
 
