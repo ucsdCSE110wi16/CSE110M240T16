@@ -88,15 +88,7 @@ class EventModelComparator implements Comparator<EventModel> {
     @Override
     public int compare(EventModel m1, EventModel m2) throws NullPointerException {
         if(m1 != null && m2 != null) {
-            Date d1 = m1.getDate();
-            Date d2 = m2.getDate();
-            if(d1 != null && d2 != null) {
-                return m1.getDate().compareTo(m2.getDate());
-            }
-            else {
-                Log.e(TAG, "Date was null");
-                return -1;
-            }
+            return m1.getDate().compareTo(m2.getDate());
         }
         throw new NullPointerException();
     }

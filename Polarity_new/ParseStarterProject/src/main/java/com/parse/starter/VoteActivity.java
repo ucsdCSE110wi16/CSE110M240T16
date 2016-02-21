@@ -8,11 +8,14 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,7 +27,8 @@ public class VoteActivity extends PolarityActivity {
 
     Button btnBack, btnHome, btnVote, btnCancel;
     ListView lvMovieList;
-    MovieVoteAdapter adapter;
+    MovieVoteAdapter movieVoteAdapter;
+    MoviePollAdapter moviePollsAdapter;
     ArrayList<MovieModel> votedMovies;
 
     //endregion
@@ -47,10 +51,18 @@ public class VoteActivity extends PolarityActivity {
 
         lvMovieList.setOnItemClickListener(lvEventQueue_Click());
 
-        if(com_movieList.size() == 0) fetchMovies();
+        if(com_movieList.size() == 0) {
+            fetchMovies();
+            movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
+            lvMovieList.setAdapter(movieVoteAdapter);
+        }
+        if(com_currentEvent.status == EventModel.Status.AcceptedAndVoted) {
+            tallyVotes();
+            Collections.sort(com_movieList, new MovieModelComparator());
+            moviePollsAdapter = new MoviePollAdapter(getApplicationContext(), com_movieList);
+            lvMovieList.setAdapter(moviePollsAdapter);
+        }
 
-        adapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
-        lvMovieList.setAdapter(adapter);
     }
 
     //region Button Clicks
@@ -173,7 +185,7 @@ public class VoteActivity extends PolarityActivity {
         MovieModel m = (MovieModel) lvMovieList.getItemAtPosition(position);
         Log.d(TAG, "MovieModel [" + m.getName() + "] hasVote=" + m.hasVote);
 
-        adapter.notifyDataSetChanged();
+        movieVoteAdapter.notifyDataSetChanged();
     } // handleVoteEvent
 
     private void clearVotes() {
@@ -196,13 +208,33 @@ public class VoteActivity extends PolarityActivity {
                 com_movieList.add(new MovieModel(obj.getObjectId(),
                         obj.getString("userMovieQueueID"),
                         obj.getString("description"),
-                        obj.getString("title")));
+                        obj.getString("title"),
+                        com_currentEvent.getNumFriendsAttending()));
             }
 
         } catch (ParseException e) {
             Log.e(TAG, e.getMessage());
         }
     } // fetchMovies
+
+    private void tallyVotes() {
+
+        ParseQuery<ParseObject> master = ParseQuery.getQuery("MovieVotes");
+        master = master.whereEqualTo("EventID", com_currentEvent.getEventID());
+        ParseQuery<ParseObject> subset;
+
+        for(MovieModel movie : com_movieList) {
+            subset = master.whereEqualTo("MovieInfoID", movie.getMovieID());
+
+            try {
+                movie.setNumTotalVotes(subset.count());
+
+            } catch (ParseException e) {
+                Log.d(TAG, e.getMessage());
+                movie.setNumTotalVotes(0);
+            }
+        }
+    } // tallyVotes
 
     //endregion
 }
