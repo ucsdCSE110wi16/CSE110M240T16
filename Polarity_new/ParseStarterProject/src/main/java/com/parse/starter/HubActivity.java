@@ -121,6 +121,7 @@ public class HubActivity extends PolarityActivity {
         List<ParseObject> parseFriendList = new LinkedList<ParseObject>();
         LinkedList<String> userEventIds = new LinkedList<String>();
         EventModel model;
+        int num_voted = 0, num_attending = 0;
 
         try {
             // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
@@ -135,7 +136,7 @@ public class HubActivity extends PolarityActivity {
                 // if the user hasn't already decided not to go to the event
                 if(obj.getInt("Confirmation") != 3) {
                     userEventIds.add(obj.getString("EventID"));
-                    Log.d(TAG, "Added 1 event to queue");
+                    Log.d(TAG, "Added Event[" + obj.getString("EventID") + "] to queue");
                 }
                 else Log.d(TAG, "Skipped 1 event");
             }
@@ -148,38 +149,57 @@ public class HubActivity extends PolarityActivity {
                 parseEventList.addAll(ParseQuery.getQuery("Event").whereEqualTo("objectId", Id).find());
             }
 
-                Log.d(TAG, "Found " + parseEventList.size() + " events");
+                Log.d(TAG, "Found " + parseEventList.size() + " non-denied events");
 
                 for (ParseObject obj : parseEventList) {
                     // Create new EventModel
                     model = new EventModel(com_userID, obj.getString("EventName"),
                             obj.getString("EventDiscription"), obj.getString("EventLocation"),
-                            obj.getString("objectId"), obj.getString("MovieQueueID"),
+                            obj.getObjectId(), obj.getString("MovieQueueID"),
                             obj.getDate("EventDate"));
 
                     // Get all friends invited
                     parseFriendList.clear();
+
+                    Log.d(TAG, "Working with Event[" + model.getEventID() + "]");
+
                     parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("EventID", model.getEventID()).find();
                     model.setNumFriendsAttending(parseFriendList.size());
 
-                    // get all the friends attending & voted
-                    parseFriendList.clear();
-                    parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 1).find();
-                    model.setNumFriendsVoted(parseFriendList.size());
+                    Log.d(TAG, "Event[" + model.getEventID() + "] Number of friends invited = " + model.getNumFriendsAttending());
 
-                    // get all the friends attending & NOT voted
-                    parseFriendList.clear();
-                    parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 2).find();
-                    model.setNumFriendsAttending(parseFriendList.size());
+                    num_voted = 0;
+                    num_attending = 0;
+                    for(ParseObject person : parseFriendList) {
+                        // check if the person is the user
 
-                    // Set Status
-                    switch (obj.getInt("Confirmation")) {
-                        case 1:
-                            model.status = EventModel.Status.Accepted;
-                        case 2:
-                            model.status = EventModel.Status.AcceptedAndVoted;
-                            break;
+                        Log.d(TAG, "person[" + person.getString("UserID") + "] Status=" + person.getInt("Confirmation"));
+
+                        if(person.getString("UserID").compareTo(com_userID) == 0) {
+
+                            Log.d(TAG, "User FOUND");
+
+                            num_attending++;
+                            switch(person.getInt("Confirmation")) {
+                                case 2:
+                                    num_voted++;
+                                    model.status = EventModel.Status.AcceptedAndVoted;
+                                    break;
+                                case 1:
+                                    model.status = EventModel.Status.Accepted;
+                            }
+                        }
+                        // the person is a friend
+                        else {
+                            switch(person.getInt("Confirmation")) {
+                                case 2: num_voted++;
+                                case 1: num_attending++;
+                            }
+                        }
                     }
+
+                    model.setNumFriendsVoted(num_voted);
+                    model.setNumFriendsAttending(num_attending);
 
                     // add to eventModelList
                     com_eventModelList.add(model);
