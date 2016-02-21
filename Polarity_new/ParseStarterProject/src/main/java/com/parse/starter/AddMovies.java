@@ -56,7 +56,8 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnHome.setOnClickListener(btnHome_Click());
         tbSearch.setOnKeyListener(this);
         // tell the user that there's no movies in the queue
-        txtInfo.setText("no movies added yet :(");
+        if(modelList.size() == 0) txtInfo.setText("no movies added yet :(");
+        else txtInfo.setText("");
     }
 
     @Override

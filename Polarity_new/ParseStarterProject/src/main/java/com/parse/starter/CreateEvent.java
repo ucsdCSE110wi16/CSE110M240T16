@@ -8,14 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.CalendarView;
-import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Calendar;
 
@@ -26,7 +27,6 @@ public class CreateEvent extends PolarityActivity {
     Button btnBack, btnAddMovie, btnInviteFriends, btnCreateEvent, btnHome;
     EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription;
 
-    DatePicker datePicker;
     Calendar myCalendar;
     int year_o, month_o, day_o;
     static final int DIALOG_ID = 0; //hold the dialog id
@@ -37,9 +37,9 @@ public class CreateEvent extends PolarityActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
 
-        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
-        btnAddMovie = (Button) findViewById(R.id.inviteFriends_btnSelectAll);
-        btnInviteFriends = (Button) findViewById(R.id.inviteFriends_btnInviteFriends);
+        btnBack = (Button) findViewById(R.id.createEvent_btnBack);
+        btnAddMovie = (Button) findViewById(R.id.createEvent_addMovies);
+        btnInviteFriends = (Button) findViewById(R.id.createEvent_btnInviteFriends);
         btnCreateEvent = (Button) findViewById(R.id.createEvent_btnCreateEvent);
 
         tbEventName = (EditText) findViewById(R.id.createEvent_tbName);
@@ -115,21 +115,32 @@ public class CreateEvent extends PolarityActivity {
                     displayToast("You must enter a time");
                     return;
                 }
-                //if(com_invitedFriends.size() == 0) {
-                //   displayToast("You must invite friends");
-                //    return;
-                //}
-                if(com_movieList.size() == 0) {
+                if(com_invitedFriends.size() == 0) {
+                   displayToast("You must invite friends");
+                    return;
+                }
+                if(com_modelList.size() == 0) {
                     displayToast("You must add movies");
                     return;
                 }
 
                 // save event stuff in database
+                Date date;
                 ParseObject movieInfo;
                 ParseObject movieQueue;
                 ParseObject invitedFriends;
                 ParseObject event;
                 List<ParseObject> poMovieList = new ArrayList<ParseObject>();
+
+                try {
+                    date = new SimpleDateFormat("MM/dd/yyy").parse(tbEventTime.getText().toString());
+                    if(date == null) Log.e(TAG, "Unable to aquire date format");
+                }
+                catch (java.text.ParseException e) {
+                    Log.e(TAG, e.getMessage());
+                    displayToast("Invalid date format");
+                    return;
+                }
 
                 movieQueue = new ParseObject("UserMovieQueue");
                 movieQueue.put("userId", com_userID);
@@ -168,6 +179,7 @@ public class CreateEvent extends PolarityActivity {
                 event.put("EventDiscription", tbEventDescription.getText().toString());
                 event.put("UserID", com_userID);
                 event.put("MovieQueueID", movieQueueID);
+                event.put("EventDate", date);
 
                 try {
                     event.save();
@@ -179,30 +191,34 @@ public class CreateEvent extends PolarityActivity {
 
                 List<ParseObject> poInvitedFriends = new ArrayList<ParseObject>();
                 com_eventID = event.getObjectId();
-                if(com_invitedFriends.size() > 0){
-                    for(int i = 0; i < com_invitedFriends.size(); i++){
 
-                        invitedFriends = new ParseObject("InvitedFriends");
-                        invitedFriends.put("UserID", com_invitedFriends.get(i).getUserID());
-                        invitedFriends.put("EventID", com_eventID);
-                        invitedFriends.put("Confirmation", 0);
-                        invitedFriends.put("HasVoted",false);
-                        poInvitedFriends.add(invitedFriends);
+                for(int i = 0; i < com_invitedFriends.size(); i++){
 
-                    }//end for
+                    invitedFriends = new ParseObject("InvitedFriends");
+                    invitedFriends.put("UserID", com_invitedFriends.get(i).getUserID());
+                    invitedFriends.put("EventID", com_eventID);
+                    invitedFriends.put("Confirmation", 0);
+                    invitedFriends.put("HasVoted",false);
+                    poInvitedFriends.add(invitedFriends);
 
-                    p = new ParseObject("InvitedFriends");
-                    p.saveAllInBackground(poInvitedFriends, new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e != null) {
-                                Log.e(TAG, e.getMessage());
-                            }
+                }//end for
+
+                p = new ParseObject("InvitedFriends");
+                p.saveAllInBackground(poInvitedFriends, new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e != null) {
+                            Log.e(TAG, e.getMessage());
                         }
-                    });
+                    }
+                });
 
-                }//end if
+                EventModel m = new EventModel(com_userID, tbEventName.getText().toString(),
+                        tbEventDescription.getText().toString(), event.getObjectId(),
+                        movieQueueID, date, com_invitedFriends.size(), 0, 0);
 
+                com_eventModelList.add(m);
+                Collections.sort(com_eventModelList, new EventModelComparator());
                 toActivity_HubActivity();
             }
         };
@@ -257,7 +273,6 @@ public class CreateEvent extends PolarityActivity {
             month_o = monthOfYear + 1;
             day_o = dayOfMonth;
 
-            Toast.makeText(CreateEvent.this, month_o + "/" + day_o + "/" + year_o, Toast.LENGTH_LONG).show();
             tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
             tbEventTime.setText(month_o + "/" + day_o + "/" + year_o);
         }

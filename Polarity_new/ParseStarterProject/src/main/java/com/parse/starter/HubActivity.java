@@ -123,49 +123,55 @@ public class HubActivity extends PolarityActivity {
             parseEventList = ParseQuery.getQuery("Event").whereEqualTo("UserID", com_userID).find();
 
             // Add all the event that we found in InvitedFriends to the list of events
-            for(int i=0; i<userEventIds.size()-1; i++) {
-                parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId",
-                        userEventIds.get(i)).find());
+            for(String Id : userEventIds) {
+                parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId", Id).find());
             }
 
-            pqEvent = new PriorityQueue<>(parseEventList.size(), comparator);
+            if(parseEventList.size() >= 1) {
+                pqEvent = new PriorityQueue<>(parseEventList.size(), comparator);
 
-            for (ParseObject obj : parseEventList) {
-                // Create new EventModel
-                model = new EventModel(com_userID, obj.getString("EventName"),
-                        obj.getString("EventDiscription"), obj.getString("objectId"),
-                        obj.getString("MovieQueueID"), obj.getDate("createdAt"));
+                Log.d(TAG, "Found " + parseEventList.size() + " events");
 
-                // Get all friends invited
-                parseFriendList.clear();
-                parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("EventID", model.getEventID()).find();
-                model.setNumFriendsAttending(parseFriendList.size());
+                for (ParseObject obj : parseEventList) {
+                    // Create new EventModel
+                    model = new EventModel(com_userID, obj.getString("EventName"),
+                            obj.getString("EventDiscription"), obj.getString("objectId"),
+                            obj.getString("MovieQueueID"), obj.getDate("EventDate"));
 
-                // get all the friends attending & voted
-                parseFriendList.clear();
-                parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 1).find();
-                model.setNumFriendsVoted(parseFriendList.size());
+                    // Get all friends invited
+                    parseFriendList.clear();
+                    parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("EventID", model.getEventID()).find();
+                    model.setNumFriendsAttending(parseFriendList.size());
 
-                // get all the friends attending & NOT voted
-                parseFriendList.clear();
-                parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 2).find();
-                model.setNumFriendsAttending(parseFriendList.size());
+                    // get all the friends attending & voted
+                    parseFriendList.clear();
+                    parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 1).find();
+                    model.setNumFriendsVoted(parseFriendList.size());
 
-                // Set Status
-                switch(obj.getInt("Confirmation")) {
-                    case 1:
-                        model.status = EventModel.Status.Accepted;
-                        break;
-                    case 2:
-                        model.status = EventModel.Status.AcceptedAndVoted;
-                        break;
+                    // get all the friends attending & NOT voted
+                    parseFriendList.clear();
+                    parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 2).find();
+                    model.setNumFriendsAttending(parseFriendList.size());
+
+                    // Set Status
+                    switch (obj.getInt("Confirmation")) {
+                        case 1:
+                            model.status = EventModel.Status.Accepted;
+                            break;
+                        case 2:
+                            model.status = EventModel.Status.AcceptedAndVoted;
+                            break;
+                    }
+
+                    // add to eventModelList
+                    pqEvent.add(model);
                 }
 
-                // add to eventModelList
-                com_eventModelList.add(model);
+                // push all the stuff in pq into the eventModelList
+                while(!pqEvent.isEmpty()) {
+                    com_eventModelList.add(pqEvent.poll());
+                }
             }
-
-
         } catch (ParseException e) {
             Log.e(TAG, e.getMessage());
         }

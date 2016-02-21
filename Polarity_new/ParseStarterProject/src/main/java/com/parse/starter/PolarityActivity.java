@@ -47,6 +47,7 @@ public abstract class PolarityActivity extends Activity {
 
         com_currentEvent = null;
 
+        com_modelList = new ArrayList<Model>();
         com_movieList = new ArrayList<MovieModel>();
         com_invitedFriends = new ArrayList<FriendModel>();
         com_eventModelList = new ArrayList<EventModel>();
