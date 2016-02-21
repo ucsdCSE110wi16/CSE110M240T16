@@ -156,10 +156,10 @@ public class CreateEvent extends PolarityActivity {
 
                 // insert all the movies from the movieList into the database
                 movieQueueID = movieQueue.getObjectId();
-                for(int i=0; i<com_movieList.size(); i++) {
+                for(int i=0; i<com_modelList.size(); i++) {
                     movieInfo = new ParseObject("UserMovieInfo");
                     movieInfo.put("userMovieQueueID", movieQueueID);
-                    movieInfo.put("title", com_movieList.get(i).getName());
+                    movieInfo.put("title", com_modelList.get(i).getName());
                     poMovieList.add(movieInfo);
                 }
 

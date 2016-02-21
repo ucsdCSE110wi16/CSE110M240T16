@@ -119,10 +119,13 @@ public class VoteActivity extends PolarityActivity {
             parseMovieList = ParseQuery.getQuery("UserMovieInfo").whereEqualTo("userMovieQueueID",
                     com_currentEvent.getMovieQueueID()).find();
 
+            Log.d(TAG, "found " + parseMovieList.size() + " movies in userMovieQueue=" + com_currentEvent.getMovieQueueID());
+
             for(ParseObject obj : parseMovieList) {
-                model = new MovieModel(obj.getString("objectId"), obj.getString("userMovieQueueID"),
-                        obj.getString("description"), obj.getString("title"));
-                com_movieList.add(model);
+                com_movieList.add(new MovieModel(obj.getString("objectId"),
+                        obj.getString("userMovieQueueID"),
+                        obj.getString("description"),
+                        obj.getString("title")));
             }
 
         } catch (ParseException e) {

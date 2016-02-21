@@ -43,7 +43,7 @@ public class MovieVoteAdapter extends ModelAdapter {
 
             LayoutInflater mInflater = (LayoutInflater) context
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.listitem_generic, null);
+            convertView = mInflater.inflate(R.layout.listitem_movievote, null);
 
             TextView tv = (TextView) convertView.findViewById(R.id.movieVoteListItem_tbTitle);
             ImageView iv = (ImageView) convertView.findViewById(R.id.movieVoteListItem_ivSelected);
