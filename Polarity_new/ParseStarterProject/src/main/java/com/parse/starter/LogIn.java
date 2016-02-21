@@ -50,7 +50,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         btnForgotPassword = (Button) findViewById(R.id.main_btnForgotPassword);
         userName = (EditText) findViewById(R.id.main_tbUserName);
         password = (EditText) findViewById(R.id.main_tbPassword);
-        txtInfo = (TextView) findViewById(R.id.main_tbInfo);
+        txtInfo = (TextView) findViewById(R.id.main_tbInfo2);
 
         btnLogin.setOnClickListener(btnLogin_Click());
         btnCreateAccount.setOnClickListener(btnCreateAccount_Click());
