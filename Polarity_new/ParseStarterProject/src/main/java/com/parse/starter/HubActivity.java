@@ -117,6 +117,7 @@ public class HubActivity extends PolarityActivity {
     //region Helpers
 
     private void fetchEvents() {
+
         List<ParseObject> parseEventList = new LinkedList<ParseObject>();
         List<ParseObject> parseFriendList = new LinkedList<ParseObject>();
         LinkedList<String> userEventIds = new LinkedList<String>();

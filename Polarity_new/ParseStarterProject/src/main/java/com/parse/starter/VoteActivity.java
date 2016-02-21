@@ -51,8 +51,8 @@ public class VoteActivity extends PolarityActivity {
 
         lvMovieList.setOnItemClickListener(lvEventQueue_Click());
 
-        if(com_movieList.size() == 0) {
-            fetchMovies();
+        if(com_movieList.size() == 0) fetchMovies();
+        if(com_currentEvent.status == EventModel.Status.Accepted) {
             movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(movieVoteAdapter);
         }
