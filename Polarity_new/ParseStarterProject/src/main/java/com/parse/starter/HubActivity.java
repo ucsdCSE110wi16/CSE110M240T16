@@ -47,36 +47,70 @@ public class HubActivity extends PolarityActivity {
 
 
         // If com_userEvents is not populated yet, then populate it
-        if(com_userEvents.size() == 0) {
-            List<ParseObject> parseEventList = new LinkedList<ParseObject>();
-            List<ParseObject> parseFriendList = new LinkedList<ParseObject>();
-            LinkedList<String> userEventIds = new LinkedList<String>();
-            PriorityQueue<MovieEvent> pqEvent = new PriorityQueue<MovieEvent>();
+        if(com_eventModelList.size() == 0) {
+                    List<ParseObject> parseEventList = new LinkedList<ParseObject>();
+                    List<ParseObject> parseFriendList = new LinkedList<ParseObject>();
+                    LinkedList<String> userEventIds = new LinkedList<String>();
+                    PriorityQueue<EventModel> pqEvent = new PriorityQueue<EventModel>();
+                    EventModel model;
 
-            try {
-                parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
-                for(ParseObject obj : parseEventList) {
-                    userEventIds.add(obj.getString("EventID"));
-                }
-                parseEventList.clear();
-                parseEventList = ParseQuery.getQuery("Events").whereEqualTo("UserID", com_userID).find();
-                for(int i=0; i<userEventIds.size()-1; i++) {
-                    parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId",
-                            userEventIds.get(i)).find());
-                }
+                    try {
+                        // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
+                        parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
+
+                        // push all the eventId's onto an array of eventIds
+                        for(ParseObject obj : parseEventList) {
+                            // if the user hasn't already decided not to go to the event
+                            if(obj.getInt("Confirmation") != 3) {
+                                userEventIds.add(obj.getString("EventID"));
+                            }
+                        }
+
+                        // clear the parseEventList
+                        parseEventList.clear();
+                        // FETCH * FROM Events WHERE UserID IS com_userID
+                        parseEventList = ParseQuery.getQuery("Events").whereEqualTo("UserID", com_userID).find();
+
+                        // Add all the event that we found in InvitedFriends to the list of events
+                        for(int i=0; i<userEventIds.size()-1; i++) {
+                            parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId",
+                                    userEventIds.get(i)).find());
+                        }
 
 
-                for (ParseObject obj : parseEventList) {
-                    //TODO: input all the desired value into a new MovieEvent object and stuff it in a pq
-                }
-            } catch (ParseException e) {
-                Log.e(TAG, e.getMessage());
-            }
+                        for (ParseObject obj : parseEventList) {
+                            // Create new EventModel
+                            model = new EventModel(com_userID, obj.getString("EventName"),
+                                    obj.getString("EventDiscription"), obj.getString("objectId"),
+                                    obj.getString("MovieQueueID"), obj.getDate("createdAt"));
+
+                            // Get all friends invited
+                            parseFriendList.clear();
+                            parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("EventID", model.getEventID()).find();
+                            model.setNumFriendsAttending(parseFriendList.size());
+
+                            // get all the friends attending & voted
+                            parseFriendList.clear();
+                            parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 1).find();
+                            model.setNumFriendsVoted(parseFriendList.size());
+
+                            // get all the friends attending & NOT voted
+                            parseFriendList.clear();
+                            parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 2).find();
+                            model.setNumFriendsAttending(parseFriendList.size());
+
+                            // add to eventModelList
+                            com_eventModelList.add(model);
+                        }
+
+        } catch (ParseException e) {
+            Log.e(TAG, e.getMessage());
         }
+    }
 
 
         // check if the queue is empty (this means the user wasn't invited to anything)
-        if(com_userEvents.size() == 0){
+        if(com_eventModelList.size() == 0){
            txtEventQueue.setText("No upcoming events");
         }
         else{
@@ -84,7 +118,7 @@ public class HubActivity extends PolarityActivity {
         }
 
         // Set this stuff up either way, it'll just be empty if there are no events
-        adapter = new CustomAdapter(getApplicationContext(), com_eventModelList);
+        adapter = new EventAdapter(getApplicationContext(), com_eventModelList);
         lvEventQueue.setAdapter(adapter);
 
     }

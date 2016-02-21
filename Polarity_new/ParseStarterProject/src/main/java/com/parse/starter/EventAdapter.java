@@ -15,11 +15,21 @@ import java.util.ArrayList;
  */
 public class EventAdapter extends CustomAdapter {
 
-    ArrayList<EventModel> modelList;
+    ArrayList<EventModel> eventModelList;
 
-    public EventModel(Context context, ArrayList<EventModel> modelList) {
+    public EventAdapter(Context context, ArrayList<EventModel> modelList) {
         this.context = context;
-        this.modelList = modelList;
+        this.eventModelList = modelList;
+    }
+
+    @Override
+    public int getCount() {
+        return eventModelList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return eventModelList.get(position);
     }
 
     @Override
@@ -36,7 +46,7 @@ public class EventAdapter extends CustomAdapter {
             TextView tv = (TextView) convertView.findViewById(R.id.name);
             Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
 
-            EventModel m = modelList.get(position);
+            EventModel m = eventModelList.get(position);
             tv.setText(m.getName());
 
             // click listiner for remove button

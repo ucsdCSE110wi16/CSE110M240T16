@@ -2,6 +2,7 @@ package com.parse.starter;
 
 
 import android.app.Activity;
+import android.app.usage.UsageEvents;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
@@ -24,9 +25,7 @@ public abstract class PolarityActivity extends Activity {
 
     static ArrayList<Model> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
-    static ArrayList<Model> com_eventModelList;
-
-    static ArrayList<MovieEvent> com_userEvents;
+    static ArrayList<EventModel> com_eventModelList;
 
     //endregion
 
@@ -46,9 +45,7 @@ public abstract class PolarityActivity extends Activity {
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<FriendModel>();
-        com_eventModelList = new ArrayList<Model>();
-
-        com_userEvents = new ArrayList<MovieEvent>();
+        com_eventModelList = new ArrayList<EventModel>();
     }
 
     //endregion
@@ -107,16 +104,4 @@ public abstract class PolarityActivity extends Activity {
 
     //endregion
 
-}
-
-
-// comparitor class for MovieEvents
-class CompareMovieEvent implements Comparator<MovieEvent> {
-    @Override
-    public int compare(MovieEvent m1, MovieEvent m2) throws NullPointerException {
-        if(m1 != null && m2 != null) {
-            return m1.Date().compareTo(m2.Date());
-        }
-        throw new NullPointerException();
-    }
 }

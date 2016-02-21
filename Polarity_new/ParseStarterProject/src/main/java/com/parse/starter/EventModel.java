@@ -11,23 +11,27 @@ import java.util.Date;
 public class EventModel extends Model {
 
     protected Date date;
-    protected String hostId, description;
+    protected String hostId, description, eventId, movieQueueId;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
 
     //region Constructors
 
-    public EventModel(String HostID, String Name, String Description, Date EventDate) {
+    public EventModel(String HostID, String Name, String Description, String EventID,
+                      String MovieQueueID, Date EventDate) {
         numFriendsInvited = 0;
         numFriendsAttending = 0;
         numFriendsVoted = 0;
         hostId = HostID;
         name = Name;
         description = Description;
+        eventId = EventID;
+        movieQueueId = MovieQueueID;
         date = EventDate;
     } // EventModel
 
-    public EventModel(String HostID, String Name, String Description, Date EventDate,
-                        int NumFriendsInvited, int NumFriendsAttending, int NumFriendsVoted) {
+    public EventModel(String HostID, String Name, String Description, String EventID,
+                      String MovieQueueID, Date EventDate, int NumFriendsInvited,
+                      int NumFriendsAttending, int NumFriendsVoted) {
         numFriendsInvited = NumFriendsInvited;
         numFriendsAttending = NumFriendsAttending;
         numFriendsVoted = NumFriendsVoted;
@@ -43,6 +47,8 @@ public class EventModel extends Model {
 
     public String getHostID() {return hostId;}
     public String getDescription() {return description;}
+    public String getEventID() {return eventId;}
+    public String getMovieQueueID() {return movieQueueId;}
     public Date getDate() {return date;}
     public int getNumFriendsAttending() {return numFriendsAttending;}
     public int getNumFriendsInvited() {return numFriendsInvited;}
@@ -53,6 +59,7 @@ public class EventModel extends Model {
     //region Setters
 
     public void setDescription(String Description) {description = Description;}
+    public void setNumFriendsInvited(int numFriendsInvited) {this.numFriendsAttending = numFriendsInvited;}
     public void setNumFriendsAttending(int numFriendsAttending) {this.numFriendsAttending = numFriendsAttending;}
     public void setNumFriendsVoted(int numFriendsVoted) {this.numFriendsVoted = numFriendsVoted;}
 
