@@ -139,8 +139,6 @@ public class HubActivity extends PolarityActivity {
 
             // clear the parseEventList
             parseEventList.clear();
-            // FETCH * FROM Events WHERE UserID IS com_userID
-            parseEventList = ParseQuery.getQuery("Event").whereEqualTo("UserID", com_userID).find();
 
             // Add all the event that we found in InvitedFriends to the list of events
             for(String Id : userEventIds) {
@@ -174,7 +172,6 @@ public class HubActivity extends PolarityActivity {
                     switch (obj.getInt("Confirmation")) {
                         case 1:
                             model.status = EventModel.Status.Accepted;
-                            break;
                         case 2:
                             model.status = EventModel.Status.AcceptedAndVoted;
                             break;

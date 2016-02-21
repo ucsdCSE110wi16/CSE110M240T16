@@ -192,8 +192,16 @@ public class CreateEvent extends PolarityActivity {
                 List<ParseObject> poInvitedFriends = new ArrayList<ParseObject>();
                 com_eventID = event.getObjectId();
 
-                for(int i = 0; i < com_invitedFriends.size(); i++){
+                // add the host
+                invitedFriends = new ParseObject("InvitedFriends");
+                invitedFriends.put("UserID", com_userID);
+                invitedFriends.put("EventID", com_eventID);
+                invitedFriends.put("Confermation", 1);
+                invitedFriends.put("HasVoted", false);
+                poInvitedFriends.add(invitedFriends);
 
+                // add all the friends
+                for(int i = 0; i < com_invitedFriends.size(); i++){
                     invitedFriends = new ParseObject("InvitedFriends");
                     invitedFriends.put("UserID", com_invitedFriends.get(i).getUserID());
                     invitedFriends.put("EventID", com_eventID);
@@ -216,6 +224,9 @@ public class CreateEvent extends PolarityActivity {
                 EventModel m = new EventModel(com_userID, tbEventName.getText().toString(),
                         tbEventDescription.getText().toString(), event.getObjectId(),
                         movieQueueID, date, com_invitedFriends.size(), 0, 0);
+
+                // host is automatically set to attending.
+                m.status = EventModel.Status.Accepted;
 
                 com_eventModelList.add(m);
                 Collections.sort(com_eventModelList, new EventModelComparator());
