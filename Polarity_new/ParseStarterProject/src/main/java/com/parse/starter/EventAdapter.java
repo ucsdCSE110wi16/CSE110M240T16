@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,8 +13,9 @@ import java.util.ArrayList;
 /**
  * Created by lpett on 2/20/2016.
  */
-public class EventAdapter extends CustomAdapter {
+public class EventAdapter extends BaseAdapter {
 
+    Context context;
     ArrayList<EventModel> eventModelList;
 
     public EventAdapter(Context context, ArrayList<EventModel> modelList) {
@@ -33,31 +34,21 @@ public class EventAdapter extends CustomAdapter {
     }
 
     @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        convertView = null;
+        LayoutInflater mInflater = (LayoutInflater) context
+                .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+        convertView = mInflater.inflate(R.layout.listitem_event, null);
 
-        if (convertView == null) {
+        TextView tv = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
 
-            LayoutInflater mInflater = (LayoutInflater) context
-                    .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.items, null);
-
-            TextView tv = (TextView) convertView.findViewById(R.id.name);
-            Button rm_btn = (Button) convertView.findViewById(R.id.rm_btn);
-
-            EventModel m = eventModelList.get(position);
-            tv.setText(m.getName());
-
-            // click listiner for remove button
-            rm_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    modelList.remove(position);
-                    notifyDataSetChanged();
-                }
-            });
-        }
+        EventModel m = eventModelList.get(position);
+        tv.setText(m.getName());
         return convertView;
     }
 

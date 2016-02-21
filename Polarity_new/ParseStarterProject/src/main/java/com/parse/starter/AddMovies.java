@@ -1,6 +1,5 @@
 package com.parse.starter;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,7 +26,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
     EditText tbSearch;
     TextView txtInfo;
     ArrayList<Model> modelList;
-    CustomAdapter adapter;
+    ModelAdapter adapter;
 
     String movieNameBuffer;
 
@@ -46,9 +45,9 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
         txtInfo = (TextView) findViewById(R.id.activity_add_movies_textView);
-        modelList = com_movieList;
+        modelList = com_modelList;
 
-        adapter = new CustomAdapter(getApplicationContext(), modelList);
+        adapter = new ModelAdapter(getApplicationContext(), modelList);
         lvMovieList.setAdapter(adapter);
 
         // set listeners

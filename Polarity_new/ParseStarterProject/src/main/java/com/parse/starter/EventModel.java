@@ -10,9 +10,18 @@ import java.util.Date;
  */
 public class EventModel extends Model {
 
+    public enum Status {
+        Unanswered,
+        Accepted,
+        AcceptedAndVoted,
+        Denied;
+    }
+
     protected Date date;
     protected String hostId, description, eventId, movieQueueId;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
+
+    public Status status = Status.Unanswered;
 
     //region Constructors
 
@@ -68,7 +77,7 @@ public class EventModel extends Model {
 }
 
 // comparator for EventModel
-class CompareEventModel implements Comparator<EventModel> {
+class EventModelComparator implements Comparator<EventModel> {
     @Override
     public int compare(EventModel m1, EventModel m2) throws NullPointerException {
         if(m1 != null && m2 != null) {

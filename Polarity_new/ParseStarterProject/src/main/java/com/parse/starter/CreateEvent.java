@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
@@ -38,7 +37,7 @@ public class CreateEvent extends PolarityActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
 
-        btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
+        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
         btnAddMovie = (Button) findViewById(R.id.inviteFriends_btnSelectAll);
         btnInviteFriends = (Button) findViewById(R.id.inviteFriends_btnInviteFriends);
         btnCreateEvent = (Button) findViewById(R.id.createEvent_btnCreateEvent);

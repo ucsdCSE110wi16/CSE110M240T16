@@ -29,17 +29,17 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign up for Polarity "
-        android:id="@+id/inviteFriends_txtTitle"
+        android:id="@+id/viewEvent_txtTitle"
         android:layout_above="@+id/txtInfo"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/inviteFriends_btnBack" />
+        android:layout_alignTop="@+id/viewEvent_btnBack" />
     <!--Back button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/inviteFriends_btnBack"
+        android:id="@+id/viewEvent_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -70,7 +70,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:layout_below="@+id/inviteFriends_btnBack" />
+        android:layout_below="@+id/viewEvent_btnBack" />
 
     <!--Image for Back Button-->
     <ImageView
@@ -78,12 +78,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView8"
         android:src="@drawable/back_button"
-        android:layout_alignTop="@+id/inviteFriends_txtTitle"
+        android:layout_alignTop="@+id/viewEvent_txtTitle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/inviteFriends_btnBack"
-        android:layout_alignEnd="@+id/inviteFriends_btnBack"
-        android:layout_alignBottom="@+id/inviteFriends_btnBack" />
+        android:layout_alignRight="@+id/viewEvent_btnBack"
+        android:layout_alignEnd="@+id/viewEvent_btnBack"
+        android:layout_alignBottom="@+id/viewEvent_btnBack" />
 
 
 

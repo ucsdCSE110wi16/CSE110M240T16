@@ -2,13 +2,10 @@ package com.parse.starter;
 
 
 import android.app.Activity;
-import android.app.usage.UsageEvents;
 import android.content.Intent;
-import android.view.View;
 import android.widget.Toast;
-import com.parse.starter.MovieEvent;
+
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /** Global variables and methods go here
  *  Created by Lucas Pettit 02/10/2016
@@ -22,8 +19,12 @@ public abstract class PolarityActivity extends Activity {
 
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
+    static String com_currentEventId;
 
-    static ArrayList<Model> com_movieList;
+    static EventModel com_currentEvent;
+
+    static ArrayList<Model> com_modelList;
+    static ArrayList<MovieModel> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
     static ArrayList<EventModel> com_eventModelList;
 
@@ -42,8 +43,11 @@ public abstract class PolarityActivity extends Activity {
         com_eventLocation = "";
         com_eventTime = "";
         com_eventDescription = "";
+        com_currentEventId = "";
 
-        com_movieList = new ArrayList<Model>();
+        com_currentEvent = null;
+
+        com_movieList = new ArrayList<MovieModel>();
         com_invitedFriends = new ArrayList<FriendModel>();
         com_eventModelList = new ArrayList<EventModel>();
     }
@@ -101,6 +105,21 @@ public abstract class PolarityActivity extends Activity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     } // toActivity_SignUp
+
+    protected void toActivity_ViewEvent() {
+        Intent intent = new Intent(this, ViewEventActivity.class);
+        startActivity(intent);
+    } // toActivity_ViewEvent
+
+    protected void toActivity_Vote() {
+        Intent intent = new Intent(this, VoteActivity.class);
+        startActivity(intent);
+    } // toActivity_Vote
+
+    protected void toActivity_ViewInviteList() {
+        Intent intent = new Intent(this, ViewInviteListActivity.class);
+        startActivity(intent);
+    } // toActivty_ViewInviteList
 
     //endregion
 
