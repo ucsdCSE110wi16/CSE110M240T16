@@ -11,14 +11,13 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
 public class HubActivity extends PolarityActivity {
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = HubActivity.class.getSimpleName();
 
     Button btnLogOut, btnCreateEvent;
     ListView lvEventQueue;
@@ -58,6 +57,9 @@ public class HubActivity extends PolarityActivity {
                         // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
                         parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
 
+                        // debug output
+                        Log.d(TAG, "Fetched all events user is invited to. Size = " + parseEventList.size());
+
                         // push all the eventId's onto an array of eventIds
                         for(ParseObject obj : parseEventList) {
                             // if the user hasn't already decided not to go to the event
@@ -71,12 +73,17 @@ public class HubActivity extends PolarityActivity {
                         // FETCH * FROM Events WHERE UserID IS com_userID
                         parseEventList = ParseQuery.getQuery("Events").whereEqualTo("UserID", com_userID).find();
 
+                        // debug
+                        Log.d(TAG, "Fetched all events user is hosting. Size = " + parseEventList.size());
+
                         // Add all the event that we found in InvitedFriends to the list of events
                         for(int i=0; i<userEventIds.size()-1; i++) {
                             parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId",
                                     userEventIds.get(i)).find());
                         }
 
+                        // debug
+                        Log.d(TAG, "Total size of events to be put on queue = " + parseEventList.size());
 
                         for (ParseObject obj : parseEventList) {
                             // Create new EventModel
@@ -84,20 +91,33 @@ public class HubActivity extends PolarityActivity {
                                     obj.getString("EventDiscription"), obj.getString("objectId"),
                                     obj.getString("MovieQueueID"), obj.getDate("createdAt"));
 
+                            // debug
+                            Log.d(TAG, "Created new model. ID = " + model.getEventID());
+
+
                             // Get all friends invited
                             parseFriendList.clear();
                             parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("EventID", model.getEventID()).find();
                             model.setNumFriendsAttending(parseFriendList.size());
+
+                            // debug
+                            Log.d(TAG, "model has " + model.getNumFriendsInvited() + " friends invited");
 
                             // get all the friends attending & voted
                             parseFriendList.clear();
                             parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 1).find();
                             model.setNumFriendsVoted(parseFriendList.size());
 
+                            // debug
+                            Log.d(TAG, "model has " + model.getNumFriendsVoted() + " friends voted");
+
                             // get all the friends attending & NOT voted
                             parseFriendList.clear();
                             parseFriendList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("Confirmation", 2).find();
                             model.setNumFriendsAttending(parseFriendList.size());
+
+                            // debug
+                            Log.d(TAG, "model has " + model.getNumFriendsAttending() + " friends attending");
 
                             // add to eventModelList
                             com_eventModelList.add(model);
