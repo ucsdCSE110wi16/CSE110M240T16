@@ -196,7 +196,7 @@ public class CreateEvent extends PolarityActivity {
                 invitedFriends = new ParseObject("InvitedFriends");
                 invitedFriends.put("UserID", com_userID);
                 invitedFriends.put("EventID", com_eventID);
-                invitedFriends.put("Confermation", 1);
+                invitedFriends.put("Confirmation", 1);
                 invitedFriends.put("HasVoted", false);
                 poInvitedFriends.add(invitedFriends);
 

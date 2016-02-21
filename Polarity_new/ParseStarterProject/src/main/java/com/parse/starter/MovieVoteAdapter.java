@@ -1,10 +1,13 @@
 package com.parse.starter;
 
 import android.app.Activity;
+import android.content.Context;
+import android.support.v7.internal.view.menu.MenuView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +18,11 @@ import java.util.ArrayList;
 public class MovieVoteAdapter extends ModelAdapter {
 
     ArrayList<MovieModel> movieModelList;
+
+    public MovieVoteAdapter(Context context, ArrayList<MovieModel> modelList) {
+        this.context = context;
+        this.movieModelList = modelList;
+    }
 
     @Override
     public int getCount() {
@@ -37,20 +45,15 @@ public class MovieVoteAdapter extends ModelAdapter {
                     .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.listitem_generic, null);
 
-            TextView tv = (TextView) convertView.findViewById(R.id.generic_tbTitle);
-            Button rm_btn = (Button) convertView.findViewById(R.id.generic_btnRemove);
+            TextView tv = (TextView) convertView.findViewById(R.id.movieVoteListItem_tbTitle);
+            ImageView iv = (ImageView) convertView.findViewById(R.id.movieVoteListItem_ivSelected);
 
-            Model m = modelList.get(position);
+            MovieModel m = movieModelList.get(position);
             tv.setText(m.getName());
+            if(m.hasVote) iv.setVisibility(View.VISIBLE);
+            else iv.setVisibility(View.INVISIBLE);
+            notifyDataSetChanged();
 
-            // click listiner for remove button
-            rm_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    modelList.remove(position);
-                    notifyDataSetChanged();
-                }
-            });
         }
         return convertView;
     }

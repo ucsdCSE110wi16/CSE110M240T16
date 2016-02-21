@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -11,6 +12,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,6 +24,8 @@ public class VoteActivity extends PolarityActivity {
 
     Button btnBack, btnHome, btnVote, btnCancel;
     ListView lvMovieList;
+    MovieVoteAdapter adapter;
+    ArrayList<MovieModel> votedMovies;
 
     //endregion
 
@@ -42,6 +46,9 @@ public class VoteActivity extends PolarityActivity {
         btnVote.setOnClickListener(btnVote_Click());
 
         fetchMovies();
+
+        adapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
+        lvMovieList.setAdapter(adapter);
     }
 
     //region Button Clicks
@@ -84,6 +91,22 @@ public class VoteActivity extends PolarityActivity {
             }
         };
     }
+    //endregion
+
+    //region ListView Clicks
+
+    private AdapterView.OnItemClickListener lvEventQueue_Click() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                MovieModel m = (MovieModel) lvMovieList.getItemAtPosition(position);
+                if(m.hasVote) m.hasVote = false;
+                else m.hasVote = true;
+                adapter.notifyDataSetChanged();
+            }
+        };
+    }
+
     //endregion
 
     //region Helpers

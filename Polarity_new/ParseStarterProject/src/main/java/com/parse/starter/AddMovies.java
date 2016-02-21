@@ -19,7 +19,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     //region Declare Variables
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = AddMovies.class.getSimpleName();
 
     Button btnBack, btnHome, btnImportMovieQueue, btnSearch;
     ListView lvMovieList;

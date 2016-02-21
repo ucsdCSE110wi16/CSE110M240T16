@@ -124,17 +124,20 @@ public class HubActivity extends PolarityActivity {
 
         try {
             // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
-            parseEventList = ParseQuery.getQuery("FriendsInvited").whereEqualTo("UserID", com_userID).find();
+            parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
 
             // debug output
             Log.d(TAG, "Fetched all events user is invited to. Size = " + parseEventList.size());
+            Log.d(TAG, "com_userID = " + com_userID);
 
             // push all the eventId's onto an array of eventIds
             for(ParseObject obj : parseEventList) {
                 // if the user hasn't already decided not to go to the event
                 if(obj.getInt("Confirmation") != 3) {
                     userEventIds.add(obj.getString("EventID"));
+                    Log.d(TAG, "Added 1 event to queue");
                 }
+                else Log.d(TAG, "Skipped 1 event");
             }
 
             // clear the parseEventList
@@ -142,7 +145,7 @@ public class HubActivity extends PolarityActivity {
 
             // Add all the event that we found in InvitedFriends to the list of events
             for(String Id : userEventIds) {
-                parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId", Id).find());
+                parseEventList.addAll(ParseQuery.getQuery("Event").whereEqualTo("objectId", Id).find());
             }
 
                 Log.d(TAG, "Found " + parseEventList.size() + " events");
