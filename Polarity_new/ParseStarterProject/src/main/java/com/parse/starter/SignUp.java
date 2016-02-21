@@ -50,7 +50,7 @@ public class SignUp extends PolarityActivity {
         password = (EditText) findViewById(R.id.main_tbPassword);
         rePassword = (EditText) findViewById(R.id.tbRePassword);
         btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
+        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
         txtInfo = (TextView) findViewById(R.id.txtInfo);
 
         // set the text color because i dont know how to do it in the designer screen

@@ -1,0 +1,164 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/themeCharcoal"
+    tools:context=""
+    android:clickable="true"> <!-- Insert associate Java File here -->
+
+    <!--back button image-->
+    <ImageView
+        android:src="@drawable/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView28"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/viewEvent_txtLocation"
+        android:layout_alignRight="@+id/viewEvent_btnBack"
+        android:layout_alignEnd="@+id/viewEvent_btnBack"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:src="@drawable/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView29"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/viewEvent_txtLocation"
+        android:layout_alignLeft="@+id/viewEvent_btnHome"
+        android:layout_alignStart="@+id/viewEvent_btnHome" />
+
+    <!--Behind Who's Going-->
+
+    <!-- Behind Vote-->
+
+    <TextView
+        android:textColor="@color/themeWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&lt;Event Title>"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:id="@+id/viewEvent_txtTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;-"
+        android:id="@+id/viewEvent_btnBack"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewEvent_btnHome"
+        android:layout_alignTop="@+id/viewEvent_txtTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="433dp"
+        android:layout_marginStart="433dp" />
+
+    <TextView
+        android:textColor="@color/themeWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&lt;Location>"
+        android:id="@+id/viewEvent_txtLocation"
+        android:layout_below="@+id/viewEvent_btnBack"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/viewEvent_btnHome"
+        android:layout_alignEnd="@+id/viewEvent_btnHome" />
+
+    <TextView
+        android:textColor="@color/themeWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&lt;Time>"
+        android:id="@+id/viewEvent_txtTime"
+        android:layout_below="@+id/viewEvent_txtLocation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/viewEvent_txtLocation"
+        android:layout_alignEnd="@+id/viewEvent_txtLocation" />
+
+    <TextView
+        android:textColor="@color/themeWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&lt;Description>"
+        android:id="@+id/viewEvent_description"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/viewEvent_txtTime"
+        android:layout_alignEnd="@+id/viewEvent_txtTime"
+        android:layout_below="@+id/viewEvent_txtTime" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="View Invite List"
+        android:id="@+id/button2"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Vote On Movies"
+        android:id="@+id/button3"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignRight="@+id/button5"
+        android:layout_alignEnd="@+id/button5" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Accept Invite"
+        android:id="@+id/button4"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="Deny Invite"
+        android:id="@+id/button5"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_alignRight="@+id/imageView29"
+        android:layout_alignEnd="@+id/imageView29" />
+
+
+</RelativeLayout>

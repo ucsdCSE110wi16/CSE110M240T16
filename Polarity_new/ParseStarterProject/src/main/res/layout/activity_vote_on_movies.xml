@@ -20,10 +20,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/inviteFriends_tbSearch"
-        android:layout_alignStart="@+id/inviteFriends_btnBack"
-        android:layout_alignLeft="@+id/inviteFriends_btnBack"
-        android:layout_alignRight="@+id/inviteFriends_btnBack"
-        android:layout_alignEnd="@+id/inviteFriends_btnBack" />
+        android:layout_alignStart="@+id/viewEvent_btnBack"
+        android:layout_alignLeft="@+id/viewEvent_btnBack"
+        android:layout_alignRight="@+id/viewEvent_btnBack"
+        android:layout_alignEnd="@+id/viewEvent_btnBack" />
 
     <ImageView
         android:src="@drawable/home_button"
@@ -33,8 +33,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/inviteFriends_btnSearch"
-        android:layout_alignLeft="@+id/inviteFriends_btnHome"
-        android:layout_alignStart="@+id/inviteFriends_btnHome" />
+        android:layout_alignLeft="@+id/viewEvent_btnHome"
+        android:layout_alignStart="@+id/viewEvent_btnHome" />
 
     <!-- Search ImageView-->
     <ImageView
@@ -70,7 +70,7 @@
         android:id="@+id/searchMoviesImageView"
         android:src="@drawable/textviewbackground"
         android:layout_alignBottom="@+id/inviteFriends_tbSearch"
-        android:layout_below="@+id/inviteFriends_btnBack"
+        android:layout_below="@+id/viewEvent_btnBack"
         android:layout_alignRight="@+id/inviteFriends_tbSearch"
         android:layout_alignEnd="@+id/inviteFriends_tbSearch"
         android:layout_alignParentLeft="true"
@@ -92,7 +92,7 @@
         android:textSize="28dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Your Vote"
-        android:id="@+id/inviteFriends_txtTitle"
+        android:id="@+id/viewEvent_txtTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:gravity="center|center_vertical"
@@ -102,7 +102,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/inviteFriends_btnBack"
+        android:id="@+id/viewEvent_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -112,8 +112,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/inviteFriends_btnHome"
-        android:layout_alignTop="@+id/inviteFriends_txtTitle"
+        android:id="@+id/viewEvent_btnHome"
+        android:layout_alignTop="@+id/viewEvent_txtTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@android:color/transparent" />
@@ -136,9 +136,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/inviteFriends_btnSearch"
-        android:layout_below="@+id/inviteFriends_btnHome"
-        android:layout_alignLeft="@+id/inviteFriends_btnHome"
-        android:layout_alignStart="@+id/inviteFriends_btnHome"
+        android:layout_below="@+id/viewEvent_btnHome"
+        android:layout_alignLeft="@+id/viewEvent_btnHome"
+        android:layout_alignStart="@+id/viewEvent_btnHome"
         android:background="@android:color/transparent" />
 
     <EditText

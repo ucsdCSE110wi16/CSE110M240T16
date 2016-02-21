@@ -1,6 +1,5 @@
 package com.parse.starter;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,16 +7,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import android.util.Log;
-import android.widget.Toast;
 
 public class InviteFriends extends PolarityActivity {
     // region variables
@@ -35,8 +29,8 @@ public class InviteFriends extends PolarityActivity {
         setContentView(R.layout.activity_invite_friends);
 
         // region findViewById
-        btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
-        btnHome = (Button) findViewById(R.id.inviteFriends_btnHome);
+        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
+        btnHome = (Button) findViewById(R.id.viewEvent_btnHome);
         btnSelectAll = (Button) findViewById(R.id.inviteFriends_btnSelectAll);
         btnInviteFreinds = (Button) findViewById(R.id.inviteFriends_btnInviteFriends);
         btnSearch = (Button) findViewById(R.id.inviteFriends_btnSearch);
