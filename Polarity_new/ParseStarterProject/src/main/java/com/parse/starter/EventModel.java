@@ -10,9 +10,18 @@ import java.util.Date;
  */
 public class EventModel extends Model {
 
+    public enum Status {
+        Unanswered,
+        Accepted,
+        AcceptedAndVoted,
+        Denied;
+    }
+
     protected Date date;
     protected String hostId, description, eventId, movieQueueId;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
+
+    public Status status = Status.Unanswered;
 
     //region Constructors
 

@@ -19,6 +19,9 @@ public abstract class PolarityActivity extends Activity {
 
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
+    static String com_currentEventId;
+
+    static EventModel com_currentEvent;
 
     static ArrayList<Model> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
@@ -39,6 +42,9 @@ public abstract class PolarityActivity extends Activity {
         com_eventLocation = "";
         com_eventTime = "";
         com_eventDescription = "";
+        com_currentEventId = "";
+
+        com_currentEvent = null;
 
         com_movieList = new ArrayList<Model>();
         com_invitedFriends = new ArrayList<FriendModel>();
