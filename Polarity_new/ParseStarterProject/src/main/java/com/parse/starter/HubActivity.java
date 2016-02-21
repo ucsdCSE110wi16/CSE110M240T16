@@ -19,21 +19,26 @@ public class HubActivity extends PolarityActivity {
 
     public static final String TAG = HubActivity.class.getSimpleName();
 
+    // region declare variables
     Button btnLogOut, btnCreateEvent;
     ListView lvEventQueue;
     TextView txtEventQueue;
     EventAdapter adapter;
+    // endregion
 
+    // region prevent going back to log out screen
     @Override
     public void onBackPressed(){
-        //DON'T DO IT, I'll phone children's aid
+        // prevent user from going back to the login screen without logging out
     }
+    // endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub);
 
+        // region findViewById
         btnLogOut = (Button) findViewById(R.id.hubActivity_btnLogOut);
         btnCreateEvent = (Button) findViewById(R.id.hubActivity_btnCreateEvent);
 
@@ -42,14 +47,14 @@ public class HubActivity extends PolarityActivity {
 
         lvEventQueue = (ListView) findViewById(R.id.hubActivity_lvEventQueue);
         txtEventQueue = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
-
-
+        // endregion
 
         // If com_userEvents is not populated yet, then populate it
         if(com_eventModelList.size() == 0) {
             fetchEvents();
         }
 
+        // region empty list status message
         // check if the queue is empty (this means the user wasn't invited to anything)
         if(com_eventModelList.size() == 0){
            txtEventQueue.setText("No upcoming events");
@@ -57,6 +62,7 @@ public class HubActivity extends PolarityActivity {
         else{
             txtEventQueue.setText("");
         }
+        // endregion
 
         // Set this stuff up either way, it'll just be empty if there are no events
         adapter = new EventAdapter(getApplicationContext(), com_eventModelList);
