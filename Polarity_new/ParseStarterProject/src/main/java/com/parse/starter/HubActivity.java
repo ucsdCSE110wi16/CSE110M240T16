@@ -3,6 +3,7 @@ package com.parse.starter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -11,9 +12,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class HubActivity extends PolarityActivity {
 
@@ -47,6 +48,9 @@ public class HubActivity extends PolarityActivity {
 
         lvEventQueue = (ListView) findViewById(R.id.hubActivity_lvEventQueue);
         txtEventQueue = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
+
+        lvEventQueue.setOnItemClickListener(lvEventQueue_Click());
+
         // endregion
 
         // If com_userEvents is not populated yet, then populate it
@@ -92,14 +96,30 @@ public class HubActivity extends PolarityActivity {
 
     //endregion
 
+    //region ListView Click
+
+    private AdapterView.OnItemClickListener lvEventQueue_Click() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                com_currentEvent = (EventModel) lvEventQueue.getItemAtPosition(position);
+                if(com_currentEvent == null) {
+                    Log.e(TAG, "Event returned NULL");
+                    displayToast("Unable to open event");
+                }
+                toActivity_ViewEvent();
+            }
+        };
+    }
+
+    //endregion
+
     //region Helpers
 
     private void fetchEvents() {
         List<ParseObject> parseEventList = new LinkedList<ParseObject>();
         List<ParseObject> parseFriendList = new LinkedList<ParseObject>();
         LinkedList<String> userEventIds = new LinkedList<String>();
-        PriorityQueue<EventModel> pqEvent;
-        EventModelComparator comparator = new EventModelComparator();
         EventModel model;
 
         try {
@@ -126,9 +146,6 @@ public class HubActivity extends PolarityActivity {
             for(String Id : userEventIds) {
                 parseEventList.addAll(ParseQuery.getQuery("Events").whereEqualTo("objectId", Id).find());
             }
-
-            if(parseEventList.size() >= 1) {
-                pqEvent = new PriorityQueue<>(parseEventList.size(), comparator);
 
                 Log.d(TAG, "Found " + parseEventList.size() + " events");
 
@@ -164,14 +181,12 @@ public class HubActivity extends PolarityActivity {
                     }
 
                     // add to eventModelList
-                    pqEvent.add(model);
+                    com_eventModelList.add(model);
                 }
 
-                // push all the stuff in pq into the eventModelList
-                while(!pqEvent.isEmpty()) {
-                    com_eventModelList.add(pqEvent.poll());
-                }
-            }
+            // sort the list
+            Collections.sort(com_eventModelList, new EventModelComparator());
+
         } catch (ParseException e) {
             Log.e(TAG, e.getMessage());
         }
