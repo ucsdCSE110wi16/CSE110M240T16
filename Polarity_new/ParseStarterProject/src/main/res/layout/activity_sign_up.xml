@@ -10,17 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SignUp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView9"
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_alignTop="@+id/btnRegister"
-        android:layout_alignBottom="@+id/btnRegister"
-        android:layout_alignLeft="@+id/txtInfo"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:textColor="@color/themeWhite"
         android:textSize="26dp"
@@ -59,8 +48,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/imageView9"
-        android:layout_alignEnd="@+id/imageView9" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -88,56 +77,12 @@
 
 
     <!--grey rectangle behind username-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView11"
-        android:layout_alignBottom="@+id/createEvent_tbName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/createEvent_tbName"
-        android:layout_alignRight="@+id/createEvent_tbName"
-        android:layout_alignEnd="@+id/createEvent_tbName" />
 
     <!--grey rectangle behind email-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView12"
-        android:layout_alignBottom="@+id/imageView10"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/createEvent_tbLocation"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <!--grey rectangle behind password-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView13"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageView12"
-        android:layout_alignBottom="@+id/main_tbPassword"
-        android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword" />
 
     <!--grey rectangle behind confirm password-->
-    <ImageView
-        android:src="@drawable/textviewbackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView14"
-        android:layout_alignBottom="@+id/tbRePassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/tbRePassword"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 
     <EditText
@@ -151,7 +96,13 @@
         android:textStyle="italic"
         android:layout_marginTop="44dp"
         android:layout_alignRight="@+id/createEvent_tbLocation"
-        android:layout_alignEnd="@+id/createEvent_tbLocation" />
+        android:layout_alignEnd="@+id/createEvent_tbLocation"
+        android:background="@color/themeLightGray"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -163,7 +114,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@color/themeLightGray"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -177,7 +135,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/createEvent_tbLocation"
-        android:layout_alignEnd="@+id/createEvent_tbLocation" />
+        android:layout_alignEnd="@+id/createEvent_tbLocation"
+        android:background="@color/themeLightGray"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -191,7 +156,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword" />
+        android:layout_alignEnd="@+id/main_tbPassword"
+        android:background="@color/themeLightGray"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginTop="5dp"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
