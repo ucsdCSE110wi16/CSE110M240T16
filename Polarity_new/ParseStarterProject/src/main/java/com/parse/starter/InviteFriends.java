@@ -15,7 +15,7 @@ import com.parse.ParseQuery;
 
 public class InviteFriends extends PolarityActivity {
     // region variables
-    Button btnBack, btnHome, btnSelectAll, btnInviteFreinds, btnSearch;
+    Button btnBack, btnHome, btnInviteFreinds, btnSearch;
     EditText tbSearch;
     TextView txtInfo;
     ListView lvInvitedFriends;
@@ -31,7 +31,7 @@ public class InviteFriends extends PolarityActivity {
         // region findViewById
         btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
         btnHome = (Button) findViewById(R.id.viewEvent_btnHome);
-        btnSelectAll = (Button) findViewById(R.id.createEvent_addMovies);
+
         btnInviteFreinds = (Button) findViewById(R.id.createEvent_btnInviteFriends);
         btnSearch = (Button) findViewById(R.id.inviteFriends_btnSearch);
         tbSearch = (EditText) findViewById(R.id.inviteFriends_tbSearch);
@@ -41,7 +41,7 @@ public class InviteFriends extends PolarityActivity {
         // region setOnClickListeners
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
-        btnSelectAll.setOnClickListener(btnSelectAll_Click());
+
         btnInviteFreinds.setOnClickListener(btnInviteFriends_Click());
         btnSearch.setOnClickListener(btnSearch_Click());
         // endregion
@@ -77,15 +77,6 @@ public class InviteFriends extends PolarityActivity {
             }
         };
     } // btnHome_Click
-
-    protected View.OnClickListener btnSelectAll_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        };
-    } // btnSelectAll_Click
 
     protected View.OnClickListener btnInviteFriends_Click() {
         return new View.OnClickListener() {

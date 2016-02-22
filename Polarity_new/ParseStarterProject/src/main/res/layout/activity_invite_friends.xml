@@ -72,12 +72,12 @@
         android:src="@drawable/loginbuttonbackground"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/createEvent_addMovies"
-        android:layout_alignRight="@+id/createEvent_addMovies"
-        android:layout_alignEnd="@+id/createEvent_addMovies"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:layout_above="@+id/inviteFriends_lvFriendsList" />
+        android:layout_above="@+id/inviteFriends_lvFriendsList"
+        android:layout_below="@+id/inviteFriends_tbSearch"
+        android:layout_alignRight="@+id/searchImageView"
+        android:layout_alignEnd="@+id/searchImageView" />
 
     <!-- Friend list ImageView-->
 
@@ -145,20 +145,6 @@
         android:textColor="@color/themeWhite" />
 
     <Button
-        android:background="@drawable/button_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Select All Friends"
-        android:id="@+id/createEvent_addMovies"
-        android:layout_below="@+id/inviteFriends_tbSearch"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/searchImageView"
-        android:layout_alignEnd="@+id/searchImageView"
-        android:textColor="@color/themeWhite"
-        android:paddingBottom="5dp"/>
-
-    <Button
         android:background="@android:color/transparent"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -187,12 +173,12 @@
         android:choiceMode="singleChoice"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/createEvent_addMovies"
         android:background="@color/themeLightGray"
         android:layout_above="@+id/importQueueImageView"
         android:paddingTop="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/inviteFriends_tbSearch" />
 
     <TextView
         android:layout_width="wrap_content"
