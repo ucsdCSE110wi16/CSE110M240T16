@@ -2,14 +2,16 @@ package com.parse.starter;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
-import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
@@ -26,11 +28,13 @@ public class CreateEvent extends PolarityActivity {
     public static final String TAG = CreateEvent.class.getSimpleName();
 
     Button btnBack, btnAddMovie, btnInviteFriends, btnCreateEvent, btnHome;
-    EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription;
+    EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription, tbEventHour;
 
     Calendar myCalendar;
     int year_o, month_o, day_o;
-    static final int DIALOG_ID = 0; //hold the dialog id
+    static final int DIALOG_Date = 0; //hold the Date dialog
+    int hour_o, minute_o;
+
 
 
     @Override
@@ -47,6 +51,7 @@ public class CreateEvent extends PolarityActivity {
         tbEventLocation = (EditText) findViewById(R.id.createEvent_tbLocation);
         tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
         tbEventDescription = (EditText) findViewById(R.id.createEvent_tbDescription);
+        tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
 
         btnBack.setOnClickListener(btnBack_Click());
         btnAddMovie.setOnClickListener(btnAddMovie_Click());
@@ -60,10 +65,16 @@ public class CreateEvent extends PolarityActivity {
 
         //for the date picker
         showDialogOnTextFieldClick();
+        showDialogHourClick();
         myCalendar = Calendar.getInstance();
         year_o = myCalendar.get(Calendar.YEAR);
         month_o = myCalendar.get(Calendar.MONTH);
         day_o = myCalendar.get(Calendar.DAY_OF_MONTH);
+        //disables the keyboard from showing up for date & time picker
+        tbEventTime.setInputType(InputType.TYPE_NULL);
+        tbEventHour.setInputType(InputType.TYPE_NULL);
+        showDialogHourClick();
+
     }
 
     //region Button Clicks
@@ -117,7 +128,7 @@ public class CreateEvent extends PolarityActivity {
                     return;
                 }
                 if(com_invitedFriends.size() == 0) {
-                   displayToast("You must invite friends");
+                    displayToast("You must invite friends");
                     return;
                 }
                 if(com_modelList.size() == 0) {
@@ -132,9 +143,6 @@ public class CreateEvent extends PolarityActivity {
                 ParseObject invitedFriends;
                 ParseObject event;
                 List<ParseObject> poMovieList = new ArrayList<ParseObject>();
-                ParseACL acl = new ParseACL();
-                acl.setPublicReadAccess(true);
-                acl.setPublicWriteAccess(true);
 
                 try {
                     date = new SimpleDateFormat("MM/dd/yyy").parse(tbEventTime.getText().toString());
@@ -149,7 +157,6 @@ public class CreateEvent extends PolarityActivity {
                 movieQueue = new ParseObject("UserMovieQueue");
                 movieQueue.put("userId", com_userID);
                 movieQueue.put("name", tbEventName.getText().toString());
-                movieQueue.setACL(acl);
 
                 try {
                     movieQueue.save();
@@ -165,7 +172,6 @@ public class CreateEvent extends PolarityActivity {
                     movieInfo = new ParseObject("UserMovieInfo");
                     movieInfo.put("userMovieQueueID", movieQueueID);
                     movieInfo.put("title", com_modelList.get(i).getName());
-                    movieInfo.setACL(acl);
                     poMovieList.add(movieInfo);
                 }
 
@@ -186,7 +192,6 @@ public class CreateEvent extends PolarityActivity {
                 event.put("UserID", com_userID);
                 event.put("MovieQueueID", movieQueueID);
                 event.put("EventDate", date);
-                event.setACL(acl);
 
                 try {
                     event.save();
@@ -205,7 +210,6 @@ public class CreateEvent extends PolarityActivity {
                 invitedFriends.put("EventID", com_eventID);
                 invitedFriends.put("Confirmation", 1);
                 invitedFriends.put("HasVoted", false);
-                invitedFriends.setACL(acl);
                 poInvitedFriends.add(invitedFriends);
 
                 // add all the friends
@@ -215,7 +219,6 @@ public class CreateEvent extends PolarityActivity {
                     invitedFriends.put("EventID", com_eventID);
                     invitedFriends.put("Confirmation", 0);
                     invitedFriends.put("HasVoted",false);
-                    invitedFriends.setACL(acl);
                     poInvitedFriends.add(invitedFriends);
 
                 }//end for
@@ -239,15 +242,6 @@ public class CreateEvent extends PolarityActivity {
 
                 com_eventModelList.add(m);
                 Collections.sort(com_eventModelList, new EventModelComparator());
-
-                // erase all the data if backing up to main screen
-                com_eventName = "";
-                com_eventLocation = "";
-                com_eventTime = "";
-                com_eventDescription = "";
-                com_movieList.clear();
-                com_invitedFriends.clear();
-
                 toActivity_HubActivity();
             }
         };
@@ -279,7 +273,7 @@ public class CreateEvent extends PolarityActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showDialog(DIALOG_ID);
+                        showDialog(DIALOG_Date);
                     }
                 }
         );
@@ -288,7 +282,7 @@ public class CreateEvent extends PolarityActivity {
     @Override
     protected Dialog onCreateDialog(int in_id) {
 
-        if (in_id == DIALOG_ID)
+        if (in_id == DIALOG_Date)
             return new DatePickerDialog(this, datePickerListener, year_o, month_o, day_o);
         else return null;
     }
@@ -307,6 +301,32 @@ public class CreateEvent extends PolarityActivity {
         }
     };
 
+    //for the date picker
+    public void showDialogHourClick() {
+
+        tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
+
+        tbEventHour.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new TimePickerDialog(CreateEvent.this, timePickerListener, hour_o, minute_o, true).show();
+                    }
+                }
+        );
+    }
+
+    TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
+
+        @Override
+        public void onTimeSet(TimePicker view, int hour, int minute) {
+
+            hour_o = hour;
+            minute_o = minute;
+            tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
+            tbEventHour.setText(hour_o + ":" + minute_o);
+        }
+    };
     //endregion
 
 }
