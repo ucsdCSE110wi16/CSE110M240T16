@@ -74,7 +74,6 @@ public class CreateEvent extends PolarityActivity {
         tbEventTime.setInputType(InputType.TYPE_NULL);
         tbEventHour.setInputType(InputType.TYPE_NULL);
         showDialogHourClick();
-
     }
 
     //region Button Clicks
