@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
@@ -131,6 +132,9 @@ public class CreateEvent extends PolarityActivity {
                 ParseObject invitedFriends;
                 ParseObject event;
                 List<ParseObject> poMovieList = new ArrayList<ParseObject>();
+                ParseACL acl = new ParseACL();
+                acl.setPublicReadAccess(true);
+                acl.setPublicWriteAccess(true);
 
                 try {
                     date = new SimpleDateFormat("MM/dd/yyy").parse(tbEventTime.getText().toString());
@@ -145,6 +149,7 @@ public class CreateEvent extends PolarityActivity {
                 movieQueue = new ParseObject("UserMovieQueue");
                 movieQueue.put("userId", com_userID);
                 movieQueue.put("name", tbEventName.getText().toString());
+                movieQueue.setACL(acl);
 
                 try {
                     movieQueue.save();
@@ -160,6 +165,7 @@ public class CreateEvent extends PolarityActivity {
                     movieInfo = new ParseObject("UserMovieInfo");
                     movieInfo.put("userMovieQueueID", movieQueueID);
                     movieInfo.put("title", com_modelList.get(i).getName());
+                    movieInfo.setACL(acl);
                     poMovieList.add(movieInfo);
                 }
 
@@ -180,6 +186,7 @@ public class CreateEvent extends PolarityActivity {
                 event.put("UserID", com_userID);
                 event.put("MovieQueueID", movieQueueID);
                 event.put("EventDate", date);
+                event.setACL(acl);
 
                 try {
                     event.save();
@@ -198,6 +205,7 @@ public class CreateEvent extends PolarityActivity {
                 invitedFriends.put("EventID", com_eventID);
                 invitedFriends.put("Confirmation", 1);
                 invitedFriends.put("HasVoted", false);
+                invitedFriends.setACL(acl);
                 poInvitedFriends.add(invitedFriends);
 
                 // add all the friends
@@ -207,6 +215,7 @@ public class CreateEvent extends PolarityActivity {
                     invitedFriends.put("EventID", com_eventID);
                     invitedFriends.put("Confirmation", 0);
                     invitedFriends.put("HasVoted",false);
+                    invitedFriends.setACL(acl);
                     poInvitedFriends.add(invitedFriends);
 
                 }//end for
@@ -230,6 +239,15 @@ public class CreateEvent extends PolarityActivity {
 
                 com_eventModelList.add(m);
                 Collections.sort(com_eventModelList, new EventModelComparator());
+
+                // erase all the data if backing up to main screen
+                com_eventName = "";
+                com_eventLocation = "";
+                com_eventTime = "";
+                com_eventDescription = "";
+                com_movieList.clear();
+                com_invitedFriends.clear();
+
                 toActivity_HubActivity();
             }
         };

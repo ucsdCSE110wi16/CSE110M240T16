@@ -126,12 +126,26 @@ public class HubActivity extends PolarityActivity {
 
         try {
             // FETCH * FROM InvitedFriends WHERE UserID IS com_userID
-            parseEventList = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).find();
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("InvitedFriends");
+            parseEventList = query.find();
 
             // debug output
-            Log.d(TAG, "Fetched all events user is invited to. Size = " + parseEventList.size());
+            Log.d(TAG, "Fetched all events. Count = " + parseEventList.size());
             Log.d(TAG, "com_userID = " + com_userID);
 
+            for(ParseObject obj : parseEventList) {
+                if(obj.getString("UserID").compareTo(com_userID) == 0) {
+                    if(obj.getInt("Confirmation") != 3) {
+                        Log.d(TAG, "Added Event[" + obj.getString("EventID") + "] to queue");
+                        userEventIds.add(obj.getString("EventID"));
+                    }
+                    else Log.d(TAG, "Skipped Event[" + obj.getString("EventID") + "] : Denied Invite ["
+                        + obj.getInt("Confirmation"));
+                }
+                else Log.d(TAG, "Skipped Event[" + obj.getString("EventID") + "] : No Invite");
+            }
+
+            /*
             // push all the eventId's onto an array of eventIds
             for(ParseObject obj : parseEventList) {
                 // if the user hasn't already decided not to go to the event
@@ -140,7 +154,7 @@ public class HubActivity extends PolarityActivity {
                     Log.d(TAG, "Added Event[" + obj.getString("EventID") + "] to queue");
                 }
                 else Log.d(TAG, "Skipped 1 event");
-            }
+            } */
 
             // clear the parseEventList
             parseEventList.clear();

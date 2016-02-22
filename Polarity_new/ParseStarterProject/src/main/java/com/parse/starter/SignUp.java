@@ -232,6 +232,7 @@ public class SignUp extends PolarityActivity {
             public void done(ParseException e) {
                 if(e == null){
                     // Sign Up was successful!
+                    initialize();
                     toActivity_HubActivity();
                 }//end if
                 else{

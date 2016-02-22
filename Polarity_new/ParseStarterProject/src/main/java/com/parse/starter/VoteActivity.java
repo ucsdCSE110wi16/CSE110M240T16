@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.Parse;
+import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -51,18 +52,20 @@ public class VoteActivity extends PolarityActivity {
 
         lvMovieList.setOnItemClickListener(lvEventQueue_Click());
 
-        if(com_movieList.size() == 0) fetchMovies();
-        if(com_currentEvent.status == EventModel.Status.Accepted) {
-            movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
-            lvMovieList.setAdapter(movieVoteAdapter);
-        }
+        com_movieList.clear();
+        fetchMovies();
+
+        // if they've already voted then display the results
         if(com_currentEvent.status == EventModel.Status.AcceptedAndVoted) {
             tallyVotes();
             Collections.sort(com_movieList, new MovieModelComparator());
             moviePollsAdapter = new MoviePollAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(moviePollsAdapter);
         }
-
+        else { // otherwise display the movie list
+            movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
+            lvMovieList.setAdapter(movieVoteAdapter);
+        }
     }
 
     //region Button Clicks
@@ -102,9 +105,14 @@ public class VoteActivity extends PolarityActivity {
             @Override
             public void onClick(View v) {
 
+                if(com_currentEvent.status != EventModel.Status.Accepted) return;
+
                 boolean hasVoted = false;
                 ParseObject movieObj, user;
                 List<ParseObject> parseList = new ArrayList<ParseObject>();
+                ParseACL acl = new ParseACL();
+                acl.setPublicReadAccess(true);
+                acl.setPublicWriteAccess(true);
 
                 // send all votes to the database
                 for(MovieModel movie : com_movieList) {
@@ -114,6 +122,7 @@ public class VoteActivity extends PolarityActivity {
                         movieObj.put("UserID", com_userID);
                         movieObj.put("EventID", com_currentEvent.getEventID());
                         movieObj.put("MovieInfoID", movie.getMovieID());
+                        movieObj.setACL(acl);
                         parseList.add(movieObj);
                     }
                 }
@@ -129,19 +138,20 @@ public class VoteActivity extends PolarityActivity {
                 try {
                     //TODO: this needs to be moved to a seperate thread and check a callbckmethod
                     movieObj.saveAll(parseList);
-
+                    
                     // update user Confirmation Status
                     user = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
                     user.put("Confirmation", 2);
                     user.save();
+
+                    com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
+                    toActivity_ViewEvent();
 
                 } catch (ParseException e) {
                     Log.e(TAG, e.getMessage());
                     return;
                 }
 
-                com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
-                toActivity_ViewEvent();
             }
         };
     }

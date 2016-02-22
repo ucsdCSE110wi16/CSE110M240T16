@@ -99,7 +99,7 @@ public class ViewEventActivity extends PolarityActivity {
                     btnDeny.setEnabled(false);
 
                     obj = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
-                    obj.add("Confirmation", 1);
+                    obj.put("Confirmation", 1);
                     obj.save();
                     com_currentEvent.status = EventModel.Status.Accepted;
 
@@ -122,9 +122,10 @@ public class ViewEventActivity extends PolarityActivity {
                     v.setEnabled(false);
                     btnAccept.setEnabled(false);
                     obj = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
-                    obj.add("Confirmation", 1);
+                    obj.put("Confirmation", 3);
                     obj.save();
                     com_currentEvent.status = EventModel.Status.Denied;
+                    com_eventModelList.remove(com_eventModelList.indexOf(com_currentEvent));
                     toActivity_HubActivity();
 
                 } catch (ParseException e) {
