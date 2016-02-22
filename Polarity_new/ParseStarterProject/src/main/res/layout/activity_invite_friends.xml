@@ -18,11 +18,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/inviteFriends_tbSearch"
         android:layout_alignStart="@+id/viewEvent_btnBack"
         android:layout_alignLeft="@+id/viewEvent_btnBack"
         android:layout_alignRight="@+id/viewEvent_btnBack"
-        android:layout_alignEnd="@+id/viewEvent_btnBack" />
+        android:layout_alignEnd="@+id/viewEvent_btnBack"
+        android:layout_alignBottom="@+id/viewEvent_btnBack" />
 
     <ImageView
         android:src="@drawable/home_button"
@@ -82,17 +82,6 @@
     <!-- Friend list ImageView-->
 
     <!-- Search Movies Imageview-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchMoviesImageView"
-        android:src="@drawable/textviewbackground"
-        android:layout_alignBottom="@+id/inviteFriends_tbSearch"
-        android:layout_below="@+id/viewEvent_btnBack"
-        android:layout_alignRight="@+id/inviteFriends_tbSearch"
-        android:layout_alignEnd="@+id/inviteFriends_tbSearch"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -105,8 +94,8 @@
         android:textColor="@color/themeWhite"
         android:gravity="center|center_vertical"
         android:layout_toRightOf="@+id/backImageView"
-        android:layout_alignRight="@+id/searchMoviesImageView"
-        android:layout_alignEnd="@+id/searchMoviesImageView" />
+        android:layout_alignRight="@+id/inviteFriends_tbSearch"
+        android:layout_alignEnd="@+id/inviteFriends_tbSearch" />
 
 
     <Button
@@ -118,8 +107,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/inviteFriends_tbSearch"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        android:layout_alignBottom="@+id/homeImageView" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -127,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewEvent_btnHome"
-        android:layout_alignTop="@+id/viewEvent_txtTitle"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -152,8 +141,7 @@
         android:id="@+id/inviteFriends_btnSearch"
         android:layout_below="@+id/viewEvent_btnHome"
         android:layout_alignLeft="@+id/viewEvent_btnHome"
-        android:layout_alignStart="@+id/viewEvent_btnHome"
-        android:layout_marginBottom="5dp"/>
+        android:layout_alignStart="@+id/viewEvent_btnHome" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -164,7 +152,10 @@
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/inviteFriends_btnSearch"
         android:layout_toStartOf="@+id/inviteFriends_btnSearch"
-        android:hint="@string/search_friends_list" />
+        android:hint="@string/search_friends_list"
+        android:background="@color/themeLightGray"
+        android:paddingLeft="10dp"
+        android:layout_alignTop="@+id/inviteFriends_btnSearch" />
 
     <ListView
         android:layout_width="wrap_content"
