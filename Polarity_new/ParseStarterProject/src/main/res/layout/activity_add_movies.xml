@@ -52,30 +52,6 @@
         />
 
     <!-- Add Movies ImageView-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/importQueueImageView"
-        android:layout_alignTop="@+id/addMovies_ImportMovieQueue"
-        android:layout_centerHorizontal="true"
-        android:layout_alignRight="@+id/addMovies_ImportMovieQueue"
-        android:layout_alignEnd="@+id/addMovies_ImportMovieQueue"
-        android:layout_alignLeft="@+id/addMovies_ImportMovieQueue"
-        android:layout_alignStart="@+id/addMovies_ImportMovieQueue"
-        android:layout_alignBottom="@+id/addMovies_ImportMovieQueue"
-        android:src="@drawable/loginbuttonbackground"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchMoviesImageView"
-        android:layout_below="@+id/addMovies_btnHome"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/textviewbackground"
-        android:layout_above="@+id/addMovies_lvMovieList"
-        android:layout_alignRight="@+id/addMovies_tbSearch"
-        android:layout_alignEnd="@+id/addMovies_tbSearch" />
 
     <!-- Movie list ImageView-->
 
@@ -90,7 +66,7 @@
         android:textColor="@color/themeWhite"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-
+        android:paddingTop="5dp"
         />
 
     <!-- Back button-->
@@ -155,7 +131,13 @@
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/addMovies_btnSearch"
         android:layout_toStartOf="@+id/addMovies_btnSearch"
-        android:hint="@string/search_movie_list" />
+        android:hint="@string/search_movie_list"
+        android:background="@color/themeLightGray"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"/>
 
     <ListView
         android:layout_width="wrap_content"
@@ -166,7 +148,8 @@
         android:layout_above="@+id/addMovies_ImportMovieQueue"
         android:choiceMode="singleChoice"
         android:layout_below="@+id/addMovies_btnSearch"
-        android:background="@color/themeLightGray" />
+        android:background="@color/themeLightGray"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -178,3 +161,6 @@
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
+
+
+

@@ -47,7 +47,8 @@
         android:layout_alignLeft="@+id/inviteFriends_btnSearch"
         android:layout_alignStart="@+id/inviteFriends_btnSearch"
         android:layout_alignBottom="@+id/inviteFriends_btnSearch"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        />
 
     <!-- ImportQueueImageView-->
     <ImageView
@@ -95,7 +96,8 @@
         android:gravity="center|center_vertical"
         android:layout_toRightOf="@+id/backImageView"
         android:layout_alignRight="@+id/inviteFriends_tbSearch"
-        android:layout_alignEnd="@+id/inviteFriends_tbSearch" />
+        android:layout_alignEnd="@+id/inviteFriends_tbSearch"
+        android:paddingTop="5dp"/>
 
 
     <Button
@@ -155,7 +157,9 @@
         android:hint="@string/search_friends_list"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
-        android:layout_alignTop="@+id/inviteFriends_btnSearch" />
+        android:layout_alignTop="@+id/inviteFriends_btnSearch"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dp"/>
 
     <ListView
         android:layout_width="wrap_content"
