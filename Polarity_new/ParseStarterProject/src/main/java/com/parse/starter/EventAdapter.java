@@ -45,6 +45,9 @@ public class EventAdapter extends BaseAdapter {
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         convertView = mInflater.inflate(R.layout.listitem_event, null);
 
+        if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
+        else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
+
         TextView tv = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
 
         EventModel m = eventModelList.get(position);

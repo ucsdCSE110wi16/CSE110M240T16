@@ -148,7 +148,7 @@
         android:layout_above="@+id/addMovies_ImportMovieQueue"
         android:choiceMode="singleChoice"
         android:layout_below="@+id/addMovies_btnSearch"
-        android:background="@color/themeLightGray"
+        android:background="@android:color/transparent"
         android:layout_marginTop="5dp"/>
 
     <TextView

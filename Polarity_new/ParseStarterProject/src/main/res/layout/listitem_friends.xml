@@ -9,14 +9,14 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/movieVoteListItem_ivSelected"
+        android:id="@+id/friendListItem_ivSelected"
         android:gravity="left"
         android:background="@android:color/transparent"
         android:src="@drawable/signuncheckicon"
         android:visibility="visible" />
 
     <TextView
-        android:id="@+id/movieVoteListItem_tbTitle"
+        android:id="@+id/friendListItem_tbName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
@@ -24,6 +24,6 @@
         android:textColor="#000000"
         android:textSize="18sp"
         android:background="@android:color/transparent"
-        android:text="&lt;Title>" />
+        android:text="&lt;Name>" />
 
 </LinearLayout>

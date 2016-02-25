@@ -10,6 +10,6 @@
 
     <!-- ListView Colors -->
     <color name="listview_background_1">#C1CFDA</color>
-    <color name="listview_background_2">#fff5f5f5</color>
+    <color name="listview_background_2">#ffdcdcdc</color>
 
 </resources>

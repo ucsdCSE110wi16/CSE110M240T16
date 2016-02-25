@@ -54,6 +54,9 @@ public class ModelAdapter extends BaseAdapter{
             TextView tv = (TextView) convertView.findViewById(R.id.generic_tbTitle);
             Button rm_btn = (Button) convertView.findViewById(R.id.generic_btnRemove);
 
+            if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
+            else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
+
             Model m = modelList.get(position);
             tv.setText(m.getName());
 
