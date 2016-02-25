@@ -55,15 +55,18 @@ public class MovieVoteAdapter extends BaseAdapter {
         ImageView iv = (ImageView) convertView.findViewById(R.id.movieVoteListItem_ivSelected);
 
         MovieModel m = movieModelList.get(position);
+        if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
+        else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
+
         tv.setText(m.getName());
+
         if(m.hasVote) {
-            iv.setVisibility(View.VISIBLE);
-            tv.setText(tv.getText().toString() + " - Vote");
-            Log.d(TAG, "Item[" + m.getName() + "].ImageView is VISIBLE");
+            iv.setImageResource(R.drawable.signcheckicon);
+            Log.d(TAG, "Item[" + m.getName() + "].ImageView is Checked");
         }
         else {
-            iv.setVisibility(View.INVISIBLE);
-            Log.d(TAG, "Item[" + m.getName() + "].ImageView is INVISIBLE");
+            iv.setImageResource(R.drawable.signuncheckicon);
+            Log.d(TAG, "Item[" + m.getName() + "].ImageView is Unchecked");
         }
         return convertView;
     }

@@ -6,4 +6,10 @@
     <color name="themeSalmon">#FF3E41</color>
     <color name="themeWhite">#ffffffff</color>
     <color name="themeCharcoal">#2D2327</color>
+    <color name="whitesmoke">#fff5f5f5</color>
+
+    <!-- ListView Colors -->
+    <color name="listview_background_1">#C1CFDA</color>
+    <color name="listview_background_2">#fff5f5f5</color>
+
 </resources>

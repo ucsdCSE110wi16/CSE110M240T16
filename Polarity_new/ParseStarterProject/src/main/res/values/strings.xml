@@ -32,4 +32,8 @@
     <string name="select_all_friends">Select All Friends</string>
     <string name="invite_friends">Invite Friends</string>
     <string name="your_friends">Your Friends</string>
+
+    <!-- colors -->
+    <string name="listview_background_1"> </string>
+    <string name="listview_background_2"></string>
 </resources>
