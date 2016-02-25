@@ -208,7 +208,6 @@ public class CreateEvent extends PolarityActivity {
                 invitedFriends.put("UserID", com_userID);
                 invitedFriends.put("EventID", com_eventID);
                 invitedFriends.put("Confirmation", 1);
-                invitedFriends.put("HasVoted", false);
                 poInvitedFriends.add(invitedFriends);
 
                 // add all the friends
@@ -217,7 +216,6 @@ public class CreateEvent extends PolarityActivity {
                     invitedFriends.put("UserID", com_invitedFriends.get(i).getUserID());
                     invitedFriends.put("EventID", com_eventID);
                     invitedFriends.put("Confirmation", 0);
-                    invitedFriends.put("HasVoted",false);
                     poInvitedFriends.add(invitedFriends);
 
                 }//end for
