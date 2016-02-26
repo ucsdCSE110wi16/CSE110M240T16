@@ -53,7 +53,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
 
     <!-- location textfield -->
     <EditText
@@ -70,7 +73,11 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="5dp" />
 
     <!--<ImageView-->
     <!--android:layout_width="wrap_content"-->
@@ -97,7 +104,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp" />
 
     <!-- Time textField -->
     <EditText
@@ -112,11 +122,12 @@
         android:layout_below="@+id/createEvent_tbTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/createEvent_tbDescription"
         android:layout_alignRight="@+id/createEvent_tbTime"
         android:layout_alignEnd="@+id/createEvent_tbTime"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
 
     <!-- description textfield- -->
     <EditText
@@ -128,13 +139,17 @@
         android:gravity="top"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
+        android:layout_below="@+id/create_event_hour_Textfield"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:layout_above="@+id/createEvent_addMovies"
-        android:layout_below="@+id/main_txtUserName"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp" />
 
     <!-- invite friends button -->
     <Button
