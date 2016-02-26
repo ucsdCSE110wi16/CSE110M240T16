@@ -123,11 +123,18 @@ public class AddFriends extends PolarityActivity {
                     ((FriendModel) lvUserList.getItemAtPosition(position)).isSelectable = true;
                     ((FriendModel) lvUserList.getItemAtPosition(position)).isSelected = false;
                     friendsToAdd.remove(((FriendModel) lvUserList.getItemAtPosition(position)).getUserID());
+
+
+                    Log.d(TAG, "User[" + ((FriendModel) lvUserList.getItemAtPosition(position)).getUserID()
+                    + "] Removed");
                 }
                 else {
                     ((FriendModel) lvUserList.getItemAtPosition(position)).isSelectable = true;
                     ((FriendModel) lvUserList.getItemAtPosition(position)).isSelected = true;
                     friendsToAdd.add(((FriendModel) lvUserList.getItemAtPosition(position)).getUserID());
+
+                    Log.d(TAG, "User[" + ((FriendModel) lvUserList.getItemAtPosition(position)).getUserID()
+                    + "] Added");
                 }
 
                 friendAdapter.notifyDataSetChanged();
@@ -147,20 +154,30 @@ public class AddFriends extends PolarityActivity {
             ParseQuery<ParseObject> pq;
             ParseObject user;
             ParseObject newFollow;
-            List<ParseObject> newFollowList = new ArrayList<ParseObject>();
+            List<ParseObject> newFollowList = new LinkedList<ParseObject>();
 
             pq = ParseQuery.getQuery("_User");
+            String temp;
 
             for (String id : friendsToAdd) {
                 try {
                     user = pq.whereEqualTo("objectId", id).getFirst();
+
+                    temp = user.getString(user.getString("UserID"));
+                    Log.d(TAG, "UserID[" + temp + "]");
+                    temp = user.getString(user.getString("FriendID"));
+                    Log.d(TAG, "FriendID[" + temp + "]");
+                    if(user.getBoolean("FollowRequestBlocked")) temp = "true";
+                    else temp = "false";
+                    Log.d(TAG, "FollowRequestBlocked = " + temp);
+
                     newFollow = new ParseObject("FriendsFollowing");
                     newFollow.add("UserID", com_userID);
                     newFollow.add("FriendID", user.getString("FriendID"));
                     newFollow.add("FollowRequestBlocked", false);
                     newFollowList.add(newFollow);
                 } catch (ParseException e) {
-                    Log.e(TAG, "Unable to get ParseQuery");
+                    Log.e(TAG, " Broke in for loop - " + e.getMessage());
                     numNewFriends = 0;
                     return;
                 }
@@ -169,17 +186,12 @@ public class AddFriends extends PolarityActivity {
 
             numNewFriends = friendsToAdd.size();
             user = new ParseObject("FriendsFallowing");
-            user.saveAllInBackground(newFollowList, new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-                    if (e != null) {
-                        Log.e(TAG, e.getMessage());
-                        displayToast(e.getMessage());
-                    } else {
-                        displayToast(numNewFriends + " new friends added!");
-                    }
-                }
-            });
+            try {
+                user.saveAll(newFollowList);
+            } catch (ParseException e) {
+                displayToast(e.getMessage());
+                Log.e(TAG, " Broke in save - " + e.getMessage());
+            }
         }
     } // addFriends
 

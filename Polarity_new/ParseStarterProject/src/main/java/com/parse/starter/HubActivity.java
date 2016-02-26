@@ -156,16 +156,6 @@ public class HubActivity extends PolarityActivity {
                 else Log.d(TAG, "Skipped Event[" + obj.getString("EventID") + "] : No Invite");
             }
 
-            /*
-            // push all the eventId's onto an array of eventIds
-            for(ParseObject obj : parseEventList) {
-                // if the user hasn't already decided not to go to the event
-                if(obj.getInt("Confirmation") != 3) {
-                    userEventIds.add(obj.getString("EventID"));
-                    Log.d(TAG, "Added Event[" + obj.getString("EventID") + "] to queue");
-                }
-                else Log.d(TAG, "Skipped 1 event");
-            } */
 
             // clear the parseEventList
             parseEventList.clear();
