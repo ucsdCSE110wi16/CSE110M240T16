@@ -20,31 +20,32 @@ public class ViewEventActivity extends PolarityActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_event);
-
+        // region findViewById
         txtTitle = (TextView) findViewById(R.id.viewEvent_txtTitle);
         txtLocation = (TextView) findViewById(R.id.viewEvent_txtLocation);
         txtDescription = (TextView) findViewById(R.id.viewEvent_description);
         txtDate = (TextView) findViewById(R.id.viewEvent_txtTime);
-
         btnBack = (Button) findViewById(R.id.addFriends_btnBack);
         btnHome = (Button) findViewById(R.id.addFriends_btnHome);
         btnViewInviteList = (Button) findViewById(R.id.viewEvent_btnViewInviteList);
         btnVoteOnMovies = (Button) findViewById(R.id.viewEvent_btnVoteOnMovies);
         btnAccept = (Button) findViewById(R.id.viewEvent_btnAcceptInvite);
         btnDeny = (Button) findViewById(R.id.viewEvent_btnDenyInvite);
-
+        // endregion
+        // region setText
         txtTitle.setText(com_currentEvent.getName());
         txtDescription.setText(com_currentEvent.getDescription());
         txtLocation.setText(com_currentEvent.getLocation());
         txtDate.setText(com_currentEvent.getDate().toString());
-
+        // endregion
+        // region setOnClickListener
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
         btnViewInviteList.setOnClickListener(btnViewInviteList_Click());
         btnVoteOnMovies.setOnClickListener(btnVoteOnMovies_Click());
         btnAccept.setOnClickListener(btnAccept_Click());
         btnDeny.setOnClickListener(btnDeny_Click());
-
+        // endregion
     }
 
 
