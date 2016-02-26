@@ -26,7 +26,7 @@ public class ViewEventActivity extends PolarityActivity {
         txtDescription = (TextView) findViewById(R.id.viewEvent_description);
         txtDate = (TextView) findViewById(R.id.viewEvent_txtTime);
         btnBack = (Button) findViewById(R.id.addFriends_btnBack);
-        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
+//        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
         btnViewInviteList = (Button) findViewById(R.id.viewEvent_btnViewInviteList);
         btnVoteOnMovies = (Button) findViewById(R.id.viewEvent_btnVoteOnMovies);
         btnAccept = (Button) findViewById(R.id.viewEvent_btnAcceptInvite);
@@ -40,7 +40,7 @@ public class ViewEventActivity extends PolarityActivity {
         // endregion
         // region setOnClickListener
         btnBack.setOnClickListener(btnBack_Click());
-        btnHome.setOnClickListener(btnHome_Click());
+//        btnHome.setOnClickListener(btnHome_Click());
         btnViewInviteList.setOnClickListener(btnViewInviteList_Click());
         btnVoteOnMovies.setOnClickListener(btnVoteOnMovies_Click());
         btnAccept.setOnClickListener(btnAccept_Click());
@@ -60,14 +60,14 @@ public class ViewEventActivity extends PolarityActivity {
         };
     } // btnBack_Click
 
-    protected View.OnClickListener btnHome_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_HubActivity();
-            }
-        };
-    } // btnHome_Click
+//    protected View.OnClickListener btnHome_Click() {
+//        return new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                toActivity_HubActivity();
+//            }
+//        };
+//    } // btnHome_Click
 
     protected View.OnClickListener btnViewInviteList_Click() {
         return new View.OnClickListener() {
