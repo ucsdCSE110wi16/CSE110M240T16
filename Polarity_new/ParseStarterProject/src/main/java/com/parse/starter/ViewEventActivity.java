@@ -1,6 +1,5 @@
 package com.parse.starter;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.Date;
 
 public class ViewEventActivity extends PolarityActivity {
 
@@ -29,8 +26,8 @@ public class ViewEventActivity extends PolarityActivity {
         txtDescription = (TextView) findViewById(R.id.viewEvent_description);
         txtDate = (TextView) findViewById(R.id.viewEvent_txtTime);
 
-        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
-        btnHome = (Button) findViewById(R.id.viewEvent_btnHome);
+        btnBack = (Button) findViewById(R.id.addFriends_btnBack);
+        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
         btnViewInviteList = (Button) findViewById(R.id.viewEvent_btnViewInviteList);
         btnVoteOnMovies = (Button) findViewById(R.id.viewEvent_btnVoteOnMovies);
         btnAccept = (Button) findViewById(R.id.viewEvent_btnAcceptInvite);

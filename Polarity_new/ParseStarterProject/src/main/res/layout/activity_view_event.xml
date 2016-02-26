@@ -19,8 +19,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/viewEvent_txtLocation"
-        android:layout_alignRight="@+id/viewEvent_btnBack"
-        android:layout_alignEnd="@+id/viewEvent_btnBack"
+        android:layout_alignRight="@+id/addFriends_btnBack"
+        android:layout_alignEnd="@+id/addFriends_btnBack"
         android:layout_alignParentTop="true" />
 
     <ImageView
@@ -31,8 +31,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/viewEvent_txtLocation"
-        android:layout_alignLeft="@+id/viewEvent_btnHome"
-        android:layout_alignStart="@+id/viewEvent_btnHome" />
+        android:layout_alignLeft="@+id/addFriends_btnHome"
+        android:layout_alignStart="@+id/addFriends_btnHome" />
 
     <!--Behind Who's Going-->
 
@@ -57,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/viewEvent_btnBack"
+        android:id="@+id/addFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -68,7 +68,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/viewEvent_btnHome"
+        android:id="@+id/addFriends_btnHome"
         android:layout_alignTop="@+id/viewEvent_txtTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -92,11 +92,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="&lt;Location>"
         android:id="@+id/viewEvent_txtLocation"
-        android:layout_below="@+id/viewEvent_btnBack"
+        android:layout_below="@+id/addFriends_btnBack"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/viewEvent_btnHome"
-        android:layout_alignEnd="@+id/viewEvent_btnHome" />
+        android:layout_alignRight="@+id/addFriends_btnHome"
+        android:layout_alignEnd="@+id/addFriends_btnHome" />
 
     <TextView
         android:textColor="@color/themeWhite"

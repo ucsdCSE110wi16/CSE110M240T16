@@ -89,15 +89,13 @@
         android:layout_height="wrap_content"
         android:textSize="28dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Invite Users"
-        android:id="@+id/viewEvent_txtTitle"
-        android:layout_alignParentTop="true"
+        android:text="Add Friends"
+        android:id="@+id/addFriends_txtTitle"
         android:textColor="@color/themeWhite"
         android:gravity="center|center_vertical"
-        android:layout_toRightOf="@+id/backImageView"
-        android:layout_alignRight="@+id/addFriends_tbSearch"
-        android:layout_alignEnd="@+id/addFriends_tbSearch"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
     <Button
@@ -126,14 +124,14 @@
         android:layout_width="wrap_content"
         android:background="@drawable/button_background"
         android:layout_height="wrap_content"
-        android:text="Invite Users"
+        android:text="Add"
         android:id="@+id/addFriends_btnAddFriends"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addFriends_lvSearchUsersList"
-        android:layout_alignEnd="@+id/addFriends_lvSearchUsersList"
-        android:textColor="@color/themeWhite" />
+        android:textColor="@color/themeWhite"
+        android:layout_toStartOf="@+id/addFriends_txtTitle"
+        android:layout_toLeftOf="@+id/addFriends_txtTitle" />
 
     <Button
         android:background="@android:color/transparent"
@@ -183,5 +181,18 @@
         android:layout_marginTop="34dp"
         android:layout_centerHorizontal="true"
         android:layout_alignTop="@+id/addFriends_lvSearchUsersList" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:background="@drawable/button_background"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/addFriends_Cancel"
+        android:textColor="@color/themeWhite"
+        android:layout_alignTop="@+id/importQueueImageView"
+        android:layout_alignRight="@+id/addFriends_btnSearch"
+        android:layout_alignEnd="@+id/addFriends_btnSearch"
+        android:layout_toEndOf="@+id/addFriends_txtTitle"
+        android:layout_toRightOf="@+id/addFriends_txtTitle" />
 
 </RelativeLayout>

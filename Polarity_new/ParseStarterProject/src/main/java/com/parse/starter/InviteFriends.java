@@ -29,14 +29,14 @@ public class InviteFriends extends PolarityActivity {
         setContentView(R.layout.activity_invite_friends);
 
         // region findViewById
-        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
-        btnHome = (Button) findViewById(R.id.viewEvent_btnHome);
+        btnBack = (Button) findViewById(R.id.addFriends_btnBack);
+        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
 
-        btnInviteFreinds = (Button) findViewById(R.id.createEvent_btnInviteFriends);
-        btnSearch = (Button) findViewById(R.id.inviteFriends_btnSearch);
-        tbSearch = (EditText) findViewById(R.id.inviteFriends_tbSearch);
+        btnInviteFreinds = (Button) findViewById(R.id.addFriends_btnAddFriends);
+        btnSearch = (Button) findViewById(R.id.addFriends_btnSearch);
+        tbSearch = (EditText) findViewById(R.id.addFriends_tbSearch);
         txtInfo = (TextView) findViewById(R.id.inviteFriends_txtInfo);
-        lvInvitedFriends = (ListView) findViewById(R.id.inviteFriends_lvFriendsList);
+        lvInvitedFriends = (ListView) findViewById(R.id.addFriends_lvSearchUsersList);
         // endregion
         // region setOnClickListeners
         btnBack.setOnClickListener(btnBack_Click());
@@ -102,13 +102,12 @@ public class InviteFriends extends PolarityActivity {
                         public void done(ParseObject pu, ParseException e) {
                             if (e == null && pu != null) {
                                 // Add the user to the invited list
-                                friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId()));
+                                friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId(), false, true));
                                 // Since a user has been added, clear out the "no friends" text
                                 txtInfo.setText("");
                             }//end if
                             else{
-                                //TODO: Give the user a Toast notification telling them that no such
-                                //TODO: user was found
+                                displayToast("User" + tbSearch.getText().toString() + " does not exists");
                             }//end else
 
                         }//end done

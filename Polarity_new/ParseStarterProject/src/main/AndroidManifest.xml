@@ -72,7 +72,8 @@
 
         <activity android:name=".ViewEventActivity" />
         <activity android:name=".VoteActivity" />
-        <activity android:name=".ViewInviteListActivity"></activity>
+        <activity android:name=".ViewInviteListActivity" />
+        <activity android:name=".AddFriends"></activity>
     </application>
 
 </manifest>

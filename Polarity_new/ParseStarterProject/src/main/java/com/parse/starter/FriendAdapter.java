@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,25 +45,38 @@ public class FriendAdapter extends BaseAdapter {
 
         LayoutInflater mInflater = (LayoutInflater) context
                 .getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        convertView = mInflater.inflate(R.layout.listitem_generic, null);
+        convertView = mInflater.inflate(R.layout.listitem_friends, null);
 
-        TextView tv = (TextView) convertView.findViewById(R.id.generic_tbTitle);
-        Button rm_btn = (Button) convertView.findViewById(R.id.generic_btnRemove);
+        TextView tv = (TextView) convertView.findViewById(R.id.friendListItem_tbName);
+        ImageView iv = (ImageView) convertView.findViewById(R.id.friendListItem_ivSelected);
+        Button btn = (Button) convertView.findViewById(R.id.friend_btnRemove);
 
-        if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
-        else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
+        if (position % 2 == 1)
+            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
+        else
+            convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
 
         FriendModel m = friendModelList.get(position);
         tv.setText(m.getName());
 
-        // click listiner for remove button
-        rm_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                friendModelList.remove(position);
-                notifyDataSetChanged();
+        if (m.isSelectable) {
+            if (m.isSelected) {
+                iv.setImageResource(R.drawable.signuncheckicon);
+                m.isSelected = false;
+            } else {
+                iv.setImageResource(R.drawable.signcheckicon);
+                m.isSelected = true;
             }
-        });
+        }
+        if(m.isDeletable) {
+            btn.setEnabled(false);
+            btn.setVisibility(View.VISIBLE);
+        }
+        else {
+            btn.setEnabled(true);
+            btn.setVisibility(View.INVISIBLE);
+        }
+
         return convertView;
     }
 }

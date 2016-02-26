@@ -3,9 +3,11 @@ package com.parse.starter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /** Global variables and methods go here
  *  Created by Lucas Pettit 02/10/2016
@@ -20,6 +22,7 @@ public abstract class PolarityActivity extends Activity {
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
     static String com_currentEventId;
+    static String com_previousActivity;
 
     static EventModel com_currentEvent;
 
@@ -27,6 +30,8 @@ public abstract class PolarityActivity extends Activity {
     static ArrayList<MovieModel> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
     static ArrayList<EventModel> com_eventModelList;
+
+    static HashMap<String, Class> com_activities;
 
     //endregion
 
@@ -44,6 +49,7 @@ public abstract class PolarityActivity extends Activity {
         com_eventTime = "";
         com_eventDescription = "";
         com_currentEventId = "";
+        com_previousActivity = LogIn.class.getSimpleName();
 
         com_currentEvent = null;
 
@@ -51,6 +57,21 @@ public abstract class PolarityActivity extends Activity {
         com_movieList = new ArrayList<MovieModel>();
         com_invitedFriends = new ArrayList<FriendModel>();
         com_eventModelList = new ArrayList<EventModel>();
+
+        // Create and fill HashMap of all classes for navigation
+        com_activities = new HashMap<String, Class>();
+        com_activities.put(LogIn.class.getSimpleName(), LogIn.class);
+        com_activities.put(AddFriends.class.getSimpleName(), AddFriends.class);
+        com_activities.put(AddMovies.class.getSimpleName(), AddMovies.class);
+        com_activities.put(CreateEvent.class.getSimpleName(), CreateEvent.class);
+        com_activities.put(EventConfirmationActivity.class.getSimpleName(), EventConfirmationActivity.class);
+        com_activities.put(ForgotPassword.class.getSimpleName(), ForgotPassword.class);
+        com_activities.put(HubActivity.class.getSimpleName(), HubActivity.class);
+        com_activities.put(InviteFriends.class.getSimpleName(), InviteFriends.class);
+        com_activities.put(SignUp.class.getSimpleName(), SignUp.class);
+        com_activities.put(ViewEventActivity.class.getSimpleName(), ViewEventActivity.class);
+        com_activities.put(ViewInviteListActivity.class.getSimpleName(), ViewInviteListActivity.class);
+        com_activities.put(VoteActivity.class.getSimpleName(), VoteActivity.class);
     }
 
     //endregion
@@ -66,6 +87,19 @@ public abstract class PolarityActivity extends Activity {
 
 
     //region Navigation
+
+    protected void goToActivity(String FromActivitySimpleName, String ToActivitySimpleName) {
+        if(com_activities.containsKey(ToActivitySimpleName) && com_activities.containsKey(FromActivitySimpleName)) {
+            com_previousActivity = FromActivitySimpleName;
+            Intent intent = new Intent(this, com_activities.get(ToActivitySimpleName));
+            startActivity(intent);
+        }
+        else {
+            Log.e(PolarityActivity.class.getSimpleName(), FromActivitySimpleName + " and/or "
+                    + ToActivitySimpleName + " are not a key in com_activities");
+        };
+    } // goToActivity
+
 
     protected void toActivity_AddMovies() {
         Intent intent = new Intent(this, AddMovies.class);
@@ -121,6 +155,11 @@ public abstract class PolarityActivity extends Activity {
         Intent intent = new Intent(this, ViewInviteListActivity.class);
         startActivity(intent);
     } // toActivty_ViewInviteList
+
+    protected void toActivity_AddFriends() {
+        Intent intent = new Intent (this, AddFriends.class);
+        startActivity(intent);
+    } // toActivity_AddFriendsActivity
 
     //endregion
 

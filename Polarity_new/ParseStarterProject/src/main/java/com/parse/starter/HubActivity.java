@@ -21,7 +21,7 @@ public class HubActivity extends PolarityActivity {
     public static final String TAG = HubActivity.class.getSimpleName();
 
     // region declare variables
-    Button btnLogOut, btnCreateEvent;
+    Button btnLogOut, btnCreateEvent, btnAddFriends;
     ListView lvEventQueue;
     TextView txtEventQueue;
     EventAdapter adapter;
@@ -42,9 +42,11 @@ public class HubActivity extends PolarityActivity {
         // region findViewById
         btnLogOut = (Button) findViewById(R.id.hubActivity_btnLogOut);
         btnCreateEvent = (Button) findViewById(R.id.hubActivity_btnCreateEvent);
+        btnAddFriends = (Button) findViewById(R.id.hubActivity_btnAddFriends);
 
         btnLogOut.setOnClickListener(btnLogOut_Click());
         btnCreateEvent.setOnClickListener(btnCreateEvent_Click());
+        btnAddFriends.setOnClickListener(btnAddFriends_Click());
 
         lvEventQueue = (ListView) findViewById(R.id.hubActivity_lvEventQueue);
         txtEventQueue = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
@@ -93,6 +95,15 @@ public class HubActivity extends PolarityActivity {
             }
         };
     } // btnCreateEvent
+
+    protected View.OnClickListener btnAddFriends_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToActivity(TAG, AddFriends.class.getSimpleName());
+            }
+        };
+    } // btnAddFriends_Click
 
     //endregion
 

@@ -44,7 +44,7 @@ public class CreateEvent extends PolarityActivity {
 
         btnBack = (Button) findViewById(R.id.createEvent_btnBack);
         btnAddMovie = (Button) findViewById(R.id.createEvent_addMovies);
-        btnInviteFriends = (Button) findViewById(R.id.createEvent_btnInviteFriends);
+        btnInviteFriends = (Button) findViewById(R.id.addFriends_btnAddFriends);
         btnCreateEvent = (Button) findViewById(R.id.createEvent_btnCreateEvent);
 
         tbEventName = (EditText) findViewById(R.id.createEvent_tbName);
