@@ -10,32 +10,21 @@
     android:background="@color/themeCharcoal"
     tools:context="com.parse.starter.HubActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView6"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/smallbuttonbackdrop"
-        android:layout_alignLeft="@+id/hubActivity_btnLogOut"
-        android:layout_alignStart="@+id/hubActivity_btnLogOut"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/hubActivity_btnCreateEvent" />
-
     <!-- Create Event button -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Event"
         android:id="@+id/hubActivity_btnCreateEvent"
-        android:layout_marginTop="25dp"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"
-        android:layout_below="@+id/hubActivity_btnLogOut"
+
+        android:layout_alignTop="@+id/hubActivity_btnAddFriends"
         android:layout_alignRight="@+id/hubActivity_btnLogOut"
         android:layout_alignEnd="@+id/hubActivity_btnLogOut"
-        android:layout_toRightOf="@+id/upcomingEvents_txtInfo"
-        android:layout_toEndOf="@+id/upcomingEvents_txtInfo" />
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
     <!-- Log Out button -->
     <Button
@@ -94,10 +83,12 @@
         android:id="@+id/hubActivity_btnAddFriends"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"
-        android:layout_alignTop="@+id/hubActivity_btnCreateEvent"
+        android:layout_below="@+id/imageView7"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/upcomingEvents_txtInfo" />
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 
 </RelativeLayout>
