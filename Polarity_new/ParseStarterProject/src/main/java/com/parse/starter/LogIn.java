@@ -52,9 +52,13 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         // check to see if any user has logged in on this device before
         try {
             ParseObject object = ParseQuery.getQuery("_User").whereEqualTo("androidId", android_id).getFirst();
-            com_userID = object.getObjectId();
-            com_user = object.getString("username");
-            goToActivity(HubActivity.class.getSimpleName(), HubActivity.class.getSimpleName());
+            boolean autoLogin = object.getBoolean("autoLogin");
+            //If the user previously logged out manually, they don't want to be logged in automatically
+            if(autoLogin) {
+                com_userID = object.getObjectId();
+                com_user = object.getString("username");
+                goToActivity(HubActivity.class.getSimpleName(), HubActivity.class.getSimpleName());
+            }//end if
         } catch (ParseException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -117,6 +121,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
                                      com_userID = ParseUser.getCurrentUser().getObjectId();
 
                                      ParseUser.getCurrentUser().put("androidId", android_id);
+                                     ParseUser.getCurrentUser().put("autoLogin", true);
                                      ParseUser.getCurrentUser().saveInBackground();
 
                                      toActivity_HubActivity();

@@ -10,10 +10,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -88,7 +90,28 @@ public class HubActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_Login();
+                //If the user manually logs out, this means that they should have to manually log
+                //in again
+                ParseQuery.getQuery("_User").whereEqualTo("objectId", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if(object != null && e == null){
+                            object.put("autoLogin", false);
+                            object.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e != null){
+                                        Log.e(TAG, e.getMessage());
+                                    }//end if
+                                }//end done
+                            });//end SaveCallback
+                            toActivity_Login();
+                        }//end if
+                        else{
+                            Log.e(TAG, e.getMessage());
+                        }
+                    }//end done
+                });//end GetCallback
             }
         };
     } // btnLogOut
