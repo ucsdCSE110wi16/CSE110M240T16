@@ -93,8 +93,9 @@ public class InviteFriends extends PolarityActivity {
             public void onClick(View v) {
                 // If the text box is empty, don't query the db
                 if(!tbSearch.getText().toString().isEmpty()){
-
+                    // This is to check if a user is already invited
                     boolean isAlreadyInvited = false;
+                    //Iterates through the friendList and if a user is already in the list, isAlreadyInvited will be set to true
                     for(FriendModel f: friendList){
                         if((tbSearch.getText().toString()).equals(f.getName())){
                             displayToast("User " + tbSearch.getText().toString() + " is already invited");
@@ -103,6 +104,7 @@ public class InviteFriends extends PolarityActivity {
                         }
                     }
 
+                    // The app will make a call to the Parse database only if the invited user is not already invited
                     if(!isAlreadyInvited) {
                         // Since users are unique, just get the first one found
                         ParseQuery<ParseObject> userQuery = ParseQuery.getQuery("_User");

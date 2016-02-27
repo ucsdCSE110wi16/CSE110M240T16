@@ -117,6 +117,15 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     protected void addMovie() {
         String name = tbSearch.getText().toString();
+        // This is for checking if the movie is not already added
+        boolean isAlreadyAdded = false;
+        // Iterates through the list of movies added, if typed movie is already added, isAlreadyAdded is set to true
+        for(Model m: modelList){
+            if(name.equals(m.getName())){
+                displayToast("Movie " + name + " is already added");
+                isAlreadyAdded = true;
+            }
+        }
         // hide message that theres' no movies in the list
         txtInfo.setText("");
         // if name field is empty, show toast notification
@@ -124,11 +133,13 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
             Toast.makeText(getApplicationContext(), "You must enter a movie name",
                     Toast.LENGTH_SHORT).show();
         }
-        // add string to the list
+        // add string to the list only if the movie is not already in the list
         else {
-            Model md = new Model(name);
-            modelList.add(md);
-            adapter.notifyDataSetChanged();
+            if(!isAlreadyAdded) {
+                Model md = new Model(name);
+                modelList.add(md);
+                adapter.notifyDataSetChanged();
+            }
             // reset input field
             tbSearch.setText("");
         }
