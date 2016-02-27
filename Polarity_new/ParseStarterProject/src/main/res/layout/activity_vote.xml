@@ -45,7 +45,9 @@
         android:text="home"
         android:id="@+id/vote_btnHome"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/vote_txtTitle" />
+        android:layout_toEndOf="@+id/vote_txtTitle"
+        android:layout_toRightOf="@+id/vote_txtTitle"
+        />
 
     <Button
         android:layout_width="125dp"
