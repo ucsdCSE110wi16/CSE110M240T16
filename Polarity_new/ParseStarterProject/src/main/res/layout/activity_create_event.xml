@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/createEvent_tbName"
-        android:hint=" Event Name"
+        android:hint="Event Name"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
         android:layout_below="@+id/createEvent_btnBack"
@@ -65,7 +65,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/createEvent_tbLocation"
-        android:hint=" Location"
+        android:hint="Location"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
         android:layout_below="@+id/createEvent_tbName"
@@ -79,24 +79,13 @@
         android:paddingRight="0dp"
         android:paddingBottom="5dp" />
 
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:id="@+id/imageView15"-->
-    <!--android:src="@drawable/back_button"-->
-    <!--android:layout_alignParentTop="true"-->
-    <!--android:layout_toRightOf="@+id/main_txtUserName"-->
-    <!--android:layout_above="@+id/main_txtUserName"-->
-    <!--android:layout_alignRight="@+id/inviteFriends_btnBack"-->
-    <!--android:layout_alignEnd="@+id/inviteFriends_btnBack" />-->
-
     <!-- Date textfield -->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/createEvent_tbTime"
-        android:hint=" Date"
+        android:hint="Date"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
         android:layout_below="@+id/createEvent_tbLocation"
@@ -114,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
-        android:hint=" Time"
+        android:hint="Time"
         android:textStyle="italic"
         android:ems="10"
         android:id="@+id/create_event_hour_Textfield"
@@ -135,7 +124,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/createEvent_tbDescription"
-        android:hint=" Description"
+        android:hint="Description"
         android:gravity="top"
         android:textStyle="italic"
         android:background="@color/themeLightGray"
