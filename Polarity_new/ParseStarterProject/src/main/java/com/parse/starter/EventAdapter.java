@@ -49,19 +49,26 @@ public class EventAdapter extends BaseAdapter {
         // set background color of the events
         if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
         else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
-
+        // region findViewById
         TextView eventName = (TextView) convertView.findViewById(R.id.eventListItem_tbTitle);
         TextView eventMonth = (TextView) convertView.findViewById(R.id.listitem_event_month);
-
-
+        TextView eventDate = (TextView) convertView.findViewById(R.id.listitem_event_date);
+        TextView eventTime = (TextView) convertView.findViewById(R.id.listitem_event_time);
+        TextView numPeopleAttending = (TextView) convertView.findViewById(R.id.listitem_event_number_people_attending);
+        // endregion
         EventModel m = eventModelList.get(position);
-
+        // region display information for each event
         eventName.setText(m.getName());
         eventMonth.setText(String.valueOf(m.getDate()).substring(4, 7));
-
-        Log.d("TAG", String.valueOf(m.getName()));
-//        Log.d("TAG", String.valueOf(m.getDate()));
-        Log.d("TAG", String.valueOf(m.getNumFriendsAttending()));
+        eventDate.setText(String.valueOf(m.getDate()).substring(8,10));
+        eventTime.setText(String.valueOf(m.getDate()).substring(11,16));
+        if(m.getNumFriendsAttending() == 1){
+            numPeopleAttending.setText(String.valueOf(m.getNumFriendsAttending()) + " person attending");
+        }
+        else{
+            numPeopleAttending.setText(String.valueOf(m.getNumFriendsAttending()) + " people attending");
+        }
+        // endregion
         return convertView;
     }
 
