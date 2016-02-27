@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
@@ -66,7 +67,9 @@ public class AddFriends extends PolarityActivity {
 
         friendAdapter = new FriendAdapter(getApplicationContext(), users);
         lvUserList.setAdapter(friendAdapter);
-   }
+
+        displayAllUsers();
+    }
 
 
 //region Button Clicks
@@ -120,22 +123,25 @@ public class AddFriends extends PolarityActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(((FriendModel) lvUserList.getItemAtPosition(position)).isSelected) {
-                    ((FriendModel) lvUserList.getItemAtPosition(position)).isSelectable = true;
-                    ((FriendModel) lvUserList.getItemAtPosition(position)).isSelected = false;
-                    friendsToAdd.remove(((FriendModel) lvUserList.getItemAtPosition(position)));
+                FriendModel selected = ((FriendModel) lvUserList.getItemAtPosition(position));
+                if(selected.isSelected) {
 
+                    if(com_friendIdList.contains(selected.getUserID())) return;
 
-                    Log.d(TAG, "User[" + ((FriendModel) lvUserList.getItemAtPosition(position)).getUserID()
-                    + "] Removed");
+                    selected.isSelectable = true;
+                    selected.isSelected = false;
+                    friendsToAdd.remove(selected);
+
+                    Log.d(TAG, "User[" + selected.getUserID()
+                            + "] Removed");
                 }
                 else {
-                    ((FriendModel) lvUserList.getItemAtPosition(position)).isSelectable = true;
-                    ((FriendModel) lvUserList.getItemAtPosition(position)).isSelected = true;
-                    friendsToAdd.add(((FriendModel) lvUserList.getItemAtPosition(position)));
+                    selected.isSelectable = true;
+                    selected.isSelected = true;
+                    friendsToAdd.add(selected);
 
-                    Log.d(TAG, "User[" + ((FriendModel) lvUserList.getItemAtPosition(position)).getUserID()
-                    + "] Added");
+                    Log.d(TAG, "User[" + selected.getUserID()
+                            + "] Added");
                 }
 
                 friendAdapter.notifyDataSetChanged();
@@ -213,11 +219,16 @@ public class AddFriends extends PolarityActivity {
                         user = autoComplete.get(i);
                         if(user.getObjectId().compareTo(com_userID) == 0) continue;
                         model = new FriendModel(user.getString("username"), user.getObjectId(), true, false);
+                        if(com_friendIdList.contains(model.getUserID())) {
+                            model.isSelectable = true;
+                            model.isSelected = true;
+                        }
                         users.add(model);
                     }
 
                     friendAdapter.notifyDataSetChanged();
                 }
+                else displayAllUsers();
             }
 
             @Override
@@ -225,6 +236,32 @@ public class AddFriends extends PolarityActivity {
             }
         };
     } // tbTextChanged
+
+    protected void displayAllUsers() {
+        ParseQuery.getQuery("_User").findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(e == null) {
+                    FriendModel person;
+                    users.clear();
+                    for(int i=0; i<objects.size() && i<50; i++) {
+                        person = new FriendModel(objects.get(i).getString("username"),
+                                                objects.get(i).getObjectId(), true, false);
+                        if(person.getUserID() == com_userID) continue;
+                        if(com_friendIdList.contains(person.getUserID())) {
+                            person.isSelectable = true;
+                            person.isSelected = true;
+                        }
+                        users.add(person);
+                    }
+                    friendAdapter.notifyDataSetChanged();
+                }
+                else {
+                    Log.e(TAG, e.getMessage());
+                }
+            }
+        });
+    }
 
 //endregion
 

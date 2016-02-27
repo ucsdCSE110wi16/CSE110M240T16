@@ -27,10 +27,10 @@ public abstract class PolarityActivity extends Activity {
 
     static EventModel com_currentEvent;
 
+    static ArrayList<String> com_friendIdList;
     static ArrayList<Model> com_modelList;
     static ArrayList<MovieModel> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
-    static ArrayList<FriendModel> com_friendList;
     static ArrayList<EventModel> com_eventModelList;
 
 
@@ -61,7 +61,7 @@ public abstract class PolarityActivity extends Activity {
         com_modelList = new ArrayList<Model>();
         com_movieList = new ArrayList<MovieModel>();
         com_invitedFriends = new ArrayList<FriendModel>();
-        com_friendList = new ArrayList<FriendModel>();
+        com_friendIdList = new ArrayList<String>();
         com_eventModelList = new ArrayList<EventModel>();
 
         // Create and fill HashMap of all classes for navigation
