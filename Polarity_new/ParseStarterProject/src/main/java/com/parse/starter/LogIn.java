@@ -2,6 +2,7 @@ package com.parse.starter;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +12,15 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
@@ -41,6 +48,16 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // check to see if any user has logged in on this device before
+        try {
+            ParseObject object = ParseQuery.getQuery("_User").whereEqualTo("androidId", android_id).getFirst();
+            com_userID = object.getObjectId();
+            com_user = object.getString("username");
+            goToActivity(HubActivity.class.getSimpleName(), HubActivity.class.getSimpleName());
+        } catch (ParseException e) {
+            Log.e(TAG, e.getMessage());
+        }
 
         setContentView(R.layout.activity_log_in);
 
@@ -98,6 +115,9 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
                                      // save variables to global file
                                      com_user = ParseUser.getCurrentUser().getUsername();
                                      com_userID = ParseUser.getCurrentUser().getObjectId();
+
+                                     ParseUser.getCurrentUser().put("androidId", android_id);
+                                     ParseUser.getCurrentUser().saveInBackground();
 
                                      toActivity_HubActivity();
 

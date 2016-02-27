@@ -241,18 +241,23 @@ public class AddFriends extends PolarityActivity {
         ParseQuery.getQuery("_User").findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
+
                 if(e == null) {
                     FriendModel person;
                     users.clear();
+
                     for(int i=0; i<objects.size() && i<50; i++) {
+
                         person = new FriendModel(objects.get(i).getString("username"),
                                                 objects.get(i).getObjectId(), true, false);
-                        if(person.getUserID() == com_userID) continue;
-                        if(com_friendIdList.contains(person.getUserID())) {
-                            person.isSelectable = true;
-                            person.isSelected = true;
+
+                        if(person.getUserID() != com_userID) {
+                            if (com_friendIdList.contains(person.getUserID())) {
+                                person.isSelectable = true;
+                                person.isSelected = true;
+                            }
+                            users.add(person);
                         }
-                        users.add(person);
                     }
                     friendAdapter.notifyDataSetChanged();
                 }
