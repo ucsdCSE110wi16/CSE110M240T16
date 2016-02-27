@@ -20,7 +20,7 @@ public class EventModel extends Model {
     }
 
     protected Date date;
-    protected String hostId, description, location, eventId, movieQueueId;
+    protected String hostId, description, location, eventId, movieQueueId, time;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
 
     public Status status = Status.Unanswered;
@@ -28,7 +28,7 @@ public class EventModel extends Model {
     //region Constructors
 
     public EventModel(String HostID, String Name, String Description, String Location,
-                      String EventID, String MovieQueueID, Date EventDate) {
+                      String EventID, String MovieQueueID, Date EventDate, String Time) {
         numFriendsInvited = 0;
         numFriendsAttending = 0;
         numFriendsVoted = 0;
@@ -39,11 +39,12 @@ public class EventModel extends Model {
         movieQueueId = MovieQueueID;
         date = EventDate;
         location = Location;
+        time = Time;
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,
-                      String EventID, String MovieQueueID, Date EventDate, int NumFriendsInvited,
-                      int NumFriendsAttending, int NumFriendsVoted) {
+                      String EventID, String MovieQueueID, Date EventDate, String Time,
+                      int NumFriendsInvited, int NumFriendsAttending, int NumFriendsVoted) {
         numFriendsInvited = NumFriendsInvited;
         numFriendsAttending = NumFriendsAttending;
         numFriendsVoted = NumFriendsVoted;
@@ -52,28 +53,31 @@ public class EventModel extends Model {
         description = Description;
         date = EventDate;
         location = Location;
+        time = Time;
     } // EventModel
 
     //endregion
 
     //region Getters
 
-    public String getHostID() {return hostId;}
-    public String getDescription() {return description;}
-    public String getLocation() {return location;}
-    public String getEventID() {return eventId;}
-    public String getMovieQueueID() {return movieQueueId;}
-    public Date getDate() {return date;}
-    public int getNumFriendsAttending() {return numFriendsAttending;}
-    public int getNumFriendsInvited() {return numFriendsInvited;}
-    public int getNumFriendsVoted() {return numFriendsVoted;}
+    public String getHostID() {return this.hostId;}
+    public String getDescription() {return this.description;}
+    public String getLocation() {return this.location;}
+    public String getEventID() {return this.eventId;}
+    public String getMovieQueueID() {return this.movieQueueId;}
+    public Date getDate() {return this.date;}
+    public String getTime() {return this.time;}
+    public int getNumFriendsAttending() {return this.numFriendsAttending;}
+    public int getNumFriendsInvited() {return this.numFriendsInvited;}
+    public int getNumFriendsVoted() {return this.numFriendsVoted;}
 
     //endregion
 
     //region Setters
 
-    public void setDescription(String Description) {description = Description;}
-    public void setLocation(String Location) {location = Location;}
+    public void setDescription(String Description) {this.description = Description;}
+    public void setLocation(String Location) {this.location = Location;}
+    public void setTime(String Time) {this.time = Time;}
     public void setNumFriendsInvited(int numFriendsInvited) {this.numFriendsAttending = numFriendsInvited;}
     public void setNumFriendsAttending(int numFriendsAttending) {this.numFriendsAttending = numFriendsAttending;}
     public void setNumFriendsVoted(int numFriendsVoted) {this.numFriendsVoted = numFriendsVoted;}

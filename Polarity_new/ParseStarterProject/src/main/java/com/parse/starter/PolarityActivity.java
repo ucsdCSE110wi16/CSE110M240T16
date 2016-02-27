@@ -21,7 +21,7 @@ public abstract class PolarityActivity extends Activity {
 
     static String android_id;
     static String com_user, com_userID, com_eventID;
-    static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
+    static String com_eventName, com_eventLocation, com_eventDate, com_eventTime, com_eventDescription;
     static String com_currentEventId;
     static String com_previousActivity;
 
@@ -52,6 +52,7 @@ public abstract class PolarityActivity extends Activity {
         com_eventName = "";
         com_eventLocation = "";
         com_eventTime = "";
+        com_eventDate = "";
         com_eventDescription = "";
         com_currentEventId = "";
         com_previousActivity = LogIn.class.getSimpleName();

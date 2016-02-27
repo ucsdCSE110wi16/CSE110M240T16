@@ -29,7 +29,7 @@ public class CreateEvent extends PolarityActivity {
     public static final String TAG = CreateEvent.class.getSimpleName();
 
     Button btnBack, btnAddMovie, btnInviteFriends, btnCreateEvent, btnHome;
-    EditText tbEventName, tbEventLocation, tbEventTime, tbEventDescription, tbEventHour;
+    EditText tbEventName, tbEventLocation, tbEventDate, tbEventDescription, tbEventTime;
 
     Calendar myCalendar;
     int year_o, month_o, day_o;
@@ -50,9 +50,9 @@ public class CreateEvent extends PolarityActivity {
 
         tbEventName = (EditText) findViewById(R.id.createEvent_tbName);
         tbEventLocation = (EditText) findViewById(R.id.createEvent_tbLocation);
-        tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
+        tbEventDate = (EditText) findViewById(R.id.createEvent_tbDate);
         tbEventDescription = (EditText) findViewById(R.id.createEvent_tbDescription);
-        tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
+        tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
 
         btnBack.setOnClickListener(btnBack_Click());
         btnAddMovie.setOnClickListener(btnAddMovie_Click());
@@ -61,6 +61,7 @@ public class CreateEvent extends PolarityActivity {
 
         tbEventName.setText(com_eventName);
         tbEventLocation.setText(com_eventLocation);
+        tbEventDate.setText(com_eventDate);
         tbEventTime.setText(com_eventTime);
         tbEventDescription.setText(com_eventDescription);
 
@@ -72,8 +73,8 @@ public class CreateEvent extends PolarityActivity {
         month_o = myCalendar.get(Calendar.MONTH);
         day_o = myCalendar.get(Calendar.DAY_OF_MONTH);
         //disables the keyboard from showing up for date & time picker
+        tbEventDate.setInputType(InputType.TYPE_NULL);
         tbEventTime.setInputType(InputType.TYPE_NULL);
-        tbEventHour.setInputType(InputType.TYPE_NULL);
         showDialogHourClick();
     }
 
@@ -87,6 +88,7 @@ public class CreateEvent extends PolarityActivity {
                 com_eventLocation = tbEventLocation.getText().toString();
                 com_eventTime = tbEventTime.getText().toString();
                 com_eventDescription = tbEventDescription.getText().toString();
+                com_eventDate = tbEventDate.getText().toString();
 
                 toActivity_AddMovies();
             }
@@ -101,6 +103,7 @@ public class CreateEvent extends PolarityActivity {
                 com_eventLocation = tbEventLocation.getText().toString();
                 com_eventTime = tbEventTime.getText().toString();
                 com_eventDescription = tbEventDescription.getText().toString();
+                com_eventDate = tbEventDate.getText().toString();
 
                 toActivity_InviteFriends();
             }
@@ -123,7 +126,7 @@ public class CreateEvent extends PolarityActivity {
                     displayToast("You must enter a location");
                     return;
                 }
-                if(tbEventTime.getText().length() == 0) {
+                if(tbEventDate.getText().length() == 0) {
                     displayToast("You must enter a time");
                     return;
                 }
@@ -148,7 +151,7 @@ public class CreateEvent extends PolarityActivity {
                 List<ParseObject> poMovieList = new ArrayList<ParseObject>();
 
                 try {
-                    date = new SimpleDateFormat("MM/dd/yyy").parse(tbEventTime.getText().toString());
+                    date = new SimpleDateFormat("MM/dd/yyy").parse(tbEventDate.getText().toString());
                     if(date == null) Log.e(TAG, "Unable to aquire date format");
                 }
                 catch (java.text.ParseException e) {
@@ -241,7 +244,8 @@ public class CreateEvent extends PolarityActivity {
 
                 EventModel m = new EventModel(com_userID, tbEventName.getText().toString(),
                         tbEventDescription.getText().toString(), tbEventLocation.getText().toString(),
-                        event.getObjectId(), movieQueueID, date, com_invitedFriends.size(), 0, 0);
+                        event.getObjectId(), movieQueueID, date, tbEventTime.getText().toString(),
+                        com_invitedFriends.size(), 0, 0);
 
                 // host is automatically set to attending.
                 m.status = EventModel.Status.Accepted;
@@ -273,9 +277,9 @@ public class CreateEvent extends PolarityActivity {
     //for the date picker
     public void showDialogOnTextFieldClick() {
 
-        tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
+        tbEventDate = (EditText) findViewById(R.id.createEvent_tbDate);
 
-        tbEventTime.setOnClickListener(
+        tbEventDate.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -302,17 +306,17 @@ public class CreateEvent extends PolarityActivity {
             month_o = monthOfYear + 1;
             day_o = dayOfMonth;
 
-            tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
-            tbEventTime.setText(month_o + "/" + day_o + "/" + year_o);
+            tbEventDate = (EditText) findViewById(R.id.createEvent_tbDate);
+            tbEventDate.setText(month_o + "/" + day_o + "/" + year_o);
         }
     };
 
     //for the date picker
     public void showDialogHourClick() {
 
-        tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
+        tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
 
-        tbEventHour.setOnClickListener(
+        tbEventTime.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -329,8 +333,18 @@ public class CreateEvent extends PolarityActivity {
 
             hour_o = hour;
             minute_o = minute;
-            tbEventHour = (EditText) findViewById(R.id.create_event_hour_Textfield);
-            tbEventHour.setText(hour_o + ":" + minute_o);
+            String formattedTime = hour_o + ":" + minute_o;
+
+            tbEventTime = (EditText) findViewById(R.id.createEvent_tbTime);
+            //Int truncates minutes less than 10 to a single digit, which looks wrong, so this
+            //fixes it
+            if(minute_o < 10){
+                formattedTime = hour_o + ":" + "0" + minute_o;
+                tbEventTime.setText(formattedTime);
+            }//end if
+            else{
+                tbEventTime.setText(formattedTime);
+            }//end else
         }
     };
     //endregion

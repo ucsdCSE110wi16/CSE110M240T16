@@ -192,7 +192,7 @@ public class HubActivity extends PolarityActivity {
                 model = new EventModel(com_userID, obj.getString("EventName"),
                         obj.getString("EventDiscription"), obj.getString("EventLocation"),
                         obj.getObjectId(), obj.getString("MovieQueueID"),
-                        obj.getDate("EventDate"));
+                        obj.getDate("EventDate"), obj.getString("EventStartTime"));
 
                 // Get all friends invited
                 parseFriendList.clear();
