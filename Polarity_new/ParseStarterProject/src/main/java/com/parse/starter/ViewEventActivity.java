@@ -13,8 +13,8 @@ import com.parse.ParseQuery;
 public class ViewEventActivity extends PolarityActivity {
 
     public static final String TAG = ViewEventActivity.class.getSimpleName();
-    TextView txtTitle, txtLocation, txtDate, txtDescription;
-    Button btnBack, btnHome, btnViewInviteList, btnVoteOnMovies, btnAccept, btnDeny;
+    TextView txtTitle, txtLocation, txtDate, txtDescription, txtTime;
+    Button btnBack, btnViewInviteList, btnVoteOnMovies, btnAccept, btnDeny;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class ViewEventActivity extends PolarityActivity {
         txtTitle = (TextView) findViewById(R.id.viewEvent_txtTitle);
         txtLocation = (TextView) findViewById(R.id.viewEvent_txtLocation);
         txtDescription = (TextView) findViewById(R.id.viewEvent_description);
-        txtDate = (TextView) findViewById(R.id.viewEvent_txtTime);
+        txtDate = (TextView) findViewById(R.id.viewEvent_date);
+        txtTime = (TextView) findViewById(R.id.viewEvent_txtTime);
         btnBack = (Button) findViewById(R.id.addFriends_btnBack);
-//        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
         btnViewInviteList = (Button) findViewById(R.id.viewEvent_btnViewInviteList);
         btnVoteOnMovies = (Button) findViewById(R.id.viewEvent_btnVoteOnMovies);
         btnAccept = (Button) findViewById(R.id.viewEvent_btnAcceptInvite);
@@ -36,11 +36,14 @@ public class ViewEventActivity extends PolarityActivity {
         txtTitle.setText(com_currentEvent.getName());
         txtDescription.setText(com_currentEvent.getDescription());
         txtLocation.setText(com_currentEvent.getLocation());
-        txtDate.setText(com_currentEvent.getDate().toString());
+        txtDate.setText(com_currentEvent.getDate().toString().substring(0, 10) + ", " +
+                com_currentEvent.getDate().toString().substring(24));
+        txtTime.setText(com_currentEvent.getDate().toString().substring(11, 16));
+        Log.d("TAG", com_currentEvent.getDate().toString());
         // endregion
         // region setOnClickListener
         btnBack.setOnClickListener(btnBack_Click());
-//        btnHome.setOnClickListener(btnHome_Click());
+
         btnViewInviteList.setOnClickListener(btnViewInviteList_Click());
         btnVoteOnMovies.setOnClickListener(btnVoteOnMovies_Click());
         btnAccept.setOnClickListener(btnAccept_Click());
