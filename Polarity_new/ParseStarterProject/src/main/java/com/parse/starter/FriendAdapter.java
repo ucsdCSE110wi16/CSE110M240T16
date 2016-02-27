@@ -59,15 +59,12 @@ public class FriendAdapter extends BaseAdapter {
         FriendModel m = friendModelList.get(position);
         tv.setText(m.getName());
 
-        if (m.isSelectable) {
-            if (m.isSelected) {
-                iv.setImageResource(R.drawable.signuncheckicon);
-                m.isSelected = false;
-            } else {
-                iv.setImageResource(R.drawable.signcheckicon);
-                m.isSelected = true;
-            }
+        if (m.isSelected) {
+            iv.setImageResource(R.drawable.signcheckicon);
+        } else {
+            iv.setImageResource(R.drawable.signuncheckicon);
         }
+
         if(m.isDeletable) {
             btn.setEnabled(false);
             btn.setVisibility(View.VISIBLE);

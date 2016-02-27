@@ -123,29 +123,33 @@ public class AddFriends extends PolarityActivity {
         return new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 FriendModel selected = ((FriendModel) lvUserList.getItemAtPosition(position));
-                if(selected.isSelected) {
 
-                    if(com_friendIdList.contains(selected.getUserID())) return;
+                // if isSelectable
+                if(selected.isSelectable) {
+                    // revert the selection and add/remove FriendModel if needed
+                    if(selected.isSelected) {
+                        selected.isSelected = false;
+                        friendsToAdd.remove(selected);
 
-                    selected.isSelectable = true;
-                    selected.isSelected = false;
-                    friendsToAdd.remove(selected);
+                        Log.d(TAG, "User[" + selected.getUserID()
+                                + "] Removed");
+                    }
+                    else {
+                        //selected.isSelectable = true;
+                        selected.isSelected = true;
+                        friendsToAdd.add(selected);
 
-                    Log.d(TAG, "User[" + selected.getUserID()
-                            + "] Removed");
+                        Log.d(TAG, "User[" + selected.getUserID()
+                                + "] Added");
+                    }
+
+                    // tell adapter to update
+                    friendAdapter.notifyDataSetChanged();
+                    Log.d(TAG, "friendsToAdd.size() = " + friendsToAdd.size());
                 }
-                else {
-                    selected.isSelectable = true;
-                    selected.isSelected = true;
-                    friendsToAdd.add(selected);
 
-                    Log.d(TAG, "User[" + selected.getUserID()
-                            + "] Added");
-                }
-
-                friendAdapter.notifyDataSetChanged();
-                Log.d(TAG, "friendsToAdd.size() = " + friendsToAdd.size());
 
             }
         };
@@ -246,19 +250,29 @@ public class AddFriends extends PolarityActivity {
                     FriendModel person;
                     users.clear();
 
+                    // loop trhough all teh objects
                     for(int i=0; i<objects.size() && i<50; i++) {
 
+                        // create FriendModel of user
                         person = new FriendModel(objects.get(i).getString("username"),
                                                 objects.get(i).getObjectId(), true, false);
 
-                        if(person.getUserID() != com_userID) {
-                            if (com_friendIdList.contains(person.getUserID())) {
-                                person.isSelectable = true;
-                                person.isSelected = true;
-                            }
-                            users.add(person);
+                        // skip if person is the active user
+                        if(person.getUserID().compareTo(com_userID) == 0) continue;
+
+                        // set the selectable to true
+                        person.isSelectable = true;
+
+                        // if the person is already a friend, then set them to selected and to be unselectable
+                        if (com_friendIdList.contains(person.getUserID())) {
+                            person.isSelected = true;
+                            person.isSelectable = false;
                         }
+
+                        // add the person to the queue
+                        users.add(person);
                     }
+
                     friendAdapter.notifyDataSetChanged();
                 }
                 else {
