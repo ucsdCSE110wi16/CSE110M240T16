@@ -94,24 +94,35 @@ public class InviteFriends extends PolarityActivity {
                 // If the text box is empty, don't query the db
                 if(!tbSearch.getText().toString().isEmpty()){
 
-                    // Since users are unique, just get the first one found
-                    ParseQuery<ParseObject> userQuery = ParseQuery.getQuery("_User");
-                    userQuery.whereEqualTo("username", tbSearch.getText().toString());
-                    userQuery.getFirstInBackground(new GetCallback<ParseObject>() {
-                        @Override
-                        public void done(ParseObject pu, ParseException e) {
-                            if (e == null && pu != null) {
-                                // Add the user to the invited list
-                                friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId(), false, true));
-                                // Since a user has been added, clear out the "no friends" text
-                                txtInfo.setText("");
-                            }//end if
-                            else{
-                                displayToast("User" + tbSearch.getText().toString() + " does not exists");
-                            }//end else
+                    boolean isAlreadyInvited = false;
+                    for(FriendModel f: friendList){
+                        if((tbSearch.getText().toString()).equals(f.getName())){
+                            displayToast("User " + tbSearch.getText().toString() + " is already invited");
+                            isAlreadyInvited = true;
+                            break;
+                        }
+                    }
 
-                        }//end done
-                    });//end callback
+                    if(!isAlreadyInvited) {
+                        // Since users are unique, just get the first one found
+                        ParseQuery<ParseObject> userQuery = ParseQuery.getQuery("_User");
+                        userQuery.whereEqualTo("username", tbSearch.getText().toString());
+                        userQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject pu, ParseException e) {
+                                if (e == null && pu != null) {
+                                    // Add the user to the invited list
+                                    friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId(), false, true));
+                                    // Since a user has been added, clear out the "no friends" text
+                                    txtInfo.setText("");
+                                }//end if
+                                else {
+                                    displayToast("User" + tbSearch.getText().toString() + " does not exists");
+                                }//end else
+
+                            }//end done
+                        });//end callback
+                    }
 
                 }//end if
 
