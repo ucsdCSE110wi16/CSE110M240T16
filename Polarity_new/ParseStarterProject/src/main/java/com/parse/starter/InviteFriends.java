@@ -115,15 +115,25 @@ public class InviteFriends extends PolarityActivity {
                                 if (e == null && pu != null) {
                                     // Add the user to the invited list
                                     friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId(), false, true));
+                                    // Resets the text in the search bar
+                                    tbSearch.setText("");
+
                                     // Since a user has been added, clear out the "no friends" text
                                     txtInfo.setText("");
                                 }//end if
                                 else {
-                                    displayToast("User" + tbSearch.getText().toString() + " does not exists");
+                                    displayToast("User " + tbSearch.getText().toString() + " does not exists");
+                                    // Resets the text in the search bar
+                                    tbSearch.setText("");
                                 }//end else
 
                             }//end done
                         });//end callback
+                    }
+
+                    // Resets the text in the search bar
+                    else{
+                        tbSearch.setText("");
                     }
 
                 }//end if
