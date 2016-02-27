@@ -19,6 +19,7 @@ public abstract class PolarityActivity extends Activity {
     // global variables - must be declared static
     static boolean com_userEventsLoaded;
 
+    static String android_id;
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventTime, com_eventDescription;
     static String com_currentEventId;
@@ -29,9 +30,13 @@ public abstract class PolarityActivity extends Activity {
     static ArrayList<Model> com_modelList;
     static ArrayList<MovieModel> com_movieList;
     static ArrayList<FriendModel> com_invitedFriends;
+    static ArrayList<FriendModel> com_friendList;
     static ArrayList<EventModel> com_eventModelList;
 
+
     static HashMap<String, Class> com_activities;
+
+
 
     //endregion
 
@@ -56,6 +61,7 @@ public abstract class PolarityActivity extends Activity {
         com_modelList = new ArrayList<Model>();
         com_movieList = new ArrayList<MovieModel>();
         com_invitedFriends = new ArrayList<FriendModel>();
+        com_friendList = new ArrayList<FriendModel>();
         com_eventModelList = new ArrayList<EventModel>();
 
         // Create and fill HashMap of all classes for navigation

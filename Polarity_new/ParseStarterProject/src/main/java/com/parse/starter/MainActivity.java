@@ -9,9 +9,12 @@
 package com.parse.starter;
 
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.provider.Settings.Secure;
 
 
 public class MainActivity extends PolarityActivity {
@@ -25,10 +28,18 @@ public class MainActivity extends PolarityActivity {
     setContentView(R.layout.activity_main);
 
     initialize();
+    android_id = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
 
-    // Open login screen
-    toActivity_Login();
-
+    // debug
+    if(android_id.compareTo("50012c6b71ca00fa") == 0) {
+      com_userID = "GMso6fh0Bb";
+      com_user = "lucas";
+      com_previousActivity = HubActivity.class.getSimpleName();
+      toActivity_AddFriends();
+    }
+    else {
+      toActivity_Login();
+    }
   }
 
   //region Auto-Generated Stuff
