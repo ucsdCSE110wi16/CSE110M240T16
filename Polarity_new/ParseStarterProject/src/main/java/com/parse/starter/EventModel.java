@@ -38,6 +38,7 @@ public class EventModel extends Model {
         eventId = EventID;
         movieQueueId = MovieQueueID;
         date = EventDate;
+        location = Location;
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,
@@ -50,6 +51,7 @@ public class EventModel extends Model {
         name = Name;
         description = Description;
         date = EventDate;
+        location = Location;
     } // EventModel
 
     //endregion
