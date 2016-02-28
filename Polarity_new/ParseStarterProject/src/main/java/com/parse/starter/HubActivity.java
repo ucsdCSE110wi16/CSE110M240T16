@@ -264,7 +264,12 @@ public class HubActivity extends PolarityActivity {
         return new com.parse.GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject obj, ParseException e) {
-                com_friendIdList.add(obj.getObjectId());
+                if(obj != null && e == null) {
+                    com_friendIdList.add(obj.getObjectId());
+                }//end if
+                else{
+                    Log.e(TAG, e.getMessage());
+                }
             }
         };
     }

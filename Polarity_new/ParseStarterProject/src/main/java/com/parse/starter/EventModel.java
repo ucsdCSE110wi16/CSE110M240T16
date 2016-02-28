@@ -4,8 +4,10 @@ import android.util.Log;
 
 import com.parse.starter.Model;
 
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by lpett on 2/20/2016.
@@ -20,6 +22,7 @@ public class EventModel extends Model {
     }
 
     protected Date date;
+    protected Calendar cal;
     protected String hostId, description, location, eventId, movieQueueId, time;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
 
@@ -40,6 +43,8 @@ public class EventModel extends Model {
         date = EventDate;
         location = Location;
         time = Time;
+        cal = Calendar.getInstance();
+        cal.setTime(date);
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,
@@ -54,6 +59,8 @@ public class EventModel extends Model {
         date = EventDate;
         location = Location;
         time = Time;
+        cal = Calendar.getInstance();
+        cal.setTime(date);
     } // EventModel
 
     //endregion
@@ -66,6 +73,21 @@ public class EventModel extends Model {
     public String getEventID() {return this.eventId;}
     public String getMovieQueueID() {return this.movieQueueId;}
     public Date getDate() {return this.date;}
+    public int getMonth() {
+        return cal.get(Calendar.MONTH);
+    }
+    public int getDay() {
+        return cal.get(Calendar.DATE);
+    }
+    public int getYear() {
+        return cal.get(Calendar.YEAR);
+    }
+    public String getMonthName(){
+        return cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US);
+    }
+    public String getDayName(){
+        return cal.getDisplayName(Calendar.DATE, Calendar.SHORT, Locale.US);
+    }
     public String getTime() {return this.time;}
     public int getNumFriendsAttending() {return this.numFriendsAttending;}
     public int getNumFriendsInvited() {return this.numFriendsInvited;}
