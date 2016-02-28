@@ -45,13 +45,13 @@ public class SignUp extends PolarityActivity {
         setContentView(R.layout.activity_sign_up);
 
         // this will initializes the variables on the page
-        userName = (EditText) findViewById(R.id.createEvent_tbName);
-        email = (EditText) findViewById(R.id.createEvent_tbLocation);
-        password = (EditText) findViewById(R.id.main_tbPassword);
-        rePassword = (EditText) findViewById(R.id.tbRePassword);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnBack = (Button) findViewById(R.id.addFriends_btnBack);
-        txtInfo = (TextView) findViewById(R.id.txtInfo);
+        userName = (EditText) findViewById(R.id.signUp_tbName);
+        email = (EditText) findViewById(R.id.signUp_tbLocation);
+        password = (EditText) findViewById(R.id.signUp_tbPassword);
+        rePassword = (EditText) findViewById(R.id.signUp_tbRePassword);
+        btnRegister = (Button) findViewById(R.id.signUp_btnRegister);
+        btnBack = (Button) findViewById(R.id.signUp_btnBack);
+        txtInfo = (TextView) findViewById(R.id.signUp_txtInfo);
 
         // set the text color because i dont know how to do it in the designer screen
         txtInfo.setTextColor(getResources().getColor(android.R.color.holo_red_dark));

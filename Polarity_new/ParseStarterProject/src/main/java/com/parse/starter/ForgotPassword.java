@@ -15,8 +15,10 @@ public class ForgotPassword extends PolarityActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        btnBack = (Button) findViewById(R.id.addMovies_btnBack);
+        btnBack = (Button) findViewById(R.id.forgotPassword_btnBack);
         btnSendResetEmail = (Button) findViewById(R.id.forgotPassword_btnSendResetEmail);
+        tbUserName = (EditText) findViewById(R.id.forgotPassword_tbUserName);
+        tbEmail = (EditText) findViewById(R.id.forgotPassword_tbEmail);
 
 //        btnBack.setOnClickListener(btnBack_Click());
     }

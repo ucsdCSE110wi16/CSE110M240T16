@@ -57,7 +57,7 @@ public class HubActivity extends PolarityActivity {
         btnAddFriends.setOnClickListener(btnAddFriends_Click());
 
         lvEventQueue = (ListView) findViewById(R.id.hubActivity_lvEventQueue);
-        txtEventQueue = (TextView) findViewById(R.id.upcomingEvents_txtInfo);
+        txtEventQueue = (TextView) findViewById(R.id.hubActivity_txtInfo);
 
         lvEventQueue.setOnItemClickListener(lvEventQueue_Click());
 

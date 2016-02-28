@@ -77,7 +77,6 @@ public abstract class PolarityActivity extends Activity {
         com_activities.put(InviteFriends.class.getSimpleName(), InviteFriends.class);
         com_activities.put(SignUp.class.getSimpleName(), SignUp.class);
         com_activities.put(ViewEventActivity.class.getSimpleName(), ViewEventActivity.class);
-        com_activities.put(ViewInviteListActivity.class.getSimpleName(), ViewInviteListActivity.class);
         com_activities.put(VoteActivity.class.getSimpleName(), VoteActivity.class);
     }
 
@@ -158,10 +157,6 @@ public abstract class PolarityActivity extends Activity {
         startActivity(intent);
     } // toActivity_Vote
 
-    protected void toActivity_ViewInviteList() {
-        Intent intent = new Intent(this, ViewInviteListActivity.class);
-        startActivity(intent);
-    } // toActivty_ViewInviteList
 
     protected void toActivity_AddFriends() {
         Intent intent = new Intent (this, AddFriends.class);

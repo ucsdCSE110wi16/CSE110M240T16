@@ -20,27 +20,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Create New Event"
         android:gravity="center"
-        android:id="@+id/viewEvent_txtTitle"
+        android:id="@+id/createEvent_txtTitle"
         android:layout_alignTop="@+id/createEvent_btnBack"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         />
-
-
-    <!-- Event name textfield -->
-
-    <!-- location textfield -->
-
-    <!-- Date textfield -->
-
-    <!-- Time textField -->
-
-    <!-- description textfield- -->
-
+<!--
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@drawable/button_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Invite Friends"
+        android:id="@+id/createEvent_btnAddFriends"
+        android:layout_above="@+id/createEvent_btnCreateEvent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        />
+-->
     <!-- invite friends button -->
-
-    <!-- invite friends button -->
-
     <!-- back button -->
     <Button
         android:textColor="@color/themeWhite"
@@ -51,15 +52,26 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-
         android:background="@android:color/transparent" />
 
     <!-- Create Event Button-->
-
+    <!--
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@drawable/button_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Event "
+        android:id="@+id/createEvent_btnCreateEvent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"/>
+-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView15"
+        android:id="@+id/createEvent_ivBack"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -67,12 +79,13 @@
         android:background="@drawable/button_background"
         android:layout_alignRight="@+id/createEvent_btnBack"
         android:layout_alignEnd="@+id/createEvent_btnBack"
-        android:layout_above="@+id/scrollView2" />
+        android:layout_above="@+id/createEvent_scrollView" />
+
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView2"
+        android:id="@+id/createEvent_scrollView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -86,7 +99,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_alignTop="@+id/scrollView2">
+            android:layout_alignTop="@+id/createEvent_scrollView"
+            android:weightSum="1">
 
             <EditText
                 android:layout_width="match_parent"
@@ -168,51 +182,61 @@
                 android:layout_marginTop="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:padding="10dp" />
-
+                android:padding="10dp"
+                android:layout_weight="1.33" />
+<!--
             <Button
                 android:textColor="@color/themeWhite"
                 android:background="@drawable/button_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Add Movies"
-                android:id="@+id/createEvent_addMovies"
-                android:layout_above="@+id/addFriends_btnAddFriends"
+                android:id="@+id/createEvent_btnAddMovies"
+                android:layout_above="@+id/createEvent_btnAddFriends"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp" />
+-->
 
-            <Button
-                android:textColor="@color/themeWhite"
-                android:background="@drawable/button_background"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Invite Friends"
-                android:id="@+id/addFriends_btnAddFriends"
-                android:layout_above="@+id/createEvent_btnCreateEvent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                />
-
-            <Button
-                android:textColor="@color/themeWhite"
-                android:background="@drawable/button_background"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Create Event "
-                android:id="@+id/createEvent_btnCreateEvent"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/main_txtUserName"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@drawable/button_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Event "
+        android:id="@+id/createEvent_btnCreateEvent"
+        android:layout_alignBottom="@+id/createEvent_scrollView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@drawable/button_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Movies"
+        android:id="@+id/createEvent_btnAddMovies"
+        android:layout_above="@+id/createEvent_btnCreateEvent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:textColor="@color/themeWhite"
+        android:background="@drawable/button_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Invite Friends"
+        android:id="@+id/createEvent_btnAddFriends"
+        android:layout_above="@+id/createEvent_btnAddMovies"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

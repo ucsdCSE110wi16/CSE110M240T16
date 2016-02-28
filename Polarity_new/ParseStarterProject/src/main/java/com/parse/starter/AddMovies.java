@@ -44,7 +44,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         btnHome = (Button) findViewById(R.id.addMovies_btnHome);
         btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
-        txtInfo = (TextView) findViewById(R.id.activity_add_movies_textView);
+        txtInfo = (TextView) findViewById(R.id.addMovies_txtInfo);
         modelList = com_modelList;
 
         adapter = new ModelAdapter(getApplicationContext(), modelList);

@@ -18,17 +18,16 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign up for Polarity "
-        android:id="@+id/viewEvent_txtTitle"
-        android:layout_above="@+id/txtInfo"
-        android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/addFriends_btnBack" />
+        android:id="@+id/signUp_txtTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
     <!--Back button-->
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="&lt;-"
-        android:id="@+id/addFriends_btnBack"
+        android:id="@+id/signUp_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -41,8 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:id="@+id/btnRegister"
-        android:layout_marginBottom="44dp"
+        android:id="@+id/signUp_btnRegister"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"
         android:layout_alignParentBottom="true"
@@ -55,24 +53,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/txtInfo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="23dp"
-        android:layout_below="@+id/addFriends_btnBack" />
+        android:id="@+id/signUp_txtInfo"
+        android:layout_below="@+id/signUP_ivBack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material" />
 
     <!--Image for Back Button-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView8"
+        android:id="@+id/signUP_ivBack"
         android:src="@drawable/back_button"
-        android:layout_alignTop="@+id/viewEvent_txtTitle"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addFriends_btnBack"
-        android:layout_alignEnd="@+id/addFriends_btnBack"
-        android:layout_alignBottom="@+id/addFriends_btnBack" />
+        android:layout_alignBottom="@+id/signUp_btnBack"
+        android:layout_alignRight="@+id/signUp_btnBack"
+        android:layout_alignEnd="@+id/signUp_btnBack" />
 
 
 
@@ -88,40 +85,38 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/createEvent_tbName"
+        android:id="@+id/signUp_tbName"
         android:hint="@string/username"
-        android:layout_below="@+id/txtInfo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:textStyle="italic"
-        android:layout_marginTop="44dp"
-        android:layout_alignRight="@+id/createEvent_tbLocation"
-        android:layout_alignEnd="@+id/createEvent_tbLocation"
         android:background="@color/themeLightGray"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:layout_marginBottom="5dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createEvent_tbLocation"
-        android:hint="@string/email"
-        android:textStyle="italic"
-        android:layout_below="@+id/createEvent_tbName"
+        android:layout_below="@+id/signUp_txtInfo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/abc_action_bar_icon_vertical_padding_material" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUp_tbLocation"
+        android:hint="@string/email"
+        android:textStyle="italic"
         android:background="@color/themeLightGray"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_below="@+id/signUp_tbName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/abc_button_padding_horizontal_material" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -129,20 +124,19 @@
         android:inputType="textPassword"
         android:textStyle="italic"
         android:ems="10"
-        android:id="@+id/main_tbPassword"
+        android:id="@+id/signUp_tbPassword"
         android:hint="@string/password"
-        android:layout_below="@+id/createEvent_tbLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/createEvent_tbLocation"
-        android:layout_alignEnd="@+id/createEvent_tbLocation"
         android:background="@color/themeLightGray"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:layout_below="@+id/signUp_tbLocation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/abc_button_padding_horizontal_material" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -150,26 +144,25 @@
         android:inputType="textPassword"
         android:hint="@string/confirm_password"
         android:ems="10"
-        android:id="@+id/tbRePassword"
+        android:id="@+id/signUp_tbRePassword"
         android:textStyle="italic"
-        android:layout_below="@+id/main_tbPassword"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/main_tbPassword"
-        android:layout_alignEnd="@+id/main_tbPassword"
         android:background="@color/themeLightGray"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:layout_marginTop="5dp"
-        />
+        android:layout_below="@+id/signUp_tbPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/abc_button_padding_horizontal_material" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView10"
-        android:layout_below="@+id/createEvent_tbLocation"
+        android:id="@+id/signUp_ivUnknown"
+        android:layout_below="@+id/signUp_tbLocation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="462dp"

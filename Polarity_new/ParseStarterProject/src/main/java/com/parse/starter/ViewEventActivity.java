@@ -26,7 +26,7 @@ public class ViewEventActivity extends PolarityActivity {
         txtDescription = (TextView) findViewById(R.id.viewEvent_description);
         txtDate = (TextView) findViewById(R.id.viewEvent_date);
         txtTime = (TextView) findViewById(R.id.viewEvent_txtTime);
-        btnBack = (Button) findViewById(R.id.addFriends_btnBack);
+        btnBack = (Button) findViewById(R.id.viewEvent_btnBack);
         btnViewInviteList = (Button) findViewById(R.id.viewEvent_btnViewInviteList);
         btnVoteOnMovies = (Button) findViewById(R.id.viewEvent_btnVoteOnMovies);
         btnAccept = (Button) findViewById(R.id.viewEvent_btnAcceptInvite);

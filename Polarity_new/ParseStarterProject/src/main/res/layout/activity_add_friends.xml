@@ -41,7 +41,7 @@
         android:paddingTop="5dp"
         android:drawableLeft="@drawable/backicon"
         android:layout_alignBottom="@+id/addFriends_btnHome"
-        android:id="@+id/button" />
+        android:id="@+id/addFriends_btnBack" />
 
     <Button
         style="?android:attr/imageButtonStyle"
@@ -73,7 +73,7 @@
         android:hint="@string/search_users"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/addFriends_btnBack"
         android:layout_marginTop="@dimen/abc_dialog_list_padding_vertical_material"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/inviteFriends_txtInfo"
+        android:id="@+id/addFriends_txtInfo"
         android:layout_marginTop="34dp"
         android:layout_alignTop="@+id/addFriends_lvSearchUsersList"
         android:layout_centerHorizontal="true" />

@@ -66,12 +66,12 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         setContentView(R.layout.activity_log_in);
 
         // Set elements
-        btnLogin = (Button) findViewById(R.id.main_btnLogin);
-        btnCreateAccount = (Button) findViewById(R.id.main_btnCreateAccount);
-        btnForgotPassword = (Button) findViewById(R.id.main_btnForgotPassword);
-        userName = (EditText) findViewById(R.id.main_tbUserName);
-        password = (EditText) findViewById(R.id.main_tbPassword);
-        txtInfo = (TextView) findViewById(R.id.main_tbInfo2);
+        btnLogin = (Button) findViewById(R.id.login_btnLogin);
+        btnCreateAccount = (Button) findViewById(R.id.login_btnCreateAccount);
+        btnForgotPassword = (Button) findViewById(R.id.login_btnForgotPassword);
+        userName = (EditText) findViewById(R.id.login_tbUserName);
+        password = (EditText) findViewById(R.id.login_tbPassword);
+        txtInfo = (TextView) findViewById(R.id.login_tbInfo);
 
         btnLogin.setOnClickListener(btnLogin_Click());
         btnCreateAccount.setOnClickListener(btnCreateAccount_Click());

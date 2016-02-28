@@ -14,39 +14,39 @@
         android:src="@drawable/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/backImageView"
+        android:id="@+id/inviteFriends_ivBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignStart="@+id/addFriends_btnBack"
-        android:layout_alignLeft="@+id/addFriends_btnBack"
-        android:layout_alignRight="@+id/addFriends_btnBack"
-        android:layout_alignEnd="@+id/addFriends_btnBack"
-        android:layout_alignBottom="@+id/addFriends_btnBack" />
+        android:layout_alignStart="@+id/inviteFriends_btnBack"
+        android:layout_alignLeft="@+id/inviteFriends_btnBack"
+        android:layout_alignRight="@+id/inviteFriends_btnBack"
+        android:layout_alignEnd="@+id/inviteFriends_btnBack"
+        android:layout_alignBottom="@+id/inviteFriends_btnBack" />
 
     <ImageView
         android:src="@drawable/home_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeImageView"
+        android:id="@+id/inviteFriends_ivHome"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/addFriends_btnSearch"
-        android:layout_alignLeft="@+id/addFriends_btnHome"
-        android:layout_alignStart="@+id/addFriends_btnHome" />
+        android:layout_above="@+id/inviteFriends_btnSearch"
+        android:layout_alignLeft="@+id/inviteFriends_btnHome"
+        android:layout_alignStart="@+id/inviteFriends_btnHome" />
 
     <!-- Search ImageView-->
     <ImageView
         android:src="@drawable/search_picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchImageView"
-        android:layout_alignTop="@+id/addFriends_tbSearch"
-        android:layout_alignRight="@+id/addFriends_btnSearch"
-        android:layout_alignEnd="@+id/addFriends_btnSearch"
-        android:layout_alignLeft="@+id/addFriends_btnSearch"
-        android:layout_alignStart="@+id/addFriends_btnSearch"
-        android:layout_alignBottom="@+id/addFriends_btnSearch"
+        android:id="@+id/inviteFriends_ivSearch"
+        android:layout_alignTop="@+id/inviteFriends_tbSearch"
+        android:layout_alignRight="@+id/inviteFriends_btnSearch"
+        android:layout_alignEnd="@+id/inviteFriends_btnSearch"
+        android:layout_alignLeft="@+id/inviteFriends_btnSearch"
+        android:layout_alignStart="@+id/inviteFriends_btnSearch"
+        android:layout_alignBottom="@+id/inviteFriends_btnSearch"
         android:layout_marginBottom="5dp"
         />
 
@@ -55,13 +55,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/importQueueImageView"
-        android:layout_alignTop="@+id/addFriends_btnAddFriends"
+        android:layout_alignTop="@+id/inviteFriends_btnAddFriends"
         android:layout_centerHorizontal="true"
-        android:layout_alignRight="@+id/addFriends_btnAddFriends"
-        android:layout_alignEnd="@+id/addFriends_btnAddFriends"
-        android:layout_alignLeft="@+id/addFriends_btnAddFriends"
-        android:layout_alignStart="@+id/addFriends_btnAddFriends"
-        android:layout_alignBottom="@+id/addFriends_btnAddFriends"
+        android:layout_alignRight="@+id/inviteFriends_btnAddFriends"
+        android:layout_alignEnd="@+id/inviteFriends_btnAddFriends"
+        android:layout_alignLeft="@+id/inviteFriends_btnAddFriends"
+        android:layout_alignStart="@+id/inviteFriends_btnAddFriends"
+        android:layout_alignBottom="@+id/inviteFriends_btnAddFriends"
         android:src="@drawable/loginbuttonbackground"
         android:paddingTop="5dp"/>
 
@@ -75,10 +75,10 @@
         android:layout_alignParentStart="true"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:layout_above="@+id/addFriends_lvSearchUsersList"
-        android:layout_below="@+id/addFriends_tbSearch"
-        android:layout_alignRight="@+id/searchImageView"
-        android:layout_alignEnd="@+id/searchImageView" />
+        android:layout_above="@+id/inviteFriends_lvSearchUsersList"
+        android:layout_below="@+id/inviteFriends_tbSearch"
+        android:layout_alignRight="@+id/inviteFriends_ivSearch"
+        android:layout_alignEnd="@+id/inviteFriends_ivSearch" />
 
     <!-- Friend list ImageView-->
 
@@ -94,9 +94,9 @@
         android:layout_alignParentTop="true"
         android:textColor="@color/themeWhite"
         android:gravity="center|center_vertical"
-        android:layout_toRightOf="@+id/backImageView"
-        android:layout_alignRight="@+id/addFriends_tbSearch"
-        android:layout_alignEnd="@+id/addFriends_tbSearch"
+        android:layout_toRightOf="@+id/inviteFriends_ivBack"
+        android:layout_alignRight="@+id/inviteFriends_tbSearch"
+        android:layout_alignEnd="@+id/inviteFriends_tbSearch"
         android:paddingTop="5dp"/>
 
 
@@ -105,7 +105,7 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_btnBack"
+        android:id="@+id/inviteFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -117,7 +117,7 @@
         android:background="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_btnHome"
+        android:id="@+id/inviteFriends_btnHome"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -127,12 +127,12 @@
         android:background="@drawable/button_background"
         android:layout_height="wrap_content"
         android:text="Invite Users"
-        android:id="@+id/addFriends_btnAddFriends"
+        android:id="@+id/inviteFriends_btnAddFriends"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addFriends_lvSearchUsersList"
-        android:layout_alignEnd="@+id/addFriends_lvSearchUsersList"
+        android:layout_alignRight="@+id/inviteFriends_lvSearchUsersList"
+        android:layout_alignEnd="@+id/inviteFriends_lvSearchUsersList"
         android:textColor="@color/themeWhite" />
 
     <Button
@@ -140,31 +140,33 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_btnSearch"
-        android:layout_below="@+id/addFriends_btnHome"
-        android:layout_alignLeft="@+id/addFriends_btnHome"
-        android:layout_alignStart="@+id/addFriends_btnHome" />
+        android:id="@+id/inviteFriends_btnSearch"
+        android:layout_below="@+id/inviteFriends_btnHome"
+        android:layout_alignLeft="@+id/inviteFriends_btnHome"
+        android:layout_alignStart="@+id/inviteFriends_btnHome"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_tbSearch"
-        android:layout_alignBottom="@+id/addFriends_btnSearch"
+        android:id="@+id/inviteFriends_tbSearch"
+        android:layout_alignBottom="@+id/inviteFriends_btnSearch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/addFriends_btnSearch"
-        android:layout_toStartOf="@+id/addFriends_btnSearch"
+        android:layout_toLeftOf="@+id/inviteFriends_btnSearch"
+        android:layout_toStartOf="@+id/inviteFriends_btnSearch"
         android:hint="@string/search_friends_list"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
-        android:layout_alignTop="@+id/addFriends_btnSearch"
+        android:layout_alignTop="@+id/inviteFriends_btnSearch"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="2dp"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_lvSearchUsersList"
+        android:id="@+id/inviteFriends_lvSearchUsersList"
         android:choiceMode="singleChoice"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -173,7 +175,7 @@
         android:paddingTop="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_below="@+id/addFriends_tbSearch" />
+        android:layout_below="@+id/inviteFriends_tbSearch" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -182,6 +184,6 @@
         android:id="@+id/inviteFriends_txtInfo"
         android:layout_marginTop="34dp"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/addFriends_lvSearchUsersList" />
+        android:layout_alignTop="@+id/inviteFriends_lvSearchUsersList" />
 
 </RelativeLayout>

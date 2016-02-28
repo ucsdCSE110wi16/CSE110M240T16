@@ -29,14 +29,14 @@ public class InviteFriends extends PolarityActivity {
         setContentView(R.layout.activity_invite_friends);
 
         // region findViewById
-        btnBack = (Button) findViewById(R.id.addFriends_btnBack);
-        btnHome = (Button) findViewById(R.id.addFriends_btnHome);
+        btnBack = (Button) findViewById(R.id.inviteFriends_btnBack);
+        btnHome = (Button) findViewById(R.id.inviteFriends_btnHome);
 
-        btnInviteFreinds = (Button) findViewById(R.id.addFriends_btnAddFriends);
-        btnSearch = (Button) findViewById(R.id.addFriends_btnSearch);
-        tbSearch = (EditText) findViewById(R.id.addFriends_tbSearch);
+        btnInviteFreinds = (Button) findViewById(R.id.inviteFriends_btnAddFriends);
+        btnSearch = (Button) findViewById(R.id.inviteFriends_btnSearch);
+        tbSearch = (EditText) findViewById(R.id.inviteFriends_tbSearch);
         txtInfo = (TextView) findViewById(R.id.inviteFriends_txtInfo);
-        lvInvitedFriends = (ListView) findViewById(R.id.addFriends_lvSearchUsersList);
+        lvInvitedFriends = (ListView) findViewById(R.id.inviteFriends_lvSearchUsersList);
         // endregion
         // region setOnClickListeners
         btnBack.setOnClickListener(btnBack_Click());
