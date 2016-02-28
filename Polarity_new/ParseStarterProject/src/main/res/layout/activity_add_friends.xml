@@ -10,75 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.parse.starter.InviteFriends">
 
-    <ImageView
-        android:src="@drawable/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/backImageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignStart="@+id/addFriends_btnBack"
-        android:layout_alignLeft="@+id/addFriends_btnBack"
-        android:layout_alignRight="@+id/addFriends_btnBack"
-        android:layout_alignEnd="@+id/addFriends_btnBack"
-        android:layout_alignBottom="@+id/addFriends_btnBack" />
-
-    <ImageView
-        android:src="@drawable/home_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/homeImageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/addFriends_btnSearch"
-        android:layout_alignLeft="@+id/addFriends_btnHome"
-        android:layout_alignStart="@+id/addFriends_btnHome" />
-
-    <!-- Search ImageView-->
-    <ImageView
-        android:src="@drawable/search_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchImageView"
-        android:layout_alignTop="@+id/addFriends_tbSearch"
-        android:layout_alignRight="@+id/addFriends_btnSearch"
-        android:layout_alignEnd="@+id/addFriends_btnSearch"
-        android:layout_alignLeft="@+id/addFriends_btnSearch"
-        android:layout_alignStart="@+id/addFriends_btnSearch"
-        android:layout_alignBottom="@+id/addFriends_btnSearch"
-        android:layout_marginBottom="5dp"
-        />
-
-    <!-- ImportQueueImageView-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/importQueueImageView"
-        android:layout_alignTop="@+id/addFriends_btnAddFriends"
-        android:layout_centerHorizontal="true"
-        android:layout_alignRight="@+id/addFriends_btnAddFriends"
-        android:layout_alignEnd="@+id/addFriends_btnAddFriends"
-        android:layout_alignLeft="@+id/addFriends_btnAddFriends"
-        android:layout_alignStart="@+id/addFriends_btnAddFriends"
-        android:layout_alignBottom="@+id/addFriends_btnAddFriends"
-        android:src="@drawable/loginbuttonbackground"
-        android:paddingTop="5dp"/>
-
     <!-- SelectAllFriends ImageView-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/voteButtonImageView"
-        android:src="@drawable/loginbuttonbackground"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_above="@+id/addFriends_lvSearchUsersList"
-        android:layout_below="@+id/addFriends_tbSearch"
-        android:layout_alignRight="@+id/searchImageView"
-        android:layout_alignEnd="@+id/searchImageView" />
 
     <!-- Friend list ImageView-->
 
@@ -99,30 +31,31 @@
 
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
+        style="?android:attr/imageButtonStyle"
+        android:background="@color/themeMaroon"
+        android:layout_width="24pt"
         android:layout_height="wrap_content"
-        android:id="@+id/addFriends_btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingTop="5dp"
-        android:layout_alignBottom="@+id/homeImageView" />
+        android:drawableLeft="@drawable/backicon"
+        android:layout_alignBottom="@+id/addFriends_btnHome"
+        android:id="@+id/button" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:background="@android:color/transparent"
-        android:layout_width="wrap_content"
+        style="?android:attr/imageButtonStyle"
+        android:background="@color/themeMaroon"
+        android:layout_width="24pt"
         android:layout_height="wrap_content"
         android:id="@+id/addFriends_btnHome"
+        android:drawableLeft="@drawable/homeicon"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentRight="true" />
 
     <Button
         android:layout_width="wrap_content"
-        android:background="@drawable/button_background"
+        android:background="@color/themeMaroon"
         android:layout_height="wrap_content"
         android:text="Add"
         android:id="@+id/addFriends_btnAddFriends"
@@ -133,31 +66,17 @@
         android:layout_toStartOf="@+id/addFriends_txtTitle"
         android:layout_toLeftOf="@+id/addFriends_txtTitle" />
 
-    <Button
-        android:background="@android:color/transparent"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/addFriends_btnSearch"
-        android:layout_below="@+id/addFriends_btnHome"
-        android:layout_alignLeft="@+id/addFriends_btnHome"
-        android:layout_alignStart="@+id/addFriends_btnHome" />
-
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/addFriends_tbSearch"
-        android:layout_alignBottom="@+id/addFriends_btnSearch"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/addFriends_btnSearch"
-        android:layout_toStartOf="@+id/addFriends_btnSearch"
-        android:hint="@string/search_friends_list"
+        android:hint="@string/search_users"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
-        android:layout_alignTop="@+id/addFriends_btnSearch"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="2dp"/>
+        android:layout_below="@+id/button"
+        android:layout_marginTop="@dimen/abc_dialog_list_padding_vertical_material"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -167,11 +86,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@android:color/transparent"
-        android:layout_above="@+id/importQueueImageView"
         android:paddingTop="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@+id/addFriends_tbSearch" />
+        android:layout_below="@+id/addFriends_tbSearch"
+        android:layout_marginTop="@dimen/abc_button_padding_horizontal_material"
+        android:layout_above="@+id/addFriends_btnAddFriends"
+        android:layout_marginBottom="@dimen/abc_button_padding_horizontal_material" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -179,20 +98,19 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/inviteFriends_txtInfo"
         android:layout_marginTop="34dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/addFriends_lvSearchUsersList" />
+        android:layout_alignTop="@+id/addFriends_lvSearchUsersList"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
-        android:background="@drawable/button_background"
         android:layout_height="wrap_content"
+        android:background="@color/themeMaroon"
         android:text="Cancel"
         android:id="@+id/addFriends_Cancel"
         android:textColor="@color/themeWhite"
-        android:layout_alignTop="@+id/importQueueImageView"
-        android:layout_alignRight="@+id/addFriends_btnSearch"
-        android:layout_alignEnd="@+id/addFriends_btnSearch"
-        android:layout_toEndOf="@+id/addFriends_txtTitle"
-        android:layout_toRightOf="@+id/addFriends_txtTitle" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/addFriends_txtTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
