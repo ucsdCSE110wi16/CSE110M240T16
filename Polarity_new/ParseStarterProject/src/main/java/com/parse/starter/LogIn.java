@@ -77,6 +77,8 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         btnCreateAccount.setOnClickListener(btnCreateAccount_Click());
         btnForgotPassword.setOnClickListener(btnForgotPassword_Click());
         userName.setOnKeyListener(this);
+        userName.setOnClickListener(editText_click());
+        password.setOnClickListener(editText_click());
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -95,6 +97,16 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         }
         return false; // pass on to listeners
     } // onKey
+
+    private View.OnClickListener editText_click(){
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("TAG", "entering editText_click");
+                txtInfo.setText("");
+            }
+        };
+    }
 
     //region Button Clicks
 
