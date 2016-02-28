@@ -129,7 +129,7 @@ public class HubActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToActivity(TAG, AddFriends.class.getSimpleName());
+                goToActivity(TAG, ViewUsers.class.getSimpleName());
             }
         };
     } // btnAddFriends_Click

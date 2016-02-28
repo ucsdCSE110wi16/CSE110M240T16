@@ -70,20 +70,11 @@ public class ViewEventActivity extends PolarityActivity {
         };
     } // btnBack_Click
 
-//    protected View.OnClickListener btnHome_Click() {
-//        return new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                toActivity_HubActivity();
-//            }
-//        };
-//    } // btnHome_Click
-
     protected View.OnClickListener btnViewInviteList_Click() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: link to view invite list page
+                goToActivity(TAG, ViewUsers.class.getSimpleName());
             }
         };
     } // btnViewInviteList_Click

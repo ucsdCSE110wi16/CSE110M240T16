@@ -78,6 +78,7 @@ public abstract class PolarityActivity extends Activity {
         com_activities.put(SignUp.class.getSimpleName(), SignUp.class);
         com_activities.put(ViewEventActivity.class.getSimpleName(), ViewEventActivity.class);
         com_activities.put(VoteActivity.class.getSimpleName(), VoteActivity.class);
+        com_activities.put(ViewUsers.class.getSimpleName(), ViewUsers.class);
     }
 
     //endregion

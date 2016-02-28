@@ -57,20 +57,22 @@
         android:layout_width="wrap_content"
         android:background="@color/themeMaroon"
         android:layout_height="wrap_content"
-        android:text="Add friends"
-        android:id="@+id/viewUsers_btnAddFriends"
+        android:text="&lt;Action>"
+        android:id="@+id/viewUsers_btnAction"
         android:textColor="@color/themeWhite"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/viewUsers_txtTitle"
-        android:layout_alignStart="@+id/viewUsers_txtTitle"
         android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
-        android:paddingRight="@dimen/abc_button_padding_horizontal_material" />
+        android:paddingRight="@dimen/abc_button_padding_horizontal_material"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/viewUsers_txtInfo"
+        android:layout_alignEnd="@+id/viewUsers_txtInfo" />
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:id="@+id/viewUsers_tbSearch"
-        android:hint="@string/search_users"
+        android:hint="@string/search_friends_list"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
         android:layout_below="@+id/viewUsers_btnBack"
@@ -84,13 +86,13 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/viewUsers_lvSearchUsersList"
+        android:id="@+id/viewUsers_lvUsers"
         android:choiceMode="singleChoice"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@android:color/transparent"
         android:paddingTop="5dp"
-        android:layout_above="@+id/viewUsers_btnAddFriends"
+        android:layout_above="@+id/viewUsers_btnAction"
         android:layout_below="@+id/viewUsers_tbSearch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -103,7 +105,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/viewUsers_txtInfo"
         android:layout_marginTop="34dp"
-        android:layout_alignTop="@+id/viewUsers_lvSearchUsersList"
+        android:layout_alignTop="@+id/viewUsers_lvUsers"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -114,12 +116,27 @@
         android:drawableLeft="@drawable/signuncheckicon"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/viewUsers_lvSearchUsersList"
         android:layout_below="@+id/viewUsers_btnBack"
         android:layout_marginTop="@dimen/abc_action_bar_overflow_padding_end_material"
         android:layout_alignRight="@+id/viewUsers_btnBack"
         android:layout_alignEnd="@+id/viewUsers_btnBack"
-        android:paddingLeft="@dimen/abc_button_padding_horizontal_material" />
+        android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
+        android:layout_alignBottom="@+id/viewUsers_tbSearch" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:background="@color/themeMaroon"
+        android:layout_height="wrap_content"
+        android:text="Add Friends"
+        android:id="@+id/viewUsers_btnAddFriends"
+        android:textColor="@color/themeWhite"
+        android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
+        android:paddingRight="@dimen/abc_button_padding_horizontal_material"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/viewUsers_tbSearch"
+        android:layout_alignEnd="@+id/viewUsers_tbSearch"
+        android:layout_toEndOf="@+id/viewUsers_txtInfo"
+        android:layout_toRightOf="@+id/viewUsers_txtInfo"
+        android:layout_marginLeft="@dimen/abc_action_bar_icon_vertical_padding_material" />
 
 </RelativeLayout>
