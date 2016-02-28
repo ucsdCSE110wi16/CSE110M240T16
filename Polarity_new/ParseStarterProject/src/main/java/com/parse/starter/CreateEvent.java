@@ -44,7 +44,7 @@ public class CreateEvent extends PolarityActivity {
         setContentView(R.layout.activity_create_event);
 
         btnBack = (Button) findViewById(R.id.createEvent_btnBack);
-        btnAddMovie = (Button) findViewById(R.id.createEvent_addMovies);
+        btnAddMovie = (Button) findViewById(R.id.createEvent_btnAddMovies);
         btnInviteFriends = (Button) findViewById(R.id.createEvent_btnAddFriends);
         btnCreateEvent = (Button) findViewById(R.id.createEvent_btnCreateEvent);
 
