@@ -5,15 +5,22 @@ package com.parse.starter;
  */
 public class FriendModel extends Model {
 
-   protected String userID;
-   public boolean isSelectable, isDeletable, isSelected;
+   public enum State {
+      DOT,
+      CHECK,
+      ADD,
+      DELETE
+   }
 
-   public FriendModel(String username, String userID, boolean IsSelectable, boolean IsDeletable){
+   protected String userID;
+   public boolean isSelectable;
+   public State state;
+
+   public FriendModel(String username, String userID, boolean IsSelectable, State InitialState){
       this.name = username;
       this.userID = userID;
       this.isSelectable = IsSelectable;
-      this.isDeletable = IsDeletable;
-      isSelectable = false;
+      state = InitialState;
    }
 
    public String getUserID(){ return userID;}

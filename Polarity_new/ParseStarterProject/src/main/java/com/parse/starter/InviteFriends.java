@@ -114,7 +114,11 @@ public class InviteFriends extends PolarityActivity {
                             public void done(ParseObject pu, ParseException e) {
                                 if (e == null && pu != null) {
                                     // Add the user to the invited list
-                                    friendList.add(new FriendModel(tbSearch.getText().toString(), pu.getObjectId(), false, true));
+                                    friendList.add(new FriendModel(tbSearch.getText().toString(),
+                                            pu.getObjectId(),
+                                            false,
+                                            FriendModel.State.DELETE));
+
                                     // Resets the text in the search bar
                                     tbSearch.setText("");
 
