@@ -126,7 +126,7 @@ public class InviteFriends extends PolarityActivity {
                                     txtInfo.setText("");
                                 }//end if
                                 else {
-                                    displayToast("User " + tbSearch.getText().toString() + " does not exists");
+                                    displayToast("User " + tbSearch.getText().toString() + " does not exist");
                                     // Resets the text in the search bar
                                     tbSearch.setText("");
                                 }//end else

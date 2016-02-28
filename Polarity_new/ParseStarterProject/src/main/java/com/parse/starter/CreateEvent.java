@@ -292,8 +292,11 @@ public class CreateEvent extends PolarityActivity {
     @Override
     protected Dialog onCreateDialog(int in_id) {
 
-        if (in_id == DIALOG_Date)
-            return new DatePickerDialog(this, datePickerListener, year_o, month_o, day_o);
+        if (in_id == DIALOG_Date) {
+            DatePickerDialog dpd = new DatePickerDialog(this, datePickerListener, year_o, month_o, day_o);
+            dpd.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+            return dpd;
+        }//end if
         else return null;
     }
 
