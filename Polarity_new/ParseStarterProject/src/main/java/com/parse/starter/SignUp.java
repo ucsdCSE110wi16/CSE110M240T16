@@ -237,7 +237,6 @@ public class SignUp extends PolarityActivity {
                 }//end if
                 else{
                     // sign-up failed :(
-                    txtInfo.setText(e.getMessage());
                     Log.e(TAG, e.getMessage());
                 }//end else
             }
