@@ -70,10 +70,23 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".ViewEventActivity" />
-        <activity android:name=".VoteActivity" />
-        <activity android:name=".AddFriends" />
-        <activity android:name=".ViewUsers"></activity>
+        <activity
+            android:name=".ViewEventActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".VoteActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".AddFriends"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ViewUsers"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
