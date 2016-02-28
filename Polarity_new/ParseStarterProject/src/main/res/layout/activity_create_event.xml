@@ -27,137 +27,19 @@
         />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name"
-        android:id="@+id/main_txtUserName"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/createEvent_btnBack"
-        android:layout_toLeftOf="@+id/createEvent_addMovies"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:gravity="center|center_vertical"/>
-
     <!-- Event name textfield -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createEvent_tbName"
-        android:hint="Event Name"
-        android:textStyle="italic"
-        android:background="@color/themeLightGray"
-        android:layout_below="@+id/createEvent_btnBack"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="10dp" />
 
     <!-- location textfield -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/createEvent_tbLocation"
-        android:hint="Location"
-        android:textStyle="italic"
-        android:background="@color/themeLightGray"
-        android:layout_below="@+id/createEvent_tbName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="10dp" />
 
     <!-- Date textfield -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/createEvent_tbDate"
-        android:hint="Date"
-        android:textStyle="italic"
-        android:background="@color/themeLightGray"
-        android:layout_below="@+id/createEvent_tbLocation"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:padding="10dp" />
 
     <!-- Time textField -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:hint="Time"
-        android:textStyle="italic"
-        android:ems="10"
-        android:id="@+id/createEvent_tbTime"
-        android:background="@color/themeLightGray"
-        android:layout_below="@+id/createEvent_tbDate"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/createEvent_tbDate"
-        android:layout_alignEnd="@+id/createEvent_tbDate"
-        android:layout_marginTop="10dp"
-        android:padding="10dp" />
 
     <!-- description textfield- -->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/createEvent_tbDescription"
-        android:hint="Description"
-        android:gravity="top"
-        android:textStyle="italic"
-        android:background="@color/themeLightGray"
-        android:layout_below="@+id/createEvent_tbTime"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/createEvent_addMovies"
-        android:layout_marginBottom="10dp"
-        android:padding="10dp" />
 
     <!-- invite friends button -->
-    <Button
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Invite Friends"
-        android:id="@+id/addFriends_btnAddFriends"
-        android:layout_above="@+id/createEvent_btnCreateEvent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        />
 
     <!-- invite friends button -->
-    <Button
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Movies"
-        android:id="@+id/createEvent_addMovies"
-        android:layout_above="@+id/addFriends_btnAddFriends"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <!-- back button -->
     <Button
@@ -173,18 +55,6 @@
         android:background="@android:color/transparent" />
 
     <!-- Create Event Button-->
-    <Button
-        android:textColor="@color/themeWhite"
-        android:background="@drawable/button_background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Event "
-        android:id="@+id/createEvent_btnCreateEvent"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/main_txtUserName"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -195,10 +65,154 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/back_button"
         android:background="@drawable/button_background"
-        android:layout_above="@+id/main_txtUserName"
         android:layout_alignRight="@+id/createEvent_btnBack"
-        android:layout_alignEnd="@+id/createEvent_btnBack" />
+        android:layout_alignEnd="@+id/createEvent_btnBack"
+        android:layout_above="@+id/scrollView2" />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/createEvent_btnBack"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignTop="@+id/scrollView2">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/createEvent_tbName"
+                android:hint="Event Name"
+                android:textStyle="italic"
+                android:background="@color/themeLightGray"
+                android:layout_below="@+id/createEvent_btnBack"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/createEvent_tbLocation"
+                android:hint="Location"
+                android:textStyle="italic"
+                android:background="@color/themeLightGray"
+                android:layout_below="@+id/createEvent_tbName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/createEvent_tbDate"
+                android:hint="Date"
+                android:textStyle="italic"
+                android:background="@color/themeLightGray"
+                android:layout_below="@+id/createEvent_tbLocation"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="time"
+                android:hint="Time"
+                android:textStyle="italic"
+                android:ems="10"
+                android:id="@+id/createEvent_tbTime"
+                android:background="@color/themeLightGray"
+                android:layout_below="@+id/createEvent_tbDate"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignRight="@+id/createEvent_tbDate"
+                android:layout_alignEnd="@+id/createEvent_tbDate"
+                android:layout_marginTop="10dp"
+                android:padding="10dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/createEvent_tbDescription"
+                android:hint="Description"
+                android:gravity="top"
+                android:textStyle="italic"
+                android:background="@color/themeLightGray"
+                android:layout_below="@+id/createEvent_tbTime"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp" />
+
+            <Button
+                android:textColor="@color/themeWhite"
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Movies"
+                android:id="@+id/createEvent_addMovies"
+                android:layout_above="@+id/addFriends_btnAddFriends"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp" />
+
+            <Button
+                android:textColor="@color/themeWhite"
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Invite Friends"
+                android:id="@+id/addFriends_btnAddFriends"
+                android:layout_above="@+id/createEvent_btnCreateEvent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                />
+
+            <Button
+                android:textColor="@color/themeWhite"
+                android:background="@drawable/button_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Event "
+                android:id="@+id/createEvent_btnCreateEvent"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/main_txtUserName"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>
