@@ -22,7 +22,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -95,6 +96,7 @@
             android:layout_alignRight="@+id/login_tbPassword"
             android:layout_alignEnd="@+id/login_tbPassword"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp"
             />
 
         <Button
@@ -109,8 +111,7 @@
             android:layout_alignEnd="@+id/login_btnLogin"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="100dp"
-            />
+            android:layout_marginTop="10dp" />
 
         <Button
             android:layout_width="match_parent"
@@ -119,13 +120,15 @@
             android:textColor="@color/themeWhite"
             android:background="@drawable/button_background"
             android:id="@+id/login_btnForgotPassword"
-            android:layout_alignParentBottom="true"
+
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/login_btnCreateAccount"
-            android:layout_alignEnd="@+id/login_btnCreateAccount"
             android:layout_marginTop="10dp"
+
             />
 
+
     </LinearLayout>
+
+
 </RelativeLayout>
