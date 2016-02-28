@@ -19,7 +19,9 @@ import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,6 +69,10 @@ public class AddFriends extends PolarityActivity {
 
         friendAdapter = new FriendAdapter(getApplicationContext(), users);
         lvUserList.setAdapter(friendAdapter);
+
+        // remove focus from tbSearch
+        lvUserList.requestFocus();
+        tbSearch.clearFocus();
 
         displayAllUsers();
     }
@@ -129,17 +135,17 @@ public class AddFriends extends PolarityActivity {
                 // if isSelectable
                 if(selected.isSelectable) {
                     // revert the selection and add/remove FriendModel if needed
-                    if(selected.isSelected) {
-                        selected.isSelected = false;
-                        friendsToAdd.remove(selected);
+                    if(selected.state == FriendModel.State.DOT) {
+                        selected.state = FriendModel.State.ADD;
+                        friendsToAdd.add(selected);
 
                         Log.d(TAG, "User[" + selected.getUserID()
                                 + "] Removed");
                     }
                     else {
                         //selected.isSelectable = true;
-                        selected.isSelected = true;
-                        friendsToAdd.add(selected);
+                        selected.state = FriendModel.State.DOT;
+                        friendsToAdd.remove(selected);
 
                         Log.d(TAG, "User[" + selected.getUserID()
                                 + "] Added");
@@ -185,6 +191,13 @@ public class AddFriends extends PolarityActivity {
                 @Override
                 public void done(ParseException e) {
                     if(e == null) {
+                        // update all the friends
+                        for(FriendModel friend : friendsToAdd) {
+                            friend.state = FriendModel.State.CHECK;
+                            friend.isSelectable = false;
+                            com_friendIdList.add(friend.getUserID());
+                        }
+                        friendAdapter.notifyDataSetChanged();
                         displayToast("Successful!");
                     }
                     else {
@@ -213,26 +226,45 @@ public class AddFriends extends PolarityActivity {
                     try {
                         autoComplete = ParseQuery.getQuery("_User").whereStartsWith("username", s.toString()).find();
                     } catch (ParseException e) {
-                        Log.e(AddFriends.class.getSimpleName(), " Unable to access table _User");
                         return;
                     }
 
-                    users.clear();
+                    ParseQuery.getQuery("_User").whereStartsWith("username", s.toString()).findInBackground(new FindCallback<ParseObject>() {
+                        @Override
+                        public void done(List<ParseObject> objects, ParseException e) {
+                            if (e == null) {
+                                FriendModel model;
+                                users.clear();
 
-                    for(int i=0; i<autoComplete.size(); i++) {
-                        user = autoComplete.get(i);
-                        if(user.getObjectId().compareTo(com_userID) == 0) continue;
-                        model = new FriendModel(user.getString("username"), user.getObjectId(), true, false);
-                        if(com_friendIdList.contains(model.getUserID())) {
-                            model.isSelectable = true;
-                            model.isSelected = true;
+                                // / loop through each parseobject in object
+                                for (ParseObject user : objects) {
+                                    // skip if the user is the active user
+                                    if (user.getObjectId().compareTo(com_userID) == 0) continue;
+                                    model = new FriendModel(user.getString("username"),
+                                            user.getObjectId(),
+                                            true,
+                                            FriendModel.State.DOT);
+
+                                    // if the person is already a friend, then set them to selected and to be unselectable
+                                    if (com_friendIdList.contains(model.getUserID())) {
+                                        model.isSelectable = false;
+                                        model.state = FriendModel.State.CHECK;
+                                    }
+
+                                    // add model to users list
+                                    users.add(model);
+                                }
+
+                                friendAdapter.notifyDataSetChanged();
+                            } else {
+                                Log.e(AddFriends.class.getSimpleName(), " Unable to access table _User");
+                            }
                         }
-                        users.add(model);
-                    }
-
-                    friendAdapter.notifyDataSetChanged();
+                    });
                 }
-                else displayAllUsers();
+                else{
+                    displayAllUsers();
+                }
             }
 
             @Override
@@ -255,18 +287,15 @@ public class AddFriends extends PolarityActivity {
 
                         // create FriendModel of user
                         person = new FriendModel(objects.get(i).getString("username"),
-                                                objects.get(i).getObjectId(), true, false);
+                                                objects.get(i).getObjectId(), true, FriendModel.State.DOT);
 
                         // skip if person is the active user
                         if(person.getUserID().compareTo(com_userID) == 0) continue;
 
-                        // set the selectable to true
-                        person.isSelectable = true;
-
                         // if the person is already a friend, then set them to selected and to be unselectable
                         if (com_friendIdList.contains(person.getUserID())) {
-                            person.isSelected = true;
                             person.isSelectable = false;
+                            person.state = FriendModel.State.CHECK;
                         }
 
                         // add the person to the queue
