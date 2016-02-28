@@ -49,14 +49,12 @@
         android:textStyle="italic"
         android:background="@color/themeLightGray"
         android:layout_below="@+id/createEvent_btnBack"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        android:padding="10dp" />
 
     <!-- location textfield -->
     <EditText
@@ -74,10 +72,7 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:paddingRight="0dp"
-        android:paddingBottom="5dp" />
+        android:padding="10dp" />
 
     <!-- Date textfield -->
     <EditText
@@ -94,9 +89,7 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingTop="5dp"
-        android:paddingLeft="10dp"
-        android:paddingBottom="5dp" />
+        android:padding="10dp" />
 
     <!-- Time textField -->
     <EditText
@@ -114,9 +107,7 @@
         android:layout_alignRight="@+id/createEvent_tbDate"
         android:layout_alignEnd="@+id/createEvent_tbDate"
         android:layout_marginTop="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp" />
+        android:padding="10dp" />
 
     <!-- description textfield- -->
     <EditText
@@ -134,11 +125,9 @@
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
         android:layout_above="@+id/createEvent_addMovies"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:padding="10dp" />
 
     <!-- invite friends button -->
     <Button
