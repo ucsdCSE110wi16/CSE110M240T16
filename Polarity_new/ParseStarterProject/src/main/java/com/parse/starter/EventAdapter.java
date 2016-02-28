@@ -60,7 +60,7 @@ public class EventAdapter extends BaseAdapter {
         // region display information for each event
         eventName.setText(m.getName());
         eventMonth.setText(m.getMonthName());
-        eventDate.setText(Integer.toString(m.getDay()));
+        eventDate.setText(m.getDayString());
         eventTime.setText(m.getTime());
         if(m.getNumFriendsAttending() == 1){
             numPeopleAttending.setText(String.valueOf(m.getNumFriendsAttending()) + " person attending");

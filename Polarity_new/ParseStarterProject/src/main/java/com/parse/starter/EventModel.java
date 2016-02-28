@@ -76,17 +76,24 @@ public class EventModel extends Model {
     public int getMonth() {
         return cal.get(Calendar.MONTH);
     }
-    public int getDay() {
-        return cal.get(Calendar.DATE);
+    public String getMonthString(){
+        return Integer.toString(getMonth());
+    }
+    public int getDay() { return cal.get(Calendar.DATE); }
+    public String getDayString(){
+        return Integer.toString(getDay());
     }
     public int getYear() {
         return cal.get(Calendar.YEAR);
     }
+    public String getYearString(){
+        return Integer.toString(getYear());
+    }
     public String getMonthName(){
-        return cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US);
+        return cal.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault());
     }
     public String getDayName(){
-        return cal.getDisplayName(Calendar.DATE, Calendar.SHORT, Locale.US);
+        return cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.getDefault());
     }
     public String getTime() {return this.time;}
     public int getNumFriendsAttending() {return this.numFriendsAttending;}

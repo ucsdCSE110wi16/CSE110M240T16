@@ -36,9 +36,13 @@ public class ViewEventActivity extends PolarityActivity {
         txtTitle.setText(com_currentEvent.getName());
         txtDescription.setText(com_currentEvent.getDescription());
         txtLocation.setText(com_currentEvent.getLocation());
-        txtDate.setText(com_currentEvent.getDate().toString().substring(0, 10) + ", " +
-                com_currentEvent.getDate().toString().substring(24));
-        txtTime.setText(com_currentEvent.getDate().toString().substring(11, 16));
+
+        //Format the string prior to passing it in to setText, because it doesn't like concatenation
+        //within the call
+        String eventDateFormatted = com_currentEvent.getDayName() + " " + com_currentEvent.getMonthName()
+                + " " + com_currentEvent.getDayString() + ", " + com_currentEvent.getYearString();
+        txtDate.setText(eventDateFormatted);
+        txtTime.setText(com_currentEvent.getTime());
         Log.d("TAG", com_currentEvent.getDate().toString());
         // endregion
         // region setOnClickListener
