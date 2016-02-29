@@ -46,13 +46,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hubActivity_lvEventQueue"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:background="@android:color/transparent"
         android:choiceMode="singleChoice"
         android:clickable="true"
+        android:paddingTop="10dp"
         android:layout_below="@+id/hubActivity_btnCreateEvent"
-        android:paddingTop="10dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 
@@ -79,7 +79,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Friends"
+        android:text="Friend List"
         android:id="@+id/hubActivity_btnAddFriends"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"
@@ -87,8 +87,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:paddingLeft="22dp"
+        android:paddingRight="22dp" />
 
 
 </RelativeLayout>
