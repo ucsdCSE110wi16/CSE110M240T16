@@ -62,7 +62,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/createEvent_btnBack"
-        android:layout_alignParentBottom="true">
+        android:windowSoftInputMode="adjustPan"
+        android:layout_above="@+id/createEvent_btnAddFriends">
 
         <LinearLayout
             android:orientation="vertical"
@@ -166,7 +167,7 @@
         android:layout_height="wrap_content"
         android:text="Create Event "
         android:id="@+id/createEvent_btnCreateEvent"
-        android:layout_alignBottom="@+id/createEvent_scrollView"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
@@ -192,7 +193,8 @@
         android:id="@+id/createEvent_btnAddFriends"
         android:layout_above="@+id/createEvent_btnAddMovies"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
 
 
 </RelativeLayout>
