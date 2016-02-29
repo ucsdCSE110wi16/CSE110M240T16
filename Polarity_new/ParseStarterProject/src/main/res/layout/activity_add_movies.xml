@@ -38,7 +38,7 @@
 
     <!-- Search ImageView-->
     <ImageView
-        android:src="@drawable/search_picture"
+        android:src="@drawable/add_picture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/searchImageView"
@@ -94,19 +94,6 @@
         />
 
     <!-- Import Movies button -->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Import Movies Queue "
-        android:id="@+id/addMovies_ImportMovieQueue"
-        android:background="@drawable/button_background"
-        android:textColor="@color/themeWhite"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/addMovies_lvMovieList"
-        android:layout_alignEnd="@+id/addMovies_lvMovieList"
-        android:layout_marginTop="10dp" />
 
     <!-- search Button-->
     <Button
@@ -142,7 +129,6 @@
         android:id="@+id/addMovies_lvMovieList"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/addMovies_ImportMovieQueue"
         android:choiceMode="singleChoice"
         android:layout_below="@+id/addMovies_btnSearch"
         android:background="@android:color/transparent"
