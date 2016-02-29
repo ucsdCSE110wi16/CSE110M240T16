@@ -146,7 +146,8 @@ public class HubActivity extends PolarityActivity {
                     Log.e(TAG, "Event returned NULL");
                     displayToast("Unable to open event");
                 }
-                toActivity_ViewEvent();
+                com_currentEventId = com_currentEvent.getEventID();
+                goToActivity(TAG, ViewEventActivity.class.getSimpleName());
             }
         };
     }

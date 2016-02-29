@@ -58,30 +58,28 @@
         android:background="@color/themeMaroon"
         android:layout_height="wrap_content"
         android:text="&lt;Action>"
-        android:id="@+id/viewUsers_btnAction"
+        android:id="@+id/viewUsers_btnActionShort"
         android:textColor="@color/themeWhite"
         android:layout_alignParentBottom="true"
         android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
         android:paddingRight="@dimen/abc_button_padding_horizontal_material"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/viewUsers_txtInfo"
-        android:layout_alignEnd="@+id/viewUsers_txtInfo" />
+        android:layout_toLeftOf="@+id/viewUsers_btnAddFriends"
+        android:layout_toStartOf="@+id/viewUsers_btnAddFriends"
+        android:layout_marginRight="@dimen/abc_action_bar_icon_vertical_padding_material" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:id="@+id/viewUsers_tbSearch"
+        android:id="@+id/viewUsers_tbSearchShort"
         android:hint="@string/search_friends_list"
         android:background="@color/themeLightGray"
         android:paddingLeft="10dp"
-        android:layout_below="@+id/viewUsers_btnBack"
-        android:layout_alignRight="@+id/viewUsers_btnHome"
-        android:layout_alignEnd="@+id/viewUsers_btnHome"
-        android:layout_toEndOf="@+id/viewUsers_btnAddAll"
-        android:layout_marginTop="@dimen/abc_action_bar_overflow_padding_end_material"
-        android:layout_toRightOf="@+id/viewUsers_btnAddAll"
-        android:layout_marginLeft="@dimen/abc_button_padding_horizontal_material" />
+        android:layout_alignBottom="@+id/viewUsers_cbSelectAll"
+        android:layout_toRightOf="@+id/viewUsers_cbSelectAll"
+        android:layout_toEndOf="@+id/viewUsers_cbSelectAll"
+        android:layout_alignTop="@+id/viewUsers_cbSelectAll" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -92,8 +90,8 @@
         android:layout_alignParentStart="true"
         android:background="@android:color/transparent"
         android:paddingTop="5dp"
-        android:layout_above="@+id/viewUsers_btnAction"
-        android:layout_below="@+id/viewUsers_tbSearch"
+        android:layout_above="@+id/viewUsers_btnActionShort"
+        android:layout_below="@+id/viewUsers_tbSearchShort"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/abc_button_padding_horizontal_material"
@@ -109,21 +107,6 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:background="@color/themeMaroon"
-        android:id="@+id/viewUsers_btnAddAll"
-        android:drawableLeft="@drawable/signuncheckicon"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewUsers_btnBack"
-        android:layout_marginTop="@dimen/abc_action_bar_overflow_padding_end_material"
-        android:layout_alignRight="@+id/viewUsers_btnBack"
-        android:layout_alignEnd="@+id/viewUsers_btnBack"
-        android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
-        android:layout_alignBottom="@+id/viewUsers_tbSearch" />
-
-    <Button
         android:layout_width="wrap_content"
         android:background="@color/themeMaroon"
         android:layout_height="wrap_content"
@@ -133,10 +116,48 @@
         android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
         android:paddingRight="@dimen/abc_button_padding_horizontal_material"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/viewUsers_tbSearch"
-        android:layout_alignEnd="@+id/viewUsers_tbSearch"
+        android:layout_alignRight="@+id/viewUsers_tbSearchShort"
+        android:layout_alignEnd="@+id/viewUsers_tbSearchShort"
         android:layout_toEndOf="@+id/viewUsers_txtInfo"
         android:layout_toRightOf="@+id/viewUsers_txtInfo"
         android:layout_marginLeft="@dimen/abc_action_bar_icon_vertical_padding_material" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/viewUsers_tbSearchLong"
+        android:hint="@string/search_friends_list"
+        android:background="@color/themeLightGray"
+        android:paddingLeft="10dp"
+        android:layout_above="@+id/viewUsers_lvUsers"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/viewUsers_tbSearchShort" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:background="@color/themeMaroon"
+        android:layout_height="wrap_content"
+        android:text="&lt;Action>"
+        android:id="@+id/viewUsers_btnActionLong"
+        android:textColor="@color/themeWhite"
+        android:paddingLeft="@dimen/abc_button_padding_horizontal_material"
+        android:paddingRight="@dimen/abc_button_padding_horizontal_material"
+        android:layout_below="@+id/viewUsers_lvUsers"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/viewUsers_btnAddFriends"
+        android:layout_alignEnd="@+id/viewUsers_btnAddFriends" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewUsers_cbSelectAll"
+        android:layout_below="@+id/viewUsers_btnBack"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_marginTop="@dimen/abc_button_padding_horizontal_material"
+        android:background="@color/themeLightGray" />
 
 </RelativeLayout>

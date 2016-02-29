@@ -1,11 +1,14 @@
 package com.parse.starter;
 
-import android.graphics.Point;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ViewUsers extends PolarityActivity {
@@ -55,6 +59,8 @@ public class ViewUsers extends PolarityActivity {
 
     //region GetUserCallBack
     protected GetCallback<ParseObject> GetUserCallBack = new GetCallback<ParseObject>() {
+        FriendModelComparator friendComp = new FriendModelComparator();
+
         @Override
         public void done(ParseObject object, ParseException e) {
             if(e == null) {
@@ -64,12 +70,30 @@ public class ViewUsers extends PolarityActivity {
                                                         false,
                                                         FriendModel.State.DOT);
 
-                    if(layout == Layout.VIEW_INVITES && com_friendIdList.contains(model.getUserID())) {
-                        model.state = FriendModel.State.CHECK;
+                    if(layout == Layout.VIEW_INVITES) {
+                        if(com_friendIdList.contains(model.getUserID()) || model.getUserID().compareTo(com_userID) == 0) {
+                            model.state = FriendModel.State.CHECK;
+                        }
+                        userList.add(model);
+                        displayedUserList.add(model);
+                        Collections.sort(displayedUserList, friendComp);
+                        adapter.notifyDataSetChanged();
+                    }
+                    else if(layout == Layout.INVITE_FRIENDS) {
+                        if(com_invitedFriends.contains(model)) model.state = FriendModel.State.CHECK;
+                        model.isSelectable = true;
+                        userList.add(model);
+                        displayedUserList.add(model);
+                        adapter.notifyDataSetChanged();
+                    }
+                    else { // view friend list
+                        if(model.getUserID().compareTo(com_userID) == 0) return;
+                        userList.add(model);
+                        displayedUserList.add(model);
+                        adapter.notifyDataSetChanged();
                     }
 
-                    userList.add(model);
-                    adapter.notifyDataSetChanged();
+
                 }
                 else {
                     Log.e(TAG, " User object unexpectedly returned NULL");
@@ -82,13 +106,14 @@ public class ViewUsers extends PolarityActivity {
     };
     //endregion
 
-    Button btnBack, btnHome, btnAddAll, btnAction, btnAddFriends;
+    Button btnBack, btnHome, btnAction, btnAddFriends;
+    CheckBox cbAddAll;
     ListView lvUsers;
     TextView txtTitle, txtInfo;
     EditText tbSearch;
-    boolean allSelected;
+    boolean skipSelectAllCheckChange;
 
-    ArrayList<FriendModel> userList, inviteList;
+    ArrayList<FriendModel> displayedUserList, userList, inviteList;
     FriendAdapter adapter;
 
     Layout layout;
@@ -99,14 +124,11 @@ public class ViewUsers extends PolarityActivity {
         setContentView(R.layout.activity_view_users);
 
         // init vars
-        allSelected = false;
+        skipSelectAllCheckChange = false;
         btnBack = (Button) findViewById(R.id.viewUsers_btnBack);
         btnHome = (Button) findViewById(R.id.viewUsers_btnHome);
-        btnAddAll = (Button) findViewById(R.id.viewUsers_btnAddAll);
-        btnAction = (Button) findViewById(R.id.viewUsers_btnAction);
+        cbAddAll = (CheckBox) findViewById(R.id.viewUsers_cbSelectAll);
         btnAddFriends = (Button) findViewById(R.id.viewUsers_btnAddFriends);
-
-        tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearch);
 
         lvUsers = (ListView) findViewById(R.id.viewUsers_lvUsers);
 
@@ -114,39 +136,125 @@ public class ViewUsers extends PolarityActivity {
         txtInfo = (TextView) findViewById(R.id.viewUsers_txtInfo);
 
         userList = new ArrayList<FriendModel>();
+        displayedUserList = new ArrayList<FriendModel>();
         inviteList = new ArrayList<FriendModel>();
 
         btnHome.setOnClickListener(btnHome_Click());
         btnBack.setOnClickListener(btnBackOnClickListener());
-        btnAddAll.setOnClickListener(btnAddAll_Click());
-        btnAction.setOnClickListener(btnAction_Click());
+        cbAddAll.setOnCheckedChangeListener(cbAddAll_CheckChanged());
         btnAddFriends.setOnClickListener(btnAddFriends_Click());
 
         // Select the appropreate layout
         if(com_activityHistory.peek().compareTo(ViewEventActivity.class.getSimpleName()) == 0) {
-            layout = Layout.VIEW_INVITES;
+            /* Layut:
+             * Title = "Invite List"
+             * Large Action button
+             * Large Search bar
+             * btnAddAll disabled
+             * btnAddFriends disabled
+             *
+             * Controls:
+             * ListView shows users invited to active event
+             * ListViewItems are NOT selectable
+             * ListViewItems icon is signselecticon if user is friends with them
+             * Action button text = OK -> returns to ViewEvent
+             * Search bar searches invited users
+             */
+            // hid and disable unused stuff
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionShort);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchShort);
+            btnAction.setVisibility(View.INVISIBLE);
+            tbSearch.setVisibility(View.INVISIBLE);
             btnAddFriends.setVisibility(View.INVISIBLE);
-            btnAddAll.setEnabled(false);
+            cbAddAll.setVisibility(View.INVISIBLE);
+            btnAction.setEnabled(false);
+            tbSearch.setEnabled(false);
+            btnAddFriends.setEnabled(false);
+            cbAddAll.setEnabled(false);
 
-            // dynamically resize the button width to fill the parent container
-            Display display = getWindowManager().getDefaultDisplay();
-            btnAction.setWidth(display.getWidth() - 32);
-
-            btnAction.setText("OK");
+            // set up special GUI elements
             txtTitle.setText("Invite List");
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionLong);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchLong);
+            btnAction.setText("OK");
+            btnAction.setOnClickListener(btnAction_Click());
+            tbSearch.addTextChangedListener(tbSearch_TextChanged());
+            layout = Layout.VIEW_INVITES;
+
             fetchInviteList();
         }
         else if(com_activityHistory.peek().compareTo(CreateEvent.class.getSimpleName()) == 0) {
+            /* Layout:
+             * Title = "Invite Friends"
+             * Small Action button
+             * Small Search bar
+             * btnAddAll enabled
+             * btnAddFriends enabled
+             *
+             * Controls:
+             * ListView shows user's friends
+             * ListViewItems are selectable
+             * ListViewItems icon loads with signcheckedicon if already invited
+             * Search bar searches user's friends
+             * btnAddAll selects all users
+             * Action button text = "Invite" -> invites the selected users and returns to previous activity
+             */
+
+            // hid and disable unused stuff
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionLong);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchLong);
+            btnAction.setVisibility(View.INVISIBLE);
+            tbSearch.setVisibility(View.INVISIBLE);
+            btnAction.setEnabled(false);
+            tbSearch.setEnabled(false);
+
+            // set up special GUI elements
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionShort);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchShort);
+            btnAction.setText("Invite");
+            btnAction.setOnClickListener(btnAction_Click());
+            lvUsers.setOnItemClickListener(lvUsers_Click());
             layout = Layout.INVITE_FRIENDS;
             txtTitle.setText("Invite Friends");
-            btnAction.setText("INVITE");
+            tbSearch.addTextChangedListener(tbSearch_TextChanged());
+
             fetchFriendList();
         }
         else if(com_activityHistory.peek().compareTo(HubActivity.class.getSimpleName()) == 0) {
-            layout = Layout.VIEW_FRIENDS;
+            /* Layout:
+             * Title = "Friend List"
+             * Small Action button
+             * Large Search bar
+             * btnAddAll disabled
+             * btnAddFriends enabled
+             *
+             * Controls:
+             * ListView shows user's friends
+             * ListViewItems are NOT selectable
+             * ListViewItems icon is signunselectedicon
+             * Search bar searches user's friends
+             * Action button text = "OK" -> returns to previous activity
+             */
+
+            // hid and disable unused stuff
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionLong);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchShort);
+            btnAction.setVisibility(View.INVISIBLE);
+            tbSearch.setVisibility(View.INVISIBLE);
+            cbAddAll.setVisibility(View.INVISIBLE);
+            btnAction.setEnabled(false);
+            tbSearch.setEnabled(false);
+            cbAddAll.setEnabled(false);
+
+            // set up special GUI elements
+            btnAction = (Button) findViewById(R.id.viewUsers_btnActionShort);
+            tbSearch = (EditText) findViewById(R.id.viewUsers_tbSearchLong);
+            btnAction.setOnClickListener(btnAction_Click());
             btnAction.setText("OK");
-            btnAddAll.setEnabled(false);
+            layout = Layout.VIEW_FRIENDS;
             txtTitle.setText("Friend List");
+            tbSearch.addTextChangedListener(tbSearch_TextChanged());
+
             fetchFriendList();
         }
         else {
@@ -154,7 +262,7 @@ public class ViewUsers extends PolarityActivity {
             returnToPrevActivity();
         }
 
-        adapter = new FriendAdapter(getApplicationContext(), userList);
+        adapter = new FriendAdapter(getApplicationContext(), displayedUserList);
         lvUsers.setAdapter(adapter);
     }
 
@@ -171,52 +279,20 @@ public class ViewUsers extends PolarityActivity {
 
     protected View.OnClickListener btnAction_Click() {
 
-        // View Friends
-        if(layout == Layout.VIEW_FRIENDS) return btnHome_Click();
+        // View Friends or View Invites
+        if(layout == Layout.VIEW_FRIENDS || layout == Layout.VIEW_INVITES) return btnBackOnClickListener();
 
         // invite friends
-        if(layout == Layout.INVITE_FRIENDS) return new View.OnClickListener() {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for(FriendModel friend : inviteList) {
                     com_invitedFriends.add(friend);
                 }
-            }
-        };
-
-        // view invited list
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToActivity(HubActivity.class.getSimpleName(), ViewEventActivity.class.getSimpleName());
+                returnToPrevActivity();
             }
         };
     } // btnAction_Click
-
-    protected View.OnClickListener btnAddAll_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(allSelected) {
-                    allSelected = false;
-                    btnAddAll.setBackgroundResource(R.drawable.signuncheckicon);
-                    for(FriendModel model : userList) {
-                        model.state = FriendModel.State.DOT;
-                        inviteList.remove(model);
-                    }
-                }
-                else {
-                    allSelected = true;
-                    btnAddAll.setBackgroundResource(R.drawable.signcheckicon);
-                    for (FriendModel model : userList) {
-                        model.state = FriendModel.State.CHECK;
-                        if (!inviteList.contains(model)) inviteList.add(model);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-            }
-        };
-    } // btnAddAll_Click
 
     protected View.OnClickListener btnAddFriends_Click() {
         return new View.OnClickListener() {
@@ -226,6 +302,89 @@ public class ViewUsers extends PolarityActivity {
             }
         };
     } // btnAddFriends_Click
+
+    //endregion
+
+    //region Checkbox CheckChanged
+
+    protected CompoundButton.OnCheckedChangeListener cbAddAll_CheckChanged() {
+        return new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // check if need to skip
+                if(skipSelectAllCheckChange) {
+                    skipSelectAllCheckChange = false;
+                    return;
+                }
+
+                // otherwise select/deselect all
+                if(!isChecked) {
+                    for(FriendModel model : displayedUserList) {
+                        model.state = FriendModel.State.DOT;
+                        inviteList.remove(model);
+                    }
+                }
+                else {
+                    for (FriendModel model : displayedUserList) {
+                        model.state = FriendModel.State.CHECK;
+                        if (!inviteList.contains(model)) inviteList.add(model);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+        };
+    } // cbAddAll_CheckChanged
+
+
+    //endregion
+
+    // region ListView Click
+
+    private AdapterView.OnItemClickListener lvUsers_Click() {
+        return new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                FriendModel selected = ((FriendModel) lvUsers.getItemAtPosition(position));
+
+                // if isSelectable
+                if(selected.isSelectable) {
+                    // revert the selection and add/remove FriendModel if needed
+                    if(selected.state == FriendModel.State.DOT) {
+                        selected.state = FriendModel.State.CHECK;
+                        inviteList.add(selected);
+
+                        if(inviteList.size() == com_friendIdList.size()) {
+                            skipSelectAllCheckChange = true;
+                            cbAddAll.setChecked(true);
+                        }
+
+                        Log.d(TAG, "User[" + selected.getUserID()
+                                + "] Removed");
+                    }
+                    else {
+                        //selected.isSelectable = true;
+                        selected.state = FriendModel.State.DOT;
+                        inviteList.remove(selected);
+
+                        if(cbAddAll.isChecked()) {
+                            skipSelectAllCheckChange = true;
+                            cbAddAll.setChecked(false);
+                        }
+
+                        Log.d(TAG, "User[" + selected.getUserID()
+                                + "] Added");
+                    }
+
+                    // tell adapter to update
+                    adapter.notifyDataSetChanged();
+                    Log.d(TAG, "friendsToAdd.size() = " + inviteList.size());
+                }
+
+
+            }
+        };
+    } // lvUserList_Click
 
     //endregion
 
@@ -244,6 +403,41 @@ public class ViewUsers extends PolarityActivity {
             ParseQuery.getQuery("_User").whereEqualTo("objectId", id).getFirstInBackground(GetUserCallBack);
         }
     } // populateListViewFromIds
+
+    protected TextWatcher tbSearch_TextChanged(){
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(count > 0) {
+                    displayedUserList.clear();
+                    for(FriendModel friend : userList) {
+                        if(friend.getName().startsWith(s.toString())) {
+                            displayedUserList.add(friend);
+                        }
+                    }
+                    if(layout == Layout.VIEW_INVITES) {
+                        Collections.sort(displayedUserList, new FriendModelComparator());
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+                else{
+                    displayedUserList.clear();
+                    displayedUserList.addAll(userList);
+                    if(layout == Layout.VIEW_INVITES) {
+                        Collections.sort(displayedUserList, new FriendModelComparator());
+                    }
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        };
+    } // tbTextChanged
 
     //endregion
 
