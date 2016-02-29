@@ -25,8 +25,9 @@ public class MainActivity extends PolarityActivity {
     super.onCreate(savedInstanceState);
 
     // show loading screen
-    setContentView(R.layout.activity_main);;
-    toActivity_Login();
+    setContentView(R.layout.activity_main);
+    Intent intent = new Intent(this, LogIn.class);
+    startActivity(intent);
   }
 
   //region Auto-Generated Stuff

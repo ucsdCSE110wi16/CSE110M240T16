@@ -101,7 +101,6 @@ public abstract class PolarityActivity extends Activity {
 
     //endregion
 
-
     //region Navigation
 
     protected void goToActivity(String FromActivitySimpleName, String ToActivitySimpleName) {
@@ -150,63 +149,6 @@ public abstract class PolarityActivity extends Activity {
             startActivity(intent);
         }
     } // returnToPrevActivity
-
-
-    protected void toActivity_AddMovies() {
-        Intent intent = new Intent(this, AddMovies.class);
-        startActivity(intent);
-    } // toActivity_AddMovies
-
-    protected void toActivity_CreateEvent() {
-        Intent intent = new Intent(this, CreateEvent.class);
-        startActivity(intent);
-    } // toActivity_CreateEvent
-
-    protected void toActivity_ForgotPassword() {
-        Intent intent = new Intent(this, ForgotPassword.class);
-        startActivity(intent);
-    } // toActivity_ForgotPassword
-
-    protected void toActivity_HubActivity() {
-        Intent intent = new Intent(this, HubActivity.class);
-        startActivity(intent);
-    } // toActivity_HubActivity
-
-    protected void toActivity_InviteFriends() {
-        Intent intent = new Intent(this, InviteFriends.class);
-        startActivity(intent);
-    } // toActivity_InviteFriends
-
-    protected void toActivity_Login() {
-        Intent intent = new Intent(this, LogIn.class);
-        startActivity(intent);
-    } // toActivity_LogIn
-
-    protected void toActivity_MainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    } // toActivity_MainActivity
-
-    protected void toActivity_SignUp() {
-        Intent intent = new Intent(this, SignUp.class);
-        startActivity(intent);
-    } // toActivity_SignUp
-
-    protected void toActivity_ViewEvent() {
-        Intent intent = new Intent(this, ViewEventActivity.class);
-        startActivity(intent);
-    } // toActivity_ViewEvent
-
-    protected void toActivity_Vote() {
-        Intent intent = new Intent(this, VoteActivity.class);
-        startActivity(intent);
-    } // toActivity_Vote
-
-
-    protected void toActivity_AddFriends() {
-        Intent intent = new Intent (this, AddFriends.class);
-        startActivity(intent);
-    } // toActivity_AddFriendsActivity
 
     //endregion
 
