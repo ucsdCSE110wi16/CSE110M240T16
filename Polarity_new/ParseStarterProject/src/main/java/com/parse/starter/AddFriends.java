@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -28,6 +29,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class AddFriends extends PolarityActivity {
+
+    protected View.OnKeyListener tbSearchOnKeyListener() {
+        return new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER) {
+                    //hide soft keyboard
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return false;
+                }
+                return true;
+            }
+        };
+    } //tbSearchOnKeyListener
+
 
     //region Variables
 
@@ -71,6 +88,8 @@ public class AddFriends extends PolarityActivity {
 
         friendAdapter = new FriendAdapter(getApplicationContext(), users);
         lvUserList.setAdapter(friendAdapter);
+
+        tbSearch.setOnKeyListener(tbSearchOnKeyListener());
 
         displayAllUsers();
     }

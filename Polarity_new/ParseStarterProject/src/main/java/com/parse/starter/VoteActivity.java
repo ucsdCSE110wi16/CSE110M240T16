@@ -1,6 +1,5 @@
 package com.parse.starter;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.parse.GetCallback;
-import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -17,10 +15,11 @@ import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Calendar;
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class VoteActivity extends PolarityActivity {
 
@@ -28,7 +27,7 @@ public class VoteActivity extends PolarityActivity {
 
     public static final String TAG = VoteActivity.class.getSimpleName();
 
-    Button btnBack, btnHome, btnVote, btnCancel;
+    Button btnBack, btnHome, btnVote, btnCancel, btnOk, btnResetVotes, btnBreakTie;
     ListView lvMovieList;
     MovieVoteAdapter movieVoteAdapter;
     MoviePollAdapter moviePollsAdapter;
@@ -42,27 +41,50 @@ public class VoteActivity extends PolarityActivity {
         setContentView(R.layout.activity_vote);
 
         btnBack = (Button) findViewById(R.id.vote_btnBack);
-        btnCancel = (Button) findViewById(R.id.vote_btnCancel);
         btnHome = (Button) findViewById(R.id.vote_btnHome);
-        btnVote = (Button) findViewById(R.id.vote_btnVote);
-        lvMovieList = (ListView) findViewById(R.id.vote_lvMovies);
+        lvMovieList = (ListView) findViewById(R.id.vote_lvMoviesLarge);
+        btnOk = (Button) findViewById(R.id.vote_btnOk);
 
         btnBack.setOnClickListener(btnBack_Click());
-        btnCancel.setOnClickListener(btnCancel_Click());
         btnHome.setOnClickListener(btnHome_Click());
-        btnVote.setOnClickListener(btnVote_Click());
+        btnOk.setOnClickListener(btnVote_Click());
 
         lvMovieList.setOnItemClickListener(lvEventQueue_Click());
 
         com_movieList.clear();
         fetchMovies();
 
+
         // if they've already voted then display the results
         if(com_currentEvent.status == EventModel.Status.AcceptedAndVoted) {
+            if(com_currentEvent.isHoast) {
+                btnBreakTie = (Button) findViewById(R.id.vote_btnBreakTie);
+                btnResetVotes = (Button) findViewById(R.id.vote_btnResetVotes);
+                btnBreakTie.setVisibility(View.VISIBLE);
+                btnResetVotes.setVisibility(View.VISIBLE);
+                btnBreakTie.setEnabled(true);
+                btnResetVotes.setEnabled(true);
+            }
+
             tallyVotes();
             Collections.sort(com_movieList, new MovieModelComparator());
             moviePollsAdapter = new MoviePollAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(moviePollsAdapter);
+        }
+        else if(com_currentEvent.status == EventModel.Status.Accepted) {
+            btnOk.setVisibility(View.INVISIBLE);
+            btnOk.setEnabled(false);
+            btnVote = (Button) findViewById(R.id.vote_btnVote);
+            btnCancel = (Button) findViewById(R.id.vote_btnCancel);
+            btnVote.setOnClickListener(btnVote_Click());
+            btnCancel.setOnClickListener(btnCancel_Click());
+            btnVote.setVisibility(View.VISIBLE);
+            btnCancel.setVisibility(View.VISIBLE);
+            btnVote.setEnabled(true);
+            btnCancel.setEnabled(true);
+
+            movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
+            lvMovieList.setAdapter(movieVoteAdapter);
         }
         else { // otherwise display the movie list
             movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
@@ -111,7 +133,7 @@ public class VoteActivity extends PolarityActivity {
 
                 boolean hasVoted = false;
                 ParseObject movieObj, user;
-                List<ParseObject> parseList = new ArrayList<ParseObject>();
+                ArrayList<ParseObject> parseList = new ArrayList<ParseObject>();
                 ParseACL acl = new ParseACL();
                 acl.setPublicReadAccess(true);
                 acl.setPublicWriteAccess(true);
@@ -135,43 +157,7 @@ public class VoteActivity extends PolarityActivity {
                     return;
                 }
 
-                new ParseObject("MovieVotes").saveAllInBackground(parseList, new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-
-                        if (e != null) {
-                            Log.e(TAG, e.getMessage());
-                            displayToast("Unable to record votes");
-                            return;
-                        }
-
-                        // update user Confirmation Status
-                        ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
-                            @Override
-                            public void done(ParseObject object, ParseException e) {
-                                if (e != null) {
-                                    Log.e(TAG, e.getMessage());
-                                    displayToast("Unable to update user vote status");
-                                    return;
-                                }
-
-                                object.put("Confirmation", 2);
-                                object.saveInBackground(new SaveCallback() {
-                                    @Override
-                                    public void done(ParseException e) {
-                                        if (e != null) {
-                                            Log.e(TAG, e.getMessage());
-                                            displayToast("Unable to save user vote status");
-                                            return;
-                                        }
-                                        com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
-                                        goToActivity(TAG, ViewEventActivity.class.getSimpleName());
-                                    }
-                                });
-                            }
-                        });
-                    }
-                });
+                saveVotes(parseList);
             }
         };
     }
@@ -266,5 +252,68 @@ public class VoteActivity extends PolarityActivity {
         }
     } // tallyVotes
 
+    private void saveVotes(ArrayList<ParseObject> movieVoteList) {
+        new ParseObject("MovieVotes").saveAllInBackground(movieVoteList, new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+
+                if (e != null) {
+                    Log.e(TAG, e.getMessage());
+                    displayToast("Unable to record votes");
+                    return;
+                }
+
+                // update user Confirmation Status
+                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if (e != null) {
+                            Log.e(TAG, e.getMessage());
+                            displayToast("Unable to update user vote status");
+                            return;
+                        }
+
+                        object.put("Confirmation", 2);
+                        object.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e != null) {
+                                    Log.e(TAG, e.getMessage());
+                                    displayToast("Unable to save user vote status");
+                                    return;
+                                }
+                                com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
+                                com_eventModelList.set(com_eventModelList.indexOf(com_currentEvent), com_currentEvent);
+                                goToActivity(TAG, ViewEventActivity.class.getSimpleName());
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    } // saveVotes
+
+    private void breakTie() {
+        ArrayList<Model> topMovieTies = new ArrayList<Model>();
+        int topVote = com_movieList.get(0).getNumTotalVotes();
+        int randNum = 0;
+        long seed = Calendar.getInstance().getTimeInMillis();
+        Random rand = new Random(seed);
+
+        // find all the movies tha tie in votes with the leading movie
+        for(int i=1; i<com_movieList.size(); i++) {
+            if(com_movieList.get(i).getNumTotalVotes() != topVote) break;
+            topMovieTies.add(com_modelList.get(i));
+        }
+
+        // if no tie, notify user and exit
+        if(topMovieTies.size() < 2) {
+            displayToast("No tie found");
+            return;
+        }
+
+        randNum = rand.nextInt() % topMovieTies.size();
+       // ParseObject movie = ParseQuery.getQuery("")
+    }
     //endregion
 }

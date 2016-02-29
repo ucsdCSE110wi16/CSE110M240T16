@@ -148,7 +148,6 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
     //endregion
 
-
     private void Login() {
         // disable buttons so user wont spaz-click it while logging in
         btnLogin.setEnabled(false);

@@ -26,6 +26,8 @@ public class EventModel extends Model {
     protected String hostId, description, location, eventId, movieQueueId, time;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
 
+    public boolean isHoast;
+
     public Status status = Status.Unanswered;
 
     //region Constructors
@@ -46,6 +48,7 @@ public class EventModel extends Model {
         cal = Calendar.getInstance();
         cal.setTime(date);
         status = Status.Unanswered;
+        isHoast = false;
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,

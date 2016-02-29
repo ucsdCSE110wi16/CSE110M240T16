@@ -1,10 +1,13 @@
 package com.parse.starter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,7 +26,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ViewUsers extends PolarityActivity {
+public class ViewUsers extends PolarityActivity implements View.OnKeyListener{
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_ENTER) {
+            //hide soft keyboard
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+            return false;
+        }
+        return true;
+    }
 
     private enum Layout {
         VIEW_INVITES,
@@ -254,6 +268,7 @@ public class ViewUsers extends PolarityActivity {
             layout = Layout.VIEW_FRIENDS;
             txtTitle.setText("Friend List");
             tbSearch.addTextChangedListener(tbSearch_TextChanged());
+            tbSearch.setOnKeyListener(this);
 
             fetchFriendList();
         }

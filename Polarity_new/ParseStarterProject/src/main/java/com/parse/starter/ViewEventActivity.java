@@ -71,8 +71,8 @@ public class ViewEventActivity extends PolarityActivity {
         if (com_currentEvent.status != EventModel.Status.Unanswered) {
             btnAccept.setEnabled(false);
             btnDeny.setEnabled(false);
-            btnAccept.setVisibility(View.INVISIBLE);
-            btnDeny.setVisibility(View.INVISIBLE);
+            btnAccept.setVisibility(View.GONE);
+            btnDeny.setVisibility(View.GONE);
             btnDeny = (Button) findViewById(R.id.viewEvent_btnUnattend);
             btnDeny.setVisibility(View.VISIBLE);
             btnAccept.setEnabled(true);
@@ -82,6 +82,8 @@ public class ViewEventActivity extends PolarityActivity {
                 btnVoteOnMovies.setText("Vote On Movies");
             else if (com_currentEvent.status == EventModel.Status.AcceptedAndVoted)
                 btnVoteOnMovies.setText("View Polls");
+
+            if(com_currentEvent.isHoast) btnDeny.setText("Cancel Event");
         }
         // endregion
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -128,6 +130,7 @@ public class ViewEventActivity extends PolarityActivity {
 
                     EventModel model = com_eventModelList.get(com_eventModelList.indexOf(com_currentEvent));
                     model.numFriendsAttending = model.numFriendsAttending++;
+                    model.status = EventModel.Status.Accepted;
                     com_eventModelList.set(com_eventModelList.indexOf(model), model);
 
                     btnDeny.setVisibility(View.GONE);
@@ -136,6 +139,7 @@ public class ViewEventActivity extends PolarityActivity {
                     btnDeny.setEnabled(true);
                     btnDeny.setVisibility(View.VISIBLE);
                     btnDeny.setOnClickListener(btnDeny_Click());
+                    btnVoteOnMovies.setText("Vote On Movies");
 
                     displayToast("Invite accepted");
 

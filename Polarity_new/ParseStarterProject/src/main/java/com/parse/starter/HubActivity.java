@@ -220,9 +220,12 @@ public class HubActivity extends PolarityActivity {
 
                     Log.d(TAG, "person[" + person.getString("UserID") + "] Status=" + person.getInt("Confirmation"));
 
+                    model.isHoast = false;
                     if(person.getString("UserID").compareTo(com_userID) == 0) {
 
                         Log.d(TAG, "User FOUND");
+
+                        model.isHoast = true;
 
                         num_attending++;
                         switch(person.getInt("Confirmation")) {
