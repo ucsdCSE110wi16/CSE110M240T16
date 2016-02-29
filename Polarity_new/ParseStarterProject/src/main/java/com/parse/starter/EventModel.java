@@ -45,6 +45,7 @@ public class EventModel extends Model {
         time = Time;
         cal = Calendar.getInstance();
         cal.setTime(date);
+        status = Status.Unanswered;
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,

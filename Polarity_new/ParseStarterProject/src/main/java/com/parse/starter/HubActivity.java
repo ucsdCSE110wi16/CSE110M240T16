@@ -186,13 +186,24 @@ public class HubActivity extends PolarityActivity {
 
             for (ParseObject obj : parseEventList) {
 
-                // TODO: check that the event's date didn't pass already
+                // this should make it so it skips old events
+                if(obj.getDate("EventDate").before(new Date())) continue;
 
                 // Create new EventModel
                 model = new EventModel(com_userID, obj.getString("EventName"),
                         obj.getString("EventDiscription"), obj.getString("EventLocation"),
                         obj.getObjectId(), obj.getString("MovieQueueID"),
                         obj.getDate("EventDate"), obj.getString("EventStartTime"));
+
+                switch(obj.getInt("Confirmation")) {
+                    case 0:
+                        model.status = EventModel.Status.Unanswered;
+                        break;
+                    case 1:
+                        model.status = EventModel.Status.Accepted;
+                    case 2:
+                        model.status = EventModel.Status.AcceptedAndVoted;
+                }
 
                 // Get all friends invited
                 parseFriendList.clear();
@@ -272,7 +283,7 @@ public class HubActivity extends PolarityActivity {
                 }
             }
         };
-    }
+    } // addFriend
 
     //endregion
 

@@ -1,11 +1,16 @@
 package com.parse.starter;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -17,6 +22,11 @@ public class ViewEventActivity extends PolarityActivity {
     public static final String TAG = ViewEventActivity.class.getSimpleName();
     TextView txtTitle, txtLocation, txtDate, txtDescription, txtTime;
     Button btnBack, btnViewInviteList, btnVoteOnMovies, btnAccept, btnDeny;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +67,26 @@ public class ViewEventActivity extends PolarityActivity {
         btnVoteOnMovies.setOnClickListener(btnVoteOnMovies_Click());
         btnAccept.setOnClickListener(btnAccept_Click());
         btnDeny.setOnClickListener(btnDeny_Click());
+
+        if (com_currentEvent.status != EventModel.Status.Unanswered) {
+            btnAccept.setEnabled(false);
+            btnDeny.setEnabled(false);
+            btnAccept.setVisibility(View.INVISIBLE);
+            btnDeny.setVisibility(View.INVISIBLE);
+            btnDeny = (Button) findViewById(R.id.viewEvent_btnUnattend);
+            btnDeny.setVisibility(View.VISIBLE);
+            btnAccept.setEnabled(true);
+            btnDeny.setOnClickListener(btnDeny_Click());
+
+            if (com_currentEvent.status == EventModel.Status.Accepted)
+                btnVoteOnMovies.setText("Vote On Movies");
+            else if (com_currentEvent.status == EventModel.Status.AcceptedAndVoted)
+                btnVoteOnMovies.setText("View Polls");
+        }
         // endregion
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
@@ -85,47 +114,36 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ParseObject obj;
                 v.setEnabled(false);
                 btnDeny.setEnabled(false);
 
-                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
-                    @Override
-                    public void done(ParseObject object, ParseException e) {
+                ParseObject obj;
+                try {
+                    obj = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).whereEqualTo("EventID", com_currentEventId).getFirst();
 
-                        // check if there was an error
-                        if(e != null) {
-                            btnAccept.setEnabled(true);
-                            btnDeny.setEnabled(true);
-                            Log.e(TAG, e.getMessage());
-                            displayToast("Unable to process request");
-                            return;
-                        }
+                    Log.d(TAG, "Event{" + obj.getString("EventID") + "] UserID[" + obj.getString("UserID") + "]");
 
-                        object.put("Confirmation", 1);
-                        object.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-                                
-                                // check if there was an error
-                                if (e != null) {
-                                    btnAccept.setEnabled(true);
-                                    btnDeny.setEnabled(true);
-                                    Log.e(TAG, e.getMessage());
-                                    displayToast("Unable to process request");
-                                    return;
-                                }
+                    obj.put("Confirmation", 1);
+                    obj.save();
 
-                                com_currentEvent.status = EventModel.Status.Accepted;
-                                btnDeny.setEnabled(true);
-                                //TODO: refresh screen for new Status
-                            }
-                        });
+                    EventModel model = com_eventModelList.get(com_eventModelList.indexOf(com_currentEvent));
+                    model.numFriendsAttending = model.numFriendsAttending++;
+                    com_eventModelList.set(com_eventModelList.indexOf(model), model);
 
-                    }
-                });
+                    btnDeny.setVisibility(View.GONE);
+                    btnAccept.setVisibility(View.GONE);
+                    btnDeny = (Button) findViewById(R.id.viewEvent_btnUnattend);
+                    btnDeny.setEnabled(true);
+                    btnDeny.setVisibility(View.VISIBLE);
+                    btnDeny.setOnClickListener(btnDeny_Click());
 
+                    displayToast("Invite accepted");
+
+                } catch (ParseException e) {
+                    btnAccept.setEnabled(true);
+                    btnDeny.setEnabled(true);
+                    Log.e(TAG, e.getMessage());
+                }
             }
         };
     } // btnAccept_Click
@@ -175,6 +193,46 @@ public class ViewEventActivity extends PolarityActivity {
             }
         };
     } // btnDeny_Click
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "ViewEvent Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.parse.starter/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "ViewEvent Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.parse.starter/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 
     //endregion
 
