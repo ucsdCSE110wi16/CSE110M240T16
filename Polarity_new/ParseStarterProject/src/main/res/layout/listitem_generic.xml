@@ -18,9 +18,10 @@
 
     <Button
         android:id="@+id/generic_btnRemove"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:focusable="false"
-        android:text="@string/RMBTN" />
+        android:background="@drawable/remove_picture"
+        android:layout_marginRight="10dp"/>
 
 </LinearLayout>
