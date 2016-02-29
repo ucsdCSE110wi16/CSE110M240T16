@@ -26,7 +26,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
 
     //region Create Variables
 
-    public static final String TAG = SignUp.class.getSimpleName();
+    public static final String TAG = LogIn.class.getSimpleName();
 
     private Button btnLogin, btnCreateAccount, btnForgotPassword;
     private EditText userName, password;
@@ -48,6 +48,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        super.initialize();
 
         // check to see if any user has logged in on this device before
         try {
@@ -66,6 +67,8 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         setContentView(R.layout.activity_log_in);
 
         // Set elements
+        com_activityHistory.clear();
+
         btnLogin = (Button) findViewById(R.id.login_btnLogin);
         btnCreateAccount = (Button) findViewById(R.id.login_btnCreateAccount);
         btnForgotPassword = (Button) findViewById(R.id.login_btnForgotPassword);
@@ -79,6 +82,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         userName.setOnKeyListener(this);
         userName.setOnClickListener(editText_click());
         password.setOnClickListener(editText_click());
+        password.setOnKeyListener(this);
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -89,10 +93,17 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
     public boolean onKey(View view, int keyCode, KeyEvent event) {
         if(event.getAction() == KeyEvent.ACTION_DOWN) {
             // check if userName has focus AND the ENTER key was pressed
-            if(userName.hasFocus() && keyCode == KeyEvent.KEYCODE_ENTER) {
-                password.requestFocus(); // puts onto a focus queue
-                view.clearFocus(); // removes current focus causing the app to pull password's focus request from queue
-                return true;
+            if(keyCode == KeyEvent.KEYCODE_ENTER) {
+               if(userName.hasFocus()) {
+                   password.requestFocus(); // puts onto a focus queue
+                   view.clearFocus(); // removes current focus causing the app to pull password's focus request from queue
+                   return true;
+               }
+                else if(password.hasFocus()) {
+                   Log.d(TAG, "password.hasFocus && Enter clicked -> logging in");
+                   Login();
+                   return true;
+               }
             }
         }
         return false; // pass on to listeners
@@ -102,7 +113,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TAG", "entering editText_click");
+                Log.d(TAG, "entering editText_click");
                 txtInfo.setText("");
             }
         };
@@ -113,60 +124,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
     private View.OnClickListener btnLogin_Click() {
         return new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                // disable buttons so user wont spaz-click it while logging in
-                btnLogin.setEnabled(false);
-                btnCreateAccount.setEnabled(false);
-                btnForgotPassword.setEnabled(false);
-
-                ParseUser.getCurrentUser().logOut();
-
-                ParseUser.logInInBackground(userName.getText().toString(),
-                       password.getText().toString(), new LogInCallback() {
-                             @Override
-                             public void done(ParseUser user, ParseException e) {
-                                 if(e == null && user != null){
-
-                                     // save variables to global file
-                                     com_user = ParseUser.getCurrentUser().getUsername();
-                                     com_userID = ParseUser.getCurrentUser().getObjectId();
-
-                                     ParseUser.getCurrentUser().put("androidId", android_id);
-                                     ParseUser.getCurrentUser().put("autoLogin", true);
-                                     ParseUser.getCurrentUser().saveInBackground();
-
-                                     toActivity_HubActivity();
-
-                                 }//end if
-                                 else if(user == null){
-                                     btnLogin.setEnabled(true);
-                                     btnCreateAccount.setEnabled(true);
-                                     btnForgotPassword.setEnabled(true);
-                                     txtInfo.setText(e.getMessage());
-
-                                     /* Ego and Superego can display some message
-                                      * here if there should be a specific message indicating
-                                      * that the username or password were invalid
-                                      */
-                                 }//end else if
-                                 else{
-                                     btnLogin.setEnabled(true);
-                                     btnCreateAccount.setEnabled(true);
-                                     btnForgotPassword.setEnabled(true);
-                                     txtInfo.setText(e.getMessage());
-
-                                     /* Ego and Superego can display some message here if there
-                                      * should be a specific message indicating that some internal
-                                      * error occurred
-                                      */
-                                 }//end else
-
-                             }//end callback
-                });//end logInInBackground
-
-
-            }
+            public void onClick(View v) {Login();}
         };
     } // btnLogin_Click
 
@@ -174,7 +132,7 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_SignUp();
+                goToActivity(TAG, SignUp.class.getSimpleName());
             }
         };
     } // btnCreateAccount_Click
@@ -183,12 +141,66 @@ public class LogIn extends PolarityActivity implements View.OnKeyListener{
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_ForgotPassword();
+                goToActivity(TAG, ForgotPassword.class.getSimpleName());
             }
         };
     } // btnForgotPassword_Click
 
     //endregion
+
+
+    private void Login() {
+        // disable buttons so user wont spaz-click it while logging in
+        btnLogin.setEnabled(false);
+        btnCreateAccount.setEnabled(false);
+        btnForgotPassword.setEnabled(false);
+
+        ParseUser.getCurrentUser().logOut();
+
+        ParseUser.logInInBackground(userName.getText().toString(),
+                password.getText().toString(), new LogInCallback() {
+                    @Override
+                    public void done(ParseUser user, ParseException e) {
+                        if (e == null && user != null) {
+
+                            // save variables to global file
+                            com_user = ParseUser.getCurrentUser().getUsername();
+                            com_userID = ParseUser.getCurrentUser().getObjectId();
+
+                            ParseUser.getCurrentUser().put("androidId", android_id);
+                            ParseUser.getCurrentUser().put("autoLogin", true);
+                            ParseUser.getCurrentUser().saveInBackground();
+
+                            goToActivity(TAG, HubActivity.class.getSimpleName());
+
+                        }//end if
+                        else if (user == null) {
+                            btnLogin.setEnabled(true);
+                            btnCreateAccount.setEnabled(true);
+                            btnForgotPassword.setEnabled(true);
+                            txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message
+                                      * here if there should be a specific message indicating
+                                      * that the username or password were invalid
+                                      */
+                        }//end else if
+                        else {
+                            btnLogin.setEnabled(true);
+                            btnCreateAccount.setEnabled(true);
+                            btnForgotPassword.setEnabled(true);
+                            txtInfo.setText(e.getMessage());
+
+                                     /* Ego and Superego can display some message here if there
+                                      * should be a specific message indicating that some internal
+                                      * error occurred
+                                      */
+                        }//end else
+
+                    }//end callback
+                });//end logInInBackground
+    } // Login
+
 
     //region Auto-Generated Stuff
 

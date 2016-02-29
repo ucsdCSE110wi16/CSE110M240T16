@@ -15,6 +15,9 @@ import com.parse.ParseQuery;
 
 public class InviteFriends extends PolarityActivity {
     // region variables
+
+    static String TAG = InviteFriends.class.getSimpleName();
+
     Button btnBack, btnHome, btnInviteFreinds, btnSearch;
     EditText tbSearch;
     TextView txtInfo;
@@ -39,7 +42,7 @@ public class InviteFriends extends PolarityActivity {
         lvInvitedFriends = (ListView) findViewById(R.id.inviteFriends_lvSearchUsersList);
         // endregion
         // region setOnClickListeners
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
         btnHome.setOnClickListener(btnHome_Click());
 
         btnInviteFreinds.setOnClickListener(btnInviteFriends_Click());
@@ -60,20 +63,11 @@ public class InviteFriends extends PolarityActivity {
 
     //region Button Clicks
 
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_CreateEvent();
-            }
-        };
-    } // btnBack_Click
-
     protected View.OnClickListener btnHome_Click() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_HubActivity();
+                goToActivity(TAG, HubActivity.class.getSimpleName());
             }
         };
     } // btnHome_Click
@@ -82,7 +76,7 @@ public class InviteFriends extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_CreateEvent();
+                goToActivity(TAG, CreateEvent.class.getSimpleName());
             }
         };
     } // btnInviteFriends_Click

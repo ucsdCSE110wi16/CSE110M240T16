@@ -117,13 +117,13 @@ public class ViewUsers extends PolarityActivity {
         inviteList = new ArrayList<FriendModel>();
 
         btnHome.setOnClickListener(btnHome_Click());
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
         btnAddAll.setOnClickListener(btnAddAll_Click());
         btnAction.setOnClickListener(btnAction_Click());
         btnAddFriends.setOnClickListener(btnAddFriends_Click());
 
         // Select the appropreate layout
-        if(com_previousActivity.compareTo(ViewEventActivity.class.getSimpleName()) == 0) {
+        if(com_activityHistory.peek().compareTo(ViewEventActivity.class.getSimpleName()) == 0) {
             layout = Layout.VIEW_INVITES;
             btnAddFriends.setVisibility(View.INVISIBLE);
             btnAddAll.setEnabled(false);
@@ -136,18 +136,22 @@ public class ViewUsers extends PolarityActivity {
             txtTitle.setText("Invite List");
             fetchInviteList();
         }
-        else if(com_previousActivity.compareTo(CreateEvent.class.getSimpleName()) == 0) {
+        else if(com_activityHistory.peek().compareTo(CreateEvent.class.getSimpleName()) == 0) {
             layout = Layout.INVITE_FRIENDS;
             txtTitle.setText("Invite Friends");
             btnAction.setText("INVITE");
             fetchFriendList();
         }
-        else {
+        else if(com_activityHistory.peek().compareTo(HubActivity.class.getSimpleName()) == 0) {
             layout = Layout.VIEW_FRIENDS;
             btnAction.setText("OK");
             btnAddAll.setEnabled(false);
             txtTitle.setText("Friend List");
             fetchFriendList();
+        }
+        else {
+            Log.e(TAG, "Unexpectedly entered activity " + TAG + " from " + com_activityHistory.peek());
+            returnToPrevActivity();
         }
 
         adapter = new FriendAdapter(getApplicationContext(), userList);
@@ -155,15 +159,6 @@ public class ViewUsers extends PolarityActivity {
     }
 
     //region Button Clicks
-
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToActivity(TAG, com_previousActivity);
-            }
-        };
-    } // btnBack_Click
 
     protected View.OnClickListener btnHome_Click() {
         return new View.OnClickListener() {

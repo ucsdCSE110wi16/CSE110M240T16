@@ -3,11 +3,14 @@ package com.parse.starter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.provider.Settings;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Stack;
 
 /** Global variables and methods go here
  *  Created by Lucas Pettit 02/10/2016
@@ -23,7 +26,7 @@ public abstract class PolarityActivity extends Activity {
     static String com_user, com_userID, com_eventID;
     static String com_eventName, com_eventLocation, com_eventDate, com_eventTime, com_eventDescription;
     static String com_currentEventId;
-    static String com_previousActivity;
+    static String com_previousActivity; // flag for deletion
 
     static EventModel com_currentEvent;
 
@@ -33,10 +36,9 @@ public abstract class PolarityActivity extends Activity {
     static ArrayList<FriendModel> com_invitedFriends;
     static ArrayList<EventModel> com_eventModelList;
 
+    static Stack<String> com_activityHistory;
 
     static HashMap<String, Class> com_activities;
-
-
 
     //endregion
 
@@ -44,6 +46,11 @@ public abstract class PolarityActivity extends Activity {
 
     // initialize the variables. Only do this ONCE in MainActivity
     protected void initialize() {
+
+        if(android_id == null || android_id.length() == 0){
+            android_id = Settings.Secure.getString(getBaseContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        }
+
         com_userEventsLoaded = false;
 
         com_user = "";
@@ -64,6 +71,8 @@ public abstract class PolarityActivity extends Activity {
         com_invitedFriends = new ArrayList<FriendModel>();
         com_friendIdList = new ArrayList<String>();
         com_eventModelList = new ArrayList<EventModel>();
+
+        com_activityHistory = new Stack<String>();
 
         // Create and fill HashMap of all classes for navigation
         com_activities = new HashMap<String, Class>();
@@ -97,7 +106,7 @@ public abstract class PolarityActivity extends Activity {
 
     protected void goToActivity(String FromActivitySimpleName, String ToActivitySimpleName) {
         if(com_activities.containsKey(ToActivitySimpleName) && com_activities.containsKey(FromActivitySimpleName)) {
-            com_previousActivity = FromActivitySimpleName;
+            com_activityHistory.push(FromActivitySimpleName);
             Intent intent = new Intent(this, com_activities.get(ToActivitySimpleName));
             startActivity(intent);
         }
@@ -106,6 +115,41 @@ public abstract class PolarityActivity extends Activity {
                     + ToActivitySimpleName + " are not a key in com_activities");
         };
     } // goToActivity
+
+    protected View.OnClickListener btnBackOnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                returnToPrevActivity();
+            }
+        };
+    } // btnBackOnClickListener
+
+    protected void returnToPrevActivity() {
+        if(!com_activityHistory.isEmpty()) {
+            if(com_activities.containsKey(com_activityHistory.peek())) {
+                Intent intent = new Intent(this, com_activities.get(com_activityHistory.pop()));
+                startActivity(intent);
+                return;
+            }
+            else {
+                Log.e(PolarityActivity.class.getSimpleName(), "Corrupt activity history data found");
+            }
+        }
+        else {
+            Log.e(PolarityActivity.class.getSimpleName(), "Attempting to backtrack with an empty activity history");
+        }
+
+        // in case there was an error, redirect user to Hub or Login
+        if(com_userID.compareTo("") != 0 || !com_userID.isEmpty()) {
+            Intent intent = new Intent(this, com_activities.get(HubActivity.class.getSimpleName()));
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, com_activities.get(LogIn.class.getSimpleName()));
+            startActivity(intent);
+        }
+    } // returnToPrevActivity
 
 
     protected void toActivity_AddMovies() {

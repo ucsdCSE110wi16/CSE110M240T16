@@ -21,7 +21,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     public static final String TAG = AddMovies.class.getSimpleName();
 
-    Button btnBack, btnHome, btnImportMovieQueue, btnSearch;
+    Button btnBack, btnHome, btnSearch;
     ListView lvMovieList;
     EditText tbSearch;
     TextView txtInfo;
@@ -42,7 +42,6 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         tbSearch = (EditText) findViewById(R.id.addMovies_tbSearch);
         btnBack = (Button) findViewById(R.id.addMovies_btnBack);
         btnHome = (Button) findViewById(R.id.addMovies_btnHome);
-        btnImportMovieQueue = (Button) findViewById(R.id.addMovies_ImportMovieQueue);
         btnSearch = (Button) findViewById(R.id.addMovies_btnSearch);
         txtInfo = (TextView) findViewById(R.id.addMovies_txtInfo);
         modelList = com_modelList;
@@ -52,7 +51,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
         // set listeners
         btnSearch.setOnClickListener(btnSearch_Click());
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
         btnHome.setOnClickListener(btnHome_Click());
         tbSearch.setOnKeyListener(this);
         // tell the user that there's no movies in the queue
@@ -85,15 +84,6 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
         };
     } // btnSearch_Click
 
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_CreateEvent();
-            }
-        };
-    } // btnBack_onClick
-
     protected View.OnClickListener btnHome_Click() {
         return new View.OnClickListener() {
             @Override
@@ -106,7 +96,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
                 com_movieList.clear();
                 com_invitedFriends.clear();
 
-                toActivity_HubActivity();
+                returnToPrevActivity();
             }
         };
     } // btnHome_Click
@@ -147,6 +137,7 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
 
     //endregion
 
+    //region Auto-Generated API Stuff
     @Override
     public void onStart() {
         super.onStart();
@@ -180,4 +171,5 @@ public class AddMovies extends PolarityActivity implements View.OnKeyListener {
                 Uri.parse("android-app://com.parse.starter/http/host/path")
         );
     }
+    //endregion
 }

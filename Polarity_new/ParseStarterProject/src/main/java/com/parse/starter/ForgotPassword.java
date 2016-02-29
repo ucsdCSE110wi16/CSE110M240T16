@@ -20,16 +20,6 @@ public class ForgotPassword extends PolarityActivity {
         tbUserName = (EditText) findViewById(R.id.forgotPassword_tbUserName);
         tbEmail = (EditText) findViewById(R.id.forgotPassword_tbEmail);
 
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
     }
-
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_Login();
-            }
-        };
-    } // btnBack_Click
-
 }

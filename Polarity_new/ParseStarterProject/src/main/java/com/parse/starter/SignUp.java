@@ -75,7 +75,7 @@ public class SignUp extends PolarityActivity {
         btnRegister.setOnClickListener(btnRegisterClick());
 
         // btnBack Click
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
     }
 
     //region EditText Events
@@ -154,15 +154,6 @@ public class SignUp extends PolarityActivity {
         };
     } // btnRegisterClick
 
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_Login();
-            }
-        };
-    } // btnBack_Click
-
     //endregion
 
     //region Helper Methods
@@ -232,8 +223,7 @@ public class SignUp extends PolarityActivity {
             public void done(ParseException e) {
                 if(e == null){
                     // Sign Up was successful!
-                    initialize();
-                    toActivity_HubActivity();
+                    goToActivity(TAG, HubActivity.class.getSimpleName());
                 }//end if
                 else{
                     // sign-up failed :(

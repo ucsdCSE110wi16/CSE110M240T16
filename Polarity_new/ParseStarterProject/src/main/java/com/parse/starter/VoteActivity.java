@@ -8,11 +8,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -75,30 +77,30 @@ public class VoteActivity extends PolarityActivity {
             @Override
             public void onClick(View v) {
                 clearVotes();
-                toActivity_ViewEvent();
+                returnToPrevActivity();
             }
         };
-    }
+    } // btnBack_Click
 
     protected View.OnClickListener btnCancel_Click() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearVotes();
-                toActivity_ViewEvent();
+                returnToPrevActivity();
             }
         };
-    }
+    } // btnCancel_Click
 
     protected View.OnClickListener btnHome_Click() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clearVotes();
-                toActivity_HubActivity();
+                goToActivity(TAG, HubActivity.class.getSimpleName());
             }
         };
-    }
+    } // btnHome_Click
 
     protected View.OnClickListener btnVote_Click() {
         return new View.OnClickListener() {
@@ -133,25 +135,43 @@ public class VoteActivity extends PolarityActivity {
                     return;
                 }
 
-                movieObj = new ParseObject("MovieVotes");
+                new ParseObject("MovieVotes").saveAllInBackground(parseList, new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
 
-                try {
-                    //TODO: this needs to be moved to a seperate thread and check a callbckmethod
-                    movieObj.saveAll(parseList);
-                    
-                    // update user Confirmation Status
-                    user = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
-                    user.put("Confirmation", 2);
-                    user.save();
+                        if (e != null) {
+                            Log.e(TAG, e.getMessage());
+                            displayToast("Unable to record votes");
+                            return;
+                        }
 
-                    com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
-                    toActivity_ViewEvent();
+                        // update user Confirmation Status
+                        ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject object, ParseException e) {
+                                if (e != null) {
+                                    Log.e(TAG, e.getMessage());
+                                    displayToast("Unable to update user vote status");
+                                    return;
+                                }
 
-                } catch (ParseException e) {
-                    Log.e(TAG, e.getMessage());
-                    return;
-                }
-
+                                object.put("Confirmation", 2);
+                                object.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e != null) {
+                                            Log.e(TAG, e.getMessage());
+                                            displayToast("Unable to save user vote status");
+                                            return;
+                                        }
+                                        com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
+                                        goToActivity(TAG, ViewEventActivity.class.getSimpleName());
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             }
         };
     }

@@ -25,23 +25,7 @@ public class MainActivity extends PolarityActivity {
     super.onCreate(savedInstanceState);
 
     // show loading screen
-    setContentView(R.layout.activity_main);
-
-    initialize();
-    android_id = Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID);
-
-    // debug
-    /*
-    if(android_id.compareTo("50012c6b71ca00fa") == 0) {
-      com_userID = "GMso6fh0Bb";
-      com_user = "lucas";
-      com_previousActivity = HubActivity.class.getSimpleName();
-      toActivity_HubActivity();
-    }
-    else {
-      toActivity_Login();
-    }
-    */
+    setContentView(R.layout.activity_main);;
     toActivity_Login();
   }
 

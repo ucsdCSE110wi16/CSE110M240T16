@@ -36,8 +36,6 @@ public class CreateEvent extends PolarityActivity {
     static final int DIALOG_Date = 0; //hold the Date dialog
     int hour_o, minute_o;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +88,7 @@ public class CreateEvent extends PolarityActivity {
                 com_eventDescription = tbEventDescription.getText().toString();
                 com_eventDate = tbEventDate.getText().toString();
 
-                toActivity_AddMovies();
+                goToActivity(TAG, AddMovies.class.getSimpleName());
             }
         };
     } // btnAddMovie_Click
@@ -105,7 +103,7 @@ public class CreateEvent extends PolarityActivity {
                 com_eventDescription = tbEventDescription.getText().toString();
                 com_eventDate = tbEventDate.getText().toString();
 
-                toActivity_InviteFriends();
+                goToActivity(TAG, ViewUsers.class.getSimpleName());
             }
         };
     } // btnInviteFriends_Click
@@ -252,7 +250,7 @@ public class CreateEvent extends PolarityActivity {
 
                 com_eventModelList.add(m);
                 Collections.sort(com_eventModelList, new EventModelComparator());
-                toActivity_HubActivity();
+                goToActivity(TAG, HubActivity.class.getSimpleName());
             }
         };
     } // btnCreateEvent_Click
@@ -269,10 +267,14 @@ public class CreateEvent extends PolarityActivity {
                 com_movieList.clear();
                 com_invitedFriends.clear();
 
-                toActivity_HubActivity();
+                returnToPrevActivity();
             }
         };
     } // btnBack_Click
+
+    //endregion
+
+    //region DateTime
 
     //for the date picker
     public void showDialogOnTextFieldClick() {

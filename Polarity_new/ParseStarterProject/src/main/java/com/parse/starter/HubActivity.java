@@ -48,6 +48,8 @@ public class HubActivity extends PolarityActivity {
         setContentView(R.layout.activity_hub);
 
         // region Initialize Vars
+        com_activityHistory.clear(); // clear this just incase there was a bug
+
         btnLogOut = (Button) findViewById(R.id.hubActivity_btnLogOut);
         btnCreateEvent = (Button) findViewById(R.id.hubActivity_btnCreateEvent);
         btnAddFriends = (Button) findViewById(R.id.hubActivity_btnAddFriends);
@@ -79,9 +81,6 @@ public class HubActivity extends PolarityActivity {
         else{
             txtEventQueue.setText("");
         }
-
-
-
     }
 
     //region Button Clicks
@@ -100,12 +99,12 @@ public class HubActivity extends PolarityActivity {
                             object.saveInBackground(new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
-                                    if(e != null){
+                                    if (e != null) {
                                         Log.e(TAG, e.getMessage());
                                     }//end if
                                 }//end done
                             });//end SaveCallback
-                            toActivity_Login();
+                            goToActivity(TAG, LogIn.class.getSimpleName());
                         }//end if
                         else{
                             Log.e(TAG, e.getMessage());
@@ -120,7 +119,7 @@ public class HubActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_CreateEvent();
+                goToActivity(TAG, CreateEvent.class.getSimpleName());
             }
         };
     } // btnCreateEvent

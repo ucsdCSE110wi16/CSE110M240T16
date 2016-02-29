@@ -6,9 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 public class ViewEventActivity extends PolarityActivity {
 
@@ -49,7 +51,7 @@ public class ViewEventActivity extends PolarityActivity {
         Log.d("TAG", com_currentEvent.getDate().toString());
         // endregion
         // region setOnClickListener
-        btnBack.setOnClickListener(btnBack_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
 
         btnViewInviteList.setOnClickListener(btnViewInviteList_Click());
         btnVoteOnMovies.setOnClickListener(btnVoteOnMovies_Click());
@@ -60,15 +62,6 @@ public class ViewEventActivity extends PolarityActivity {
 
 
     //region Button Click
-
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toActivity_HubActivity();
-            }
-        };
-    } // btnBack_Click
 
     protected View.OnClickListener btnViewInviteList_Click() {
         return new View.OnClickListener() {
@@ -83,7 +76,7 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toActivity_Vote();
+                goToActivity(TAG, VoteActivity.class.getSimpleName());
             }
         };
     } // btnVoteOnMovies_Click
@@ -92,22 +85,47 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 ParseObject obj;
-                try {
-                    v.setEnabled(false);
-                    btnDeny.setEnabled(false);
+                v.setEnabled(false);
+                btnDeny.setEnabled(false);
 
-                    obj = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
-                    obj.put("Confirmation", 1);
-                    obj.save();
-                    com_currentEvent.status = EventModel.Status.Accepted;
+                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
 
-                } catch (ParseException e) {
-                    v.setEnabled(true);
-                    btnDeny.setEnabled(true);
-                    Log.e(TAG, e.getMessage());
-                    displayToast("Unable to process request");
-                }
+                        // check if there was an error
+                        if(e != null) {
+                            btnAccept.setEnabled(true);
+                            btnDeny.setEnabled(true);
+                            Log.e(TAG, e.getMessage());
+                            displayToast("Unable to process request");
+                            return;
+                        }
+
+                        object.put("Confirmation", 1);
+                        object.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                
+                                // check if there was an error
+                                if (e != null) {
+                                    btnAccept.setEnabled(true);
+                                    btnDeny.setEnabled(true);
+                                    Log.e(TAG, e.getMessage());
+                                    displayToast("Unable to process request");
+                                    return;
+                                }
+
+                                com_currentEvent.status = EventModel.Status.Accepted;
+                                btnDeny.setEnabled(true);
+                                //TODO: refresh screen for new Status
+                            }
+                        });
+
+                    }
+                });
+
             }
         };
     } // btnAccept_Click
@@ -116,23 +134,44 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ParseObject obj;
-                try {
-                    v.setEnabled(false);
-                    btnAccept.setEnabled(false);
-                    obj = ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirst();
-                    obj.put("Confirmation", 3);
-                    obj.save();
-                    com_currentEvent.status = EventModel.Status.Denied;
-                    com_eventModelList.remove(com_eventModelList.indexOf(com_currentEvent));
-                    toActivity_HubActivity();
 
-                } catch (ParseException e) {
-                    v.setEnabled(true);
-                    btnAccept.setEnabled(true);
-                    Log.e(TAG, e.getMessage());
-                    displayToast("Unable to process request");
-                }
+                v.setEnabled(false);
+                btnAccept.setEnabled(false);
+                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+
+                        // check if there was an error
+                        if (e != null) {
+                            btnAccept.setEnabled(true);
+                            btnDeny.setEnabled(true);
+                            Log.e(TAG, e.getMessage());
+                            displayToast("Unable to process request");
+                            return;
+                        }
+
+                        object.put("Confirmation", 3);
+                        object.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+
+                                // check if there was an error
+                                if (e != null) {
+                                    btnAccept.setEnabled(true);
+                                    btnDeny.setEnabled(true);
+                                    Log.e(TAG, e.getMessage());
+                                    displayToast("Unable to process request");
+                                    return;
+                                }
+
+                                com_currentEvent.status = EventModel.Status.Denied;
+                                com_eventModelList.remove(com_eventModelList.indexOf(com_currentEvent));
+                                goToActivity(TAG, HubActivity.class.getSimpleName());
+                            }
+                        });
+                    }
+                });
+
             }
         };
     } // btnDeny_Click

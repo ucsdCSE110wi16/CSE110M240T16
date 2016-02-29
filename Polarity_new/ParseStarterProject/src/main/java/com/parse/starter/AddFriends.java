@@ -60,8 +60,8 @@ public class AddFriends extends PolarityActivity {
         tbSearch = (EditText) findViewById(R.id.addFriends_tbSearch);
         lvUserList = (ListView) findViewById(R.id.addFriends_lvSearchUsersList);
 
-        btnBack.setOnClickListener(btnBack_Click());
-        btnCancel.setOnClickListener(btnCancel_Click());
+        btnBack.setOnClickListener(btnBackOnClickListener());
+        btnCancel.setOnClickListener(btnBackOnClickListener());
         btnHome.setOnClickListener(btnHome_Click());
         btnAdd.setOnClickListener(btnAdd_Click());
 
@@ -77,24 +77,6 @@ public class AddFriends extends PolarityActivity {
 
 
 //region Button Clicks
-
-    protected View.OnClickListener btnBack_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToActivity(TAG, com_previousActivity);
-            }
-        };
-    } // btnBack_Click
-
-    protected View.OnClickListener btnCancel_Click() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToActivity(TAG, com_previousActivity);
-            }
-        };
-    } // btnCancel_Click
 
     protected View.OnClickListener btnHome_Click() {
         return new View.OnClickListener() {
