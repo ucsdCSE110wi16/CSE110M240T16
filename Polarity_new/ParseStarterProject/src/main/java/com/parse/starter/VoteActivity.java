@@ -17,7 +17,6 @@ import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -57,7 +56,7 @@ public class VoteActivity extends PolarityActivity {
 
         // if they've already voted then display the results
         if(com_currentEvent.status == EventModel.Status.AcceptedAndVoted) {
-            if(com_currentEvent.isHoast) {
+            if(com_currentEvent.isHost) {
                 btnBreakTie = (Button) findViewById(R.id.vote_btnBreakTie);
                 btnResetVotes = (Button) findViewById(R.id.vote_btnResetVotes);
                 btnBreakTie.setVisibility(View.VISIBLE);
@@ -299,6 +298,9 @@ public class VoteActivity extends PolarityActivity {
         int randNum = 0;
         long seed = Calendar.getInstance().getTimeInMillis();
         Random rand = new Random(seed);
+        ParseObject movie;
+        ParseACL acl = new ParseACL();
+        ArrayList<ParseObject> tieBreaker = new ArrayList<ParseObject>();
 
         // find all the movies tha tie in votes with the leading movie
         for(int i=1; i<com_movieList.size(); i++) {
@@ -313,7 +315,20 @@ public class VoteActivity extends PolarityActivity {
         }
 
         randNum = rand.nextInt() % topMovieTies.size();
-       // ParseObject movie = ParseQuery.getQuery("")
+
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+
+        movie = new ParseObject("MovieVotes");
+        movie.put("UserID", com_userID);
+        movie.put("EventID", com_currentEvent.getEventID());
+        movie.put("MovieInfoID", com_movieList.get(randNum).getMovieID());
+        movie.setACL(acl);
+        topMovieTies.clear();
+        tieBreaker.add(movie);
+
+        saveVotes(tieBreaker);
+
     }
     //endregion
 }

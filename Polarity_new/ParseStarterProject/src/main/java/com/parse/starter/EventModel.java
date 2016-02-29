@@ -1,9 +1,5 @@
 package com.parse.starter;
 
-import android.util.Log;
-
-import com.parse.starter.Model;
-
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
@@ -26,7 +22,7 @@ public class EventModel extends Model {
     protected String hostId, description, location, eventId, movieQueueId, time;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
 
-    public boolean isHoast;
+    public boolean isHost;
 
     public Status status = Status.Unanswered;
 
@@ -48,7 +44,7 @@ public class EventModel extends Model {
         cal = Calendar.getInstance();
         cal.setTime(date);
         status = Status.Unanswered;
-        isHoast = false;
+        isHost = false;
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,

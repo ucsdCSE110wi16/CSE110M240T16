@@ -1,7 +1,6 @@
 package com.parse.starter;
 
 import android.os.Bundle;
-import android.text.style.TtsSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,14 +10,11 @@ import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
@@ -220,12 +216,12 @@ public class HubActivity extends PolarityActivity {
 
                     Log.d(TAG, "person[" + person.getString("UserID") + "] Status=" + person.getInt("Confirmation"));
 
-                    model.isHoast = false;
+                    model.isHost = false;
                     if(person.getString("UserID").compareTo(com_userID) == 0) {
 
                         Log.d(TAG, "User FOUND");
 
-                        model.isHoast = true;
+                        model.isHost = true;
 
                         num_attending++;
                         switch(person.getInt("Confirmation")) {

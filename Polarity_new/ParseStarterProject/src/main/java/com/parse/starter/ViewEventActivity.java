@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
@@ -83,7 +82,7 @@ public class ViewEventActivity extends PolarityActivity {
             else if (com_currentEvent.status == EventModel.Status.AcceptedAndVoted)
                 btnVoteOnMovies.setText("View Polls");
 
-            if(com_currentEvent.isHoast) btnDeny.setText("Cancel Event");
+            if(com_currentEvent.isHost) btnDeny.setText("Cancel Event");
         }
         // endregion
         // ATTENTION: This was auto-generated to implement the App Indexing API.
