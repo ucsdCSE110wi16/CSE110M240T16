@@ -30,7 +30,7 @@ public class MovieModel extends Model{
     public void setNumTotalVotes(int NumVotes) {
         num_totalVotes = NumVotes;
     }
-
+    public void setNumMaxVotes(int MaxVotes) { num_maxVotes = MaxVotes; }
 }
 
 // comparator for MovieModel

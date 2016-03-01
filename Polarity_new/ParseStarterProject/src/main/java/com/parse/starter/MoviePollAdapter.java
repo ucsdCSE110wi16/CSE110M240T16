@@ -52,11 +52,17 @@ public class MoviePollAdapter extends BaseAdapter {
         if(position % 2 == 1) convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_1));
         else convertView.setBackgroundColor(convertView.getResources().getColor(R.color.listview_background_2));
 
-        TextView tv = (TextView) convertView.findViewById(R.id.moviePolls_txtTitle);
+        TextView title = (TextView) convertView.findViewById(R.id.moviePolls_txtTitle);
+        TextView percentage = (TextView) convertView.findViewById(R.id.moviePolls_txtPercentage);
         ProgressBar pb = (ProgressBar) convertView.findViewById(R.id.moviePolls_pbGraph);
 
         MovieModel m = movieModelList.get(position);
-        tv.setText(m.getName());
+        title.setText(m.getName());
+
+        int votes = m.getNumTotalVotes();
+        int maxPossibleVotes = m.getNumMaxVotes();
+
+        percentage.setText((votes*100/maxPossibleVotes) + "%");
         pb.setMax(m.getNumMaxVotes());
         pb.setProgress(m.getNumTotalVotes());
 

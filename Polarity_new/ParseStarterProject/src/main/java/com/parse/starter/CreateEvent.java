@@ -247,6 +247,7 @@ public class CreateEvent extends PolarityActivity {
 
                 // host is automatically set to attending.
                 m.status = EventModel.Status.Accepted;
+                m.isHost = true;
 
                 com_eventModelList.add(m);
                 Collections.sort(com_eventModelList, new EventModelComparator());

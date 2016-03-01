@@ -61,6 +61,8 @@ public class EventModel extends Model {
         time = Time;
         cal = Calendar.getInstance();
         cal.setTime(date);
+        eventId = EventID;
+        movieQueueId = MovieQueueID;
     } // EventModel
 
     //endregion

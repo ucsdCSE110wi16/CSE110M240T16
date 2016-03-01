@@ -30,7 +30,6 @@ public class VoteActivity extends PolarityActivity {
     ListView lvMovieList;
     MovieVoteAdapter movieVoteAdapter;
     MoviePollAdapter moviePollsAdapter;
-    ArrayList<MovieModel> votedMovies;
 
     //endregion
 
@@ -63,6 +62,7 @@ public class VoteActivity extends PolarityActivity {
                 btnResetVotes.setVisibility(View.VISIBLE);
                 btnBreakTie.setEnabled(true);
                 btnResetVotes.setEnabled(true);
+                btnBreakTie.setOnClickListener(btnBreakTie_Click());
             }
 
             tallyVotes();
@@ -160,6 +160,15 @@ public class VoteActivity extends PolarityActivity {
             }
         };
     }
+
+    protected View.OnClickListener btnBreakTie_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                breakTie();
+            }
+        };
+    }
     //endregion
 
     //region ListView Clicks
@@ -211,7 +220,6 @@ public class VoteActivity extends PolarityActivity {
 
     private void fetchMovies() {
         List<ParseObject> parseMovieList;
-        MovieModel model;
 
         try {
             parseMovieList = ParseQuery.getQuery("UserMovieInfo").whereEqualTo("userMovieQueueID",
@@ -263,49 +271,49 @@ public class VoteActivity extends PolarityActivity {
                 }
 
                 // update user Confirmation Status
-                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
-                    @Override
-                    public void done(ParseObject object, ParseException e) {
-                        if (e != null) {
-                            Log.e(TAG, e.getMessage());
-                            displayToast("Unable to update user vote status");
-                            return;
-                        }
+                ParseQuery.getQuery("InvitedFriends")
+                        .whereEqualTo("UserID", com_userID)
+                        .whereEqualTo("EventID", com_currentEventId)
+                        .getFirstInBackground(new GetCallback<ParseObject>() {
 
-                        object.put("Confirmation", 2);
-                        object.saveInBackground(new SaveCallback() {
                             @Override
-                            public void done(ParseException e) {
+                            public void done(ParseObject object, ParseException e) {
                                 if (e != null) {
                                     Log.e(TAG, e.getMessage());
-                                    displayToast("Unable to save user vote status");
+                                    displayToast("Unable to update user vote status");
                                     return;
                                 }
-                                com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
-                                com_eventModelList.set(com_eventModelList.indexOf(com_currentEvent), com_currentEvent);
-                                goToActivity(TAG, ViewEventActivity.class.getSimpleName());
+
+                                object.put("Confirmation", 2);
+                                try {
+                                    object.save();
+                                    com_currentEvent.status = EventModel.Status.AcceptedAndVoted;
+                                    com_eventModelList.set(com_eventModelList.indexOf(com_currentEvent), com_currentEvent);
+                                    returnToPrevActivity();
+
+                                } catch (ParseException ex) {
+                                    Log.e(TAG, ex.getMessage());
+                                    displayToast("Unable to save user vote status");
+
+                                }
                             }
                         });
-                    }
-                });
             }
         });
     } // saveVotes
 
     private void breakTie() {
-        ArrayList<Model> topMovieTies = new ArrayList<Model>();
+        ArrayList<MovieModel> topMovieTies = new ArrayList<MovieModel>();
         int topVote = com_movieList.get(0).getNumTotalVotes();
-        int randNum = 0;
+        int rand_index = 0;
         long seed = Calendar.getInstance().getTimeInMillis();
         Random rand = new Random(seed);
         ParseObject movie;
         ParseACL acl = new ParseACL();
-        ArrayList<ParseObject> tieBreaker = new ArrayList<ParseObject>();
 
-        // find all the movies tha tie in votes with the leading movie
-        for(int i=1; i<com_movieList.size(); i++) {
-            if(com_movieList.get(i).getNumTotalVotes() != topVote) break;
-            topMovieTies.add(com_modelList.get(i));
+        for(MovieModel m : com_movieList) {
+            if(m.getNumTotalVotes() == topVote) topMovieTies.add(m);
+            m.setNumMaxVotes(m.getNumMaxVotes() + 1);
         }
 
         // if no tie, notify user and exit
@@ -314,7 +322,8 @@ public class VoteActivity extends PolarityActivity {
             return;
         }
 
-        randNum = rand.nextInt() % topMovieTies.size();
+        rand_index = rand.nextInt() % topMovieTies.size();
+        java.lang.Math.abs(rand_index);
 
         acl.setPublicReadAccess(true);
         acl.setPublicWriteAccess(true);
@@ -322,12 +331,17 @@ public class VoteActivity extends PolarityActivity {
         movie = new ParseObject("MovieVotes");
         movie.put("UserID", com_userID);
         movie.put("EventID", com_currentEvent.getEventID());
-        movie.put("MovieInfoID", com_movieList.get(randNum).getMovieID());
+        movie.put("MovieInfoID", topMovieTies.get(rand_index).getMovieID());
         movie.setACL(acl);
-        topMovieTies.clear();
-        tieBreaker.add(movie);
+        com_movieList.set(com_movieList.indexOf(topMovieTies.get(rand_index)), topMovieTies.get(rand_index));
 
-        saveVotes(tieBreaker);
+        movie.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e == null) moviePollsAdapter.notifyDataSetChanged();
+                else Log.e(TAG, e.getMessage());
+            }
+        });
 
     }
     //endregion

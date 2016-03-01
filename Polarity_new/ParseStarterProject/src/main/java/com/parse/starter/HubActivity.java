@@ -141,6 +141,7 @@ public class HubActivity extends PolarityActivity {
                 if(com_currentEvent == null) {
                     Log.e(TAG, "Event returned NULL");
                     displayToast("Unable to open event");
+                    return;
                 }
                 com_currentEventId = com_currentEvent.getEventID();
                 goToActivity(TAG, ViewEventActivity.class.getSimpleName());
@@ -180,25 +181,22 @@ public class HubActivity extends PolarityActivity {
                 parseEventList.add(ParseQuery.getQuery("Event").whereEqualTo("objectId", Id).getFirst());
             }
 
-            for (ParseObject obj : parseEventList) {
+            for (ParseObject event : parseEventList) {
 
                 // this should make it so it skips old events
-                if(obj.getDate("EventDate").before(new Date())) continue;
+                if(event.getDate("EventDate").before(new Date())) continue;
 
                 // Create new EventModel
-                model = new EventModel(com_userID, obj.getString("EventName"),
-                        obj.getString("EventDiscription"), obj.getString("EventLocation"),
-                        obj.getObjectId(), obj.getString("MovieQueueID"),
-                        obj.getDate("EventDate"), obj.getString("EventStartTime"));
+                model = new EventModel(event.getString("UserID"), event.getString("EventName"),
+                        event.getString("EventDiscription"), event.getString("EventLocation"),
+                        event.getObjectId(), event.getString("MovieQueueID"),
+                        event.getDate("EventDate"), event.getString("EventStartTime"));
 
-                switch(obj.getInt("Confirmation")) {
-                    case 0:
-                        model.status = EventModel.Status.Unanswered;
-                        break;
-                    case 1:
-                        model.status = EventModel.Status.Accepted;
-                    case 2:
-                        model.status = EventModel.Status.AcceptedAndVoted;
+
+
+                // check if the user is hosting the event
+                if(model.getHostID().compareTo(com_userID) == 0) {
+                    model.isHost = true;
                 }
 
                 // Get all friends invited
@@ -216,29 +214,25 @@ public class HubActivity extends PolarityActivity {
 
                     Log.d(TAG, "person[" + person.getString("UserID") + "] Status=" + person.getInt("Confirmation"));
 
-                    model.isHost = false;
-                    if(person.getString("UserID").compareTo(com_userID) == 0) {
-
-                        Log.d(TAG, "User FOUND");
-
-                        model.isHost = true;
-
-                        num_attending++;
-                        switch(person.getInt("Confirmation")) {
-                            case 2:
-                                num_voted++;
-                                model.status = EventModel.Status.AcceptedAndVoted;
-                                break;
-                            case 1:
-                                model.status = EventModel.Status.Accepted;
-                        }
+                    switch(person.getInt("Confirmation")) {
+                        case 2:
+                            num_voted++;
+                        case 1:
+                            num_attending++;
                     }
-                    // the person is a friend
-                    else {
-                        switch(person.getInt("Confirmation")) {
-                            case 2: num_voted++;
-                            case 1: num_attending++;
-                        }
+
+                        if(com_userID.compareTo(person.getString("UserID")) == 0) { // the person is the user
+                            switch(person.getInt("Confirmation")) {
+                                case 0:
+                                    model.status = EventModel.Status.Unanswered;
+                                    break;
+                                case 1:
+                                    model.status = EventModel.Status.Accepted;
+                                    break;
+                                case 2:
+                                    model.status = EventModel.Status.AcceptedAndVoted;
+                                    break;
+                            }
                     }
                 }
 

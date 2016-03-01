@@ -72,9 +72,10 @@ public class ViewEventActivity extends PolarityActivity {
             btnDeny.setEnabled(false);
             btnAccept.setVisibility(View.GONE);
             btnDeny.setVisibility(View.GONE);
+
             btnDeny = (Button) findViewById(R.id.viewEvent_btnUnattend);
             btnDeny.setVisibility(View.VISIBLE);
-            btnAccept.setEnabled(true);
+            btnDeny.setEnabled(true);
             btnDeny.setOnClickListener(btnDeny_Click());
 
             if (com_currentEvent.status == EventModel.Status.Accepted)
@@ -155,6 +156,11 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(com_currentEvent.isHost) {
+                    // TODO: we need to delete this event and all of its records
+                    return;
+                }
 
                 v.setEnabled(false);
                 btnAccept.setEnabled(false);
