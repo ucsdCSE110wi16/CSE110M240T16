@@ -45,7 +45,7 @@ public class VoteActivity extends PolarityActivity {
 
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
-        btnOk.setOnClickListener(btnVote_Click());
+        btnOk.setOnClickListener(btnBack_Click());
 
         lvMovieList.setOnItemClickListener(lvEventQueue_Click());
 
