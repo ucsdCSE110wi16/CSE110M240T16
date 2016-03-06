@@ -1,28 +1,34 @@
 User Stories
+<DONE>
 As a user
 I want 2 access types for the app:
 So that I distinctly know that I am hosting an event as a host or attending an event as a guest
 
+<DONE>
 As a host
 I want to be able to invite people to my event
 So that they know they are invited
 
+<DONE>
 As a host
 I want to be able to create a watch list
 So that the attendees and I can add the movies we want to vote on to the watch list
 
+<DONE>
 As a host
 I want to be able to create a poll that can handle a large array of movie selections 
-so that everyone’s movies can be voted on
+so that everyoneâ€™s movies can be voted on
 
+<DONE>
 As a host or attendee,
 I want to be able to vote on multiple movies from the watch list
 so that I can vote on all of the movies that I want to see
 
+<DONE>
 As a host
-I want the movie the the most votes to be the movie the party watches
+I want the movie with the most votes to be the movie the party watches
 so that the decision for what movie to watch is fair and satisfies the majority of the attendees
 
 As a host
-I want to be able to brea a tie in the votes
+I want to be able to break a tie in the votes
 So that one movie can finally be decided upon
