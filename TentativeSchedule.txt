@@ -24,9 +24,19 @@ continue developing baseline
 	attendees can indicate they're going to an event
 	Implement setting up a movie queue
 figure out how to do unit testing
+
 Week 8
 (Baseline app complete)
+
 Week 9
+Debugging the app
+	- allow the user to quickly snap between login fields on the login screen
+Working on adding additional features like being able to break ties
+Add additional padding to the sides of the EditText fields and buttons so that they are easier to tap
+Add additional information to the activity_hub.xml display - allow the user to be able to see more from this 
+	activity than just the event name
+Added scrollviews so that the information, no matter how large it is, can all fit nicely onto one screen without crowding.
+
 Week 10
 
 link to our trello board: https://trello.com/b/LWuQbr5b/cse-110-project
