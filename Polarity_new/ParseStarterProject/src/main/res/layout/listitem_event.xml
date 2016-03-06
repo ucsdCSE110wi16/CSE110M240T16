@@ -22,7 +22,7 @@
         android:layout_above="@+id/listitem_event_number_people_attending"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="3dp" />
+        android:paddingLeft="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -78,6 +78,6 @@
         android:layout_alignStart="@+id/eventListItem_tbTitle"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingLeft="3dp" />
+        android:paddingLeft="10dp" />
 
 </RelativeLayout>
