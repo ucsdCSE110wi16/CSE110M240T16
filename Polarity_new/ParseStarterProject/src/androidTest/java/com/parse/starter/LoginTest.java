@@ -9,10 +9,10 @@ import com.robotium.solo.Solo;
 /**
  * Created by PTRAN on 3/5/2016.
  */
-public class LogInTest extends ActivityInstrumentationTestCase2<LogIn>{
+public class LoginTest extends ActivityInstrumentationTestCase2<LogIn>{
     private Solo solo;
 
-    public LogInTest(){
+    public LoginTest(){
         super(LogIn.class);
     }
 
@@ -39,6 +39,12 @@ public class LogInTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.assertCurrentActivity("The activity should be the SignUp", SignUp.class);
         solo.goBack();
         solo.waitForActivity("com.parse.starter.LogIn", 100);
+        solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
+    }
+
+    public void testBackButtonReject(){
+        solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
+        solo.goBack();
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
 
