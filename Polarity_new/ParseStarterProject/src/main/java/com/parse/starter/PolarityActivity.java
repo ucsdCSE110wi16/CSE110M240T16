@@ -103,6 +103,11 @@ public abstract class PolarityActivity extends Activity {
 
     //region Navigation
 
+    @Override
+    public void onBackPressed(){
+        returnToPrevActivity();
+    } // onBackPressed
+
     protected void goToActivity(String FromActivitySimpleName, String ToActivitySimpleName) {
         if(com_activities.containsKey(ToActivitySimpleName) && com_activities.containsKey(FromActivitySimpleName)) {
             com_activityHistory.push(FromActivitySimpleName);
