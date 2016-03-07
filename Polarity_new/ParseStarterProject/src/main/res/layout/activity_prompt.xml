@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.parse.starter.prompt"
+    android:background="@color/themeDarkGray">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="&lt;Title>"
+        android:id="@+id/prompt_txtTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;left>"
+        android:id="@+id/prompt_btnLeft"
+        android:layout_below="@+id/prompt_txtMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/prompt_btnMiddle"
+        android:layout_toStartOf="@+id/prompt_btnMiddle"
+        android:layout_marginRight="16dp"
+        android:background="@color/themeMaroon"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;right>"
+        android:id="@+id/prompt_btnRight"
+        android:layout_alignBottom="@+id/prompt_btnLeft"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/prompt_btnMiddle"
+        android:layout_toEndOf="@+id/prompt_btnMiddle"
+        android:layout_marginLeft="16dp"
+        android:background="@color/themeMaroon"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="&lt;Message>"
+        android:id="@+id/prompt_txtMessage"
+        android:gravity="center"
+        android:layout_below="@+id/prompt_txtTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/prompt_btnMiddle"
+        android:layout_alignTop="@+id/prompt_btnRight"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/themeMaroon"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

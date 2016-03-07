@@ -1,8 +1,11 @@
 package com.parse.starter;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +22,9 @@ import com.parse.SaveCallback;
 public class ViewEventActivity extends PolarityActivity {
 
     public static final String TAG = ViewEventActivity.class.getSimpleName();
+    final Context context = this;
+    boolean confirmDialog = false;
+
     TextView txtTitle, txtLocation, txtDate, txtDescription, txtTime;
     Button btnBack, btnViewInviteList, btnVoteOnMovies, btnAccept, btnDeny;
     /**
@@ -156,17 +162,85 @@ public class ViewEventActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LayoutInflater li = LayoutInflater.from(context);
+                View promptView = li.inflate(R.layout.activity_prompt, null);
+
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+
+                dialogBuilder.setView(promptView);
+
+                final TextView txtDialogTitle = (TextView) promptView.findViewById(R.id.prompt_txtTitle);
+                final TextView txtDialogMessage = (TextView) promptView.findViewById(R.id.prompt_txtMessage);
+                final Button btnMid = (Button) promptView.findViewById(R.id.prompt_btnMiddle);
+                final Button btnRight = (Button) promptView.findViewById(R.id.prompt_btnRight);
+                final Button btnLeft = (Button) promptView.findViewById(R.id.prompt_btnLeft);
+                final AlertDialog dialog;
+
+                btnMid.setVisibility(View.INVISIBLE);
+                btnLeft.setText("YES");
+                btnRight.setText("NO");
 
                 if(com_currentEvent.isHost) {
-                    // TODO: we need to delete this event and all of its records
+                    txtDialogMessage.setText("Do you wish to cancel this event?");
+                    txtDialogTitle.setText("Cancel Event?");
+                }
+                else {
+                    txtDialogMessage.setText("Do you wish to turn down this event?");
+                    txtDialogTitle.setText("Not Interested?");
+                }
+
+                dialogBuilder.setCancelable(false);
+
+                dialog = dialogBuilder.create();
+
+                btnLeft.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        confirmDialog = true;
+                        if(com_currentEvent.isHost) {
+                            // TODO: cancel the event
+                        }
+                        else {
+                            denyEvent(v);
+                        }
+                        dialog.cancel();
+                    }
+                });
+                btnRight.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                      dialog.cancel();
+                    }
+                });
+
+                dialog.show();
+            }
+        };
+    } // btnDeny_Click
+     //endregion
+
+    //region Helpers
+
+    private void denyEvent(View v) {
+        v.setEnabled(false);
+        btnAccept.setEnabled(false);
+        ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+
+                // check if there was an error
+                if (e != null) {
+                    btnAccept.setEnabled(true);
+                    btnDeny.setEnabled(true);
+                    Log.e(TAG, e.getMessage());
+                    displayToast("Unable to process request");
                     return;
                 }
 
-                v.setEnabled(false);
-                btnAccept.setEnabled(false);
-                ParseQuery.getQuery("InvitedFriends").whereEqualTo("UserID", com_userID).getFirstInBackground(new GetCallback<ParseObject>() {
+                object.put("Confirmation", 3);
+                object.saveInBackground(new SaveCallback() {
                     @Override
-                    public void done(ParseObject object, ParseException e) {
+                    public void done(ParseException e) {
 
                         // check if there was an error
                         if (e != null) {
@@ -177,32 +251,21 @@ public class ViewEventActivity extends PolarityActivity {
                             return;
                         }
 
-                        object.put("Confirmation", 3);
-                        object.saveInBackground(new SaveCallback() {
-                            @Override
-                            public void done(ParseException e) {
-
-                                // check if there was an error
-                                if (e != null) {
-                                    btnAccept.setEnabled(true);
-                                    btnDeny.setEnabled(true);
-                                    Log.e(TAG, e.getMessage());
-                                    displayToast("Unable to process request");
-                                    return;
-                                }
-
-                                com_currentEvent.status = EventModel.Status.Denied;
-                                com_eventModelList.remove(com_eventModelList.indexOf(com_currentEvent));
-                                goToActivity(TAG, HubActivity.class.getSimpleName());
-                            }
-                        });
+                        com_currentEvent.status = EventModel.Status.Denied;
+                        com_eventModelList.remove(com_eventModelList.indexOf(com_currentEvent));
+                        goToActivity(TAG, HubActivity.class.getSimpleName());
                     }
                 });
-
             }
-        };
-    } // btnDeny_Click
+        });
 
+    } // denyEvent
+
+
+    //end region
+
+
+    //region Auto-Generated stuff
     @Override
     public void onStart() {
         super.onStart();
