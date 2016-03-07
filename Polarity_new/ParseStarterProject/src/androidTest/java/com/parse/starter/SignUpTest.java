@@ -1,11 +1,9 @@
 package com.parse.starter;
 
-import com.parse.starter.LogIn;
+//import com.parse.starter.LogIn;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
-
-import java.util.Random;
 
 import com.robotium.solo.Solo;
 
@@ -77,7 +75,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.waitForActivity("com.parse.starter.SignUp", 100);
         solo.assertCurrentActivity("The activity should be the SignUp", SignUp.class);
         solo.typeText((EditText) solo.getView(R.id.signUp_tbName), "ptesting");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "ptsd1994@hotmail.com");
+        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "pht001@.ucsd.edu");
         solo.typeText((EditText) solo.getView(R.id.signUp_tbPassword), "adol");
         solo.typeText((EditText) solo.getView(R.id.signUp_tbRePassword), "adol");
         solo.clickOnButton("Register");
