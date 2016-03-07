@@ -115,6 +115,13 @@ public abstract class PolarityActivity extends Activity {
         };
     } // goToActivity
 
+    protected void refreshActivity(String CurrentActivity) {
+        if(com_activities.containsKey(CurrentActivity)) {
+            Intent intent = new Intent(this, com_activities.get(CurrentActivity));
+            startActivity(intent);
+        }
+    } // refreshActivity
+
     protected View.OnClickListener btnBackOnClickListener() {
         return new View.OnClickListener() {
             @Override

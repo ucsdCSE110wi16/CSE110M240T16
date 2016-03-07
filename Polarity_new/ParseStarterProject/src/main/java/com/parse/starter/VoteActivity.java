@@ -1,5 +1,6 @@
 package com.parse.starter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseACL;
@@ -69,6 +71,7 @@ public class VoteActivity extends PolarityActivity {
                 btnBreakTie.setEnabled(true);
                 btnResetVotes.setEnabled(true);
                 btnBreakTie.setOnClickListener(btnBreakTie_Click());
+                btnResetVotes.setOnClickListener(btnResetVotes_Click());
             }
 
             tallyVotes();
@@ -168,7 +171,7 @@ public class VoteActivity extends PolarityActivity {
                 saveVotes(parseList);
             }
         };
-    }
+    } // btnVote_Click
 
     protected View.OnClickListener btnBreakTie_Click() {
         return new View.OnClickListener() {
@@ -177,7 +180,17 @@ public class VoteActivity extends PolarityActivity {
                 breakTie();
             }
         };
-    }
+    } // btnBreakTie_Click
+
+    protected View.OnClickListener btnResetVotes_Click() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetVotes();
+            }
+        };
+    } // btnResetVotes_Click
+
     //endregion
 
     //region ListView Clicks
@@ -383,6 +396,48 @@ public class VoteActivity extends PolarityActivity {
         });
 
     } // breakTie
+
+    private void resetVotes() {
+
+        // get userId's of all the user's who've voted
+        ParseQuery.getQuery("InvitedFriends").whereGreaterThan("Confirmation", 1).findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(e == null) {
+                    List<String> userIds = new ArrayList<String>();
+                    List<ParseObject> votes;
+
+                    for(ParseObject user : objects) {
+                        userIds.add(user.getString("UserID"));
+
+                        user.put("Confirmation", 1);
+                        user.saveInBackground();
+                    }
+
+                    for(String Id : userIds) {
+                        try {
+                            // remove all the user's votes
+                            votes = ParseQuery.getQuery("MovieVotes").whereEqualTo("UserID", Id).whereEqualTo("EventID", com_currentEventId).find();
+                            for(ParseObject vote: votes) {
+                                vote.deleteInBackground();
+                            }
+                        } catch (ParseException ex) {
+                            Log.e(TAG, "Error thrown when attempting to fetch user[" + Id + "] votes");
+                            continue;
+                        }
+                    }
+
+                    // update user's permissions
+                    com_currentEvent.setNumFriendsVoted(0);
+                    com_currentEvent.status = EventModel.Status.Accepted;
+                    refreshActivity(TAG);
+                }
+                else {
+                    Log.e(TAG, "resetVotes: Error thrown when attempting to fetch list of invited users: Error message: " + e.getMessage());
+                }
+            }
+        });
+    } // resetVotes
 
     //endregion
 }
