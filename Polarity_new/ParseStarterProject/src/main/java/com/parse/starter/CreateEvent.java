@@ -198,6 +198,7 @@ public class CreateEvent extends PolarityActivity {
                 event.put("UserID", com_userID);
                 event.put("MovieQueueID", movieQueueID);
                 event.put("EventDate", date);
+                event.put("BreakTieCount", 0);
                 event.setACL(acl);
 
                 try {
