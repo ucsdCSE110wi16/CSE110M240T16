@@ -149,7 +149,9 @@ public class SignUp extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
+                if(usernameUnique && hasEmail && passwordsMatch) {
+                    signUp(userName.getText().toString(), email.getText().toString(), password.getText().toString());
+                }
             }
         };
     } // btnRegisterClick
@@ -223,6 +225,12 @@ public class SignUp extends PolarityActivity {
             public void done(ParseException e) {
                 if(e == null){
                     // Sign Up was successful!
+                    com_user = ParseUser.getCurrentUser().getUsername();
+                    com_userID = ParseUser.getCurrentUser().getObjectId();
+
+                    ParseUser.getCurrentUser().put("androidId", android_id);
+                    ParseUser.getCurrentUser().put("autoLogin", true);
+
                     goToActivity(TAG, HubActivity.class.getSimpleName());
                 }//end if
                 else{
