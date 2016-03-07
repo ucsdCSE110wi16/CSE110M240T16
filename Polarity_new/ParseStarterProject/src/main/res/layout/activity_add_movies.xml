@@ -37,19 +37,6 @@
         android:layout_alignStart="@+id/addMovies_btnHome" />
 
     <!-- Search ImageView-->
-    <ImageView
-        android:src="@drawable/add_picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchImageView"
-        android:layout_alignTop="@+id/addMovies_tbSearch"
-        android:layout_alignRight="@+id/addMovies_btnSearch"
-        android:layout_alignEnd="@+id/addMovies_btnSearch"
-        android:layout_alignLeft="@+id/addMovies_btnSearch"
-        android:layout_alignStart="@+id/addMovies_btnSearch"
-        android:layout_alignBottom="@+id/addMovies_btnSearch"
-        android:layout_marginBottom="5dp"
-        />
 
     <!-- Add Movies ImageView-->
 
@@ -121,7 +108,8 @@
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -143,6 +131,18 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffff" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignTop="@+id/addMovies_tbSearch"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/add_picture_without_watermark"
+        android:layout_alignBottom="@+id/addMovies_tbSearch"
+        android:layout_toEndOf="@+id/addMovies_tbSearch"
+        android:layout_toRightOf="@+id/addMovies_tbSearch" />
 
 </RelativeLayout>
 

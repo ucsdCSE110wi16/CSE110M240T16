@@ -72,11 +72,11 @@
         android:id="@+id/addFriends_tbSearch"
         android:hint="@string/search_users"
         android:background="@color/themeLightGray"
-        android:paddingLeft="10dp"
         android:layout_below="@+id/addFriends_btnBack"
         android:layout_marginTop="@dimen/abc_dialog_list_padding_vertical_material"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:padding="10dp" />
 
     <ListView
         android:layout_width="wrap_content"
