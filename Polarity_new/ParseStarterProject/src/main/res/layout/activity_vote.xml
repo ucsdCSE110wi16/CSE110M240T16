@@ -32,28 +32,29 @@
         android:layout_marginRight="10dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="24pt"
         android:layout_height="wrap_content"
-        android:text="back"
+        android:text=""
         android:id="@+id/vote_btnBack"
+        android:drawableLeft="@drawable/backicon"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/vote_txtTitle"
-        android:layout_toStartOf="@+id/vote_txtTitle"
         android:background="@drawable/button_background"
-        android:textColor="@color/themeWhite" />
+        android:textColor="@color/themeWhite"
+        android:paddingLeft="1dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="24pt"
         android:layout_height="wrap_content"
-        android:text="home"
         android:id="@+id/vote_btnHome"
+        android:drawableLeft="@drawable/homeicon"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/vote_txtTitle"
-        android:layout_toRightOf="@+id/vote_txtTitle"
+        android:layout_alignParentRight="true"
         android:background="@drawable/button_background"
-        android:textColor="@color/themeWhite" />
+        android:textColor="@color/themeWhite"
+        android:paddingLeft="2dp"
+        android:paddingBottom="2dp" />
 
     <Button
         android:layout_width="125dp"

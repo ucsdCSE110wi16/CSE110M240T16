@@ -24,6 +24,7 @@
         android:id="@+id/generic_btnRemove"
         android:background="@android:color/transparent"
         android:focusable="false"
-        android:gravity="right" />
+        android:gravity="right"
+        android:paddingBottom="2dp" />
 
 </LinearLayout>

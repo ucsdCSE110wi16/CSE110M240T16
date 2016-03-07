@@ -41,7 +41,9 @@
         android:paddingTop="5dp"
         android:drawableLeft="@drawable/backicon"
         android:layout_alignBottom="@+id/viewUsers_btnHome"
-        android:id="@+id/viewUsers_btnBack" />
+        android:id="@+id/viewUsers_btnBack"
+        android:paddingLeft="2dp"
+        android:paddingBottom="2dp" />
 
     <Button
         style="?android:attr/imageButtonStyle"
@@ -51,7 +53,9 @@
         android:id="@+id/viewUsers_btnHome"
         android:drawableLeft="@drawable/homeicon"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:paddingBottom="2dp"
+        android:paddingLeft="2dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -159,5 +163,13 @@
         android:checked="false"
         android:layout_marginTop="@dimen/abc_button_padding_horizontal_material"
         android:background="@color/themeLightGray" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/viewUsers_btnHome"
+        android:layout_alignStart="@+id/viewUsers_btnHome"
+        android:layout_alignBottom="@+id/viewUsers_btnHome"></LinearLayout>
 
 </RelativeLayout>
