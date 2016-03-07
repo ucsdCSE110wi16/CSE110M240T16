@@ -79,7 +79,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Friend List"
+        android:text="Friends List"
         android:id="@+id/hubActivity_btnAddFriends"
         android:textColor="@color/themeWhite"
         android:background="@drawable/button_background"

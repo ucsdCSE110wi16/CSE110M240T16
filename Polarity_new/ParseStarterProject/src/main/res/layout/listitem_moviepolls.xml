@@ -16,7 +16,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:paddingRight="10dp" />
+        android:paddingRight="10dp"
+        android:layout_alignBottom="@+id/moviePolls_txtTitle" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +32,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:paddingRight="10dp" />
+        android:paddingRight="10dp"
+        android:layout_toLeftOf="@+id/moviePolls_txtPercentage"
+        android:layout_toStartOf="@+id/moviePolls_txtPercentage" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
