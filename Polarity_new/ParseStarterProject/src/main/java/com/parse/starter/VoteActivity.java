@@ -1,8 +1,11 @@
 package com.parse.starter;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -29,6 +32,7 @@ public class VoteActivity extends PolarityActivity {
     //region Variables
 
     public static final String TAG = VoteActivity.class.getSimpleName();
+    final Context context = this;
 
     Button btnBack, btnHome, btnVote, btnCancel, btnOk, btnResetVotes, btnBreakTie;
     TextView txtTitle;
@@ -186,7 +190,47 @@ public class VoteActivity extends PolarityActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetVotes();
+                LayoutInflater li = LayoutInflater.from(context);
+                View promptView = li.inflate(R.layout.activity_prompt, null);
+
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+
+                dialogBuilder.setView(promptView);
+
+                final TextView txtDialogTitle = (TextView) promptView.findViewById(R.id.prompt_txtTitle);
+                final TextView txtDialogMessage = (TextView) promptView.findViewById(R.id.prompt_txtMessage);
+                final Button btnMid = (Button) promptView.findViewById(R.id.prompt_btnMiddle);
+                final Button btnRight = (Button) promptView.findViewById(R.id.prompt_btnRight);
+                final Button btnLeft = (Button) promptView.findViewById(R.id.prompt_btnLeft);
+                final AlertDialog dialog;
+
+                btnMid.setVisibility(View.INVISIBLE);
+                btnLeft.setText("YES");
+                btnRight.setText("NO");
+
+                txtDialogMessage.setText("This will erase all poll results and allow attendees to recast their votes");
+                txtDialogTitle.setText("Reset Votes?");
+
+                dialogBuilder.setCancelable(false);
+
+                dialog = dialogBuilder.create();
+
+                btnLeft.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        resetVotes();
+                        dialog.cancel();
+                    }
+                });
+                btnRight.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+
+                dialog.show();
+
             }
         };
     } // btnResetVotes_Click
@@ -398,7 +442,6 @@ public class VoteActivity extends PolarityActivity {
     } // breakTie
 
     private void resetVotes() {
-
         // get userId's of all the user's who've voted
         ParseQuery.getQuery("InvitedFriends").whereGreaterThan("Confirmation", 1).findInBackground(new FindCallback<ParseObject>() {
             @Override
