@@ -21,6 +21,7 @@ public class EventModel extends Model {
     protected Calendar cal;
     protected String hostId, description, location, eventId, movieQueueId, time;
     protected int numFriendsInvited, numFriendsAttending, numFriendsVoted;
+    protected int breakTieCount;
 
     public boolean isHost;
 
@@ -29,7 +30,8 @@ public class EventModel extends Model {
     //region Constructors
 
     public EventModel(String HostID, String Name, String Description, String Location,
-                      String EventID, String MovieQueueID, Date EventDate, String Time) {
+                      String EventID, String MovieQueueID, Date EventDate, String Time,
+                      int BreakTieCount) {
         numFriendsInvited = 0;
         numFriendsAttending = 0;
         numFriendsVoted = 0;
@@ -45,6 +47,8 @@ public class EventModel extends Model {
         cal.setTime(date);
         status = Status.Unanswered;
         isHost = false;
+        breakTieCount = BreakTieCount;
+
     } // EventModel
 
     public EventModel(String HostID, String Name, String Description, String Location,
@@ -101,6 +105,7 @@ public class EventModel extends Model {
     public int getNumFriendsAttending() {return this.numFriendsAttending;}
     public int getNumFriendsInvited() {return this.numFriendsInvited;}
     public int getNumFriendsVoted() {return this.numFriendsVoted;}
+    public int getBreakTieCount() { return this.breakTieCount; }
 
     //endregion
 
@@ -109,9 +114,10 @@ public class EventModel extends Model {
     public void setDescription(String Description) {this.description = Description;}
     public void setLocation(String Location) {this.location = Location;}
     public void setTime(String Time) {this.time = Time;}
-    public void setNumFriendsInvited(int numFriendsInvited) {this.numFriendsAttending = numFriendsInvited;}
+    public void setNumFriendsInvited(int numFriendsInvited) {this.numFriendsInvited = numFriendsInvited;}
     public void setNumFriendsAttending(int numFriendsAttending) {this.numFriendsAttending = numFriendsAttending;}
     public void setNumFriendsVoted(int numFriendsVoted) {this.numFriendsVoted = numFriendsVoted;}
+    public void incrementBreakTieCount() {this.breakTieCount++; }
 
     //endregion
 

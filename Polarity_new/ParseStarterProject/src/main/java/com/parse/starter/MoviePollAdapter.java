@@ -2,12 +2,10 @@ package com.parse.starter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -59,12 +57,12 @@ public class MoviePollAdapter extends BaseAdapter {
         MovieModel m = movieModelList.get(position);
         title.setText(m.getName());
 
-        int votes = m.getNumTotalVotes();
-        int maxPossibleVotes = m.getNumMaxVotes();
+        int votes = m.getNumVotes();
+        int maxPossibleVotes = m.getNumMaxPossibleVotes();
 
         percentage.setText((votes*100/maxPossibleVotes) + "%");
-        pb.setMax(m.getNumMaxVotes());
-        pb.setProgress(m.getNumTotalVotes());
+        pb.setMax(m.getNumMaxPossibleVotes());
+        pb.setProgress(m.getNumVotes());
 
         return convertView;
     }

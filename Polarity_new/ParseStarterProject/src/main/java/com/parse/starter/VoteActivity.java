@@ -6,8 +6,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.GetCallback;
+import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,9 +29,11 @@ public class VoteActivity extends PolarityActivity {
     public static final String TAG = VoteActivity.class.getSimpleName();
 
     Button btnBack, btnHome, btnVote, btnCancel, btnOk, btnResetVotes, btnBreakTie;
+    TextView txtTitle;
     ListView lvMovieList;
     MovieVoteAdapter movieVoteAdapter;
     MoviePollAdapter moviePollsAdapter;
+    ParseObject curr_movie;
 
     //endregion
 
@@ -42,6 +46,8 @@ public class VoteActivity extends PolarityActivity {
         btnHome = (Button) findViewById(R.id.vote_btnHome);
         lvMovieList = (ListView) findViewById(R.id.vote_lvMoviesLarge);
         btnOk = (Button) findViewById(R.id.vote_btnOk);
+
+        txtTitle = (TextView) findViewById(R.id.vote_txtTitle);
 
         btnBack.setOnClickListener(btnBack_Click());
         btnHome.setOnClickListener(btnHome_Click());
@@ -69,6 +75,7 @@ public class VoteActivity extends PolarityActivity {
             Collections.sort(com_movieList, new MovieModelComparator());
             moviePollsAdapter = new MoviePollAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(moviePollsAdapter);
+            txtTitle.setText("Movie Polls");
         }
         else if(com_currentEvent.status == EventModel.Status.Accepted) {
             btnOk.setVisibility(View.INVISIBLE);
@@ -84,10 +91,12 @@ public class VoteActivity extends PolarityActivity {
 
             movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(movieVoteAdapter);
+            txtTitle.setText("Vote On Movies");
         }
         else { // otherwise display the movie list
             movieVoteAdapter = new MovieVoteAdapter(getApplicationContext(), com_movieList);
             lvMovieList.setAdapter(movieVoteAdapter);
+            txtTitle.setText("Movie List");
         }
     }
 
@@ -232,7 +241,7 @@ public class VoteActivity extends PolarityActivity {
                         obj.getString("userMovieQueueID"),
                         obj.getString("description"),
                         obj.getString("title"),
-                        com_currentEvent.getNumFriendsAttending()));
+                        com_currentEvent.getNumFriendsAttending() + com_currentEvent.getBreakTieCount()));
             }
 
         } catch (ParseException e) {
@@ -250,11 +259,11 @@ public class VoteActivity extends PolarityActivity {
             subset = master.whereEqualTo("MovieInfoID", movie.getMovieID());
 
             try {
-                movie.setNumTotalVotes(subset.count());
+                movie.setNumVotes(subset.count());
 
             } catch (ParseException e) {
                 Log.d(TAG, e.getMessage());
-                movie.setNumTotalVotes(0);
+                movie.setNumVotes(0);
             }
         }
     } // tallyVotes
@@ -304,16 +313,17 @@ public class VoteActivity extends PolarityActivity {
 
     private void breakTie() {
         ArrayList<MovieModel> topMovieTies = new ArrayList<MovieModel>();
-        int topVote = com_movieList.get(0).getNumTotalVotes();
+        int topVote = com_movieList.get(0).getNumVotes();
         int rand_index = 0;
-        long seed = Calendar.getInstance().getTimeInMillis();
-        Random rand = new Random(seed);
-        ParseObject movie;
+        Random rand = new Random();
         ParseACL acl = new ParseACL();
 
+        acl.setPublicReadAccess(true);
+        acl.setPublicWriteAccess(true);
+
         for(MovieModel m : com_movieList) {
-            if(m.getNumTotalVotes() == topVote) topMovieTies.add(m);
-            m.setNumMaxVotes(m.getNumMaxVotes() + 1);
+            if(m.getNumVotes() == topVote) topMovieTies.add(m);
+            m.setNumMaxPossibleVotes(m.getNumMaxPossibleVotes() + 1);
         }
 
         // if no tie, notify user and exit
@@ -323,26 +333,56 @@ public class VoteActivity extends PolarityActivity {
         }
 
         rand_index = rand.nextInt() % topMovieTies.size();
-        java.lang.Math.abs(rand_index);
+        if(rand_index < 0) {
+            rand_index *= -1;
+        }
 
-        acl.setPublicReadAccess(true);
-        acl.setPublicWriteAccess(true);
+        Log.d(TAG, "breakTie: movie[" + com_movieList.get(rand_index).getName() + "] at index[" + rand_index + "] selected as tie breaker");
 
-        movie = new ParseObject("MovieVotes");
-        movie.put("UserID", com_userID);
-        movie.put("EventID", com_currentEvent.getEventID());
-        movie.put("MovieInfoID", topMovieTies.get(rand_index).getMovieID());
-        movie.setACL(acl);
-        com_movieList.set(com_movieList.indexOf(topMovieTies.get(rand_index)), topMovieTies.get(rand_index));
+        curr_movie = new ParseObject("MovieVotes");
+        curr_movie.put("UserID", com_userID);
+        curr_movie.put("EventID", com_currentEvent.getEventID());
+        curr_movie.put("MovieInfoID", topMovieTies.get(rand_index).getMovieID());
+        curr_movie.setACL(acl);
 
-        movie.saveInBackground(new SaveCallback() {
+        com_movieList.get(rand_index).setNumVotes(topVote + 1);
+
+        // now update Event.BreakTieCount
+        ParseQuery.getQuery("Event").whereEqualTo("objectId", com_currentEventId).getFirstInBackground(new GetCallback<ParseObject>() {
             @Override
-            public void done(ParseException e) {
-                if(e == null) moviePollsAdapter.notifyDataSetChanged();
-                else Log.e(TAG, e.getMessage());
+            public void done(ParseObject object, ParseException e) {
+                if(e == null) {
+                    if (object != null) {
+                        try {
+                            int i = object.getInt("BreakTieCount");
+                            i++;
+                            object.put("BreakTieCount", i);
+                            object.save();
+                            com_currentEvent.incrementBreakTieCount();
+                        } catch(ParseException ex) {
+                            Log.e(TAG, "breakTie: Error thrown while attempting to update Event.BreakTieCount: Error message: " + e.getMessage());
+                        }
+
+                        try {
+                            curr_movie.save();
+                            Collections.sort(com_movieList, new MovieModelComparator());
+                            moviePollsAdapter.notifyDataSetChanged();
+                            Log.d(TAG, "breakTie: Tie break successful");
+                        }
+                        catch (ParseException ex) {
+                            Log.e(TAG, "breakTie: Error thrown while attempting to save vote: Error message: " + e.getMessage());
+                        }
+                    } else {
+                        Log.e(TAG, "breakTie: Event object returned null when attempting to update Event.BreakTieCount");
+                    }
+                }
+                else{
+                    Log.e(TAG, "breakTie: Error thrown when attempting to fetch Event[" + com_currentEvent + "]: Error Message: " + e.getMessage());
+                }
             }
         });
 
-    }
+    } // breakTie
+
     //endregion
 }
