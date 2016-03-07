@@ -29,6 +29,9 @@ public class HubActivity extends PolarityActivity {
     ListView lvEventQueue;
     TextView txtEventQueue;
     EventAdapter adapter;
+
+    //The day before today, for use in checking for expired events
+    Date dayBefore;
     // endregion
 
     // region prevent going back to log out screen
@@ -59,7 +62,12 @@ public class HubActivity extends PolarityActivity {
 
         lvEventQueue.setOnItemClickListener(lvEventQueue_Click());
 
+        dayBefore = new Date();
+
         // endregion
+
+        //Set dayBefore to the day after today (freaking dirrrrrrrrrrrrty hack)
+        dayBefore.setDate(dayBefore.getDate() - 1);
 
         adapter = new EventAdapter(getApplicationContext(), com_eventModelList);
         lvEventQueue.setAdapter(adapter);
@@ -184,7 +192,7 @@ public class HubActivity extends PolarityActivity {
             for (ParseObject event : parseEventList) {
 
                 // this should make it so it skips old events
-                if(event.getDate("EventDate").before(new Date())) continue;
+                if(event.getDate("EventDate").before(dayBefore)) continue;
 
                 // Create new EventModel
                 model = new EventModel(event.getString("UserID"), event.getString("EventName"),
