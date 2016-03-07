@@ -266,7 +266,7 @@ public class ViewUsers extends PolarityActivity implements View.OnKeyListener{
             btnAction.setOnClickListener(btnAction_Click());
             btnAction.setText("OK");
             layout = Layout.VIEW_FRIENDS;
-            txtTitle.setText("Friend List");
+            txtTitle.setText("Friends List");
             tbSearch.addTextChangedListener(tbSearch_TextChanged());
             tbSearch.setOnKeyListener(this);
 
