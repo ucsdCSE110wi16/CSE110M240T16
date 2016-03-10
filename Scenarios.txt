@@ -27,3 +27,101 @@ When I press the “Sign In” button
 Then my account details will be verified with the server
 When my account details have been verified by the server
 Then I will be considered “Signed In” and will be sent to the hub screen
+
+SignUpTest.java - testSignUpAndLogin()
+Given that I am a user without a valid account
+And I am on the app's login screen
+When I click on Create Account
+Then I will be on the Sign Up page
+When I click on a edit text box that is not the username
+Then I will see "You must enter a username"
+When I enter a username that is already used
+And I click on another edit text box
+Then I will see that username is already taken
+When I enter a username that is not already used
+And I click on another edit text box
+Then I will see "You must enter an email"
+When I only enter a username
+And I click on a edit text that is not the email
+Then I will see "You must enter an email"
+When I enter a username and an email
+And I click on another edit text box
+Then I will see "You must enter a password"
+When I click on the last edit text box without entering a password
+Then I will see "You must enter a password"
+When I enter the username, email, and password
+And I click on the last edit text box
+Then I will see "Passwords do not match"
+When I renter the password as well as adding the other information
+And I click Register
+Then I will be registered into the database
+And I will be logged in
+And I will be on the hub screen
+
+HubTest.java - testCreateEvent()
+Given that I am a user with a valid account
+And I am not logged in
+And I am on the app's login screen
+When I enter my login information correctly
+And I click on login
+Then I will be able to access the app's hub screen.
+When I do not have any events that I host or was invited to
+Then I will see "No upcoming events"
+When I click on the Create Event button on the hub screen
+Then I will be able to access the Create Event screen
+When I am on the Create Event screen
+And I did not enter any information on the event
+And I click Create Event
+Then I will be on the Create Event screen
+And I will see "You must enter the event name"
+When I enter only the event name
+And I click Create Event
+Then I will be on the Create Event screen
+And I will see "You must enter the event location"
+When I enter the event name, and the location 
+And I click Create Event
+Then I will see "You must enter a time"
+When I click on Date twice
+Then I will see the calendar
+When I click on the specified date and click OK
+Then I will see the date entered
+When I click on the Time twice
+Then I will see the clock
+When I click on the specified time and click OK
+Then I will see the time entered
+When I entered the event time, location, date, time and description
+And I click on Create Event
+Then I will see "You must invite friends"
+When I click on Invite Friends on the Create Event page after entering the above information
+Then I will be on the Invite Friends page
+When I am on the Invite Friends page and have no friends
+And I click on ADD FRIENDS
+Then I will be on the Add Friends page
+When I am on the Add Friends page, clicked on a user
+And I click on ADD FRIENDS
+Then I will add friends to my list and see "Successful!"
+When I added my friends and pressed the back arrow on the Add Friends page
+Then I will be on the Invite Friends page and will see the users I added
+When I click on the user I wanted to invite
+And click on the invite button
+Then I will be on the Create Event page
+When I added all the event information except the movies 
+And I click on Create Event
+Then I will see "You must add movies"
+When I click on Add Movies
+Then I will be on the Add Movies page
+When I am on the Add Movies page, typed a title on the search bar
+And pressed on the plus button
+Then I will see the movie added to the list
+When I added the movies on the Add Movie page
+And click on the back arrow button
+Then I will be on the Create Event page
+When I finish adding all the event information
+And click on Create Event
+Then I will be on the hub screen
+And I will see the added event in my list of events
+When I click on Log Out
+And log in as the user I invited
+Then I will see the event I invited that user to.
+
+
