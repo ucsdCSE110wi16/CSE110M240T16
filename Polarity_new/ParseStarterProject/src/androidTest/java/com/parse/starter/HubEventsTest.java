@@ -21,17 +21,17 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo = new Solo(getInstrumentation(), getActivity());
     }
 
-    public void testAccessHubActivity(){
+    /*public void testAccessHubActivity(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
         solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting03");
         solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
         solo.clickOnButton("Login");
-        solo.waitForActivity("com.parse.starter.HubActivity", 100);
+        solo.waitForActivity("com.parse.starter.HubActivity",100);
         solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-    }
+    }*/
 
     public void testCreateEvent(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
@@ -40,6 +40,7 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnButton("Login");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
         solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
+        solo.searchText("No upcoming events");
         solo.clickOnButton("Create Event");
         solo.waitForActivity("com.parse.starter.CreateEvent", 100);
         solo.assertCurrentActivity("The activity should be the CreateEvent", CreateEvent.class);
@@ -90,6 +91,12 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnButton("Create Event");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
         solo.assertCurrentActivity("The activity should be HubActivity", HubActivity.class);
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
@@ -98,6 +105,12 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnButton("Login");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
         solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
