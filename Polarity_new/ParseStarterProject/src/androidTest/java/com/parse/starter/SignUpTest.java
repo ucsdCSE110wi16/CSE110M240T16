@@ -34,7 +34,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
 
-    public void testInvalidSignUpParameters(){
+    public void testSignUpAndLogin(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
         solo.clickOnButton("Create Account");
         solo.waitForActivity("com.parse.starter.SignUp", 100);
@@ -56,7 +56,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.searchText("You must enter an email");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
         solo.searchText("You must enter an email");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "petertran.h@gmail.com");
+        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "ptasticman@gmail.com");
         solo.clickOnView(solo.getView(R.id.signUp_tbPassword));
         solo.searchText("You must enter a password");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
@@ -64,12 +64,16 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.typeText((EditText) solo.getView(R.id.signUp_tbPassword), "adol");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
         solo.searchText("Passwords do not match");
-        solo.clickOnView(solo.getView(R.id.signUp_btnBack));
+        solo.typeText((EditText) solo.getView(R.id.signUp_tbRePassword), "adol");
+        solo.clickOnButton("Register");
+        solo.waitForActivity("com.parse.starter.HubActivity", 100);
+        solo.assertCurrentActivity("the activity should be the HubActivity", HubActivity.class);
+        solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
 
-    public void testSignUpAndLogin(){
+    /*public void testSignUpAndLogin(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
         solo.clickOnButton("Create Account");
         solo.waitForActivity("com.parse.starter.SignUp", 100);
@@ -84,7 +88,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-    }
+    }*/
 
 
 }
