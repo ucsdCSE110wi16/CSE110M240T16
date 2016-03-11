@@ -21,18 +21,6 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo = new Solo(getInstrumentation(), getActivity());
     }
 
-    /*public void testAccessHubActivity(){
-        solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting03");
-        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
-        solo.clickOnButton("Login");
-        solo.waitForActivity("com.parse.starter.HubActivity",100);
-        solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
-        solo.clickOnButton("Log Out");
-        solo.waitForActivity("com.parse.starter.LogIn", 100);
-        solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-    }*/
-
     public void testCreateEvent(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
         solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting03");

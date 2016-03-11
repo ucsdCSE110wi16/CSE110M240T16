@@ -65,30 +65,23 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
         solo.searchText("Passwords do not match");
         solo.typeText((EditText) solo.getView(R.id.signUp_tbRePassword), "adol");
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Register");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
         solo.assertCurrentActivity("the activity should be the HubActivity", HubActivity.class);
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
-
-    /*public void testSignUpAndLogin(){
-        solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.clickOnButton("Create Account");
-        solo.waitForActivity("com.parse.starter.SignUp", 100);
-        solo.assertCurrentActivity("The activity should be the SignUp", SignUp.class);
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbName), "ptesting");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "pht001@.ucsd.edu");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbPassword), "adol");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbRePassword), "adol");
-        solo.clickOnButton("Register");
-        solo.waitForActivity("com.parse.starter.HubActivity", 100);
-        solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
-        solo.clickOnButton("Log Out");
-        solo.waitForActivity("com.parse.starter.LogIn", 100);
-        solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-    }*/
-
-
 }
