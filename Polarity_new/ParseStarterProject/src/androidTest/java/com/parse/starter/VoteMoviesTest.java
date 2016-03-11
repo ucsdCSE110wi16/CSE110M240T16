@@ -106,9 +106,7 @@ public class VoteMoviesTest extends ActivityInstrumentationTestCase2<LogIn>{
         }
 
         solo.clickInList(1);
-        solo.clickInList(2);
         solo.clickInList(3);
-        solo.clickInList(4);
         solo.clickInList(5);
         try{
             Thread.sleep(1000);
