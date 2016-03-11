@@ -5,29 +5,6 @@ And I am registered for or hosting an event(s)
 When I launch the app
 Then I am taken to the hub screen and the events I am registered for or hosting are displayed on the app's hub screen
 
-Given that I am a user without an account
-And I am on the app's splash screen
-When I press the “Sign Up” button
-Then I will be taken to a sign up form screen
-When I enter my desired account details into the sign up form
-And those details are in a valid format
-Then the formerly greyed-out “Register” button will turn green, indicating that I can register my account details
-When I press the “Register” button
-Then my account details will be sent to the server
-When the registration completes successfully
-Then I will have an active account on Polarity, and be sent to the hub screen
-
-Given that I am a user with an account
-And I am not logged in
-Then I am on the app's splash screen
-When I enter my login details into the respective text boxes
-And those details are in a valid format
-Then a formerly greyed-out “Sign In” button will turn green, indicating that I can attempt to sign in with my account details
-When I press the “Sign In” button
-Then my account details will be verified with the server
-When my account details have been verified by the server
-Then I will be considered “Signed In” and will be sent to the hub screen
-
 SignUpTest.java - testSignUpAndLogin()
 Given that I am a user without a valid account
 And I am on the app's login screen
@@ -124,4 +101,36 @@ When I click on Log Out
 And log in as the user I invited
 Then I will see the event I invited that user to.
 
-
+VoteMoviesTest.java - testVoting()
+Given that I have a valid account
+And I am logged in
+And I am in the hub screen
+And I have been invited to at least one event
+And I have yet accepted the invite
+When I click on the top event
+Then I will see the event details page (ViewEventActivity)
+And I won't see the option to vote on movies yet
+When I click on the View Invite List button
+Then I will see the list of invited users including myself(ViewUsers)
+When I am back on the event details page
+And I click on the View Movies page
+Then I will see the list of movies for this event (VoteActivity)
+When I am back on the event details page
+And I click on the Going button
+Then I will see that the app recognizes that I accepted the invite
+And I will not see the Going and Not Interested buttons
+And I will see that there is a Unattend button on the top right
+And I will see the View Movies button is now the Vote On Movies button
+When I am now going to the event
+And I click on the Vote On Movies button
+Then I will be able to vote on the movies on the next page (still VoteActivity but modified)
+When I am able to vote
+And I click on (from the top) the 1st, 3rd, and 5th movie title
+And I click on Vote
+Then my votes for that event will be registered into the database
+And I will be on the event details page
+And I will now see that the Vote On Movies button is now View Polls
+When I have already vote
+And I am on the event details page
+And I click on View Polls
+Then I will see the result of all the votes for the event
