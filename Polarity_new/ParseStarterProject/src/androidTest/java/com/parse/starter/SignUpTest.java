@@ -1,11 +1,9 @@
 package com.parse.starter;
 
-import com.parse.starter.LogIn;
+//import com.parse.starter.LogIn;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
-
-import java.util.Random;
 
 import com.robotium.solo.Solo;
 
@@ -36,7 +34,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
 
-    public void testInvalidSignUpParameters(){
+    public void testSignUpAndLogin(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
         solo.clickOnButton("Create Account");
         solo.waitForActivity("com.parse.starter.SignUp", 100);
@@ -58,7 +56,7 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.searchText("You must enter an email");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
         solo.searchText("You must enter an email");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "petertran.h@gmail.com");
+        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "ptasticman@gmail.com");
         solo.clickOnView(solo.getView(R.id.signUp_tbPassword));
         solo.searchText("You must enter a password");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
@@ -66,27 +64,24 @@ public class SignUpTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.typeText((EditText) solo.getView(R.id.signUp_tbPassword), "adol");
         solo.clickOnView(solo.getView(R.id.signUp_tbRePassword));
         solo.searchText("Passwords do not match");
-        solo.clickOnView(solo.getView(R.id.signUp_btnBack));
-        solo.waitForActivity("com.parse.starter.LogIn", 100);
-        solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-    }
-
-    public void testSignUpAndLogin(){
-        solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.clickOnButton("Create Account");
-        solo.waitForActivity("com.parse.starter.SignUp", 100);
-        solo.assertCurrentActivity("The activity should be the SignUp", SignUp.class);
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbName), "ptesting");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbLocation), "ptsd1994@hotmail.com");
-        solo.typeText((EditText) solo.getView(R.id.signUp_tbPassword), "adol");
         solo.typeText((EditText) solo.getView(R.id.signUp_tbRePassword), "adol");
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Register");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
-        solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
+        solo.assertCurrentActivity("the activity should be the HubActivity", HubActivity.class);
+        try{
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex){
+            Thread.currentThread().interrupt();
+        }
         solo.clickOnButton("Log Out");
         solo.waitForActivity("com.parse.starter.LogIn", 100);
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
     }
-
-
 }

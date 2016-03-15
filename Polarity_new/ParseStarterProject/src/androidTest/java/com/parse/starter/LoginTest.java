@@ -1,6 +1,6 @@
 package com.parse.starter;
 
-import com.parse.starter.LogIn;
+//import com.parse.starter.LogIn;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.EditText;
 
@@ -53,22 +53,22 @@ public class LoginTest extends ActivityInstrumentationTestCase2<LogIn>{
         solo.clickOnButton("Login");
         solo.searchText("invalid login parameters");
         solo.assertCurrentActivity("The activity should be the LogIn", LogIn.class);
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "phtran");
-        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "phtran");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting01");
+        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "ptesting01");
         solo.clickOnButton("Login");
         solo.searchText("invalid login parameters");
         solo.assertCurrentActivity("Again, the activity should be the LogIn", LogIn.class);
         solo.clearEditText((EditText) solo.getView(R.id.login_tbUserName));
         solo.clearEditText((EditText) solo.getView(R.id.login_tbPassword));
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "rxzero0079");
-        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "rxzero0079");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "adol");
+        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
         solo.clickOnButton("Login");
         solo.searchText("invalid login parameters");
         solo.assertCurrentActivity("Do you want me to repeat myself, it should be the LogIn", LogIn.class);
         solo.clearEditText((EditText) solo.getView(R.id.login_tbUserName));
         solo.clearEditText((EditText) solo.getView(R.id.login_tbPassword));
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "rxzero0079");
-        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "phtran");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "adol");
+        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "ptesting01");
         solo.clickOnButton("Login");
         solo.searchText("invalid login parameters");
         solo.assertCurrentActivity("Get the hell out of here, you should be in the Login", LogIn.class);
@@ -79,8 +79,8 @@ public class LoginTest extends ActivityInstrumentationTestCase2<LogIn>{
 
     public void testLogin(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "phtran");
-        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "rxzero0079");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting01");
+        solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
         solo.clickOnButton("Login");
         solo.waitForActivity("com.parse.starter.HubActivity",100);
         solo.assertCurrentActivity("The activity should be the HubActivity", HubActivity.class);
