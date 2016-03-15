@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -22,9 +21,6 @@ import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -134,7 +130,7 @@ public class AddFriends extends PolarityActivity {
                 // if isSelectable
                 if(selected.isSelectable) {
                     // revert the selection and add/remove FriendModel if needed
-                    if(selected.state == FriendModel.State.DOT) {
+                    if(!friendsToAdd.contains(selected)) {
                         selected.state = FriendModel.State.ADD;
                         friendsToAdd.add(selected);
 
@@ -250,6 +246,15 @@ public class AddFriends extends PolarityActivity {
                                         model.state = FriendModel.State.CHECK;
                                     }
 
+                                    for(FriendModel m : friendsToAdd) {
+                                        if( m.getUserID().compareTo(model.getUserID()) == 0) {
+                                            model.state = FriendModel.State.ADD;
+                                            friendsToAdd.remove(m);
+                                            friendsToAdd.add(model);
+                                            break;
+                                        }
+                                    }
+
                                     // add model to users list
                                     users.add(model);
                                 }
@@ -297,6 +302,15 @@ public class AddFriends extends PolarityActivity {
                             person.state = FriendModel.State.CHECK;
                         }
 
+                        for(FriendModel m : friendsToAdd) {
+                            if( m.getUserID().compareTo(person.getUserID()) == 0) {
+                                person.state = FriendModel.State.ADD;
+                                friendsToAdd.remove(m);
+                                friendsToAdd.add(person);
+                                break;
+                            }
+                        }
+
                         // add the person to the queue
                         users.add(person);
                     }
@@ -308,7 +322,7 @@ public class AddFriends extends PolarityActivity {
                 }
             }
         });
-    }
+    } // displayAllUsers
 
 //endregion
 
