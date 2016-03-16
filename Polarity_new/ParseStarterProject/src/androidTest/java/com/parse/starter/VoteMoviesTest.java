@@ -5,10 +5,13 @@ import android.widget.EditText;
 
 import com.robotium.solo.Solo;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 /**
  * Created by PTRAN on 3/10/2016.
  */
-public class VoteMoviesTest extends ActivityInstrumentationTestCase2<LogIn>{
+public class VoteMoviesTest extends SUperTest{
     private Solo solo;
 
     public VoteMoviesTest(){
@@ -19,11 +22,15 @@ public class VoteMoviesTest extends ActivityInstrumentationTestCase2<LogIn>{
     protected void setUp() throws Exception{
         super.setUp();
         solo = new Solo(getInstrumentation(), getActivity());
+
+        BufferedReader br = new BufferedReader(new FileReader("/data/data/com.parse.starter/files/username.txt"));
+        username = br.readLine();
+        br.close();
     }
 
     public void testVoting(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting04");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), username);
         solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
         solo.clickOnButton("Login");
 
@@ -86,14 +93,14 @@ public class VoteMoviesTest extends ActivityInstrumentationTestCase2<LogIn>{
             Thread.currentThread().interrupt();
         }
 
-        solo.clickOnView(solo.getView(R.id.viewEvent_btnAcceptInvite));
+        /*solo.clickOnView(solo.getView(R.id.viewEvent_btnAcceptInvite));
         solo.searchText("Invite accepted");
         try{
             Thread.sleep(1000);
         }
         catch(InterruptedException ex){
             Thread.currentThread().interrupt();
-        }
+        }*/
 
         solo.clickOnView(solo.getView(R.id.viewEvent_btnVoteOnMovies));
         solo.waitForActivity("parse.starter.VoteActivity", 100);
@@ -106,8 +113,7 @@ public class VoteMoviesTest extends ActivityInstrumentationTestCase2<LogIn>{
         }
 
         solo.clickInList(1);
-        solo.clickInList(3);
-        solo.clickInList(5);
+
         try{
             Thread.sleep(1000);
         }

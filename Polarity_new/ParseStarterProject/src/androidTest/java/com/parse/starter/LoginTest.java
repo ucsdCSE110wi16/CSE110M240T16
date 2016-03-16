@@ -9,7 +9,7 @@ import com.robotium.solo.Solo;
 /**
  * Created by PTRAN on 3/5/2016.
  */
-public class LoginTest extends ActivityInstrumentationTestCase2<LogIn>{
+public class LoginTest extends SUperTest{
     private Solo solo;
 
     public LoginTest(){

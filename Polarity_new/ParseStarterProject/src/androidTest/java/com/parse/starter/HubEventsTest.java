@@ -1,14 +1,21 @@
 package com.parse.starter;
 
+import android.content.Context;
+import android.provider.ContactsContract;
 import android.test.ActivityInstrumentationTestCase2;
+import android.util.Log;
 import android.widget.EditText;
 
 import com.robotium.solo.Solo;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+
 /**
  * Created by PTRAN on 3/6/2016.
  */
-public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
+public class HubEventsTest extends SUperTest{
     private Solo solo;
 
     public HubEventsTest(){
@@ -19,11 +26,15 @@ public class HubEventsTest extends ActivityInstrumentationTestCase2<LogIn>{
     protected void setUp() throws Exception{
         super.setUp();
         solo = new Solo(getInstrumentation(), getActivity());
+
+        BufferedReader br = new BufferedReader(new FileReader("/data/data/com.parse.starter/files/username.txt"));
+        username = br.readLine();
+        br.close();
     }
 
     public void testCreateEvent(){
         solo.assertCurrentActivity("Are we on the login page?", LogIn.class);
-        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), "ptesting03");
+        solo.typeText((EditText) solo.getView(R.id.login_tbUserName), username);
         solo.typeText((EditText) solo.getView(R.id.login_tbPassword), "adol");
         solo.clickOnButton("Login");
         solo.waitForActivity("com.parse.starter.HubActivity", 100);
