@@ -12,8 +12,6 @@ This app is no longer supported.
 This app uses Parse for its backend which will soon be discontinued. 
 As a result, this app will no longer be able to function properly :(
 
-## Screenshot
-
 ## Installation
 This app was developed using Android Studio
 
