@@ -1,6 +1,6 @@
 # Polarity Movie Night App 
 -----------------------------------------------------------------------------------------------------------------------
-![alt tag](http://i.imgur.com/Q0y1res.png)
+![alt tag](http://i.imgur.com/Q0y1resm.png)
 
 ## About
 - This app was developed by Cameron Ellis, Lucas Pettit, Peter Tran, Kendrick Mausolf, Mikayla Webset, and Edwin Ew Jong 
